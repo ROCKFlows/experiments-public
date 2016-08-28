@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>AnalysePatternExecutor.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">FindDatasets</a> &gt; <a href="index.source.html" class="el_package">fr.unice.i3s.rockflows.experiments.main</a> &gt; <span class="el_source">AnalysePatternExecutor.java</span></div><h1>AnalysePatternExecutor.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package fr.unice.i3s.rockflows.experiments.main;
+
+import fr.unice.i3s.rockflows.experiments.automatictest.AnalyseExcelFile;
+import fr.unice.i3s.rockflows.experiments.automatictest.PatternStatisticExc;
+import fr.unice.i3s.rockflows.experiments.automatictest.Statistics;
+import fr.unice.i3s.rockflows.experiments.datamining.AttributeType;
+import fr.unice.i3s.rockflows.experiments.datamining.DataMiningUtils;
+import fr.unice.i3s.rockflows.experiments.datamining.Dataset;
+import fr.unice.i3s.rockflows.experiments.datamining.InfoPattern;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.io.Writer;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
+import weka.core.Attribute;
+import weka.core.Instances;
+import fr.unice.i3s.rockflows.experiments.datamining.ResWorkflow;
+import fr.unice.i3s.rockflows.experiments.datamining.TestResult;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.TreeSet;
+import java.util.concurrent.Callable;
+import java.util.stream.Collectors;
+import static org.apache.poi.hssf.usermodel.HeaderFooter.file;
+
+/**
+ *
+ * @author lupin
+ */
+public class AnalysePatternExecutor implements Callable&lt;Boolean&gt;{
+ 
+<span class="nc" id="L41">    String dir = &quot;&quot;;</span>
+    List&lt;String&gt; names;
+
+    public AnalysePatternExecutor(String patternDirectory, List&lt;String&gt; names) 
+<span class="nc" id="L45">            throws Exception {</span>
+
+<span class="nc" id="L47">        this.dir = patternDirectory;</span>
+<span class="nc" id="L48">        this.names = names;</span>
+<span class="nc" id="L49">    }</span>
+
+    public void executeTest() throws Exception {
+
+        //collect results for each dataset (Test-0.arff, Test-1.arff, ...) of each database
+        //(adult, abalone, ...)
+        
+<span class="nc" id="L56">        exec4Folds();</span>
+<span class="nc" id="L57">        exec10Folds();</span>
+<span class="nc" id="L58">    }   </span>
+    
+    public void exec4Folds() throws Exception{
+        
+<span class="nc" id="L62">        List&lt;ResWorkflow&gt; workflows = inputWorkflows(names);</span>
+        
+        //get all folders of this pattern
+<span class="nc" id="L65">        List&lt;String&gt; folders = getListDirectories(dir);</span>
+        
+        //for each folder, read analysis of each dataset that is present
+<span class="nc" id="L68">        int num = folders.size();</span>
+        //if pattern is empty, that is, it doesn't contain any result:
+<span class="nc bnc" id="L70" title="All 2 branches missed.">        if(num == 0){</span>
+<span class="nc" id="L71">            return;</span>
+        }
+<span class="nc bnc" id="L73" title="All 2 branches missed.">        for(int i = 0; i &lt; num; i++){</span>
+<span class="nc" id="L74">            String pathFolder = dir + &quot;/&quot; + folders.get(i);</span>
+<span class="nc" id="L75">            String analysis = pathFolder + &quot;/&quot; + &quot;Final-Analysis-4Folds.xlsx&quot;;</span>
+<span class="nc" id="L76">            AnalyseExcelFile exc = new AnalyseExcelFile(analysis);</span>
+<span class="nc" id="L77">            exc.readValues(workflows);</span>
+        }
+        
+        //compute avg, st dev      
+<span class="nc" id="L81">        computeAvgStd(workflows);</span>
+        
+        //and write file analysis for the entire pattern
+<span class="nc" id="L84">        PatternStatisticExc exc = new PatternStatisticExc(dir + &quot;/analysis-4Folds.xlsx&quot;);</span>
+        //sort classifiers, the first one is the best one for this pattern:
+        /*//order by: (desc)
+            - avg Rank
+            - st.dev rank
+            - avg accuracy
+            - st.dev accuracy
+        */
+        
+        //compute percentage of compatibility
+<span class="nc" id="L94">        this.computePercCompatibility(workflows, num);</span>
+        
+<span class="nc" id="L96">        List&lt;ResWorkflow&gt; ordered = this.sortCompatibility(workflows);</span>
+<span class="nc" id="L97">        exc.writeValues(ordered, num);    </span>
+<span class="nc" id="L98">    }</span>
+    
+    public void exec10Folds() throws Exception{
+        
+<span class="nc" id="L102">        List&lt;ResWorkflow&gt; workflows = inputWorkflows(names);</span>
+        
+        //get all folders of this pattern
+<span class="nc" id="L105">        List&lt;String&gt; folders = getListDirectories(dir);</span>
+        
+        //for each folder, read analysis of each dataset that is present
+<span class="nc" id="L108">        int num = folders.size();</span>
+        //if pattern is empty, that is, it doesn't contain any result:
+<span class="nc bnc" id="L110" title="All 2 branches missed.">        if(num == 0){</span>
+<span class="nc" id="L111">            return;</span>
+        }
+<span class="nc bnc" id="L113" title="All 2 branches missed.">        for(int i = 0; i &lt; num; i++){</span>
+<span class="nc" id="L114">            String pathFolder = dir + &quot;/&quot; + folders.get(i);</span>
+<span class="nc" id="L115">            String analysis = pathFolder + &quot;/&quot; + &quot;Final-Analysis-10Folds.xlsx&quot;;</span>
+<span class="nc" id="L116">            AnalyseExcelFile exc = new AnalyseExcelFile(analysis);</span>
+<span class="nc" id="L117">            exc.readValues(workflows);</span>
+        }
+        
+        //compute avg, st dev      
+<span class="nc" id="L121">        computeAvgStd(workflows);</span>
+        
+        //and write file analysis for the entire pattern
+<span class="nc" id="L124">        PatternStatisticExc exc = new PatternStatisticExc(dir + &quot;/analysis-10Folds.xlsx&quot;);</span>
+        //sort classifiers, the first one is the best one for this pattern:
+        /*//order by: (desc)
+            - avg Rank
+            - st.dev rank
+            - avg accuracy
+            - st.dev accuracy
+        */
+        
+        //compute percentage of compatibility
+<span class="nc" id="L134">        this.computePercCompatibility(workflows, num);</span>
+        
+<span class="nc" id="L136">        List&lt;ResWorkflow&gt; ordered = this.sortCompatibility(workflows);</span>
+<span class="nc" id="L137">        exc.writeValues(ordered, num);    </span>
+<span class="nc" id="L138">    }    </span>
+    
+    public List&lt;ResWorkflow&gt; sortCompatibility(List&lt;ResWorkflow&gt; res){
+        //get workflows with compatibility &lt; 100%
+<span class="nc" id="L142">        List&lt;ResWorkflow&gt; notFull = res.stream()</span>
+<span class="nc" id="L143">                .filter((ResWorkflow work) -&gt; {</span>
+<span class="nc bnc" id="L144" title="All 2 branches missed.">                    if(work.percCompatible &lt; 1){</span>
+<span class="nc" id="L145">                        return true;</span>
+                    }
+<span class="nc" id="L147">                    return false;</span>
+                })
+<span class="nc" id="L149">                .collect(Collectors.toList());</span>
+        
+        //get workflows with compatibility &lt; 100%
+<span class="nc" id="L152">        List&lt;ResWorkflow&gt; full = res.stream()</span>
+<span class="nc" id="L153">                .filter((ResWorkflow work) -&gt; {</span>
+<span class="nc bnc" id="L154" title="All 2 branches missed.">                    if(work.percCompatible == 1){</span>
+<span class="nc" id="L155">                        return true;</span>
+                    }
+<span class="nc" id="L157">                    return false;</span>
+                })
+<span class="nc" id="L159">                .collect(Collectors.toList());                                </span>
+        
+<span class="nc" id="L161">        List&lt;ResWorkflow&gt; out = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L162">        out.addAll(sortResults(full));</span>
+<span class="nc" id="L163">        out.addAll(sortResults(notFull));</span>
+        
+<span class="nc" id="L165">        return out;</span>
+    }
+    
+    public void computePercCompatibility(List&lt;ResWorkflow&gt; values, double cont){
+        
+<span class="nc" id="L170">        int num = values.size();</span>
+<span class="nc bnc" id="L171" title="All 2 branches missed.">        for(int i = 0; i &lt; num; i++){</span>
+<span class="nc" id="L172">            ResWorkflow res = values.get(i);</span>
+<span class="nc" id="L173">            res.percCompatible = (double)res.accuracy.size() / cont;</span>
+        }
+<span class="nc" id="L175">    }</span>
+    
+    public List&lt;ResWorkflow&gt; sortResults(List&lt;ResWorkflow&gt; workflows){
+        //first put only compatible in another list
+        //in the end of the sorted list, add the not compatible algorithm
+<span class="nc" id="L180">        List&lt;ResWorkflow&gt; notCompatible = workflows.stream()</span>
+<span class="nc" id="L181">                .filter((ResWorkflow res) -&gt; res.accuracy.isEmpty())</span>
+<span class="nc" id="L182">                .collect(Collectors.toList());</span>
+        //set not compatible value
+<span class="nc" id="L184">        notCompatible.forEach((ResWorkflow res) -&gt; res.compatible = false);</span>
+        
+<span class="nc" id="L186">        List&lt;ResWorkflow&gt; compatible = workflows.stream()</span>
+<span class="nc bnc" id="L187" title="All 2 branches missed.">                .filter((ResWorkflow res) -&gt; !res.accuracy.isEmpty())</span>
+<span class="nc" id="L188">                .collect(Collectors.toList());   </span>
+        
+<span class="nc" id="L190">        List&lt;ResWorkflow&gt; output = new ArrayList&lt;&gt;();</span>
+        
+        //sort the compatible list
+        /*//order by
+            - avg Rank (desc)        
+            - num best rank (asc)
+            - % compatibility (desc)        
+            - avg Accuracy (desc)
+        */        
+        
+        //sort avg rank asc
+        //get list of distinct values of avg Rank
+<span class="nc" id="L202">        List&lt;Double&gt; distinct = removeDuplicates(compatible);</span>
+        //sort avgRank asc
+<span class="nc" id="L204">        distinct.sort((Double r1, Double r2) -&gt;</span>
+<span class="nc" id="L205">            Double.compare(r1, r2));</span>
+<span class="nc" id="L206">        int num = distinct.size();</span>
+<span class="nc bnc" id="L207" title="All 2 branches missed.">        for(int i = 0; i &lt; num; i++){</span>
+            //get results s.t. avgAccRank == current rankAcc
+<span class="nc" id="L209">            double currentAvgAccRank = distinct.get(i);</span>
+<span class="nc" id="L210">            List&lt;ResWorkflow&gt; tmp = getResultsNumBest(compatible, currentAvgAccRank);</span>
+            //sort list according to rankAccAvg
+<span class="nc" id="L212">            tmp.sort((ResWorkflow r1, ResWorkflow r2) -&gt; </span>
+<span class="nc" id="L213">                Double.compare(r2.avgAccuracy, r1.avgAccuracy));</span>
+<span class="nc" id="L214">            output.addAll(tmp);</span>
+        }        
+        
+        //in the end add not compatible results
+<span class="nc" id="L218">        output.addAll(notCompatible);</span>
+<span class="nc" id="L219">        return output;</span>
+    }
+        
+    public List&lt;ResWorkflow&gt; getResultsNumBest(List&lt;ResWorkflow&gt; values, double value){
+        
+<span class="nc" id="L224">        List&lt;ResWorkflow&gt; out = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L225">        int num = values.size();</span>
+<span class="nc bnc" id="L226" title="All 2 branches missed.">        for(int i = 0; i &lt; num; i++){</span>
+<span class="nc" id="L227">            ResWorkflow current = values.get(i);</span>
+<span class="nc bnc" id="L228" title="All 2 branches missed.">            if(current.avgAccRank == value){</span>
+<span class="nc" id="L229">                out.add(current);</span>
+            }
+        }
+<span class="nc" id="L232">        return out;</span>
+    }
+    
+    //avgAccRank
+    public List&lt;Double&gt; removeDuplicates(List&lt;ResWorkflow&gt; values) {
+        
+<span class="nc" id="L238">        List&lt;Double&gt; distinct = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L239">        int num = values.size();        </span>
+<span class="nc bnc" id="L240" title="All 2 branches missed.">        for(int i = 0; i &lt; num; i++){</span>
+<span class="nc" id="L241">            ResWorkflow current = values.get(i);</span>
+<span class="nc bnc" id="L242" title="All 2 branches missed.">            if(!distinct.contains(current.avgAccRank)){</span>
+<span class="nc" id="L243">                distinct.add(current.avgAccRank);</span>
+            }
+        }
+<span class="nc" id="L246">        return distinct;</span>
+    }    
+    
+    public void computeAvgStd(List&lt;ResWorkflow&gt; workflows) throws Exception{
+        
+<span class="nc" id="L251">        int num = workflows.size();</span>
+<span class="nc bnc" id="L252" title="All 2 branches missed.">        for(int i = 0; i &lt; num; i++){</span>
+<span class="nc" id="L253">            ResWorkflow res = workflows.get(i);</span>
+            //compute avg accuracy
+<span class="nc" id="L255">            int size = res.accuracy.size();</span>
+<span class="nc bnc" id="L256" title="All 2 branches missed.">            if(size == 0){</span>
+<span class="nc" id="L257">                res.avgAccuracy = 0;</span>
+<span class="nc" id="L258">                res.avgAccRank = 0;</span>
+            }
+            else{
+<span class="nc" id="L261">                double s1 = 0;</span>
+<span class="nc" id="L262">                double s2 = 0;</span>
+<span class="nc bnc" id="L263" title="All 2 branches missed.">                for(int k = 0; k &lt; size; k++){</span>
+<span class="nc" id="L264">                    s1 += res.accuracy.get(k);</span>
+<span class="nc" id="L265">                    double rank = res.rankAccuracy.get(k);</span>
+<span class="nc" id="L266">                    s2 += rank;</span>
+<span class="nc bnc" id="L267" title="All 2 branches missed.">                    if(rank == 1){</span>
+<span class="nc" id="L268">                        res.numBestRank++;</span>
+                    }
+                }
+<span class="nc" id="L271">                res.avgAccuracy = s1 / size;</span>
+<span class="nc" id="L272">                res.avgAccRank = s2 / size;</span>
+            }
+            //compute standard deviation:
+<span class="nc" id="L275">            computeStDev(res);</span>
+        }
+<span class="nc" id="L277">    }</span>
+    
+    public void computeStDev(ResWorkflow res){
+        
+<span class="nc" id="L281">        Statistics stc = new Statistics(res.accuracy);</span>
+<span class="nc" id="L282">        res.stDevAccuracy = stc.getStdDev();</span>
+<span class="nc" id="L283">        stc = new Statistics(res.rankAccuracy);</span>
+<span class="nc" id="L284">        res.stDevAccRank = stc.getStdDev();</span>
+<span class="nc" id="L285">    }</span>
+    
+    
+    public List&lt;String&gt; getListDirectories(String basePath) {
+
+<span class="nc" id="L290">        List&lt;String&gt; fileNames = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L291">        File folder = new File(basePath);</span>
+<span class="nc" id="L292">        File[] listOfFiles = folder.listFiles();</span>
+<span class="nc bnc" id="L293" title="All 2 branches missed.">        for (int i = 0; i &lt; listOfFiles.length; i++) {</span>
+<span class="nc bnc" id="L294" title="All 2 branches missed.">            if (listOfFiles[i].isDirectory()) {</span>
+<span class="nc" id="L295">                fileNames.add(listOfFiles[i].getName());</span>
+            }
+        }
+<span class="nc" id="L298">        return fileNames;</span>
+    }    
+
+    @Override
+    public Boolean call() throws Exception {
+        try{
+<span class="nc" id="L304">            this.executeTest();</span>
+        }
+<span class="nc" id="L306">        catch(Exception ex){</span>
+<span class="nc" id="L307">            File fff = new File(dir + &quot;error&quot;);</span>
+<span class="nc" id="L308">            Writer www = new FileWriter(fff);</span>
+<span class="nc" id="L309">            www.append(&quot; :BEGIN, &quot;);</span>
+<span class="nc" id="L310">            ex.printStackTrace(new PrintWriter(www));</span>
+<span class="nc" id="L311">            www.append(&quot;,:END &quot;);</span>
+<span class="nc" id="L312">            www.append(ex.getMessage());</span>
+<span class="nc" id="L313">            www.flush();</span>
+<span class="nc" id="L314">            www.close();</span>
+<span class="nc" id="L315">            return false;</span>
+<span class="nc" id="L316">        }</span>
+<span class="nc" id="L317">        return true;</span>
+    }          
+    
+    public List&lt;ResWorkflow&gt; inputWorkflows(List&lt;String&gt; names){
+    
+<span class="nc" id="L322">        List&lt;ResWorkflow&gt; workflows = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L323">        int num = names.size();</span>
+<span class="nc bnc" id="L324" title="All 2 branches missed.">        for(int i = 0; i &lt; num; i++){</span>
+<span class="nc bnc" id="L325" title="All 2 branches missed.">            for(int p = 0; p &lt;= 12; p++){</span>
+<span class="nc" id="L326">                ResWorkflow cls = new ResWorkflow();</span>
+<span class="nc" id="L327">                cls.classifierName = names.get(i);</span>
+<span class="nc" id="L328">                cls.preProcId = p;</span>
+<span class="nc" id="L329">                cls.accuracy = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L330">                cls.rankAccuracy = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L331">                workflows.add(cls);</span>
+            }        
+        }        
+<span class="nc" id="L334">        return workflows;</span>
+    }       
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span></div></body></html>

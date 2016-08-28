@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Statistics.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">FindDatasets</a> &gt; <a href="index.source.html" class="el_package">fr.unice.i3s.rockflows.experiments.automatictest</a> &gt; <span class="el_source">Statistics.java</span></div><h1>Statistics.java</h1><pre class="source lang-java linenums">package fr.unice.i3s.rockflows.experiments.automatictest;
+
+import java.util.List;
+
+public class Statistics {
+    
+    List&lt;Double&gt; data;
+    int size;   
+
+<span class="nc" id="L10">    public Statistics(List&lt;Double&gt; data) {</span>
+<span class="nc" id="L11">        this.data = data;</span>
+<span class="nc" id="L12">        size = data.size();</span>
+<span class="nc" id="L13">    }   </span>
+
+    public double getMean(){
+        
+<span class="nc" id="L17">        double sum = 0.0;</span>
+<span class="nc bnc" id="L18" title="All 2 branches missed.">        for(Double a : data){</span>
+<span class="nc" id="L19">            sum += a;    </span>
+<span class="nc" id="L20">        }        </span>
+<span class="nc" id="L21">        return sum/size;</span>
+    }
+
+    public double getVariance(){
+        
+<span class="nc" id="L26">        double mean = getMean();</span>
+<span class="nc" id="L27">        double temp = 0;</span>
+<span class="nc bnc" id="L28" title="All 2 branches missed.">        for(Double a :data){</span>
+<span class="nc" id="L29">            temp += (mean-a)*(mean-a);        </span>
+<span class="nc" id="L30">        }        </span>
+<span class="nc" id="L31">        return temp/size;</span>
+    }
+
+    public double getStdDev(){
+        
+<span class="nc" id="L36">        return Math.sqrt(getVariance());</span>
+    }
+
+    /*
+    public double median() 
+    {
+       data.sort((Double d1, Double d2) -&gt; {           
+           return Double.compare(d1, d2);
+       });       
+
+       if (data.length % 2 == 0) 
+       {
+          return (data[(data.length / 2) - 1] + data[data.length / 2]) / 2.0;
+       } 
+       else 
+       {
+          return data[data.length / 2];
+       }
+    }
+    */
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span></div></body></html>

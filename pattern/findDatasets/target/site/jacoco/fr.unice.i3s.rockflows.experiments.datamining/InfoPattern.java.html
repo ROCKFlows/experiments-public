@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>InfoPattern.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">FindDatasets</a> &gt; <a href="index.source.html" class="el_package">fr.unice.i3s.rockflows.experiments.datamining</a> &gt; <span class="el_source">InfoPattern.java</span></div><h1>InfoPattern.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package fr.unice.i3s.rockflows.experiments.datamining;
+
+/**
+ *
+ * @author lupin
+ */
+<span class="nc" id="L12">public class InfoPattern {</span>
+    
+    //value -1 is used to indicate infinite
+    
+<span class="nc" id="L16">    public String id = &quot;&quot;;</span>
+<span class="nc" id="L17">    public int minNumAtt = -1;</span>
+<span class="nc" id="L18">    public int maxNumAtt = -1;</span>
+<span class="nc" id="L19">    public int minNumInst = -1;</span>
+<span class="nc" id="L20">    public int maxNumInst = -1;</span>
+    //public boolean withMissingValues = false;
+<span class="nc" id="L22">    public int minNumClasses = -1;</span>
+<span class="nc" id="L23">    public int maxNumClasses = -1;</span>
+<span class="nc" id="L24">    public AttributeType attributeType = AttributeType.Mixed;</span>
+    
+    @Override
+    public String toString(){
+<span class="nc" id="L28">        String out = &quot;id = &quot; + id + System.lineSeparator();</span>
+        //out += &quot;with missing values = &quot; + withMissingValues + System.lineSeparator();
+<span class="nc" id="L30">        out += &quot;min Num Attributes = &quot; + minNumAtt + System.lineSeparator();</span>
+<span class="nc" id="L31">        out += &quot;max Num Attributes = &quot; + maxNumAtt + System.lineSeparator();</span>
+<span class="nc" id="L32">        out += &quot;min Num Traiing Instances = &quot; + minNumInst + System.lineSeparator();</span>
+<span class="nc" id="L33">        out += &quot;max Num Training Instances = &quot; + maxNumInst + System.lineSeparator();</span>
+<span class="nc" id="L34">        out += &quot;min Num Classes = &quot; + minNumClasses + System.lineSeparator();</span>
+<span class="nc" id="L35">        out += &quot;max Num Classes = &quot; + maxNumClasses + System.lineSeparator();        </span>
+<span class="nc" id="L36">        out += &quot;attributes type = &quot; + attributeType.toString() + System.lineSeparator();</span>
+<span class="nc" id="L37">        return out;</span>
+    }
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span></div></body></html>

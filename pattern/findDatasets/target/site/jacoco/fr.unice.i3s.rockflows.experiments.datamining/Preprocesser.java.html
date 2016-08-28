@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Preprocesser.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">FindDatasets</a> &gt; <a href="index.source.html" class="el_package">fr.unice.i3s.rockflows.experiments.datamining</a> &gt; <span class="el_source">Preprocesser.java</span></div><h1>Preprocesser.java</h1><pre class="source lang-java linenums">package fr.unice.i3s.rockflows.experiments.datamining;
+
+import java.util.ArrayList;
+import java.util.List;
+import fr.unice.i3s.rockflows.experiments.weka.CfsSubsetFilter;
+import weka.core.Instances;
+import weka.filters.Filter;
+
+public class Preprocesser {
+    
+    public List&lt;Filter&gt; operation;
+    public int id;
+    public PreprocesserProperties properties;
+    public String name;
+    
+    public static final String REPLACE_MISSING_VALUES = &quot;Replace-Missing-Values&quot;;
+    public static final String DISCRETIZE = &quot;Discretize&quot;;
+    public static final String NOMINAL_TO_BINARY = &quot;Nominal-To-Binary&quot;;
+    public static final String ATTRIBUTE_SELECTION = &quot;Attribute-Selection&quot;;
+    public static final String STANDARDIZE = &quot;Standardize&quot;;
+    
+<span class="nc" id="L22">    public Preprocesser(int id, String name){</span>
+<span class="nc" id="L23">        this.id = id;</span>
+<span class="nc" id="L24">        this.name = name;</span>
+<span class="nc" id="L25">        this.properties = new PreprocesserProperties();</span>
+<span class="nc" id="L26">        this.operation = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L27">    }</span>
+    
+    //apply pre-processing to the input dataset and return
+    //the pre-processed dataset
+    public Dataset applyPreprocessing(Dataset original) throws Exception{
+ 
+        //initialize output dataset
+<span class="nc" id="L34">        Dataset output = new Dataset(this.id, original.name);</span>
+        //unique?
+<span class="nc" id="L36">        output.unique = original.unique;</span>
+<span class="nc" id="L37">        output.trainingSet = new Instances(original.trainingSet);</span>
+<span class="nc bnc" id="L38" title="All 2 branches missed.">        if(!original.unique){</span>
+<span class="nc" id="L39">            output.testSet = new Instances(original.testSet);</span>
+        }        
+        //for each filter, apply the pre-proprocessing on the dataset
+        //in the order defined by the list of filters
+<span class="nc" id="L43">        int count = this.operation.size();</span>
+<span class="nc bnc" id="L44" title="All 2 branches missed.">        for(int iii = 0; iii &lt; count; iii++){</span>
+<span class="nc" id="L45">            Filter current = this.operation.get(iii);</span>
+<span class="nc" id="L46">            current.setInputFormat(output.trainingSet);</span>
+<span class="nc" id="L47">            output.trainingSet = Filter.useFilter(output.trainingSet, current);</span>
+<span class="nc bnc" id="L48" title="All 2 branches missed.">            if(!original.unique){</span>
+                //if attribute selection, the same attributes are removed manually
+                //the filter is not re-applied
+<span class="nc bnc" id="L51" title="All 2 branches missed.">                if(current instanceof CfsSubsetFilter){</span>
+<span class="nc" id="L52">                    output.testSet = DataMiningUtils.removeAttributes(</span>
+<span class="nc" id="L53">                            output.testSet, getIndicesAttributesUsedArray(), true);</span>
+                }
+                else{
+                    //the same filter is used to obtain the test set
+<span class="nc" id="L57">                    current.setInputFormat(output.testSet);</span>
+<span class="nc" id="L58">                    output.testSet = Filter.useFilter(output.testSet, current);</span>
+                }
+            }            
+        }
+        
+        //change dataset properties
+<span class="nc" id="L64">        Dataset.findProperties(output);</span>
+<span class="nc bnc" id="L65" title="All 2 branches missed.">        if(this.properties.attributesCorrelationSelection){</span>
+<span class="nc" id="L66">            output.properties.attributesSelectedForCorrelation = true;</span>
+        }       
+        
+<span class="nc" id="L69">        return output;</span>
+    }          
+    
+    //check if this filter is applicable to the input dataset
+    //for example, if the dataset is already discretized
+    //it doesn't make sense to re-discretize it
+    //N.B: the list of preprocesser contains also the &quot;combined&quot; preprocesser
+    //but here it is enough to see the single properties
+    public boolean checkIfApplicable(Dataset dataset){
+<span class="nc bnc" id="L78" title="All 4 branches missed.">        if(dataset.properties.isNominal &amp;&amp; this.properties.numericToNominal){</span>
+<span class="nc" id="L79">            return false;</span>
+        }
+<span class="nc bnc" id="L81" title="All 4 branches missed.">        if(dataset.properties.isNumeric &amp;&amp; this.properties.nominalToBinary){</span>
+<span class="nc" id="L82">            return false;</span>
+        }                
+<span class="nc bnc" id="L84" title="All 4 branches missed.">        if(dataset.properties.hasMissingValues == false &amp;&amp; this.properties.replaceMissingValuesMeanMode){</span>
+<span class="nc" id="L85">            return false;</span>
+        }
+<span class="nc bnc" id="L87" title="All 4 branches missed.">        if(dataset.properties.attributesSelectedForCorrelation </span>
+                &amp;&amp; this.properties.attributesCorrelationSelection){
+<span class="nc" id="L89">            return false;</span>
+        }
+<span class="nc" id="L91">        return true;</span>
+    }
+ 
+    public String getIndicesAttributesUsed(){
+        
+<span class="nc bnc" id="L96" title="All 2 branches missed.">        for(Filter pr:this.operation){</span>
+<span class="nc bnc" id="L97" title="All 2 branches missed.">            if(pr instanceof CfsSubsetFilter){</span>
+<span class="nc" id="L98">                return ((CfsSubsetFilter)pr).getAttributesSelectedIndices();</span>
+            }
+<span class="nc" id="L100">        }</span>
+<span class="nc" id="L101">        return &quot;all attributes used&quot;;</span>
+    }
+    
+    private int[] getIndicesAttributesUsedArray(){
+        
+<span class="nc bnc" id="L106" title="All 2 branches missed.">        for(Filter pr:this.operation){</span>
+<span class="nc bnc" id="L107" title="All 2 branches missed.">            if(pr instanceof CfsSubsetFilter){</span>
+<span class="nc" id="L108">                return ((CfsSubsetFilter)pr).getAttributesSelectedIndicesArray();</span>
+            }
+<span class="nc" id="L110">        }</span>
+<span class="nc" id="L111">        return null;</span>
+    }    
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span></div></body></html>

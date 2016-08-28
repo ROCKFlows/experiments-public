@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>DataMiningUtils.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">FindDatasets</a> &gt; <a href="index.source.html" class="el_package">fr.unice.i3s.rockflows.experiments.datamining</a> &gt; <span class="el_source">DataMiningUtils.java</span></div><h1>DataMiningUtils.java</h1><pre class="source lang-java linenums">package fr.unice.i3s.rockflows.experiments.datamining;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import weka.classifiers.Classifier;
+import weka.classifiers.functions.LibSVM;
+import weka.classifiers.meta.MultiClassClassifier;
+import weka.core.Attribute;
+import weka.core.Instance;
+import weka.core.Instances;
+import weka.core.converters.ArffSaver;
+import weka.core.converters.ConverterUtils;
+import weka.filters.Filter;
+import weka.filters.unsupervised.attribute.Remove;
+import weka.filters.unsupervised.attribute.RemoveType;
+
+<span class="nc" id="L22">public final class DataMiningUtils {   </span>
+    
+    //create one dataset for each filter, by applying the filter to the original dataset
+    public static List&lt;Dataset&gt; getPreprocessedDatasets(String basePath, Dataset original, 
+            List&lt;Preprocesser&gt; filters) throws Exception{                
+        
+<span class="nc" id="L28">        List&lt;Dataset&gt; output = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L29">        output.add(original);        </span>
+<span class="nc" id="L30">        int count = filters.size();</span>
+<span class="nc bnc" id="L31" title="All 2 branches missed.">        for(int iii = 0; iii &lt; count; iii++){</span>
+<span class="nc" id="L32">            Preprocesser filter = filters.get(iii);</span>
+            //check if this filter is applicable to this dataset
+<span class="nc bnc" id="L34" title="All 2 branches missed.">            if(filter.checkIfApplicable(original)){</span>
+                //calculate time for pre-processing
+<span class="nc" id="L36">                long timerStart = System.currentTimeMillis();</span>
+<span class="nc" id="L37">                Dataset current = filter.applyPreprocessing(original);</span>
+<span class="nc" id="L38">                long timerStop = System.currentTimeMillis();</span>
+<span class="nc" id="L39">                current.preprocessingTime = (timerStop - timerStart); //milliseconds </span>
+<span class="nc" id="L40">                current.filterUsed = filter;</span>
+<span class="nc" id="L41">                output.add(current);        </span>
+            }
+        }        
+        
+<span class="nc" id="L45">        return output;</span>
+    }        
+    
+    public static void crossValidation10Folds(TestResult res)throws Exception {
+        
+        //one result for each fold
+<span class="nc" id="L51">        int folds = 10;</span>
+<span class="nc" id="L52">        res.accuracy10f = new double[folds];</span>
+<span class="nc" id="L53">        res.modelSize10f = new double[folds];</span>
+<span class="nc" id="L54">        res.trainingTime10f = new double[folds];</span>
+<span class="nc" id="L55">        res.testTime10f = new double[folds];</span>
+<span class="nc" id="L56">        long avgTrainTime = 0;</span>
+<span class="nc" id="L57">        long avgTestTime = 0;</span>
+<span class="nc" id="L58">        long avgModelSize = 0;</span>
+<span class="nc" id="L59">        double avgAccuracy = 0;        </span>
+<span class="nc bnc" id="L60" title="All 2 branches missed.">        for (int iii = 0; iii &lt; folds; iii++) {</span>
+            //prepare data for cross-validation
+<span class="nc" id="L62">            Instances cvData = res.dataset.trainingSet;</span>
+<span class="nc" id="L63">            Instances train = cvData.trainCV(folds, iii);</span>
+<span class="nc" id="L64">            Instances test = cvData.testCV(folds, iii);                 </span>
+            //train the classifier
+<span class="nc" id="L66">            long timerStart = System.currentTimeMillis();</span>
+<span class="nc" id="L67">            res.infoclassifier.classifier.buildClassifier(train);</span>
+<span class="nc" id="L68">            long timerStop = System.currentTimeMillis();</span>
+            //test the classifier
+<span class="nc" id="L70">            Metric testRes = testTrainedClassifier(test, res.infoclassifier.classifier);</span>
+<span class="nc" id="L71">            res.accuracy10f[iii] = testRes.accuracy;</span>
+<span class="nc" id="L72">            avgAccuracy += res.accuracy10f[iii];</span>
+<span class="nc" id="L73">            res.testTime10f[iii] = testRes.testTime;</span>
+<span class="nc" id="L74">            avgTestTime += res.testTime10f[iii];</span>
+<span class="nc" id="L75">            res.trainingTime10f[iii] = timerStop - timerStart;</span>
+<span class="nc" id="L76">            avgTrainTime += res.trainingTime10f[iii];</span>
+<span class="nc" id="L77">            avgModelSize += res.modelSize10f[iii];</span>
+        }
+<span class="nc" id="L79">        res.trainingTimeAvg10 = avgTrainTime / folds;</span>
+<span class="nc" id="L80">        res.testTimeAvg10 = avgTestTime / folds;</span>
+<span class="nc" id="L81">        res.modelSizeAvg10 = avgModelSize / folds;</span>
+<span class="nc" id="L82">        res.accuracyAvg10 = avgAccuracy / folds;          </span>
+<span class="nc" id="L83">    } </span>
+    
+    public static void crossValidation4Folds(TestResult res, String conxuntosKFold)throws Exception {
+        
+<span class="nc" id="L87">        res.accuracy4f = new double[4];</span>
+<span class="nc" id="L88">        res.modelSize4f = new double[4];</span>
+<span class="nc" id="L89">        res.trainingTime4f = new double[4];</span>
+<span class="nc" id="L90">        res.testTime4f = new double[4];        </span>
+<span class="nc" id="L91">        InfoClassifier ic = res.infoclassifier;</span>
+<span class="nc" id="L92">        Dataset[] folds = DataMiningUtils.get4FoldDatasets(res.dataset.trainingSet, conxuntosKFold);</span>
+<span class="nc" id="L93">        long avgTrainTime = 0;</span>
+<span class="nc" id="L94">        long avgTestTime = 0;</span>
+<span class="nc" id="L95">        long avgModelSize = 0;</span>
+<span class="nc" id="L96">        double avgAccuracy = 0;</span>
+<span class="nc bnc" id="L97" title="All 2 branches missed.">        for(int iii = 0; iii &lt; 4; iii++){</span>
+            //train
+            //timer start
+<span class="nc" id="L100">            long timerStart = System.currentTimeMillis();</span>
+<span class="nc" id="L101">            ic.classifier.buildClassifier(folds[iii].trainingSet);</span>
+            //timer stop
+<span class="nc" id="L103">            long timerStop = System.currentTimeMillis();</span>
+            
+<span class="nc" id="L105">            res.trainingTime4f[iii] = timerStop - timerStart; //milliseconds</span>
+<span class="nc" id="L106">            avgTrainTime += res.trainingTime4f[iii];</span>
+<span class="nc" id="L107">            avgModelSize += res.modelSize4f[iii];</span>
+
+            //test
+<span class="nc" id="L110">            Metric testRes = DataMiningUtils.testTrainedClassifier(folds[iii].testSet, ic.classifier);</span>
+<span class="nc" id="L111">            res.testTime4f[iii] = testRes.testTime;</span>
+<span class="nc" id="L112">            avgTestTime += res.testTime4f[iii];</span>
+<span class="nc" id="L113">            res.accuracy4f[iii] = testRes.accuracy;</span>
+<span class="nc" id="L114">            avgAccuracy += res.accuracy4f[iii];</span>
+        }
+<span class="nc" id="L116">        res.trainingTimeAvg = avgTrainTime / folds.length;</span>
+<span class="nc" id="L117">        res.testTimeAvg = avgTestTime / folds.length;</span>
+<span class="nc" id="L118">        res.modelSizeAvg = avgModelSize / folds.length;</span>
+<span class="nc" id="L119">        res.accuracyAvg = avgAccuracy / folds.length;    </span>
+<span class="nc" id="L120">    }     </span>
+      
+    /**
+     * Evaluate the classifier on the dataset passed as input.
+     * Pre-conitions: the classifier is already trained.
+     * @param dataSet
+     * the dataset
+     * @param cls
+     * the classifier
+     * @return 
+     * the accuracy value
+     */
+    public static Metric testTrainedClassifier(Instances dataSet, Classifier cls) {
+<span class="nc" id="L133">        Metric output = new Metric();</span>
+<span class="nc" id="L134">        int correct = 0;</span>
+<span class="nc" id="L135">        int count = dataSet.numInstances();</span>
+<span class="nc" id="L136">        long timerStart = System.currentTimeMillis();</span>
+<span class="nc bnc" id="L137" title="All 2 branches missed.">        for (int kkk = 0; kkk &lt; count; kkk++) {</span>
+<span class="nc" id="L138">            Instance currentToClassify = dataSet.instance(kkk);</span>
+<span class="nc" id="L139">            double actualValue = currentToClassify.value(currentToClassify.classAttribute());</span>
+<span class="nc" id="L140">            double predictedValue = 0;</span>
+            try {
+<span class="nc" id="L142">                predictedValue = cls.classifyInstance(currentToClassify);</span>
+<span class="nc" id="L143">            } catch (Exception ex) {</span>
+                // Logger.getLogger(ClassifierThread.class.getName()).log(Level.SEVERE, null, ex);
+<span class="nc" id="L145">            }</span>
+<span class="nc bnc" id="L146" title="All 2 branches missed.">            if (predictedValue == actualValue) {</span>
+<span class="nc" id="L147">                correct++;</span>
+            }
+        }
+<span class="nc" id="L150">        long timerStop = System.currentTimeMillis();</span>
+<span class="nc" id="L151">        output.accuracy = (double) correct / (double) count;</span>
+<span class="nc" id="L152">        output.testTime = timerStop - timerStart;</span>
+<span class="nc" id="L153">        return output;</span>
+    }    
+    
+    public static void trainAndTestClassifier(TestResult res)throws Exception{
+        
+<span class="nc" id="L158">        long timerStart = System.currentTimeMillis();</span>
+<span class="nc" id="L159">        res.infoclassifier.classifier.buildClassifier(res.dataset.trainingSet);</span>
+<span class="nc" id="L160">        long timerStop = System.currentTimeMillis();</span>
+<span class="nc" id="L161">        Metric testRes = DataMiningUtils.testTrainedClassifier(res.dataset.testSet,</span>
+                res.infoclassifier.classifier);
+        
+<span class="nc" id="L164">        res.accuracyAvg = testRes.accuracy;</span>
+<span class="nc" id="L165">        res.testTimeAvg = testRes.testTime;</span>
+<span class="nc" id="L166">        res.trainingTimeAvg = timerStop - timerStart;        </span>
+<span class="nc" id="L167">    }    </span>
+    
+    /**
+     * Pre-processing operation to remove a subset of attributes from
+     * the dataset. The attributes are identified by an index 0 based.
+     * @param dataSet
+     * the dataset
+     * @param indexes
+     * The array of indexes to remove
+     * @return
+     * the new dataset filtered.
+     * @throws Exception 
+     */
+    public static Instances removeAttributes(Instances dataSet, int[] indexes, 
+            boolean inverted) throws Exception {
+        //delete attributes 
+<span class="nc" id="L183">        Remove remove = new Remove();                         // new instance of filter</span>
+<span class="nc" id="L184">        remove.setAttributeIndicesArray(indexes);</span>
+<span class="nc" id="L185">        remove.setInvertSelection(inverted);</span>
+<span class="nc" id="L186">        remove.setInputFormat(dataSet);// inform filter about dataset **AFTER** setting options</span>
+<span class="nc" id="L187">        return Filter.useFilter(dataSet, remove);   // apply filter           </span>
+    }
+
+    public static Dataset removeAttributesDataset(Dataset data, int[] indexes) throws Exception {
+<span class="nc" id="L191">        data.trainingSet = removeAttributes(data.trainingSet, indexes, false);</span>
+<span class="nc" id="L192">        data.testSet = removeAttributes(data.testSet, indexes, false);</span>
+<span class="nc" id="L193">        return data;</span>
+    }    
+    
+    /**
+     * Read the dataset at the given path and assign
+     * the class label at the given index
+     * @param path
+     * the path
+     * @param classIndex
+     * the class index
+     * @return
+     * the read dataset
+     * @throws Exception 
+     */
+    public synchronized static Instances readDataset(String path, int classIndex) throws Exception {
+<span class="nc" id="L208">        Instances dataSet = ConverterUtils.DataSource.read(path);</span>
+<span class="nc bnc" id="L209" title="All 2 branches missed.">        if(classIndex != -1){</span>
+<span class="nc" id="L210">            dataSet.setClassIndex(classIndex);</span>
+        }
+        else{
+<span class="nc" id="L213">            dataSet.setClassIndex(dataSet.numAttributes() - 1);</span>
+        }        
+<span class="nc" id="L215">        return dataSet;</span>
+    }    
+        
+    public static void removeTypeAttribute(Dataset dataset, int typeAtt) throws Exception{
+        
+<span class="nc" id="L220">        String type = &quot;&quot;;</span>
+<span class="nc bnc" id="L221" title="All 2 branches missed.">        if(typeAtt == Attribute.STRING){</span>
+<span class="nc" id="L222">            type = &quot;string&quot;;</span>
+        }
+<span class="nc bnc" id="L224" title="All 2 branches missed.">        if(typeAtt == Attribute.DATE){</span>
+<span class="nc" id="L225">            type = &quot;date&quot;;</span>
+        }        
+
+<span class="nc" id="L228">        RemoveType rt = new RemoveType();</span>
+<span class="nc" id="L229">        rt.setOptions(new String[]{&quot;-T&quot;,type});</span>
+<span class="nc" id="L230">        rt.setInputFormat(dataset.trainingSet);</span>
+<span class="nc" id="L231">        dataset.trainingSet = Filter.useFilter(dataset.trainingSet, rt);</span>
+<span class="nc" id="L232">        dataset.testSet = Filter.useFilter(dataset.testSet, rt);        </span>
+<span class="nc" id="L233">    }</span>
+    
+    //if dataset has number of classes &gt; 2, then all the classifiers that can't manage
+    //directly the multi classification problem are contained inside a weka
+    //class MultiClassClassifier, which as default use the strategy 1 against all
+    public static void checkMultiClass(List&lt;InfoClassifier&gt; classifiers, 
+            Dataset original) throws Exception{
+        //check the number of classes
+<span class="nc bnc" id="L241" title="All 2 branches missed.">        if(original.trainingSet.numClasses() &gt; 2){</span>
+<span class="nc" id="L242">            int count = classifiers.size();        </span>
+<span class="nc bnc" id="L243" title="All 2 branches missed.">            for(int ii = 0; ii &lt; count; ii++){</span>
+<span class="nc" id="L244">                InfoClassifier ic = classifiers.get(ii);</span>
+<span class="nc bnc" id="L245" title="All 2 branches missed.">                if(!ic.properties.manageMultiClass){</span>
+<span class="nc" id="L246">                    Classifier cl = ic.classifier;</span>
+<span class="nc" id="L247">                    String name = ic.name;</span>
+                    //uses MultiClass classifier as meta classifier for this one
+<span class="nc" id="L249">                    MultiClassClassifier mc = new MultiClassClassifier();</span>
+<span class="nc" id="L250">                    mc.setOptions(new String[]{&quot;-M&quot;, &quot;3&quot;}); //1 vs 1</span>
+<span class="nc" id="L251">                    mc.setClassifier(cl);</span>
+<span class="nc" id="L252">                    ic.classifier = mc;</span>
+<span class="nc" id="L253">                    ic.name = &quot;1 vs 1: &quot; + name;</span>
+
+                    //add 1 vs all in the end of the list of classifiers
+                    //it will not be rechecked because the variable count
+                    //has the value previous the addition to the list
+<span class="nc" id="L258">                    MultiClassClassifier mc2 = new MultiClassClassifier();</span>
+                    //1 vs all
+<span class="nc" id="L260">                    mc2.setClassifier(cl);</span>
+<span class="nc" id="L261">                    InfoClassifier newCl = new InfoClassifier(classifiers.size());</span>
+<span class="nc" id="L262">                    newCl.classifier = mc2;</span>
+<span class="nc" id="L263">                    newCl.name = &quot;1 vs all: &quot; + name;</span>
+<span class="nc" id="L264">                    newCl.properties = new ClassifierProperties(ic.properties);</span>
+<span class="nc" id="L265">                    classifiers.add(newCl);</span>
+                }                
+            }        
+        }
+<span class="nc" id="L269">    }</span>
+    
+    public static void evaluateParameters(TestResult res,
+            String pathConxuntos) throws IOException, Exception{
+        
+<span class="nc bnc" id="L274" title="All 2 branches missed.">        if(res.alreadyTested){</span>
+<span class="nc" id="L275">            return;</span>
+        }
+        
+<span class="nc" id="L278">        InfoClassifier currentIC = res.infoclassifier;</span>
+        
+        //check if it is compatible with the validation dataset
+<span class="nc bnc" id="L281" title="All 2 branches missed.">        if(!currentIC.isCompatibleWithDataset(res.dataset)){</span>
+<span class="nc" id="L282">            return;</span>
+        }
+        
+        //get validation dataset and training set
+<span class="nc" id="L286">        Dataset validation = getValidationDataset(res.dataset.trainingSet, pathConxuntos);</span>
+        
+<span class="nc bnc" id="L288" title="All 2 branches missed.">        if(currentIC.classifier instanceof LibSVM){</span>
+<span class="nc" id="L289">            LibSVM svm = (LibSVM)currentIC.classifier;       </span>
+            //evaluate C and gamma
+<span class="nc" id="L291">            double[] cvalues = new double[] {0.1, 1, 10, 100, 1000};</span>
+<span class="nc" id="L292">            double[] gvalues = new double[] {0.00001, 0.0001, 0.001, 0.01, 0.1, 1};</span>
+<span class="nc" id="L293">            double max = 0;</span>
+<span class="nc" id="L294">            double bestC = 0;</span>
+<span class="nc" id="L295">            double bestG = 0;</span>
+            //modify classifier
+<span class="nc bnc" id="L297" title="All 2 branches missed.">            for(int iii = 0; iii &lt; cvalues.length; iii++){</span>
+<span class="nc bnc" id="L298" title="All 2 branches missed.">                for(int jjj = 0; jjj &lt; gvalues.length; jjj++){</span>
+<span class="nc" id="L299">                    svm.setCost(cvalues[iii]);</span>
+<span class="nc" id="L300">                    svm.setGamma(gvalues[jjj]);</span>
+<span class="nc" id="L301">                    svm.buildClassifier(validation.trainingSet);</span>
+<span class="nc" id="L302">                    Metric testRes = DataMiningUtils.testTrainedClassifier(validation.testSet, svm);</span>
+<span class="nc bnc" id="L303" title="All 2 branches missed.">                    if(testRes.accuracy &gt; max){</span>
+<span class="nc" id="L304">                        max = testRes.accuracy;</span>
+<span class="nc" id="L305">                        bestC = cvalues[iii];</span>
+<span class="nc" id="L306">                        bestG = gvalues[jjj];</span>
+                    }
+                }
+            }
+            //set best parameters found for Svm
+<span class="nc" id="L311">            svm.setCost(bestC);</span>
+<span class="nc" id="L312">            svm.setGamma(bestG);            </span>
+<span class="nc" id="L313">            currentIC.classifier = svm;</span>
+<span class="nc" id="L314">            currentIC.parametersTuned = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L315">            currentIC.parametersTuned.add(bestC);</span>
+<span class="nc" id="L316">            currentIC.parametersTuned.add(bestG);</span>
+        }
+<span class="nc" id="L318">    }    </span>
+    
+    public static Dataset getValidationDataset(Instances original, String pathConxuntos) 
+            throws FileNotFoundException, IOException{
+    
+<span class="nc" id="L323">        Dataset validation = new Dataset(0, &quot;validation&quot;); //id = 0</span>
+<span class="nc" id="L324">        BufferedReader br = new BufferedReader(new FileReader(pathConxuntos));        </span>
+<span class="nc" id="L325">        String[] trainIndeces = br.readLine().split(&quot; &quot;);</span>
+<span class="nc" id="L326">        String[] testIndeces = br.readLine().split(&quot; &quot;);        </span>
+<span class="nc" id="L327">        Instances newTrain = original.stringFreeStructure();</span>
+<span class="nc" id="L328">        Instances newTest = original.stringFreeStructure();</span>
+        
+<span class="nc" id="L330">        int num = trainIndeces.length;</span>
+<span class="nc bnc" id="L331" title="All 2 branches missed.">        for(int i = 0; i &lt; num; i++){</span>
+<span class="nc" id="L332">            newTrain.add(original.instance(Integer.parseInt(trainIndeces[i])));</span>
+        }
+        
+<span class="nc" id="L335">        num = testIndeces.length;</span>
+<span class="nc bnc" id="L336" title="All 2 branches missed.">        for(int i = 0; i &lt; num; i++){</span>
+<span class="nc" id="L337">            newTest.add(original.instance(Integer.parseInt(trainIndeces[i])));</span>
+        }         
+        
+<span class="nc" id="L340">        validation.trainingSet = newTrain;</span>
+<span class="nc" id="L341">        validation.testSet = newTest;        </span>
+<span class="nc" id="L342">        return validation;        </span>
+    }
+
+    public static Dataset[] get4FoldDatasets(Instances original, String pathConxuntos) 
+            throws FileNotFoundException, IOException{
+    
+<span class="nc" id="L348">        Dataset[] folds = new Dataset[4];</span>
+<span class="nc" id="L349">        BufferedReader br = new BufferedReader(new FileReader(pathConxuntos));</span>
+        
+<span class="nc bnc" id="L351" title="All 2 branches missed.">        for(int iii = 0; iii &lt; 4; iii++){</span>
+<span class="nc" id="L352">            folds[iii] = new Dataset(-1,&quot;fold&quot;+iii);</span>
+<span class="nc" id="L353">            String[] trainIndeces = br.readLine().split(&quot; &quot;);</span>
+<span class="nc" id="L354">            String[] testIndeces = br.readLine().split(&quot; &quot;);</span>
+<span class="nc" id="L355">            Instances newTrain = original.stringFreeStructure();</span>
+<span class="nc" id="L356">            Instances newTest = original.stringFreeStructure();</span>
+<span class="nc" id="L357">            int num = trainIndeces.length;</span>
+<span class="nc bnc" id="L358" title="All 2 branches missed.">            for(int i = 0; i &lt; num; i++){</span>
+<span class="nc" id="L359">                newTrain.add(original.instance(Integer.parseInt(trainIndeces[i])));</span>
+            }
+<span class="nc" id="L361">            num = testIndeces.length;</span>
+<span class="nc bnc" id="L362" title="All 2 branches missed.">            for(int i = 0; i &lt; num; i++){</span>
+<span class="nc" id="L363">                newTest.add(original.instance(Integer.parseInt(trainIndeces[i])));</span>
+            }
+<span class="nc" id="L365">            folds[iii].trainingSet = newTrain;</span>
+<span class="nc" id="L366">            folds[iii].testSet = newTest;</span>
+        }
+<span class="nc" id="L368">        return folds;</span>
+    }
+    
+    public static void mergeDataset(Dataset data){
+        
+<span class="nc" id="L373">        int num = data.trainingSet.numInstances();</span>
+<span class="nc bnc" id="L374" title="All 2 branches missed.">        for(int iii = 0; iii &lt; num; iii++){</span>
+<span class="nc" id="L375">            data.trainingSet.add(data.testSet.instance(iii));</span>
+        }
+<span class="nc" id="L377">    }</span>
+    
+    public static void computeAvg(TestResult res){
+<span class="nc" id="L380">        double acc = 0;</span>
+<span class="nc" id="L381">        long train = 0;</span>
+<span class="nc" id="L382">        long test = 0;</span>
+<span class="nc" id="L383">        long size = 0;</span>
+<span class="nc" id="L384">        int num = res.accuracy10f.length;</span>
+<span class="nc bnc" id="L385" title="All 2 branches missed.">        for(int iii = 0; iii &lt; num; iii++){</span>
+<span class="nc" id="L386">            acc += res.accuracy10f[iii];</span>
+<span class="nc" id="L387">            train += res.trainingTime10f[iii];</span>
+<span class="nc" id="L388">            test += res.testTime10f[iii];</span>
+<span class="nc" id="L389">            size += res.modelSize10f[iii];</span>
+        }
+<span class="nc" id="L391">        res.accuracyAvg = acc / num;</span>
+<span class="nc" id="L392">        res.trainingTimeAvg = train / num;</span>
+<span class="nc" id="L393">        res.testTimeAvg = test / num;</span>
+<span class="nc" id="L394">        res.modelSizeAvg = size / num;</span>
+<span class="nc" id="L395">    }</span>
+
+    public static void writeArff(Dataset dataset, String basePath) throws IOException{
+        
+<span class="nc bnc" id="L399" title="All 2 branches missed.">        if(dataset.unique){</span>
+            //write only training set, the unique dataset
+<span class="nc" id="L401">            ArffSaver saver = new ArffSaver();</span>
+<span class="nc" id="L402">            saver.setInstances(dataset.trainingSet);</span>
+<span class="nc" id="L403">            saver.setFile(new File(basePath + &quot;.arff&quot;));</span>
+<span class="nc" id="L404">            saver.writeBatch();            </span>
+<span class="nc" id="L405">        }</span>
+        else{
+<span class="nc" id="L407">            ArffSaver saver = new ArffSaver();</span>
+<span class="nc" id="L408">            saver.setInstances(dataset.trainingSet);</span>
+<span class="nc" id="L409">            saver.setFile(new File(basePath + &quot;_train.arff&quot;));</span>
+<span class="nc" id="L410">            saver.writeBatch();</span>
+<span class="nc" id="L411">            ArffSaver saver2 = new ArffSaver();</span>
+<span class="nc" id="L412">            saver2.setInstances(dataset.testSet);</span>
+<span class="nc" id="L413">            saver2.setFile(new File(basePath + &quot;_test.arff&quot;));</span>
+<span class="nc" id="L414">            saver2.writeBatch();            </span>
+        }
+<span class="nc" id="L416">    }</span>
+    
+    public static boolean has2DistinctNominalValues(Dataset data){
+        
+<span class="nc bnc" id="L420" title="All 2 branches missed.">        if(data.properties.isNumeric){</span>
+<span class="nc" id="L421">            return true;</span>
+        }        
+<span class="nc" id="L423">        Instances train = data.trainingSet;</span>
+<span class="nc" id="L424">        int num = train.numAttributes();</span>
+<span class="nc bnc" id="L425" title="All 2 branches missed.">        for(int iii = 0; iii &lt; num; iii++){</span>
+<span class="nc" id="L426">            Attribute att = train.attribute(iii);</span>
+<span class="nc bnc" id="L427" title="All 2 branches missed.">            if(att.isNominal()){</span>
+                //check if it contains at least 2 distinct nominal values
+<span class="nc" id="L429">                int rows = train.numInstances();</span>
+<span class="nc" id="L430">                String value1 = &quot;&quot;;</span>
+<span class="nc" id="L431">                boolean distinct = false;</span>
+<span class="nc bnc" id="L432" title="All 2 branches missed.">                for(int jjj = 1; jjj &lt; rows; jjj++){</span>
+<span class="nc" id="L433">                    Instance inst = train.instance(jjj);</span>
+<span class="nc bnc" id="L434" title="All 2 branches missed.">                    if(!inst.isMissing(iii)){</span>
+<span class="nc bnc" id="L435" title="All 2 branches missed.">                        if(value1.equals(&quot;&quot;)){</span>
+<span class="nc" id="L436">                            value1 = inst.stringValue(iii);</span>
+                        }
+                        else{
+<span class="nc" id="L439">                            String value2 = inst.stringValue(iii);</span>
+<span class="nc bnc" id="L440" title="All 2 branches missed.">                            if(!value1.equals(value2)){</span>
+<span class="nc" id="L441">                                distinct = true;</span>
+<span class="nc" id="L442">                                break;</span>
+                            }
+                        }
+                    }
+                }
+<span class="nc bnc" id="L447" title="All 2 branches missed.">                if(!distinct){</span>
+<span class="nc" id="L448">                    return false;</span>
+                }
+            }
+        }
+<span class="nc" id="L452">        return true;        </span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span></div></body></html>

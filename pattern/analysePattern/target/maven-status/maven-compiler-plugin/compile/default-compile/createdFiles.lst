@@ -1,0 +1,15 @@
+fr/unice/i3s/rockflows/experiments/datamining/Status.class
+fr/unice/i3s/rockflows/experiments/datamining/Metric.class
+fr/unice/i3s/rockflows/experiments/datamining/ResultsAnalyzer.class
+fr/unice/i3s/rockflows/experiments/main/MainExperiment.class
+fr/unice/i3s/rockflows/experiments/significance/Significance.class
+fr/unice/i3s/rockflows/experiments/main/ResTest.class
+fr/unice/i3s/rockflows/experiments/automatictest/OnlyRankExc.class
+fr/unice/i3s/rockflows/experiments/automatictest/AutomaticTest.class
+fr/unice/i3s/rockflows/experiments/automatictest/IntermediateExcelFile.class
+fr/unice/i3s/rockflows/experiments/automatictest/ExcelUtils.class
+fr/unice/i3s/rockflows/experiments/datamining/TestResult.class
+fr/unice/i3s/rockflows/experiments/automatictest/FinalOnlyRankExc.class
+fr/unice/i3s/rockflows/experiments/automatictest/RankAndStatusExc.class
+fr/unice/i3s/rockflows/experiments/main/TestExecutor.class
+fr/unice/i3s/rockflows/experiments/datamining/LocalResult.class

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>MainExperiment.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">FindDatasets</a> &gt; <a href="index.source.html" class="el_package">fr.unice.i3s.rockflows.experiments.main</a> &gt; <span class="el_source">MainExperiment.java</span></div><h1>MainExperiment.java</h1><pre class="source lang-java linenums">package fr.unice.i3s.rockflows.experiments.main;
+
+import fr.unice.i3s.rockflows.experiments.datamining.AttributeType;
+import fr.unice.i3s.rockflows.experiments.datamining.FoldsEnum;
+import fr.unice.i3s.rockflows.experiments.datamining.InfoPattern;
+import fr.unice.i3s.rockflows.experiments.datamining.ResWorkflow;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+/**
+ * @author Luca
+ */
+<span class="nc" id="L29">public class MainExperiment {</span>
+
+    public static void main(String[] args) throws Exception {
+
+<span class="nc" id="L33">        String pathSource = &quot;&quot;;</span>
+<span class="nc" id="L34">        String pathOut = &quot;&quot;;</span>
+<span class="nc" id="L35">        String workflowName = &quot;&quot;;</span>
+<span class="nc" id="L36">        int workflowPid = -1;</span>
+<span class="nc" id="L37">        FoldsEnum type = FoldsEnum.Both;</span>
+        
+<span class="nc" id="L39">        int numParameters = args.length;</span>
+<span class="nc bnc" id="L40" title="All 2 branches missed.">        for (int iii = 0; iii &lt; numParameters; iii++) {</span>
+<span class="nc bnc" id="L41" title="All 30 branches missed.">            switch (args[iii]) {</span>
+                case &quot;-src&quot;: {
+<span class="nc" id="L43">                    pathSource = args[++iii];</span>
+<span class="nc" id="L44">                    break;</span>
+                }
+                case &quot;-out&quot;: {
+<span class="nc" id="L47">                    pathOut = args[++iii];</span>
+<span class="nc" id="L48">                    break;</span>
+                }        
+                case &quot;-wname&quot;: {
+<span class="nc" id="L51">                    workflowName = args[++iii];</span>
+<span class="nc" id="L52">                    break;</span>
+                }
+                case &quot;-wpid&quot;: {
+<span class="nc" id="L55">                    workflowPid = Integer.parseInt(args[++iii]);</span>
+<span class="nc" id="L56">                    break;</span>
+                } 
+                case &quot;-cv4&quot;: {
+<span class="nc" id="L59">                    type = FoldsEnum.CV4;</span>
+<span class="nc" id="L60">                    break;</span>
+                }                 
+                case &quot;-cv10&quot;: {
+<span class="nc" id="L63">                    type = FoldsEnum.CV10;</span>
+<span class="nc" id="L64">                    break;</span>
+                }                        
+                case &quot;-cvBoth&quot;: {
+<span class="nc" id="L67">                    type = FoldsEnum.Both;</span>
+                    break;
+                }                                 
+            }
+        }                
+        
+        //organize dataset into patterns
+<span class="nc" id="L74">        List&lt;Res&gt; results = findDatasetBestRank(pathSource, workflowName, workflowPid,</span>
+                type, pathOut);
+        
+        //write output file
+<span class="nc" id="L78">        writeDatasets(results, pathOut);</span>
+<span class="nc" id="L79">    }</span>
+    
+    public static void writeDatasets(List&lt;Res&gt; results, String pathOut) throws Exception{
+        
+<span class="nc" id="L83">        PrintWriter writer = new PrintWriter(pathOut, &quot;UTF-8&quot;);</span>
+<span class="nc bnc" id="L84" title="All 2 branches missed.">        for(Res res:results){</span>
+<span class="nc bnc" id="L85" title="All 2 branches missed.">            if(res.best){</span>
+<span class="nc" id="L86">                writer.write(res.datasetPath.get() + System.lineSeparator());</span>
+            }
+<span class="nc" id="L88">        }</span>
+<span class="nc" id="L89">        writer.close();        </span>
+<span class="nc" id="L90">    }</span>
+    
+    public static List&lt;Res&gt; findDatasetBestRank(String pathSource, String workflowName, 
+            int workflowPid, FoldsEnum type, String pathOut) 
+            throws Exception{
+        
+        //input list datasets
+<span class="nc" id="L97">        List&lt;String&gt; datasets = getListDirectories(pathSource);</span>
+
+<span class="nc" id="L99">        int numFiles = datasets.size();</span>
+<span class="nc" id="L100">        ExecutorService exec = Executors.newFixedThreadPool(4);</span>
+        
+<span class="nc" id="L102">        List&lt;Res&gt; results = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L103" title="All 2 branches missed.">        for (int iii = 0; iii &lt; numFiles; iii++) {</span>
+<span class="nc" id="L104">            String dsName = datasets.get(iii);</span>
+<span class="nc" id="L105">            String currentSource = pathSource + dsName + &quot;/&quot;;</span>
+<span class="nc" id="L106">            TestExecutor test = new TestExecutor(currentSource, workflowName, workflowPid,</span>
+                type, pathOut);
+<span class="nc" id="L108">            results.add(new Res(exec.submit(test)));</span>
+        }
+        //wait for computation        
+<span class="nc" id="L111">        exec.shutdown();</span>
+<span class="nc" id="L112">        exec.awaitTermination(Integer.MAX_VALUE, TimeUnit.DAYS);</span>
+        //wait for computation
+<span class="nc bnc" id="L114" title="All 2 branches missed.">        for(Res res:results){</span>
+<span class="nc" id="L115">            res.datasetPath.get();</span>
+<span class="nc" id="L116">        }</span>
+<span class="nc" id="L117">        return results;</span>
+    }          
+    
+    public static List&lt;String&gt; getListFiles(String basePath) {
+
+<span class="nc" id="L122">        List&lt;String&gt; fileNames = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L123">        File folder = new File(basePath);</span>
+<span class="nc" id="L124">        File[] listOfFiles = folder.listFiles();</span>
+<span class="nc bnc" id="L125" title="All 2 branches missed.">        for (int i = 0; i &lt; listOfFiles.length; i++) {</span>
+<span class="nc bnc" id="L126" title="All 2 branches missed.">            if (listOfFiles[i].isFile()) {</span>
+<span class="nc" id="L127">                fileNames.add(listOfFiles[i].getName());</span>
+            }
+        }
+<span class="nc" id="L130">        return fileNames;</span>
+    }
+
+    public static List&lt;String&gt; getListDirectories(String basePath) {
+
+<span class="nc" id="L135">        List&lt;String&gt; fileNames = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L136">        File folder = new File(basePath);</span>
+<span class="nc" id="L137">        File[] listOfFiles = folder.listFiles();</span>
+<span class="nc bnc" id="L138" title="All 2 branches missed.">        for (int i = 0; i &lt; listOfFiles.length; i++) {</span>
+<span class="nc bnc" id="L139" title="All 2 branches missed.">            if (listOfFiles[i].isDirectory()) {</span>
+<span class="nc" id="L140">                fileNames.add(listOfFiles[i].getName());</span>
+            }
+        }
+<span class="nc" id="L143">        return fileNames;</span>
+    }
+        
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span></div></body></html>
