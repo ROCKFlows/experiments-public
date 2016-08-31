@@ -1,7 +1,6 @@
 package fr.unice.i3s.rockflows.experiments.automatictest;
 
-import fr.unice.i3s.rockflows.experiments.TestResult;
-import fr.unice.i3s.rockflows.tools.ExcelUtils;
+import fr.unice.i3s.rockflows.experiments.datamining.TestResult;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
@@ -153,15 +152,16 @@ public class RankAndStatusExc {
             // Create a title row. Rows are 0 based.
             TestResult res = results.get(iii);
             Row row = sheet.createRow((short) (rowIndex));
-            row.createCell(algorithmColumn).setCellValue(res.infoclassifier.name);
+            row.createCell(algorithmColumn).setCellValue(res.algoName);
             row.createCell(datasetProperties).setCellValue(res.dataProp);
             row.createCell(datasetPreprocessing).setCellValue(res.preProcProp);
-            row.createCell(datasetPreprocesserID).setCellValue(res.dataset.id);
-            if (res.dataset.id == 0) {
+            row.createCell(datasetPreprocesserID).setCellValue(res.preProcId);
+            if (res.preProcId == 0) {
                 //this is the original dataset
                 row.createCell(datasetPreprocessing).setCellValue("No Pre-processing, Original UCI");
                 row.createCell(datasetPreprocesserID).setCellValue(0);
-            } else if (res.dataset.id == 999) {
+            }
+            if (res.preProcId == 999) {
                 //this is the paper dataset
                 row.createCell(datasetPreprocessing).setCellValue("No Pre-processing, Dataset Paper");
                 row.createCell(datasetPreprocesserID).setCellValue(999);
@@ -177,7 +177,7 @@ public class RankAndStatusExc {
                 row.createCell(testTimeColumn).setCellValue(res.testTimeAvg10);
                 row.createCell(modelSizeColumn).setCellValue(res.modelSizeAvg10);
             }
-            row.createCell(preProcessingTimeColumn).setCellValue(res.dataset.preprocessingTime);
+            row.createCell(preProcessingTimeColumn).setCellValue(res.preProcTime);
             row.createCell(totalTimeColumn).setCellValue(res.sumTime);
             row.createCell(rankAccuracy).setCellValue(res.rankAccuracy);
             row.createCell(statusAccuracy).setCellValue(res.statusAccuracy.toString());

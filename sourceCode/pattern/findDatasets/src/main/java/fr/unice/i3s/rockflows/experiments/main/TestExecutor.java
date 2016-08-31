@@ -15,10 +15,10 @@ import java.util.concurrent.Callable;
  */
 public class TestExecutor implements Callable<String> {
 
-    private String pathSource = "";
-    private ResWorkflow workflow;
-    private FoldsEnum typeFolds;
-    private String pathOut = "";
+    String pathSource = "";
+    ResWorkflow workflow;
+    FoldsEnum typeFolds;
+    String pathOut = "";
 
     public TestExecutor(String pathSource, String classifierName, int workflowPid, FoldsEnum type,
                         String pathOut) throws Exception {

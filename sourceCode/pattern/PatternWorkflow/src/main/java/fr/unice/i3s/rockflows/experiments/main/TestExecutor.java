@@ -1,10 +1,9 @@
 package fr.unice.i3s.rockflows.experiments.main;
 
-import fr.unice.i3s.rockflows.datamining.DataMiningUtils;
-import fr.unice.i3s.rockflows.datamining.Dataset;
 import fr.unice.i3s.rockflows.experiments.datamining.AttributeType;
+import fr.unice.i3s.rockflows.experiments.datamining.DataMiningUtils;
+import fr.unice.i3s.rockflows.experiments.datamining.Dataset;
 import fr.unice.i3s.rockflows.experiments.datamining.InfoPattern;
-
 import weka.core.Attribute;
 import weka.core.Instances;
 
@@ -24,9 +23,9 @@ import java.util.concurrent.Callable;
  */
 public class TestExecutor implements Callable<Boolean> {
 
-    private String pathSource = "";
-    private String pathDest = "";
-    private InfoPattern pattern;
+    String pathSource = "";
+    String pathDest = "";
+    InfoPattern pattern;
 
     public TestExecutor(String pathSource, String pathDest, InfoPattern pattern)
             throws Exception {
@@ -64,7 +63,7 @@ public class TestExecutor implements Callable<Boolean> {
             classIndex = Integer.parseInt(br.readLine());
         }
 
-        Instances data = DataMiningUtils.readDataset(name, classIndex, id);
+        Instances data = DataMiningUtils.readDataset(name, classIndex);
 
         if (pattern.attributeType != AttributeType.Ignore) {
             //check atribute types
@@ -92,7 +91,7 @@ public class TestExecutor implements Callable<Boolean> {
         }
 
         //check num attributes, remove class attribute        
-        if(!isInInterval(data.numAttributes() - 1, pattern.minNumAtt, pattern.maxNumAtt)){
+        if (!isInInterval(data.numAttributes() - 1, pattern.minNumAtt, pattern.maxNumAtt)) {
             return false;
         }
         
@@ -103,13 +102,13 @@ public class TestExecutor implements Callable<Boolean> {
             return false;
         }
         */
-        
-        
+
+
         //check num instances
-        if(!isInInterval(data.numInstances(), pattern.minNumInst, pattern.maxNumInst)){
+        if (!isInInterval(data.numInstances(), pattern.minNumInst, pattern.maxNumInst)) {
             return false;
-        }      
-        
+        }
+
         //check missing values                
 
         switch (pattern.withMissingValues) {
@@ -184,6 +183,16 @@ public class TestExecutor implements Callable<Boolean> {
             }
         }
         return true;
+    }
+
+    public boolean isUnique(String path) {
+        //check if unique or not
+        boolean unique = false;
+        File check = new File(path + "Test-0.arff");
+        if (check.exists()) {
+            unique = true;
+        }
+        return unique;
     }
 
     @Override

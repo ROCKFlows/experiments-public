@@ -1,24 +1,31 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package fr.unice.i3s.rockflows.experiments.automatictest;
 
-import fr.unice.i3s.rockflows.experiments.ExperimentsUtil;
-import fr.unice.i3s.rockflows.experiments.InfoClassifier;
-import fr.unice.i3s.rockflows.experiments.TestResult;
+import fr.unice.i3s.rockflows.experiments.datamining.DataMiningUtils;
+import fr.unice.i3s.rockflows.experiments.datamining.InfoClassifier;
+import fr.unice.i3s.rockflows.experiments.datamining.TestResult;
 
 /**
  * @author Luca
  */
 public final class AutomaticTest {
 
-    public static void compute4Folds(TestResult res, String conxuntosKFold) throws Exception {
+    public static void compute4Folds(TestResult res,
+                                     String conxuntosKFold) throws Exception {
+
         try {
-            ExperimentsUtil.crossValidation4Folds(res, conxuntosKFold);
+            DataMiningUtils.crossValidation4Folds(res, conxuntosKFold);
         } catch (Exception exx) {
             res.infoclassifier.properties.compatibleWithDataset = false;
         }
     }
 
     /**
-     * For each classifier, perform the following operations.
+     * For each classifier, perform the following operations:
      * <ol>
      * <li>execute the needed pre-processing both on the training set and test set</li>
      * <li>train the classifier</li>
@@ -31,7 +38,7 @@ public final class AutomaticTest {
 
         //perform 10-folds cross-validation, for the intermediate Excel file
         try {
-            ExperimentsUtil.crossValidation10Folds(res);
+            DataMiningUtils.crossValidation10Folds(res);
         } catch (Exception exx) {
             res.infoclassifier.properties.compatibleWithDataset = false;
         }

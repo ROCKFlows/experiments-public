@@ -1,7 +1,11 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package fr.unice.i3s.rockflows.experiments.datamining;
 
-import fr.unice.i3s.rockflows.experiments.TestResult;
-import fr.unice.i3s.rockflows.statistics.Significance;
+import fr.unice.i3s.rockflows.experiments.significance.Significance;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,8 +18,8 @@ public class ResultsAnalyzer {
     public static List<TestResult> getResultsPerClassifier(List<TestResult> results, int classifierId) {
         List<TestResult> output = new ArrayList<>();
         for (TestResult res : results) {
-            if (res.infoclassifier.id == classifierId) {
-                if (res.infoclassifier.properties.compatibleWithDataset) {
+            if (res.algoId == classifierId) {
+                if (res.compatible) {
                     output.add(res);
                 }
             }
@@ -40,8 +44,8 @@ public class ResultsAnalyzer {
 
         //set rank = 1 to each result
         int size = results.size();
-        for (LocalResult result : results) {
-            result.rank = 1;
+        for (int i = 0; i < size; i++) {
+            results.get(i).rank = 1;
         }
 
     }
@@ -72,7 +76,7 @@ public class ResultsAnalyzer {
                             continue; //check the next one
                         }
                         //if the avg is different, it is checked if the difference is significant
-                        if (Significance.isSignificantDifferent(first.array, current.array, alpha, true)) {
+                        if (Significance.isSignificantDifferent(first.array, current.array, alpha)) {
                             //if significant different, increase of 1 the rank from the current element
                             //until the last one
                             current.rank++;
@@ -155,7 +159,8 @@ public class ResultsAnalyzer {
         for (int i = 0; i < results.size(); i++) {
             TestResult currentTR = results.get(i);
             LocalResult currentLR;
-            currentLR = new LocalResult(currentTR.accuracyAvg, currentTR.accuracies, i);
+            currentLR = new LocalResult(currentTR.accuracyAvg,
+                    currentTR.accuracies, i);
             res.add(currentLR);
         }
 

@@ -1,10 +1,15 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package fr.unice.i3s.rockflows.experiments.main;
 
-import fr.unice.i3s.rockflows.experiments.ExperimentsUtil;
-import fr.unice.i3s.rockflows.experiments.InfoClassifier;
-import fr.unice.i3s.rockflows.experiments.TestResult;
 import fr.unice.i3s.rockflows.experiments.automatictest.AutomaticTest;
 import fr.unice.i3s.rockflows.experiments.automatictest.IntermediateExcelFile;
+import fr.unice.i3s.rockflows.experiments.datamining.DataMiningUtils;
+import fr.unice.i3s.rockflows.experiments.datamining.InfoClassifier;
+import fr.unice.i3s.rockflows.experiments.datamining.TestResult;
 import weka.classifiers.functions.LibSVM;
 
 import java.io.File;
@@ -18,9 +23,9 @@ import java.util.concurrent.Callable;
  */
 public class AlgoExecutor implements Callable<Boolean> {
 
-    private TestResult res;
-    private String conxuntosPath = "";
-    private String conxuntosKFoldPath = "";
+    TestResult res;
+    String conxuntosPath = "";
+    String conxuntosKFoldPath = "";
     IntermediateExcelFile excFile;
 
     public AlgoExecutor(TestResult res, String conxuntosPath, String conxuntosKFoldPath,
@@ -42,9 +47,9 @@ public class AlgoExecutor implements Callable<Boolean> {
             String clName = res.infoclassifier.name;
             File fff = new File(excFile.path + clName + ".error");
             Writer www = new FileWriter(fff);
-            www.append(clName).append(" :BEGIN, ");
+            www.append(clName + " :BEGIN, ");
             exc.printStackTrace(new PrintWriter(www));
-            www.append(",:END ").append(clName);
+            www.append(",:END " + clName);
             www.append(exc.getMessage());
             www.flush();
             www.close();
@@ -71,7 +76,8 @@ public class AlgoExecutor implements Callable<Boolean> {
         InfoClassifier classif = res.infoclassifier;
         if (classif.classifier instanceof LibSVM) {
             if (classif.isUsable()) {
-                ExperimentsUtil.evaluateParameters(res, this.conxuntosPath);
+                DataMiningUtils.evaluateParameters(res,
+                        this.conxuntosPath);
                 excFile.writeSvmBestValues(excFile.sheet, classif);
                 excFile.writeSvmBestValues(excFile.sheet10, classif);
             }

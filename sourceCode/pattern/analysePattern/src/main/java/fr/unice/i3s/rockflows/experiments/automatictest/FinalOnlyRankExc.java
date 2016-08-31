@@ -1,7 +1,6 @@
 package fr.unice.i3s.rockflows.experiments.automatictest;
 
-import fr.unice.i3s.rockflows.experiments.TestResult;
-import fr.unice.i3s.rockflows.tools.ExcelUtils;
+import fr.unice.i3s.rockflows.experiments.datamining.TestResult;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
@@ -137,8 +136,8 @@ public class FinalOnlyRankExc {
             // Create a title row. Rows are 0 based.
             TestResult res = results.get(iii);
             Row row = sheet.createRow((short) (rowIndex));
-            row.createCell(algorithmColumn).setCellValue(res.infoclassifier.name);
-            row.createCell(preProcColumn).setCellValue(res.dataset.id);
+            row.createCell(algorithmColumn).setCellValue(res.algoName);
+            row.createCell(preProcColumn).setCellValue(res.preProcId);
             if (folds4) {
                 row.createCell(accuracyColumn).setCellValue(res.accuracyAvg);
                 row.createCell(trainingTimeColumn).setCellValue(res.trainingTimeAvg);

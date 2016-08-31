@@ -1,9 +1,8 @@
 package fr.unice.i3s.rockflows.experiments.main;
 
-import fr.unice.i3s.rockflows.experiments.TestResult;
 import fr.unice.i3s.rockflows.experiments.automatictest.AutomaticTest;
 import fr.unice.i3s.rockflows.experiments.automatictest.IntermediateExcelFile;
-import fr.unice.i3s.rockflows.tools.FileUtils;
+import fr.unice.i3s.rockflows.experiments.datamining.TestResult;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -19,8 +18,9 @@ import java.util.stream.Collectors;
  */
 public class TestExecutor implements Callable<Boolean> {
 
-    private String pathFolderExcel = "";
-    private boolean status = false;
+    String pathFolderExcel = "";
+    boolean status = false;
+    String currentName = "";
 
     public TestExecutor(String pathFolderExcel, String nameDataset, boolean status)
             throws Exception {
@@ -28,9 +28,9 @@ public class TestExecutor implements Callable<Boolean> {
         this.status = status;
     }
 
-    private void executeTest() throws Exception {
+    public void executeTest() throws Exception {
 
-        double alpha = 0.05;
+        double alpha = 0.05; //default               
 
         List<String> names = getListFiles(pathFolderExcel, "xlsx");
                 
@@ -62,9 +62,8 @@ public class TestExecutor implements Callable<Boolean> {
         List<TestResult> globalResults = readAllIntermediateResults4Folds(names);
 
         //remove not compatible results
-        List<TestResult> compatible =
-                globalResults.stream().filter((TestResult tr) -> tr.infoclassifier.properties.compatibleWithDataset)
-                        .collect(Collectors.toList());
+        List<TestResult> compatible = globalResults.stream().filter((TestResult tr) -> tr.compatible)
+                .collect(Collectors.toList());
         //true = 4Folds
         AutomaticTest.computeResultsFinal(compatible, alpha, pathFinal, status, true);
 
@@ -73,9 +72,8 @@ public class TestExecutor implements Callable<Boolean> {
         globalResults = readAllIntermediateResults10Folds(names);
 
         //remove not compatible results
-        compatible =
-                globalResults.stream().filter((TestResult tr) -> tr.infoclassifier.properties.compatibleWithDataset)
-                        .collect(Collectors.toList());
+        compatible = globalResults.stream().filter((TestResult tr) -> tr.compatible)
+                .collect(Collectors.toList());
         //true = 10Folds
         AutomaticTest.computeResultsFinal(compatible, alpha, pathFinal, status, false);
     }
@@ -131,12 +129,12 @@ public class TestExecutor implements Callable<Boolean> {
         return res;
     }
 
-    private List<TestResult> readAllIntermediateResults10Folds(List<String> names) throws Exception {
+    public List<TestResult> readAllIntermediateResults10Folds(List<String> names) throws Exception {
 
         List<TestResult> res = new ArrayList<>();
         //for each file, read its results
-        for (String name1 : names) {
-            String name = pathFolderExcel + name1;
+        for (int i = 0; i < names.size(); i++) {
+            String name = pathFolderExcel + names.get(i);
             IntermediateExcelFile exc = new IntermediateExcelFile(name);
             List<TestResult> current;
             current = AutomaticTest.readValues10(exc);
@@ -145,19 +143,46 @@ public class TestExecutor implements Callable<Boolean> {
         return res;
     }
 
-    private List<String> getListFiles(String basePath, String extension) {
-        // TODO use filter when looking for files
+    public List<String> getListFiles(String basePath, String extension) {
+
         List<String> fileNames = new ArrayList<>();
-        for (String filename : FileUtils.getListFiles(basePath)) {
-            //check if it has the extension of Excel
-            String ext = filename.substring(filename.lastIndexOf(".") + 1);
-            if (ext.equals(extension)) {
-                //check if it's not final
-                if (!filename.contains("Final.xlsx") && !filename.contains("-Analysis")) {
-                    fileNames.add(filename);
+        File folder = new File(basePath);
+        File[] listOfFiles = folder.listFiles();
+        for (int i = 0; i < listOfFiles.length; i++) {
+            if (listOfFiles[i].isFile()) {
+                String filename = listOfFiles[i].getName();
+                //check if it has the extension of Excel
+                String ext = filename.substring(filename.lastIndexOf(".") + 1);
+                if (ext.equals(extension)) {
+                    //check if it's not final
+                    if (!filename.contains("Final.xlsx")
+                            && !filename.contains("-Analysis")) {
+                        fileNames.add(filename);
+                    }
                 }
             }
         }
         return fileNames;
+    }
+
+    public boolean isUnique(String path) {
+        //check if unique or not
+        boolean unique = false;
+        File check = new File(path + "Test-0.arff");
+        if (check.exists()) {
+            unique = true;
+        }
+        return unique;
+    }
+
+    public String getNameFromPath(String path) {
+
+        return path.substring(path.lastIndexOf("/") + 1, path.lastIndexOf("."));
+    }
+
+    public int getIdFromPath(String path) {
+
+        String tmp = path.substring(path.lastIndexOf("-") + 1);
+        return Integer.parseInt(tmp.substring(0, tmp.lastIndexOf(".")));
     }
 }

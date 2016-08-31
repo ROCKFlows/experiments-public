@@ -1,8 +1,8 @@
 package fr.unice.i3s.rockflows.experiments.main;
 
 import fr.unice.i3s.rockflows.experiments.datamining.FoldsEnum;
-import fr.unice.i3s.rockflows.tools.FileUtils;
 
+import java.io.File;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
@@ -89,7 +89,7 @@ public class MainExperiment {
             throws Exception {
 
         //input list datasets
-        List<String> datasets = FileUtils.getListDirectories(pathSource);
+        List<String> datasets = getListDirectories(pathSource);
 
         int numFiles = datasets.size();
 
@@ -103,4 +103,31 @@ public class MainExperiment {
         }
         return results;
     }
+
+    public static List<String> getListFiles(String basePath) {
+
+        List<String> fileNames = new ArrayList<>();
+        File folder = new File(basePath);
+        File[] listOfFiles = folder.listFiles();
+        for (int i = 0; i < listOfFiles.length; i++) {
+            if (listOfFiles[i].isFile()) {
+                fileNames.add(listOfFiles[i].getName());
+            }
+        }
+        return fileNames;
+    }
+
+    public static List<String> getListDirectories(String basePath) {
+
+        List<String> fileNames = new ArrayList<>();
+        File folder = new File(basePath);
+        File[] listOfFiles = folder.listFiles();
+        for (int i = 0; i < listOfFiles.length; i++) {
+            if (listOfFiles[i].isDirectory()) {
+                fileNames.add(listOfFiles[i].getName());
+            }
+        }
+        return fileNames;
+    }
+
 }

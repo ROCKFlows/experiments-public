@@ -1,9 +1,9 @@
 package fr.unice.i3s.rockflows.experiments.main;
 
-import fr.unice.i3s.rockflows.datamining.CfsSubsetFilter;
-import fr.unice.i3s.rockflows.datamining.DataMiningUtils;
-import fr.unice.i3s.rockflows.datamining.Dataset;
-import fr.unice.i3s.rockflows.datamining.Preprocesser;
+import fr.unice.i3s.rockflows.experiments.datamining.DataMiningUtils;
+import fr.unice.i3s.rockflows.experiments.datamining.Dataset;
+import fr.unice.i3s.rockflows.experiments.datamining.Preprocesser;
+import fr.unice.i3s.rockflows.experiments.weka.CfsSubsetFilter;
 import weka.filters.unsupervised.attribute.Discretize;
 import weka.filters.unsupervised.attribute.NominalToBinary;
 import weka.filters.unsupervised.attribute.ReplaceMissingValues;
@@ -24,12 +24,12 @@ import java.util.concurrent.TimeUnit;
  */
 public class TestExecutor implements Callable<Boolean> {
 
-    private static final String CONXUNTOS_FILE = "conxuntos.dat";
-    private static final String CONXUNTOS_KFOLD_FILE = "conxuntos_kfold.dat";
-
-    private String pathFolder = "";
-    private int classIndex = -1;
-    private boolean parallel = true;
+    String pathFolder = "";
+    List<Preprocesser> filters;
+    String conxuntos = "conxuntos.dat";
+    String conxuntosKFold = "conxuntos_kfold.dat";
+    int classIndex = -1;
+    boolean parallel = true;
 
     public TestExecutor(int classIndex, String pathFolder, boolean parallel)
             throws Exception {
@@ -53,7 +53,7 @@ public class TestExecutor implements Callable<Boolean> {
         original.trainingSet = DataMiningUtils.readDataset(d0Path, classIndex, 0);
 
         //init filters
-        List<Preprocesser> filters = inputPreprocessers();
+        this.filters = inputPreprocessers();
 
         //find properties on the original dataset
         Dataset.findProperties(original, 0);
@@ -70,8 +70,8 @@ public class TestExecutor implements Callable<Boolean> {
                 -1, 12);
         d12.properties.isStandardized = true;
 
-        String conxuntosPath = pathFolder + "/" + CONXUNTOS_FILE;
-        String conxuntosKFoldPath = pathFolder + "/" + CONXUNTOS_KFOLD_FILE;
+        String conxuntosPath = pathFolder + "/" + conxuntos;
+        String conxuntosKFoldPath = pathFolder + "/" + conxuntosKFold;
 
         if (parallel) {
 
@@ -138,9 +138,9 @@ public class TestExecutor implements Callable<Boolean> {
         } catch (Exception ex) {
             File fff = new File(pathFolder + "/error");
             Writer www = new FileWriter(fff);
-            www.append(this.pathFolder).append(" :BEGIN, ");
+            www.append(this.pathFolder + " :BEGIN, ");
             ex.printStackTrace(new PrintWriter(www));
-            www.append(",:END ").append(this.pathFolder);
+            www.append(",:END " + this.pathFolder);
             www.append(ex.getMessage());
             www.flush();
             www.close();
@@ -149,7 +149,7 @@ public class TestExecutor implements Callable<Boolean> {
         //finished
         File fff = new File(pathFolder + "/finish");
         Writer www = new FileWriter(fff);
-        www.append(this.pathFolder).append(" :END, ");
+        www.append(this.pathFolder + " :END, ");
         www.flush();
         www.close();
         return true;
@@ -164,8 +164,7 @@ public class TestExecutor implements Callable<Boolean> {
         Preprocesser p1 = new Preprocesser(id++, Preprocesser.DISCRETIZE);
         Discretize discretize = new Discretize();
         discretize.setAttributeIndices("first-last");
-        //unsupervise, uses simple bins
-        p1.operation.add(discretize);
+        p1.operation.add(discretize); //unsupervise, uses simple bins
         p1.properties.numericToNominal = true;
         output.add(p1);
 
@@ -179,8 +178,7 @@ public class TestExecutor implements Callable<Boolean> {
         Preprocesser p3 = new Preprocesser(id++, Preprocesser.DISCRETIZE
                 + ", " + Preprocesser.REPLACE_MISSING_VALUES);
         p3.operation.add(new ReplaceMissingValues());
-        //unsupervise, uses simple bins
-        p3.operation.add(discretize);
+        p3.operation.add(discretize); //unsupervise, uses simple bins        
         p3.properties.numericToNominal = true;
         p3.properties.replaceMissingValuesMeanMode = true;
         output.add(p3);
@@ -191,17 +189,15 @@ public class TestExecutor implements Callable<Boolean> {
         nominalToBinary.setBinaryAttributesNominal(true);
         nominalToBinary.setTransformAllValues(true);
         nominalToBinary.setAttributeIndices("first-last");
-        //unsupervised
-        p4.operation.add(nominalToBinary);
+        p4.operation.add(nominalToBinary); //unsupervised
         p4.properties.nominalToBinary = true;
         output.add(p4);
 
         //#5 nominal to binary, dummy variables 1-K And Replace Missing Values Mean Mode
         Preprocesser p5 = new Preprocesser(id++, Preprocesser.NOMINAL_TO_BINARY + ", "
                 + Preprocesser.REPLACE_MISSING_VALUES);
-        //unsupervised
-        p5.operation.add(new ReplaceMissingValues());
-        p5.operation.add(nominalToBinary);
+        p5.operation.add(new ReplaceMissingValues()); //unsupervised
+        p5.operation.add(nominalToBinary); //unsupervised
         p5.properties.nominalToBinary = true;
         p5.properties.replaceMissingValuesMeanMode = true;
         output.add(p5);

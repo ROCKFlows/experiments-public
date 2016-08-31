@@ -3,7 +3,6 @@ package fr.unice.i3s.rockflows.experiments.main;
 import fr.unice.i3s.rockflows.experiments.datamining.AttributeType;
 import fr.unice.i3s.rockflows.experiments.datamining.InfoPattern;
 import fr.unice.i3s.rockflows.experiments.datamining.MVType;
-import fr.unice.i3s.rockflows.tools.FileUtils;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -16,6 +15,13 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
 /**
  * @author Luca
@@ -48,16 +54,17 @@ public class MainExperiment {
 
         //input patterns
         List<InfoPattern> patterns = getPatterns();
+        int numPatterns = patterns.size();
 
         //create pattern folders
         List<String> dirPatterns = new ArrayList<>();
-        for (InfoPattern pattern : patterns) {
-            String patternDir = pathDest + pattern.id + "/";
+        for (int k = 0; k < numPatterns; k++) {
+            String patternDir = pathDest + patterns.get(k).id + "/";
             File dir = new File(patternDir);
             dir.mkdirs();
             //create read me file
             String readMe = patternDir + "readme";
-            writeReadMe(readMe, pattern);
+            writeReadMe(readMe, patterns.get(k));
             dirPatterns.add(patternDir);
         }
 
@@ -79,14 +86,14 @@ public class MainExperiment {
             String dir = dirPatterns.get(i);
             File folder = new File(dir);
             int len = folder.listFiles().length;
-            if (len < minDb + 3) { //config pattern + 2 analysis tools
+            if (len < minDb + 3) { //config pattern + 2 analysis files
                 File[] files = folder.listFiles();
                 for (int k = 0; k < len; k++) {
                     files[k].delete();
                 }
                 //get database folders
                 files = folder.listFiles();
-                //for each folder, delete tools that it contains
+                //for each folder, delete files that it contains
                 int size = files.length;
                 for (int k = 0; k < size; k++) {
                     File[] toDel = files[k].listFiles();
@@ -124,7 +131,7 @@ public class MainExperiment {
         int numPatterns = patterns.size();
 
         //input list datasets
-        List<String> datasets = FileUtils.getListDirectories(pathSource);
+        List<String> datasets = getListDirectories(pathSource);
 
         int numFiles = datasets.size();
         //ExecutorService exec = Executors.newFixedThreadPool(numPatterns * numFiles);
@@ -135,7 +142,8 @@ public class MainExperiment {
                 String dsName = datasets.get(iii);
                 String currentSource = pathSource + dsName + "/";
                 String currentDest = pathDest + patterns.get(k).id + "/" + dsName + "/";
-                TestExecutor test = new TestExecutor(currentSource, currentDest, patterns.get(k));
+                TestExecutor test = new TestExecutor(currentSource, currentDest,
+                        patterns.get(k));
                 exec.submit(test);
             }
         }
@@ -143,12 +151,27 @@ public class MainExperiment {
         exec.awaitTermination(Integer.MAX_VALUE, TimeUnit.DAYS);
     }
 
-    public static void writeReadMe(String path, InfoPattern pattern) throws IOException {
+    public static void writeReadMe(String path, InfoPattern pattern)
+            throws IOException {
+
         FileWriter readMe = new FileWriter(path);
         PrintWriter writer = new PrintWriter(readMe);
         writer.write(pattern.toString());
         writer.close();
         readMe.close();
+    }
+
+    public static List<String> getFileConfigNames(String pathFolder) {
+
+        List<String> fileNames = new ArrayList<>();
+        File folder = new File(pathFolder);
+        File[] listOfFiles = folder.listFiles();
+        for (int i = 0; i < listOfFiles.length; i++) {
+            if (listOfFiles[i].isFile()) {
+                fileNames.add(listOfFiles[i].getName());
+            }
+        }
+        return fileNames;
     }
 
     public static List<String> readClassifierNames(String path) {
@@ -166,17 +189,43 @@ public class MainExperiment {
         return names;
     }
 
+    public static List<String> getListFiles(String basePath) {
+
+        List<String> fileNames = new ArrayList<>();
+        File folder = new File(basePath);
+        File[] listOfFiles = folder.listFiles();
+        for (int i = 0; i < listOfFiles.length; i++) {
+            if (listOfFiles[i].isFile()) {
+                fileNames.add(listOfFiles[i].getName());
+            }
+        }
+        return fileNames;
+    }
+
+    public static List<String> getListDirectories(String basePath) {
+
+        List<String> fileNames = new ArrayList<>();
+        File folder = new File(basePath);
+        File[] listOfFiles = folder.listFiles();
+        for (int i = 0; i < listOfFiles.length; i++) {
+            if (listOfFiles[i].isDirectory()) {
+                fileNames.add(listOfFiles[i].getName());
+            }
+        }
+        return fileNames;
+    }
+
     public static List<InfoPattern> getPatterns() {
 
         String base = "pattern";
         int id = 1;
         List<InfoPattern> patterns = new ArrayList<>();
 
-        int[] minAtt = new int[] {0, 10, 50};
-        int[] maxAtt = new int[] {10, 50, 100};
-        int[] minClass = new int[] {2, 3};
-        int[] maxClass = new int[] {2, -1};
-        int[] minInst = new int[] {0};
+        int[] minAtt = new int[] {0};
+        int[] maxAtt = new int[] {100};
+        int[] minClass = new int[] {2};
+        int[] maxClass = new int[] {-1};
+        int[] minInst = new int[] {10000};
         int[] maxInst = new int[] {1000000};
         MVType[] missingValues = new MVType[] {
                 MVType.Ignore

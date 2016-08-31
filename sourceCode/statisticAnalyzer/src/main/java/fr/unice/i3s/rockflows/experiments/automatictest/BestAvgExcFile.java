@@ -1,6 +1,6 @@
 package fr.unice.i3s.rockflows.experiments.automatictest;
 
-import fr.unice.i3s.rockflows.experiments.TestResult;
+import fr.unice.i3s.rockflows.experiments.datamining.TestResult;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -84,7 +84,7 @@ public class BestAvgExcFile {
         //like a query sql:
         //order by rankAccuracy,AccuracyAvg(desc)
         results.sort((TestResult r1, TestResult r2) -> {
-            return Double.compare(r2.modelSizeAvg, r1.modelSizeAvg);
+            return Double.compare(r2.ramAvg, r1.ramAvg);
         });
 
         writeResultExcel(results, numDatasets);
@@ -150,15 +150,15 @@ public class BestAvgExcFile {
             // Create a title row. Rows are 0 based.
             TestResult res = results.get(iii);
             Row row = sheetAvg.createRow((short) (rowIndex));
-            row.createCell(algorithmColumn).setCellValue(res.infoclassifier.name);
+            row.createCell(algorithmColumn).setCellValue(res.algoName);
             row.createCell(stDevAccColumn).setCellValue(res.accuracyStDev);
             row.createCell(avgAccColumn).setCellValue(res.accuracyAvg);
             row.createCell(rankColumn).setCellValue(res.rankAccuracy);
             row.createCell(totalTimeColumn).setCellValue((int) res.totalTimeAvg);
-            row.createCell(ramColumn).setCellValue((int) res.modelSizeAvg);
+            row.createCell(ramColumn).setCellValue((int) res.ramAvg);
 
             Row row2 = sheetBestPrep.createRow((short) (rowIndex));
-            row2.createCell(algorithmColumn).setCellValue(res.infoclassifier.name);
+            row2.createCell(algorithmColumn).setCellValue(res.algoName);
             row2.createCell(p0Column).setCellValue(res.contPreProc[0]);
             row2.createCell(p1Column).setCellValue(res.contPreProc[1]);
             row2.createCell(p2Column).setCellValue(res.contPreProc[2]);

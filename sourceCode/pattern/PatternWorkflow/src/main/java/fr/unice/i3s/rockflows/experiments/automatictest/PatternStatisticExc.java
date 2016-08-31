@@ -62,7 +62,7 @@ public class PatternStatisticExc {
     public void writeValues(List<ResWorkflow> classifiers, int total)
             throws Exception {
 
-        int index = 3; //first row of results
+        int index = 3; //first row of results        
         int num = classifiers.size();
         for (int i = 0; i < num; i++) {
             ResWorkflow res = classifiers.get(i);

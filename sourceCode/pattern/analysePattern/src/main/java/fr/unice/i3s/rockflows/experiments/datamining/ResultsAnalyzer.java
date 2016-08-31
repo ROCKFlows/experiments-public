@@ -1,8 +1,11 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package fr.unice.i3s.rockflows.experiments.datamining;
 
-import fr.unice.i3s.rockflows.experiments.Status;
-import fr.unice.i3s.rockflows.experiments.TestResult;
-import fr.unice.i3s.rockflows.statistics.Significance;
+import fr.unice.i3s.rockflows.experiments.significance.Significance;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +19,8 @@ public class ResultsAnalyzer {
     public static List<TestResult> getResultsPerClassifier(List<TestResult> results, int classifierId) {
         List<TestResult> output = new ArrayList<>();
         for (TestResult res : results) {
-            if (res.infoclassifier.id == classifierId) {
-                if (res.infoclassifier.properties.compatibleWithDataset) {
+            if (res.algoId == classifierId) {
+                if (res.compatible) {
                     output.add(res);
                 }
             }
@@ -89,7 +92,7 @@ public class ResultsAnalyzer {
                             continue; //check the next one
                         }
                         //if the avg is different, it is checked if the difference is significant
-                        if (Significance.isSignificantDifferent(first.array, current.array, alpha, false)) {
+                        if (Significance.isSignificantDifferent(first.array, current.array, alpha)) {
                             //if significant different, increase of 1 the rank from the current element
                             //until the last one
                             current.rank++;
@@ -148,7 +151,7 @@ public class ResultsAnalyzer {
             LocalResult current = results.get(iii);
             //check if the difference between the previous and the current is statistically different
             boolean different = Significance.isSignificantDifferent(previous.array,
-                    current.array, alpha, false);
+                    current.array, alpha);
 
             if (different && (current.avg == previous.avg)) {
                 //check if later there are other results with the same average
@@ -166,7 +169,7 @@ public class ResultsAnalyzer {
                 for (int j = 0; j < later.size(); j++) {
                     LocalResult toCheck = later.get(j);
                     boolean dif = Significance.isSignificantDifferent(previous.array,
-                            toCheck.array, alpha, false);
+                            toCheck.array, alpha);
                     if (!dif) {
                         //this results has to have the same rank of "previous"
                         toCheck.rank = previous.rank;
@@ -198,7 +201,7 @@ public class ResultsAnalyzer {
                         //check statistic different of each element with the last one
                         //by starting from the lowest one
                         LocalResult current = toAnalyse.get(j);
-                        if (Significance.isSignificantDifferent(last.array, current.array, alpha, false)) {
+                        if (Significance.isSignificantDifferent(last.array, current.array, alpha)) {
                             //if these are different, the maxRank increase of 1
                             //so also the others increase
                             for (int k = maxRank; k > i; k--) {
@@ -240,7 +243,7 @@ public class ResultsAnalyzer {
                         //check statistic different of each element with the last one
                         //by starting from the lowest one
                         LocalResult current = toAnalyse.get(j);
-                        if (Significance.isSignificantDifferent(first.array, current.array, alpha, false)) {
+                        if (Significance.isSignificantDifferent(first.array, current.array, alpha)) {
                             for (int k = maxRank; k > i; k--) {
                                 List<LocalResult> toIncrement = getResultsByRank(k, results);
                                 for (int p = 0; p < toIncrement.size(); p++) {
@@ -350,16 +353,16 @@ public class ResultsAnalyzer {
         //sum time
         if (folds4) {
             results.stream().forEach((TestResult tr) -> {
-                tr.sumTime = tr.trainingTimeAvg + tr.testTimeAvg + tr.dataset.preprocessingTime;
+                tr.sumTime = tr.trainingTimeAvg + tr.testTimeAvg + tr.preProcTime;
                 for (int i = 0; i < 4; i++) {
-                    tr.totalTime4f[i] = tr.dataset.preprocessingTime + tr.trainingTime4f[i] + tr.testTime4f[i];
+                    tr.totalTime4f[i] = tr.preProcTime + tr.trainingTime4f[i] + tr.testTime4f[i];
                 }
             });
         } else {
             results.stream().forEach((TestResult tr) -> {
-                tr.sumTime = tr.trainingTimeAvg10 + tr.testTimeAvg10 + tr.dataset.preprocessingTime;
+                tr.sumTime = tr.trainingTimeAvg10 + tr.testTimeAvg10 + tr.preProcTime;
                 for (int i = 0; i < 10; i++) {
-                    tr.totalTime10f[i] = tr.dataset.preprocessingTime + tr.trainingTime10f[i] + tr.testTime10f[i];
+                    tr.totalTime10f[i] = tr.preProcTime + tr.trainingTime10f[i] + tr.testTime10f[i];
                 }
             });
         }

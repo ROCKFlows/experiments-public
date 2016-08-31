@@ -1,12 +1,10 @@
 package fr.unice.i3s.rockflows.experiments.main;
 
-import fr.unice.i3s.rockflows.datamining.Dataset;
-import fr.unice.i3s.rockflows.experiments.InfoClassifier;
-import fr.unice.i3s.rockflows.experiments.TestResult;
 import fr.unice.i3s.rockflows.experiments.automatictest.AvgExcFile;
 import fr.unice.i3s.rockflows.experiments.automatictest.BestAvgExcFile;
 import fr.unice.i3s.rockflows.experiments.datamining.ResultsAnalyzer;
-import fr.unice.i3s.rockflows.statistics.StatisticsUtils;
+import fr.unice.i3s.rockflows.experiments.datamining.TestResult;
+import fr.unice.i3s.rockflows.experiments.significance.Statistics;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -63,8 +61,9 @@ public class MainExperiment {
     public static void computeTimeRam(List<String> datasets, int nthread, String pathExcelFolder,
                                       String pathOutput) throws Exception {
 
+        //int[] noSel = new int[]{0,1,2,3,11};                
         //int[] noSel = new int[]{6,7,8,12};
-        int[] noSel = new int[]{9,10};
+        int[] noSel = new int[] {9, 10};
 
         //read 999 results 4 folds
         List<TestResult> fin1 = computeFile(datasets, nthread, pathExcelFolder, true, noSel);
@@ -203,29 +202,28 @@ public class MainExperiment {
         numDatasets = globalResults.size();
         List<TestResult> resFinal = new ArrayList<>();
         for (int id = 0; id < numAlgo; id++) {
-            Dataset ds = new Dataset(-1, "");
-            TestResult trBest = new TestResult(ds, new InfoClassifier(id));
+            TestResult trBest = new TestResult();
             trBest.accuracyAvg = 0;
             trBest.totalTimeAvg = 0;
-            trBest.modelSizeAvg = 0;
+            trBest.ramAvg = 0;
             trBest.accuracies = new double[numDatasets];
             trBest.times = new double[numDatasets];
             trBest.rams = new double[numDatasets];
-            trBest.infoclassifier.name = globalResults.get(0).get(id).infoclassifier.name;
-            trBest.infoclassifier.properties.compatibleWithDataset =
-                    globalResults.get(0).get(id).infoclassifier.properties.compatibleWithDataset;
+            trBest.algoId = id;
+            trBest.algoName = globalResults.get(0).get(id).algoName;
+            trBest.compatible = globalResults.get(0).get(id).compatible;
             List<Double> avgs = new ArrayList<>();
             for (int k = 0; k < numDatasets; k++) {
                 TestResult tmp = globalResults.get(k).get(id);
                 trBest.accuracyAvg += tmp.accuracyAvg;
-                trBest.modelSizeAvg += tmp.modelSizeAvg;
-                trBest.totalTimeAvg += tmp.trainingTimeAvg + tmp.testTimeAvg;
+                trBest.ramAvg += tmp.ramAvg;
+                trBest.totalTimeAvg += tmp.trainTimeAvg + tmp.testTimeAvg;
                 trBest.accuracies[k] = tmp.accuracyAvg;
-                trBest.rams[k] = tmp.modelSizeAvg;
-                trBest.times[k] = tmp.trainingTimeAvg + tmp.testTimeAvg;
+                trBest.rams[k] = tmp.ramAvg;
+                trBest.times[k] = tmp.trainTimeAvg + tmp.testTimeAvg;
                 avgs.add(tmp.accuracyAvg);
                 //get best pre-processed used
-                int idPrep = tmp.dataset.id;
+                int idPrep = tmp.preProcId;
                 if (idPrep == 999) {
                     idPrep = 11;
                 }
@@ -233,8 +231,8 @@ public class MainExperiment {
             }
             trBest.accuracyAvg /= numDatasets;
             trBest.totalTimeAvg /= numDatasets;
-            trBest.modelSizeAvg /= numDatasets;
-            trBest.accuracyStDev = StatisticsUtils.getStdDev(avgs);
+            trBest.ramAvg /= numDatasets;
+            trBest.accuracyStDev = Statistics.getStdDev(avgs);
             resFinal.add(trBest);
         }
 

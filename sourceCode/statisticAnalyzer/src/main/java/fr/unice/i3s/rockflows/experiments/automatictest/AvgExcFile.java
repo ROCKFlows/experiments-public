@@ -1,6 +1,6 @@
 package fr.unice.i3s.rockflows.experiments.automatictest;
 
-import fr.unice.i3s.rockflows.experiments.TestResult;
+import fr.unice.i3s.rockflows.experiments.datamining.TestResult;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -14,18 +14,18 @@ import java.util.List;
 
 public class AvgExcFile {
 
-    private XSSFWorkbook workbook;
-    private XSSFSheet sheet;
-    private String path;
-    private int rowTitleIndex = 1;
-    private int rowValueOffset = 3;
-    private int start = 2;
-    private int algorithmColumn = start++;
-    private int rankColumn = start++;
-    private int avgAccColumn = start++;
-    private int stDevAccColumn = start++;
-    private int totalTimeColumn = start++;
-    private int ramColumn = start++;
+    public XSSFWorkbook workbook;
+    public XSSFSheet sheet;
+    public String path;
+    public int rowTitleIndex = 1;
+    public int rowValueOffset = 3;
+    int start = 2;
+    public int algorithmColumn = start++;
+    public int rankColumn = start++;
+    public int avgAccColumn = start++;
+    public int stDevAccColumn = start++;
+    public int totalTimeColumn = start++;
+    public int ramColumn = start++;
 
     public void writeFinalExcelFile(String path, List<TestResult> results) throws Exception {
 
@@ -100,12 +100,12 @@ public class AvgExcFile {
             // Create a title row. Rows are 0 based.
             TestResult res = results.get(iii);
             Row row = sheet.createRow((short) (rowIndex));
-            row.createCell(algorithmColumn).setCellValue(res.infoclassifier.name);
+            row.createCell(algorithmColumn).setCellValue(res.algoName);
             row.createCell(avgAccColumn).setCellValue(res.accuracyAvg);
             row.createCell(stDevAccColumn).setCellValue(res.accuracyStDev);
             row.createCell(rankColumn).setCellValue(res.rankAccuracy);
-            row.createCell(totalTimeColumn).setCellValue((int) res.trainingTimeAvg + res.testTimeAvg);
-            row.createCell(ramColumn).setCellValue((int) res.modelSizeAvg);
+            row.createCell(totalTimeColumn).setCellValue((int) res.totalTimeAvg);
+            row.createCell(ramColumn).setCellValue((int) res.ramAvg);
         }
 
     }

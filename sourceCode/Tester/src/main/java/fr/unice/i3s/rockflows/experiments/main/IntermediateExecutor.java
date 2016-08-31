@@ -1,10 +1,15 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package fr.unice.i3s.rockflows.experiments.main;
 
-import fr.unice.i3s.rockflows.datamining.DataMiningUtils;
-import fr.unice.i3s.rockflows.datamining.Dataset;
-import fr.unice.i3s.rockflows.experiments.InfoClassifier;
-import fr.unice.i3s.rockflows.experiments.TestResult;
 import fr.unice.i3s.rockflows.experiments.automatictest.IntermediateExcelFile;
+import fr.unice.i3s.rockflows.experiments.datamining.DataMiningUtils;
+import fr.unice.i3s.rockflows.experiments.datamining.Dataset;
+import fr.unice.i3s.rockflows.experiments.datamining.InfoClassifier;
+import fr.unice.i3s.rockflows.experiments.datamining.TestResult;
 import weka.classifiers.bayes.BayesNet;
 import weka.classifiers.bayes.NaiveBayes;
 import weka.classifiers.functions.LibSVM;
@@ -68,17 +73,18 @@ import java.util.concurrent.TimeUnit;
  */
 public class IntermediateExecutor implements Callable<Boolean> {
 
-    private Dataset data;
-    private String dataPath = "";
-    private String excPath = "";
-    private String conxuntosPath = "";
-    private String conxuntosKFoldPath = "";
-    private int indexDecorate = -1;
-    private List<InfoClassifier> classifiers;
-    private double alpha = 0.05;
+    Dataset data;
+    String dataPath = "";
+    String excPath = "";
+    String conxuntosPath = "";
+    String conxuntosKFoldPath = "";
+    int indexDecorate = -1;
+    List<InfoClassifier> classifiers;
+    double alpha = 0.05;
 
-    public IntermediateExecutor(Dataset data, String dataPath, String excPath,
-                                String conxuntosPath, String conxuntosKFoldPath, double alpha) throws Exception {
+    public IntermediateExecutor(Dataset data, String dataPath,
+                                String excPath, String conxuntosPath, String conxuntosKFoldPath,
+                                double alpha) throws Exception {
         this.data = data;
         this.dataPath = dataPath;
         this.excPath = excPath;
@@ -97,9 +103,9 @@ public class IntermediateExecutor implements Callable<Boolean> {
 
             File fff = new File(excPath + "000.error");
             Writer www = new FileWriter(fff);
-            www.append(this.data.name).append(" :BEGIN, ");
+            www.append(this.data.name + " :BEGIN, ");
             exc.printStackTrace(new PrintWriter(www));
-            www.append(",:END ").append(this.data.name);
+            www.append(",:END " + this.data.name);
             www.append(exc.getMessage());
             www.flush();
             www.close();
@@ -109,7 +115,7 @@ public class IntermediateExecutor implements Callable<Boolean> {
         return true;
     }
 
-    private void execute() throws Exception {
+    public void execute() throws Exception {
 
         if (!data.existing) {
             DataMiningUtils.writeArff(data.trainingSet, dataPath);

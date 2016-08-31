@@ -52,12 +52,17 @@
             <artifactId>poi</artifactId>
             <version>3.14</version>
         </dependency>
-
-        <!-- commons project with utilities for handling experiments -->
         <dependency>
-            <groupId>fr.unice.i3s.rockflows.expe</groupId>
-            <artifactId>commons</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-math3</artifactId>
+            <version>3.6</version>
+        </dependency>
+        <dependency>
+            <groupId>jdistlib</groupId>
+            <artifactId>jdistlib</artifactId>
+            <version>0.4.4</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/src/main/resources/jdistlib-0.4.4-bin.jar</systemPath>
         </dependency>
     </dependencies>
 
@@ -77,7 +82,7 @@
                 <artifactId>maven-assembly-plugin</artifactId>
                 <configuration>
                     <finalName>dm-experiments</finalName>
-                    <finalName>test</finalName>
+                    <finalName>analyer</finalName>
                     <archive>
                         <manifest>
                             <mainClass>fr.unice.i3s.rockflows.experiments.main.MainExperiment</mainClass>

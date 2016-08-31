@@ -1,8 +1,8 @@
 package fr.unice.i3s.rockflows.experiments.main;
 
-import fr.unice.i3s.rockflows.experiments.TestResult;
 import fr.unice.i3s.rockflows.experiments.automatictest.AutomaticTest;
 import fr.unice.i3s.rockflows.experiments.automatictest.IntermediateExcelFile;
+import fr.unice.i3s.rockflows.experiments.datamining.TestResult;
 
 import java.io.File;
 import java.io.FileWriter;

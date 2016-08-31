@@ -1,12 +1,18 @@
 package fr.unice.i3s.rockflows.experiments.main;
 
-import fr.unice.i3s.rockflows.tools.FileUtils;
-
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
 /**
  * @author Luca
@@ -16,7 +22,7 @@ public class MainExperiment {
     public static void main(String[] args) throws Exception {
 
         String pathExcelFolder = "";
-        int nthread = 2;
+        int nthread = 2; //default;
         boolean status = false;
 
         int numParameters = args.length;
@@ -38,7 +44,7 @@ public class MainExperiment {
         }
 
         //input list datasets
-        List<String> datasets = FileUtils.getListDirectories(pathExcelFolder);
+        List<String> datasets = inputDatasets(pathExcelFolder);
 
         int numFiles = datasets.size();
         ExecutorService exec = Executors.newFixedThreadPool(nthread);
@@ -60,4 +66,22 @@ public class MainExperiment {
         }
     }
 
+    public static List<String> inputDatasets(String pathDatasets) {
+
+        List<String> datasets = getListDirectories(pathDatasets);
+        return datasets;
+    }
+
+    public static List<String> getListDirectories(String basePath) {
+
+        List<String> fileNames = new ArrayList<>();
+        File folder = new File(basePath);
+        File[] listOfFiles = folder.listFiles();
+        for (int i = 0; i < listOfFiles.length; i++) {
+            if (listOfFiles[i].isDirectory()) {
+                fileNames.add(listOfFiles[i].getName());
+            }
+        }
+        return fileNames;
+    }
 }

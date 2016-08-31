@@ -5,11 +5,8 @@
  */
 package fr.unice.i3s.rockflows.experiments.automatictest;
 
-import fr.unice.i3s.rockflows.datamining.Dataset;
-import fr.unice.i3s.rockflows.experiments.InfoClassifier;
-import fr.unice.i3s.rockflows.experiments.TestResult;
 import fr.unice.i3s.rockflows.experiments.datamining.ResultsAnalyzer;
-import fr.unice.i3s.rockflows.tools.ExcelUtils;
+import fr.unice.i3s.rockflows.experiments.datamining.TestResult;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
@@ -55,10 +52,10 @@ public final class AutomaticTest {
         int algoId = 0;
         while (rows.hasNext()) {
 
-            Dataset dataset = new Dataset(id, "" + id);
-
-            TestResult currentRes = new TestResult(dataset, new InfoClassifier(algoId++));
-            currentRes.dataset.preprocessingTime = (long) preProcTime;
+            TestResult currentRes = new TestResult();
+            currentRes.preProcId = id;
+            currentRes.preProcTime = (long) preProcTime;
+            currentRes.algoId = algoId++;
             currentRes.dataProp = dataProp;
             currentRes.preProcProp = preProcProp;
 
@@ -76,7 +73,7 @@ public final class AutomaticTest {
             if (resAlgoCell == null) {
                 continue;
             }
-            currentRes.infoclassifier.name = ExcelUtils.getStringValue(resAlgoCell);
+            currentRes.algoName = ExcelUtils.getStringValue(resAlgoCell);
 
             XSSFCell resCompatibleCell = (XSSFCell) res4.getCell(file.algoCompatible);
             if (resCompatibleCell == null) {
@@ -85,7 +82,7 @@ public final class AutomaticTest {
             String compatible = ExcelUtils.getStringValue(resCompatibleCell);
 
             if (compatible.equals("y")) {
-                currentRes.infoclassifier.properties.compatibleWithDataset = true;
+                currentRes.compatible = true;
                 //read avg values
                 XSSFCell resAccuracyCell = (XSSFCell) res4.getCell(file.accuracyColumn);
                 XSSFCell resTrainTimeCell = (XSSFCell) res4.getCell(file.trainingTimeColumn);
@@ -136,10 +133,10 @@ public final class AutomaticTest {
                 currentRes.modelSize4f[2] = ExcelUtils.getDoubleValue(resValue3Cell);
                 currentRes.modelSize4f[3] = ExcelUtils.getDoubleValue(resValue4Cell);
             } else {
-                currentRes.infoclassifier.properties.compatibleWithDataset = false;
+                currentRes.compatible = false;
             }
 
-            if (currentRes.infoclassifier.properties.compatibleWithDataset) {
+            if (currentRes.compatible) {
                 res.add(currentRes);
             }
 
@@ -174,8 +171,10 @@ public final class AutomaticTest {
         int algoId = 0;
         while (rows.hasNext()) {
 
-            TestResult currentRes = new TestResult(new Dataset(id, "" + id), new InfoClassifier(algoId++));
-            currentRes.dataset.preprocessingTime = (long) preProcTime;
+            TestResult currentRes = new TestResult();
+            currentRes.preProcId = id;
+            currentRes.preProcTime = (long) preProcTime;
+            currentRes.algoId = algoId++;
             currentRes.dataProp = dataProp;
             currentRes.preProcProp = preProcProp;
 
@@ -193,7 +192,7 @@ public final class AutomaticTest {
             if (resAlgoCell == null) {
                 continue;
             }
-            currentRes.infoclassifier.name = ExcelUtils.getStringValue(resAlgoCell);
+            currentRes.algoName = ExcelUtils.getStringValue(resAlgoCell);
 
             XSSFCell resCompatibleCell = (XSSFCell) res10.getCell(file.algoCompatible);
             if (resCompatibleCell == null) {
@@ -202,7 +201,7 @@ public final class AutomaticTest {
             String compatible = ExcelUtils.getStringValue(resCompatibleCell);
 
             if (compatible.equals("y")) {
-                currentRes.infoclassifier.properties.compatibleWithDataset = true;
+                currentRes.compatible = true;
                 //read avg values
                 XSSFCell resAccuracyCell = (XSSFCell) res10.getCell(file.accuracyColumn);
                 XSSFCell resTrainTimeCell = (XSSFCell) res10.getCell(file.trainingTimeColumn);
@@ -303,9 +302,9 @@ public final class AutomaticTest {
                 currentRes.modelSize10f[9] = ExcelUtils.getDoubleValue(resValue10Cell);
 
             } else {
-                currentRes.infoclassifier.properties.compatibleWithDataset = false;
+                currentRes.compatible = false;
             }
-            if (currentRes.infoclassifier.properties.compatibleWithDataset) {
+            if (currentRes.compatible) {
                 res.add(currentRes);
             }
         }

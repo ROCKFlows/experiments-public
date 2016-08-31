@@ -7,9 +7,8 @@ package fr.unice.i3s.rockflows.experiments.main;
 
 import fr.unice.i3s.rockflows.experiments.automatictest.AnalyseExcelFile;
 import fr.unice.i3s.rockflows.experiments.automatictest.PatternStatisticExc;
+import fr.unice.i3s.rockflows.experiments.automatictest.Statistics;
 import fr.unice.i3s.rockflows.experiments.datamining.ResWorkflow;
-import fr.unice.i3s.rockflows.statistics.StatisticsUtils;
-import fr.unice.i3s.rockflows.tools.FileUtils;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -25,15 +24,18 @@ import java.util.stream.Collectors;
  */
 public class AnalysePatternExecutor implements Callable<Boolean> {
 
-    private String dir = "";
-    private List<String> names;
+    String dir = "";
+    List<String> names;
 
-    public AnalysePatternExecutor(String patternDirectory, List<String> names) throws Exception {
+    public AnalysePatternExecutor(String patternDirectory, List<String> names)
+            throws Exception {
+
         this.dir = patternDirectory;
         this.names = names;
     }
 
     public void executeTest() throws Exception {
+
         //collect results for each dataset (Test-0.arff, Test-1.arff, ...) of each database
         //(adult, abalone, ...)
 
@@ -46,7 +48,7 @@ public class AnalysePatternExecutor implements Callable<Boolean> {
         List<ResWorkflow> workflows = inputWorkflows(names);
 
         //get all folders of this pattern
-        List<String> folders = FileUtils.getListDirectories(dir);
+        List<String> folders = getListDirectories(dir);
 
         //for each folder, read analysis of each dataset that is present
         int num = folders.size();
@@ -54,8 +56,8 @@ public class AnalysePatternExecutor implements Callable<Boolean> {
         if (num == 0) {
             return;
         }
-        for (String folder : folders) {
-            String pathFolder = dir + "/" + folder;
+        for (int i = 0; i < num; i++) {
+            String pathFolder = dir + "/" + folders.get(i);
             String analysis = pathFolder + "/" + "Final-Analysis-4Folds.xlsx";
             AnalyseExcelFile exc = new AnalyseExcelFile(analysis);
             exc.readValues(workflows);
@@ -66,6 +68,13 @@ public class AnalysePatternExecutor implements Callable<Boolean> {
 
         //and write file analysis for the entire pattern
         PatternStatisticExc exc = new PatternStatisticExc(dir + "/analysis-4Folds.xlsx");
+        //sort classifiers, the first one is the best one for this pattern:
+        /*//order by: (desc)
+            - avg Rank
+            - st.dev rank
+            - avg accuracy
+            - st.dev accuracy
+        */
 
         //compute percentage of compatibility
         this.computePercCompatibility(workflows, num);
@@ -79,7 +88,7 @@ public class AnalysePatternExecutor implements Callable<Boolean> {
         List<ResWorkflow> workflows = inputWorkflows(names);
 
         //get all folders of this pattern
-        List<String> folders = FileUtils.getListDirectories(dir);
+        List<String> folders = getListDirectories(dir);
 
         //for each folder, read analysis of each dataset that is present
         int num = folders.size();
@@ -87,8 +96,8 @@ public class AnalysePatternExecutor implements Callable<Boolean> {
         if (num == 0) {
             return;
         }
-        for (String folder : folders) {
-            String pathFolder = dir + "/" + folder;
+        for (int i = 0; i < num; i++) {
+            String pathFolder = dir + "/" + folders.get(i);
             String analysis = pathFolder + "/" + "Final-Analysis-10Folds.xlsx";
             AnalyseExcelFile exc = new AnalyseExcelFile(analysis);
             exc.readValues(workflows);
@@ -100,6 +109,12 @@ public class AnalysePatternExecutor implements Callable<Boolean> {
         //and write file analysis for the entire pattern
         PatternStatisticExc exc = new PatternStatisticExc(dir + "/analysis-10Folds.xlsx");
         //sort classifiers, the first one is the best one for this pattern:
+        /*//order by: (desc)
+            - avg Rank
+            - st.dev rank
+            - avg accuracy
+            - st.dev accuracy
+        */
 
         //compute percentage of compatibility
         this.computePercCompatibility(workflows, num);
@@ -112,14 +127,20 @@ public class AnalysePatternExecutor implements Callable<Boolean> {
         //get workflows with compatibility < 100%
         List<ResWorkflow> notFull = res.stream()
                 .filter((ResWorkflow work) -> {
-                    return work.percCompatible < 1;
+                    if (work.percCompatible < 1) {
+                        return true;
+                    }
+                    return false;
                 })
                 .collect(Collectors.toList());
 
-        //get workflows with compatibility = 100%
+        //get workflows with compatibility < 100%
         List<ResWorkflow> full = res.stream()
                 .filter((ResWorkflow work) -> {
-                    return work.percCompatible == 1;
+                    if (work.percCompatible == 1) {
+                        return true;
+                    }
+                    return false;
                 })
                 .collect(Collectors.toList());
 
@@ -131,7 +152,10 @@ public class AnalysePatternExecutor implements Callable<Boolean> {
     }
 
     public void computePercCompatibility(List<ResWorkflow> values, double cont) {
-        for (ResWorkflow res : values) {
+
+        int num = values.size();
+        for (int i = 0; i < num; i++) {
+            ResWorkflow res = values.get(i);
             res.percCompatible = (double) res.accuracy.size() / cont;
         }
     }
@@ -151,14 +175,24 @@ public class AnalysePatternExecutor implements Callable<Boolean> {
 
         List<ResWorkflow> output = new ArrayList<>();
 
+        //sort the compatible list
+        /*//order by
+            - avg Rank (desc)        
+            - num best rank (asc)
+            - % compatibility (desc)        
+            - avg Accuracy (desc)
+        */
+
         //sort avg rank asc
         //get list of distinct values of avg Rank
         List<Double> distinct = removeDuplicates(compatible);
         //sort avgRank asc
-        distinct.sort(Double::compare);
-
-        for (Double currentAvgAccRank : distinct) {
+        distinct.sort((Double r1, Double r2) ->
+                Double.compare(r1, r2));
+        int num = distinct.size();
+        for (int i = 0; i < num; i++) {
             //get results s.t. avgAccRank == current rankAcc
+            double currentAvgAccRank = distinct.get(i);
             List<ResWorkflow> tmp = getResultsNumBest(compatible, currentAvgAccRank);
             //sort list according to rankAccAvg
             tmp.sort((ResWorkflow r1, ResWorkflow r2) ->
@@ -172,8 +206,11 @@ public class AnalysePatternExecutor implements Callable<Boolean> {
     }
 
     public List<ResWorkflow> getResultsNumBest(List<ResWorkflow> values, double value) {
+
         List<ResWorkflow> out = new ArrayList<>();
-        for (ResWorkflow current : values) {
+        int num = values.size();
+        for (int i = 0; i < num; i++) {
+            ResWorkflow current = values.get(i);
             if (current.avgAccRank == value) {
                 out.add(current);
             }
@@ -183,8 +220,11 @@ public class AnalysePatternExecutor implements Callable<Boolean> {
 
     //avgAccRank
     public List<Double> removeDuplicates(List<ResWorkflow> values) {
+
         List<Double> distinct = new ArrayList<>();
-        for (ResWorkflow current : values) {
+        int num = values.size();
+        for (int i = 0; i < num; i++) {
+            ResWorkflow current = values.get(i);
             if (!distinct.contains(current.avgAccRank)) {
                 distinct.add(current.avgAccRank);
             }
@@ -193,7 +233,10 @@ public class AnalysePatternExecutor implements Callable<Boolean> {
     }
 
     public void computeAvgStd(List<ResWorkflow> workflows) throws Exception {
-        for (ResWorkflow res : workflows) {
+
+        int num = workflows.size();
+        for (int i = 0; i < num; i++) {
+            ResWorkflow res = workflows.get(i);
             //compute avg accuracy
             int size = res.accuracy.size();
             if (size == 0) {
@@ -227,8 +270,25 @@ public class AnalysePatternExecutor implements Callable<Boolean> {
     }
 
     public void computeStDev(ResWorkflow res) {
-        res.stDevAccuracy = StatisticsUtils.getStdDev(res.accuracy);
-        res.stDevAccRank = StatisticsUtils.getStdDev(res.rankAccuracy);
+
+        Statistics stc = new Statistics(res.accuracy);
+        res.stDevAccuracy = stc.getStdDev();
+        stc = new Statistics(res.rankAccuracy);
+        res.stDevAccRank = stc.getStdDev();
+    }
+
+
+    public List<String> getListDirectories(String basePath) {
+
+        List<String> fileNames = new ArrayList<>();
+        File folder = new File(basePath);
+        File[] listOfFiles = folder.listFiles();
+        for (int i = 0; i < listOfFiles.length; i++) {
+            if (listOfFiles[i].isDirectory()) {
+                fileNames.add(listOfFiles[i].getName());
+            }
+        }
+        return fileNames;
     }
 
     @Override

@@ -9,6 +9,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
@@ -33,7 +34,8 @@ public class AnalyseExcelFile {
     public int modelSize = start++;
     public int modelSizeRank = start++;
 
-    public AnalyseExcelFile(String path) throws IOException, InvalidFormatException {
+    public AnalyseExcelFile(String path)
+            throws FileNotFoundException, IOException, InvalidFormatException {
 
         //check if the file already exists, maybe it contains already the results
         //for some classifiers

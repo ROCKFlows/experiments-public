@@ -1,8 +1,8 @@
 package fr.unice.i3s.rockflows.experiments.automatictest;
 
-import fr.unice.i3s.rockflows.datamining.Dataset;
-import fr.unice.i3s.rockflows.experiments.InfoClassifier;
-import fr.unice.i3s.rockflows.experiments.TestResult;
+import fr.unice.i3s.rockflows.experiments.datamining.Dataset;
+import fr.unice.i3s.rockflows.experiments.datamining.InfoClassifier;
+import fr.unice.i3s.rockflows.experiments.datamining.TestResult;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -265,7 +265,8 @@ public class IntermediateExcelFile {
         }
     }
 
-    public synchronized void writeSheetResults(TestResult current) throws Exception {
+    public synchronized void writeSheetResults(TestResult current)
+            throws Exception {
 
         int rowIndex = current.infoclassifier.id + this.rowValueOffset;
         Row row = this.sheet.createRow((short) (rowIndex));
@@ -283,7 +284,8 @@ public class IntermediateExcelFile {
         fileOut.close();
     }
 
-    public synchronized void write4FoldsResults(TestResult current) throws Exception {
+    public synchronized void write4FoldsResults(TestResult current)
+            throws Exception {
 
         int rowIndex = current.infoclassifier.id + this.rowValueOffset;
         //sheet accuracy 4 folds

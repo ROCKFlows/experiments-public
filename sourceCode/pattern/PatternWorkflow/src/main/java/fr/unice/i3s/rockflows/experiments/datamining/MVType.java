@@ -16,7 +16,7 @@ public enum MVType {
 
     String att = "";
 
-    MVType(String str) {
+    private MVType(String str) {
         att = str;
     }
 
