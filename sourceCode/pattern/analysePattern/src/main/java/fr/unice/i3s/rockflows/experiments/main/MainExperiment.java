@@ -1,0 +1,63 @@
+package fr.unice.i3s.rockflows.experiments.main;
+
+import fr.unice.i3s.rockflows.tools.FileUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+
+/**
+ * @author Luca
+ */
+public class MainExperiment {
+
+    public static void main(String[] args) throws Exception {
+
+        String pathExcelFolder = "";
+        int nthread = 2;
+        boolean status = false;
+
+        int numParameters = args.length;
+        for (int iii = 0; iii < numParameters; iii++) {
+            switch (args[iii]) {
+                case "-pef": {
+                    pathExcelFolder = args[++iii];
+                    break;
+                }
+                case "-nthread": {
+                    nthread = Integer.parseInt(args[++iii]);
+                    break;
+                }
+                case "-status": {
+                    status = true;
+                    break;
+                }
+            }
+        }
+
+        //input list datasets
+        List<String> datasets = FileUtils.getListDirectories(pathExcelFolder);
+
+        int numFiles = datasets.size();
+        ExecutorService exec = Executors.newFixedThreadPool(nthread);
+        List<ResTest> results = new ArrayList<>();
+
+        for (int iii = 0; iii < numFiles; iii++) {
+            String dsName = datasets.get(iii);
+            String currentDataset = pathExcelFolder + dsName + "/";
+            TestExecutor test = new TestExecutor(currentDataset,
+                    datasets.get(iii), status);
+            results.add(new ResTest(exec.submit(test), dsName));
+        }
+        exec.shutdown();
+        exec.awaitTermination(Integer.MAX_VALUE, TimeUnit.DAYS);
+        //wait until all tasks have finished the tests
+        for (ResTest rt : results) {
+            Boolean output = rt.future.get();
+            System.out.println("Dataset " + rt.datasetName + " Completed Successfully: " + output.toString());
+        }
+    }
+
+}
