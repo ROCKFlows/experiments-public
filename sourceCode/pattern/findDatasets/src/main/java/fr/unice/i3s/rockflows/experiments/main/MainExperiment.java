@@ -1,22 +1,10 @@
 package fr.unice.i3s.rockflows.experiments.main;
 
-import fr.unice.i3s.rockflows.experiments.datamining.AttributeType;
 import fr.unice.i3s.rockflows.experiments.datamining.FoldsEnum;
-import fr.unice.i3s.rockflows.experiments.datamining.InfoPattern;
-import fr.unice.i3s.rockflows.experiments.datamining.ResWorkflow;
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
-
 
 /*
  * To change this license header, choose License Headers in Project Properties.
