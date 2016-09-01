@@ -35,30 +35,6 @@ public class TestExecutor implements Callable<Boolean> {
 
         List<String> names = getListFiles(pathFolderExcel, "xlsx");
                 
-        /*
-        int size = names.size();
-        for(int i = 0; i < size; i++){
-            //for current exc file
-            String name = names.get(i);
-            currentName = name;
-            String currentPath4Folds = pathFolderExcel + getNameFromPath(name) + "-Analysis-4Folds.xlsx";
-            String path = pathFolderExcel + name;
-            List<TestResult> currentResults = readIntermediateResults4Folds(path);
-            //remove not compatible results
-            List<TestResult> compatible = currentResults.stream().filter((TestResult tr) -> tr.compatible)
-                    .collect(Collectors.toList());                         
-            //true = 4Folds
-            AutomaticTest.computeResults(compatible, alpha, currentPath4Folds, status, true);
-            
-            String currentPath10Folds = pathFolderExcel + getNameFromPath(name) + "-Analysis-10Folds.xlsx";
-            currentResults = readIntermediateResults10Folds(path);
-            //remove not compatible results
-            compatible = currentResults.stream().filter((TestResult tr) -> tr.compatible)
-                    .collect(Collectors.toList());                         
-            //false = 10Folds
-            AutomaticTest.computeResults(compatible, alpha, currentPath10Folds, status, false);
-        }        
-        */
         String pathFinal = pathFolderExcel + "Final-Analysis-4Folds.xlsx";
         List<TestResult> globalResults = readAllIntermediateResults4Folds(names);  
 
@@ -75,7 +51,7 @@ public class TestExecutor implements Callable<Boolean> {
         //remove not compatible results
         compatible = globalResults.stream().filter((TestResult tr) -> tr.compatible)
                 .collect(Collectors.toList());
-        //true = 10Folds
+        //false = 10Folds
         AutomaticTest.computeResultsFinal(compatible, alpha, pathFinal, status, false);        
     }
 

@@ -69,9 +69,6 @@ public class MainExperiment {
         List<String> datasets = getListDirectories(pathExcelFolder);
 
         computePerformances(datasets, nthread, pathExcelFolder, pathOutput, index1, index2);
-        //preProcImpact(datasets, nthread, pathExcelFolder, pathOutput);
-        //missingVImpact(datasets, nthread, pathExcelFolder, pathOutput);
-        //attSelImpact(datasets, nthread, pathExcelFolder, pathOutput);
         
     }
     
