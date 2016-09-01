@@ -1,15 +1,11 @@
 package fr.unice.i3s.rockflows.experiments.main;
 
-import fr.unice.i3s.rockflows.experiments.automatictest.AvgExcFile;
 import fr.unice.i3s.rockflows.experiments.automatictest.BestAvgExcFile;
 import fr.unice.i3s.rockflows.experiments.datamining.ResultsAnalyzer;
 import fr.unice.i3s.rockflows.experiments.datamining.TestResult;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 import fr.unice.i3s.rockflows.experiments.significance.Statistics;
 
 
@@ -29,6 +25,8 @@ public class MainExperiment {
 
         String pathExcelFolder = "";
         String pathOutput = "";
+        int[] index1 = new int[2];
+        int[] index2 = new int[2];
         int nthread = 2; //default;
         
         int numParameters = args.length;
@@ -41,146 +39,78 @@ public class MainExperiment {
                 case "-out": {
                     pathOutput = args[++iii];
                     break;
+                }    
+                case "-id1":{
+                    String id1 = args[++iii];
+                    String[] indices = id1.split(",");
+                    index1 = new int[indices.length];
+                    for(int i = 0; i < indices.length; i++){
+                        index1[i] = Integer.parseInt(indices[i]);
+                    }
+                    break;                    
+                }
+                case "-id2":{
+                    String id1 = args[++iii];
+                    String[] indices = id1.split(",");
+                    index2 = new int[indices.length];
+                    for(int i = 0; i < indices.length; i++){
+                        index2[i] = Integer.parseInt(indices[i]);
+                    }
+                    break;                    
                 }                
                 case "-nthread": {
                     nthread = Integer.parseInt(args[++iii]);
                     break;
                 }                
             }
-        }
-
+        }      
+        
         //input list datasets
         List<String> datasets = getListDirectories(pathExcelFolder);
 
-        computeTimeRam(datasets, nthread, pathExcelFolder, pathOutput);
+        computePerformances(datasets, nthread, pathExcelFolder, pathOutput, index1, index2);
         //preProcImpact(datasets, nthread, pathExcelFolder, pathOutput);
         //missingVImpact(datasets, nthread, pathExcelFolder, pathOutput);
         //attSelImpact(datasets, nthread, pathExcelFolder, pathOutput);
         
     }
-
-    public static void computeTimeRam(List<String> datasets, int nthread, String pathExcelFolder,
-            String pathOutput) throws Exception{
-        
-        //int[] noSel = new int[]{0,1,2,3,11};                
-        //int[] noSel = new int[]{6,7,8,12};
-        int[] noSel = new int[]{9,10};
-        
-        //read 999 results 4 folds
-        List<TestResult> fin1 = computeFile(datasets, nthread, pathExcelFolder, true, noSel);        
-        //write file 999
-        BestAvgExcFile exc1 = new BestAvgExcFile(pathOutput);  
-        exc1.writeTimeSorted(pathOutput + "Time4Folds.xlsx", fin1, numDatasets);
-
-        //read 999 results 10 folds
-        List<TestResult> fin2 = computeFile(datasets, nthread, pathExcelFolder, false, noSel);
-        //write file 999
-        BestAvgExcFile exc2 = new BestAvgExcFile(pathOutput);  
-        exc2.writeTimeSorted(pathOutput + "Time10Folds.xlsx", fin2, numDatasets);
-
-        BestAvgExcFile exc3 = new BestAvgExcFile(pathOutput);  
-        exc3.writeRamSorted(pathOutput + "RAM4Folds.xlsx", fin1, numDatasets);
-
-        //write file 999
-        BestAvgExcFile exc4 = new BestAvgExcFile(pathOutput);  
-        exc4.writeRamSorted(pathOutput + "RAM10Folds.xlsx", fin2, numDatasets);
-        
-    }        
     
-    public static void attSelImpact(List<String> datasets, int nthread, String pathExcelFolder,
-            String pathOutput) throws Exception{
-        
-        int[] noSel = new int[]{0,1,2,3,4,5,11};
-        int[] sel = new int[]{6,7,8,9,10,12};        
-        
+    public static void computePerformances(List<String> datasets, int nthread, String pathExcelFolder,
+            String pathOutput, int[] indices1, int[] indices2) throws Exception{
+                
         //read 999 results 4 folds
-        List<TestResult> fin1 = computeFile(datasets, nthread, pathExcelFolder, true, noSel);        
+        List<TestResult> fin1 = computeFile(datasets, nthread, pathExcelFolder, true, indices1);
         //write file 999
         BestAvgExcFile exc1 = new BestAvgExcFile(pathOutput);  
-        exc1.writeAvgSorted(pathOutput + "NoSel4Folds.xlsx", fin1, numDatasets);
+        exc1.writeAvgSorted(pathOutput + "Accuracy1_4Folds.xlsx", fin1, numDatasets);
+        exc1.writeTimeSorted(pathOutput + "Time1_4Folds.xlsx", fin1, numDatasets);
+        exc1.writeRamSorted(pathOutput + "Memory1_4Folds.xlsx", fin1, numDatasets);
 
         //read 999 results 10 folds
-        List<TestResult> fin2 = computeFile(datasets, nthread, pathExcelFolder, false, noSel);
+        List<TestResult> fin2 = computeFile(datasets, nthread, pathExcelFolder, false, indices1);
         //write file 999
         BestAvgExcFile exc2 = new BestAvgExcFile(pathOutput);  
-        exc2.writeAvgSorted(pathOutput + "NoSel10Folds.xlsx", fin2, numDatasets);
+        exc2.writeAvgSorted(pathOutput + "Accuracy1_10Folds.xlsx", fin2, numDatasets);
+        exc2.writeTimeSorted(pathOutput + "Time1_10Folds.xlsx", fin2, numDatasets);
+        exc2.writeRamSorted(pathOutput + "Memory1_10Folds.xlsx", fin2, numDatasets);        
         
         //read best results 4 folds
-        List<TestResult> fin3 = computeFile(datasets, nthread, pathExcelFolder, true, sel);
+        List<TestResult> fin3 = computeFile(datasets, nthread, pathExcelFolder, true, indices2);
         //write file
         BestAvgExcFile exc3 = new BestAvgExcFile(pathOutput);  
-        exc3.writeAvgSorted(pathOutput + "Sel4Folds.xlsx", fin3, numDatasets);
+        exc3.writeAvgSorted(pathOutput + "Accuracy2_4Folds.xlsx", fin3, numDatasets);
+        exc3.writeTimeSorted(pathOutput + "Time2_4Folds.xlsx", fin3, numDatasets);
+        exc3.writeRamSorted(pathOutput + "Memory2_4Folds.xlsx", fin3, numDatasets);
         
         //read best results 10 folds
-        List<TestResult> fin4 = computeFile(datasets, nthread, pathExcelFolder, false, sel);
+        List<TestResult> fin4 = computeFile(datasets, nthread, pathExcelFolder, false, indices2);
         //write file
         BestAvgExcFile exc4 = new BestAvgExcFile(pathOutput);  
-        exc4.writeAvgSorted(pathOutput + "Sel10Folds.xlsx", fin4, numDatasets);    
+        exc4.writeAvgSorted(pathOutput + "Accuracy2_10Folds.xlsx", fin4, numDatasets);
+        exc4.writeTimeSorted(pathOutput + "Time2_10Folds.xlsx", fin4, numDatasets);
+        exc4.writeRamSorted(pathOutput + "Memory2_10Folds.xlsx", fin4, numDatasets);        
     }    
-    
-    public static void missingVImpact(List<String> datasets, int nthread, String pathExcelFolder,
-            String pathOutput) throws Exception{
         
-        int[] mvA = new int[]{0};
-        //pids = new int[]{2,3,5,8,10};
-        int[] noMV = new int[]{2};        
-        
-        //read 999 results 4 folds
-        List<TestResult> fin1 = computeFile(datasets, nthread, pathExcelFolder, true, mvA);        
-        //write file 999
-        BestAvgExcFile exc1 = new BestAvgExcFile(pathOutput);  
-        exc1.writeAvgSorted(pathOutput + "MVAvg4Folds.xlsx", fin1, numDatasets);
-
-        //read 999 results 10 folds
-        List<TestResult> fin2 = computeFile(datasets, nthread, pathExcelFolder, false, mvA);
-        //write file 999
-        BestAvgExcFile exc2 = new BestAvgExcFile(pathOutput);  
-        exc2.writeAvgSorted(pathOutput + "MVAvg10Folds.xlsx", fin2, numDatasets);
-        
-        //read best results 4 folds
-        List<TestResult> fin3 = computeFile(datasets, nthread, pathExcelFolder, true, noMV);
-        //write file
-        BestAvgExcFile exc3 = new BestAvgExcFile(pathOutput);  
-        exc3.writeAvgSorted(pathOutput + "ReplacedAvg4Folds.xlsx", fin3, numDatasets);
-        
-        //read best results 10 folds
-        List<TestResult> fin4 = computeFile(datasets, nthread, pathExcelFolder, false, noMV);
-        //write file
-        BestAvgExcFile exc4 = new BestAvgExcFile(pathOutput);  
-        exc4.writeAvgSorted(pathOutput + "ReplacedAvg10Folds.xlsx", fin4, numDatasets);    
-    }
-    
-    public static void preProcImpact(List<String> datasets, int nthread, String pathExcelFolder,
-            String pathOutput) throws Exception{
-        
-        int[] avg11 = new int[]{11};
-        int[] avgBest = new int[]{0,1,2,3,4,5,6,7,8,9,10,11,12};
-        
-        //read 999 results 4 folds
-        List<TestResult> fin1 = computeFile(datasets, nthread, pathExcelFolder, true, avg11);        
-        //write file 999
-        AvgExcFile exc1 = new AvgExcFile(pathOutput);  
-        exc1.writeFinalExcelFile(pathOutput + "999Avg4Folds.xlsx", fin1);
-
-        //read 999 results 10 folds
-        List<TestResult> fin2 = computeFile(datasets, nthread, pathExcelFolder, false, avg11);
-        //write file 999
-        AvgExcFile exc2 = new AvgExcFile(pathOutput);  
-        exc2.writeFinalExcelFile(pathOutput + "999Avg10Folds.xlsx", fin2);
-        
-        //read best results 4 folds
-        List<TestResult> fin3 = computeFile(datasets, nthread, pathExcelFolder, true, avgBest);
-        //write file
-        BestAvgExcFile exc3 = new BestAvgExcFile(pathOutput);  
-        exc3.writeAvgSorted(pathOutput + "BestAvg4Folds.xlsx", fin3, numDatasets);
-        
-        //read best results 10 folds
-        List<TestResult> fin4 = computeFile(datasets, nthread, pathExcelFolder, false, avgBest);
-        //write file
-        BestAvgExcFile exc4 = new BestAvgExcFile(pathOutput);  
-        exc4.writeAvgSorted(pathOutput + "BestAvg10Folds.xlsx", fin4, numDatasets);    
-    }    
-    
     public static List<TestResult> computeFile(List<String> datasets, int nthread, String pathExcelFolder,
             boolean folds4, int[] pids) throws Exception{
         
