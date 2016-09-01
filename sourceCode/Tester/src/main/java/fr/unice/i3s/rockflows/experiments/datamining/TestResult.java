@@ -1,5 +1,9 @@
 package fr.unice.i3s.rockflows.experiments.datamining;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.TreeSet;
+
 public class TestResult {
 
     //n:m InfoClassifier - Dataset
@@ -13,7 +17,7 @@ public class TestResult {
     public double accuracyAvg10 = 0;
     public long trainingTimeAvg10 = Long.MAX_VALUE; //milliseconds
     public long testTimeAvg10 = Long.MAX_VALUE; //milliseconds
-    public long modelSizeAvg10 = Long.MAX_VALUE;
+    public long modelSizeAvg10 = Long.MAX_VALUE;    
     public double[] accuracy10f;
     public double[] trainingTime10f; //seconds
     public double[] testTime10f; //seconds
@@ -27,7 +31,7 @@ public class TestResult {
     public double trainingTimeTest; //seconds
     public double testTimeTest; //seconds
     public double modelSizeTest;
-
+    
 
     public TestResult(Dataset data, InfoClassifier ic) {
         this.dataset = data;

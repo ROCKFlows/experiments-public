@@ -1,11 +1,13 @@
 package fr.unice.i3s.rockflows.experiments.significance;
 
-import jdistlib.disttest.NormalityTest;
+import org.apache.commons.math3.distribution.NormalDistribution;
+import org.apache.commons.math3.stat.StatUtils;
+import org.apache.commons.math3.stat.inference.KolmogorovSmirnovTest;
 import org.apache.commons.math3.stat.inference.TTest;
 import org.apache.commons.math3.stat.inference.WilcoxonSignedRankTest;
-
 import java.util.Arrays;
 import java.util.List;
+import jdistlib.disttest.NormalityTest;
 
 public class Significance {
 
@@ -15,7 +17,7 @@ public class Significance {
         //sort the arrays
         Arrays.sort(array1);
         Arrays.sort(array2);
-
+        
         if (arrayEquals(array1, array2)) {
             return false;
         }
@@ -45,32 +47,32 @@ public class Significance {
     }
 
     //N.B: require sorted array
-    public static boolean shapiroWilkNormalityTest(double[] array, double alpha) {
-
+    public static boolean shapiroWilkNormalityTest(double[] array, double alpha){
+    
         //if the array contains only one distinct value, it is normal
         double first = array[0];
         boolean stop = true;
-        for (int i = 1; i < array.length; i++) {
-            if (array[i] != first) {
+        for(int i = 1; i < array.length; i++){
+            if(array[i] != first){
                 stop = false;
                 break;
             }
         }
-        if (stop) {
+        if(stop){
             return true;
         }
-
+        
         double www = NormalityTest.shapiro_wilk_statistic(array);
         double pvalue = NormalityTest.shapiro_wilk_pvalue(www, array.length);
-        if (pvalue < alpha) {
+        if(pvalue < alpha){
             //null hypothesis is rejected with confidence 1-alpha
             //so the array is not normal
-            return false;
+            return false; 
         }
         //we cannot reject the null hypothesis, so we say it follows a normal distribution
         //so the array is normal
-        return true;
-    }
+        return true; 
+    }  
 
     /**
      * Null hypothesis = the means of the 2 arrays are equal Check the null hypothesis that the 2 arrays passed as input

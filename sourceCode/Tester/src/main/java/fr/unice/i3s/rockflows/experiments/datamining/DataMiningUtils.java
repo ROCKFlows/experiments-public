@@ -1,5 +1,12 @@
 package fr.unice.i3s.rockflows.experiments.datamining;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import weka.classifiers.Classifier;
 import weka.classifiers.functions.LibSVM;
 import weka.classifiers.meta.MultiClassClassifier;
@@ -12,37 +19,30 @@ import weka.filters.Filter;
 import weka.filters.unsupervised.attribute.Remove;
 import weka.filters.unsupervised.attribute.RemoveType;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-public final class DataMiningUtils {
-
+public final class DataMiningUtils {   
+    
     //create one dataset for each filter, by applying the filter to the original dataset
-    public static List<Dataset> getPreprocessedDatasets(String basePath, Dataset original,
-                                                        List<Preprocesser> filters, int classIndex) throws Exception {
-
+    public static List<Dataset> getPreprocessedDatasets(String basePath, Dataset original, 
+            List<Preprocesser> filters, int classIndex) throws Exception{
+        
         List<Dataset> output = new ArrayList<>();
-        output.add(original);
+        output.add(original);        
         int count = filters.size();
-        for (int iii = 0; iii < count; iii++) {
-            Preprocesser filter = filters.get(iii);
+        for(int iii = 0; iii < count; iii++){
+            Preprocesser filter = filters.get(iii);                    
             //check if this filter is applicable to this dataset
-            if (filter.checkIfApplicable(original)) {
+            if(filter.checkIfApplicable(original)){
                 //if already exists, read it
-                Dataset current;
-                if (existsDataset(basePath, filter.id)) {
+                Dataset current;              
+                if(existsDataset(basePath, filter.id)){
                     //read dataset
                     current = new Dataset(filter.id, original.name);
                     String path = basePath + filter.id + ".arff";
                     current.trainingSet = DataMiningUtils.readDataset(path, classIndex, filter.id);
                     current.existing = true;
                     Dataset.findProperties(current, filter.id);
-                } else {
+                }
+                else{
                     //calculate time for pre-processing
                     long timerStart = System.currentTimeMillis();
                     current = filter.applyPreprocessing(original);
@@ -51,29 +51,30 @@ public final class DataMiningUtils {
                     current.existing = false;
                 }
                 current.filterUsed = filter;
-                output.add(current);
+                output.add(current);        
             }
-        }
-
+        }        
+        
         return output;
-    }
-
+    }        
+    
     //create one dataset for each filter, by applying the filter to the original dataset
-    public static Dataset getPreprocessedDataset(String basePath, Dataset original,
-                                                 Preprocesser filter, int classIndex, int datasetId) throws Exception {
-
-        Dataset output = new Dataset(datasetId, "d11");
+    public static Dataset getPreprocessedDataset(String basePath, Dataset original, 
+            Preprocesser filter, int classIndex, int datasetId) throws Exception{
+        
+        Dataset output = new Dataset(datasetId, "d11");                    
         //check if this filter is applicable to this dataset
-        if (filter.checkIfApplicable(original)) {
+        if(filter.checkIfApplicable(original)){
             //if already exists, read it          
-            if (existsDataset(basePath, datasetId)) {
+            if(existsDataset(basePath, datasetId)){
                 //read dataset
                 output = new Dataset(datasetId, original.name);
                 String path = basePath + filter.id + ".arff";
                 output.trainingSet = DataMiningUtils.readDataset(path, classIndex, filter.id);
                 output.existing = true;
                 Dataset.findProperties(output, filter.id);
-            } else {
+            }
+            else{
                 //calculate time for pre-processing
                 long timerStart = System.currentTimeMillis();
                 output = filter.applyPreprocessing(original);
@@ -82,24 +83,24 @@ public final class DataMiningUtils {
                 output.preprocessingTime = (timerStop - timerStart); //milliseconds                       
                 output.existing = false;
             }
-            output.filterUsed = filter;
+            output.filterUsed = filter;        
         }
-
+        
         return output;
-    }
-
-    public static boolean existsDataset(String incompletePath, int id) {
-
+    }          
+    
+    public static boolean existsDataset(String incompletePath, int id){
+    
         String path = incompletePath + id + ".arff";
         File data = new File(path);
-        if (data.exists()) {
+        if(data.exists()){
             return true;
         }
         return false;
     }
-
-    public static void crossValidation10Folds(TestResult res) throws Exception {
-
+    
+    public static void crossValidation10Folds(TestResult res)throws Exception {
+        
         //one result for each fold
         int folds = 10;
         res.accuracy10f = new double[folds];
@@ -109,12 +110,12 @@ public final class DataMiningUtils {
         long avgTrainTime = 0;
         long avgTestTime = 0;
         long avgModelSize = 0;
-        double avgAccuracy = 0;
+        double avgAccuracy = 0;        
         for (int iii = 0; iii < folds; iii++) {
             //prepare data for cross-validation
             Instances cvData = res.dataset.trainingSet;
             Instances train = cvData.trainCV(folds, iii);
-            Instances test = cvData.testCV(folds, iii);
+            Instances test = cvData.testCV(folds, iii);                 
             //train the classifier
             long timerStart = System.currentTimeMillis();
             res.infoclassifier.classifier.buildClassifier(train);
@@ -133,30 +134,30 @@ public final class DataMiningUtils {
         res.trainingTimeAvg10 = avgTrainTime / folds;
         res.testTimeAvg10 = avgTestTime / folds;
         res.modelSizeAvg10 = avgModelSize / folds;
-        res.accuracyAvg10 = avgAccuracy / folds;
-    }
-
+        res.accuracyAvg10 = avgAccuracy / folds;          
+    } 
+    
     public static void crossValidation4Folds(TestResult res, String conxuntosKFold)
             throws Exception {
-
+        
         res.accuracy4f = new double[4];
         res.modelSize4f = new double[4];
         res.trainingTime4f = new double[4];
-        res.testTime4f = new double[4];
+        res.testTime4f = new double[4];        
         InfoClassifier ic = res.infoclassifier;
         Dataset[] folds = DataMiningUtils.get4FoldDatasets(res.dataset.trainingSet, conxuntosKFold);
         long avgTrainTime = 0;
         long avgTestTime = 0;
         long avgModelSize = 0;
         double avgAccuracy = 0;
-        for (int iii = 0; iii < 4; iii++) {
+        for(int iii = 0; iii < 4; iii++){
             //train
             //timer start
             long timerStart = System.currentTimeMillis();
             ic.classifier.buildClassifier(folds[iii].trainingSet);
             //timer stop
             long timerStop = System.currentTimeMillis();
-
+            
             res.trainingTime4f[iii] = timerStop - timerStart; //milliseconds
             avgTrainTime += res.trainingTime4f[iii];
             res.modelSize4f[iii] = ic.getClassifierByteSize();
@@ -173,15 +174,17 @@ public final class DataMiningUtils {
         res.testTimeAvg = avgTestTime / folds.length;
         res.modelSizeAvg = avgModelSize / folds.length;
         res.accuracyAvg = avgAccuracy / folds.length;
-    }
-
+    }     
+      
     /**
      * Evaluate the classifier on the dataset passed as input.
      * Pre-conitions: the classifier is already trained.
-     *
-     * @param dataSet the dataset
-     * @param cls the classifier
-     * @return the accuracy value
+     * @param dataSet
+     * the dataset
+     * @param cls
+     * the classifier
+     * @return 
+     * the accuracy value
      */
     public static Metric testTrainedClassifier(Instances dataSet, Classifier cls) {
         Metric output = new Metric();
@@ -205,33 +208,35 @@ public final class DataMiningUtils {
         output.accuracy = (double) correct / (double) count;
         output.testTime = timerStop - timerStart;
         return output;
-    }
-
-    public static void trainAndTestClassifier(TestResult res) throws Exception {
-
+    }    
+    
+    public static void trainAndTestClassifier(TestResult res)throws Exception{
+        
         long timerStart = System.currentTimeMillis();
         res.infoclassifier.classifier.buildClassifier(res.dataset.trainingSet);
         long timerStop = System.currentTimeMillis();
         Metric testRes = DataMiningUtils.testTrainedClassifier(res.dataset.testSet,
                 res.infoclassifier.classifier);
-
+        
         res.accuracyTest = testRes.accuracy;
         res.testTimeTest = testRes.testTime;
         res.trainingTimeTest = timerStop - timerStart;
-        res.modelSizeTest = res.infoclassifier.getClassifierByteSize();
-    }
-
+        res.modelSizeTest = res.infoclassifier.getClassifierByteSize();           
+    }    
+    
     /**
      * Pre-processing operation to remove a subset of attributes from
      * the dataset. The attributes are identified by an index 0 based.
-     *
-     * @param dataSet the dataset
-     * @param indexes The array of indexes to remove
-     * @return the new dataset filtered.
-     * @throws Exception
+     * @param dataSet
+     * the dataset
+     * @param indexes
+     * The array of indexes to remove
+     * @return
+     * the new dataset filtered.
+     * @throws Exception 
      */
-    public static Instances removeAttributes(Instances dataSet, int[] indexes,
-                                             boolean inverted) throws Exception {
+    public static Instances removeAttributes(Instances dataSet, int[] indexes, 
+            boolean inverted) throws Exception {
         //delete attributes 
         Remove remove = new Remove();                         // new instance of filter
         remove.setAttributeIndicesArray(indexes);
@@ -244,66 +249,70 @@ public final class DataMiningUtils {
         data.trainingSet = removeAttributes(data.trainingSet, indexes, false);
         data.testSet = removeAttributes(data.testSet, indexes, false);
         return data;
-    }
-
+    }    
+    
     /**
      * Read the dataset at the given path and assign
      * the class label at the given index
-     *
-     * @param path the path
-     * @param classIndex the class index
-     * @return the read dataset
-     * @throws Exception
+     * @param path
+     * the path
+     * @param classIndex
+     * the class index
+     * @return
+     * the read dataset
+     * @throws Exception 
      */
-    public synchronized static Instances readDataset(String path, int classIndex, int prepId)
+    public synchronized static Instances readDataset(String path, int classIndex, int prepId) 
             throws Exception {
         System.out.println("Reading " + path);
         Instances dataSet = ConverterUtils.DataSource.read(path);
-        if (classIndex != -1) {
-            if (prepId < 6) {
-                dataSet.setClassIndex(classIndex);
-            } else {
-                dataSet.setClassIndex(dataSet.numAttributes() - 1);
+        if(classIndex != -1){
+            if(prepId < 6){
+                dataSet.setClassIndex(classIndex);        
             }
-        } else {
-            dataSet.setClassIndex(dataSet.numAttributes() - 1);
+            else{
+                dataSet.setClassIndex(dataSet.numAttributes() - 1);        
+            }
+        }   
+        else{
+            dataSet.setClassIndex(dataSet.numAttributes() - 1);        
         }
         return dataSet;
-    }
-
-    public static void removeTypeAttribute(Dataset dataset, int typeAtt) throws Exception {
-
+    }    
+        
+    public static void removeTypeAttribute(Dataset dataset, int typeAtt) throws Exception{
+        
         String type = "";
-        if (typeAtt == Attribute.STRING) {
+        if(typeAtt == Attribute.STRING){
             type = "string";
         }
-        if (typeAtt == Attribute.DATE) {
+        if(typeAtt == Attribute.DATE){
             type = "date";
-        }
+        }        
 
         RemoveType rt = new RemoveType();
-        rt.setOptions(new String[] {"-T", type});
+        rt.setOptions(new String[]{"-T",type});
         rt.setInputFormat(dataset.trainingSet);
         dataset.trainingSet = Filter.useFilter(dataset.trainingSet, rt);
-        dataset.testSet = Filter.useFilter(dataset.testSet, rt);
+        dataset.testSet = Filter.useFilter(dataset.testSet, rt);        
     }
-
+    
     //if dataset has number of classes > 2, then all the classifiers that can't manage
     //directly the multi classification problem are contained inside a weka
     //class MultiClassClassifier, which as default use the strategy 1 against all
-    public static void checkMultiClass(List<InfoClassifier> classifiers,
-                                       Dataset original) throws Exception {
+    public static void checkMultiClass(List<InfoClassifier> classifiers, 
+            Dataset original) throws Exception{
         //check the number of classes
-        if (original.trainingSet.numClasses() > 2) {
-            int count = classifiers.size();
-            for (int ii = 0; ii < count; ii++) {
+        if(original.trainingSet.numClasses() > 2){
+            int count = classifiers.size();        
+            for(int ii = 0; ii < count; ii++){
                 InfoClassifier ic = classifiers.get(ii);
-                if (!ic.properties.manageMultiClass) {
+                if(!ic.properties.manageMultiClass){
                     Classifier cl = ic.classifier;
                     String name = ic.name;
                     //uses MultiClass classifier as meta classifier for this one
                     MultiClassClassifier mc = new MultiClassClassifier();
-                    mc.setOptions(new String[] {"-M", "3"}); //1 vs 1
+                    mc.setOptions(new String[]{"-M", "3"}); //1 vs 1
                     mc.setClassifier(cl);
                     ic.classifier = mc;
                     ic.name = "1 vs 1: " + name;
@@ -319,26 +328,26 @@ public final class DataMiningUtils {
                     newCl.name = "1 vs all: " + name;
                     newCl.properties = new ClassifierProperties(ic.properties);
                     classifiers.add(newCl);
-                }
-            }
+                }                
+            }        
         }
     }
-
+    
     public static void evaluateParameters(TestResult res,
-                                          String pathConxuntos) throws IOException, Exception {
-
+            String pathConxuntos) throws IOException, Exception{        
+        
         InfoClassifier currentIC = res.infoclassifier;
-
+        
         //check if it is compatible with the validation dataset
-        if (!currentIC.isCompatibleWithDataset(res.dataset)) {
+        if(!currentIC.isCompatibleWithDataset(res.dataset)){
             return;
         }
-
+        
         //get validation dataset and training set
         Dataset validation = getValidationDataset(res.dataset.trainingSet, pathConxuntos);
-
-        if (currentIC.classifier instanceof LibSVM) {
-            LibSVM svm = (LibSVM) currentIC.classifier;
+        
+        if(currentIC.classifier instanceof LibSVM){
+            LibSVM svm = (LibSVM)currentIC.classifier;       
             //evaluate C and gamma
             double[] cvalues = new double[] {0.1, 1, 10, 100, 1000};
             double[] gvalues = new double[] {0.00001, 0.0001, 0.001, 0.01, 0.1, 1};
@@ -346,13 +355,13 @@ public final class DataMiningUtils {
             double bestC = 0;
             double bestG = 0;
             //modify classifier
-            for (int iii = 0; iii < cvalues.length; iii++) {
-                for (int jjj = 0; jjj < gvalues.length; jjj++) {
+            for(int iii = 0; iii < cvalues.length; iii++){
+                for(int jjj = 0; jjj < gvalues.length; jjj++){
                     svm.setCost(cvalues[iii]);
                     svm.setGamma(gvalues[jjj]);
                     svm.buildClassifier(validation.trainingSet);
                     Metric testRes = DataMiningUtils.testTrainedClassifier(validation.testSet, svm);
-                    if (testRes.accuracy > max) {
+                    if(testRes.accuracy > max){
                         max = testRes.accuracy;
                         bestC = cvalues[iii];
                         bestG = gvalues[jjj];
@@ -361,57 +370,57 @@ public final class DataMiningUtils {
             }
             //set best parameters found for Svm
             svm.setCost(bestC);
-            svm.setGamma(bestG);
+            svm.setGamma(bestG);            
             currentIC.classifier = svm;
             currentIC.parametersTuned = new ArrayList<>();
             currentIC.parametersTuned.add(bestC);
             currentIC.parametersTuned.add(bestG);
         }
-    }
-
-    public static Dataset getValidationDataset(Instances original, String pathConxuntos)
-            throws FileNotFoundException, IOException {
-
+    }    
+    
+    public static Dataset getValidationDataset(Instances original, String pathConxuntos) 
+            throws FileNotFoundException, IOException{
+    
         Dataset validation = new Dataset(0, "validation"); //id = 0
-        BufferedReader br = new BufferedReader(new FileReader(pathConxuntos));
+        BufferedReader br = new BufferedReader(new FileReader(pathConxuntos));        
         String[] trainIndeces = br.readLine().split(" ");
-        String[] testIndeces = br.readLine().split(" ");
+        String[] testIndeces = br.readLine().split(" ");        
         Instances newTrain = original.stringFreeStructure();
         Instances newTest = original.stringFreeStructure();
-
+        
         int num = trainIndeces.length;
-        for (int i = 0; i < num; i++) {
+        for(int i = 0; i < num; i++){
             newTrain.add(original.instance(Integer.parseInt(trainIndeces[i])));
         }
-
+        
         num = testIndeces.length;
-        for (int i = 0; i < num; i++) {
+        for(int i = 0; i < num; i++){
             newTest.add(original.instance(Integer.parseInt(testIndeces[i])));
-        }
-
+        }         
+        
         validation.trainingSet = newTrain;
-        validation.testSet = newTest;
-        return validation;
+        validation.testSet = newTest;        
+        return validation;        
     }
 
-    public static Dataset[] get4FoldDatasets(Instances original, String pathConxuntos)
-            throws FileNotFoundException, IOException {
-
+    public static Dataset[] get4FoldDatasets(Instances original, String pathConxuntos) 
+            throws FileNotFoundException, IOException{
+    
         Dataset[] folds = new Dataset[4];
         BufferedReader br = new BufferedReader(new FileReader(pathConxuntos));
-
-        for (int iii = 0; iii < 4; iii++) {
-            folds[iii] = new Dataset(-1, "fold" + iii);
+        
+        for(int iii = 0; iii < 4; iii++){
+            folds[iii] = new Dataset(-1,"fold"+iii);
             String[] trainIndeces = br.readLine().split(" ");
             String[] testIndeces = br.readLine().split(" ");
             Instances newTrain = original.stringFreeStructure();
             Instances newTest = original.stringFreeStructure();
             int num = trainIndeces.length;
-            for (int i = 0; i < num; i++) {
+            for(int i = 0; i < num; i++){
                 newTrain.add(original.instance(Integer.parseInt(trainIndeces[i])));
             }
             num = testIndeces.length;
-            for (int i = 0; i < num; i++) {
+            for(int i = 0; i < num; i++){
                 newTest.add(original.instance(Integer.parseInt(testIndeces[i])));
             }
             folds[iii].trainingSet = newTrain;
@@ -419,56 +428,57 @@ public final class DataMiningUtils {
         }
         return folds;
     }
-
-    public static void mergeDataset(Dataset data) {
-
+    
+    public static void mergeDataset(Dataset data){
+        
         int num = data.trainingSet.numInstances();
-        for (int iii = 0; iii < num; iii++) {
+        for(int iii = 0; iii < num; iii++){
             data.trainingSet.add(data.testSet.instance(iii));
         }
-    }
-
-    public static void writeArff(Instances dataset, String path) throws IOException {
-
+    }    
+    
+    public static void writeArff(Instances dataset, String path) throws IOException{
+        
         ArffSaver saver = new ArffSaver();
         saver.setInstances(dataset);
         saver.setFile(new File(path));
-        saver.writeBatch();
+        saver.writeBatch();            
     }
-
-    public static boolean has2DistinctNominalValues(Dataset data) {
-
-        if (data.properties.isNumeric) {
+    
+    public static boolean has2DistinctNominalValues(Dataset data){
+        
+        if(data.properties.isNumeric){
             return true;
-        }
+        }        
         Instances train = data.trainingSet;
         int num = train.numAttributes();
-        for (int iii = 0; iii < num; iii++) {
+        for(int iii = 0; iii < num; iii++){
             Attribute att = train.attribute(iii);
-            if (att.isNominal()) {
+            if(att.isNominal()){
                 //check if it contains at least 2 distinct nominal values
                 int rows = train.numInstances();
                 String value1 = "";
                 boolean distinct = false;
-                for (int jjj = 1; jjj < rows; jjj++) {
+                for(int jjj = 1; jjj < rows; jjj++){
                     Instance inst = train.instance(jjj);
-                    if (!inst.isMissing(iii)) {
-                        if (value1.equals("")) {
+                    if(!inst.isMissing(iii)){
+                        if(value1.equals("")){
                             value1 = inst.stringValue(iii);
-                        } else {
+                        }
+                        else{
                             String value2 = inst.stringValue(iii);
-                            if (!value1.equals(value2)) {
+                            if(!value1.equals(value2)){
                                 distinct = true;
                                 break;
                             }
                         }
                     }
                 }
-                if (!distinct) {
+                if(!distinct){
                     return false;
                 }
             }
         }
-        return true;
+        return true;        
     }
 }

@@ -6,10 +6,11 @@
 package fr.unice.i3s.rockflows.experiments.datamining;
 
 /**
+ *
  * @author lupin
  */
 public enum Status {
-
+    
     Bad("Bad"),
     Good("Good"),
     VeryGood("VeryGood");
@@ -23,6 +24,6 @@ public enum Status {
     @Override
     public String toString() {
         return text;
-    }
-
+    }    
+    
 }

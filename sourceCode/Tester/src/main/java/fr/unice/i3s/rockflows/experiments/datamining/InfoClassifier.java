@@ -47,11 +47,11 @@ public class InfoClassifier {
 
         return MemoryUtil.deepMemoryUsageOf(this.classifier);
     }
-
-    public boolean isUsable() {
-        if (this.properties.satisfy2DistinctNominalValues
+    
+    public boolean isUsable(){
+        if(this.properties.satisfy2DistinctNominalValues
                 && this.properties.satisfyMinNumInstances
-                && this.properties.compatibleWithDataset) {
+                && this.properties.compatibleWithDataset){
             return true;
         }
         return false;

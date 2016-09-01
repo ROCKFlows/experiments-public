@@ -1,5 +1,10 @@
 package fr.unice.i3s.rockflows.experiments.automatictest;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import fr.unice.i3s.rockflows.experiments.datamining.Dataset;
 import fr.unice.i3s.rockflows.experiments.datamining.InfoClassifier;
 import fr.unice.i3s.rockflows.experiments.datamining.TestResult;
@@ -9,23 +14,18 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;    
 import weka.classifiers.functions.LibSVM;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
 /**
+ *
  * @author Luca
  */
 public class IntermediateExcelFile {
 
     public XSSFWorkbook workbook;
     public XSSFSheet sheet;
-    public XSSFSheet sheet10;
+    public XSSFSheet sheet10;   
     public XSSFSheet acc10Sheet;
     public XSSFSheet train10Sheet;
     public XSSFSheet test10Sheet;
@@ -33,7 +33,7 @@ public class IntermediateExcelFile {
     public XSSFSheet acc4Sheet;
     public XSSFSheet train4Sheet;
     public XSSFSheet test4Sheet;
-    public XSSFSheet size4Sheet;
+    public XSSFSheet size4Sheet;    
     public String path;
     public boolean alreadyExisting = false;
     //indices of rows and columns of the file
@@ -41,7 +41,7 @@ public class IntermediateExcelFile {
     public int columnTitleNumTrainingInstances = 2;
     public int columnNumTrainingInstances = 3;
     public int columnTitleDatasetProperties = 5;
-    public int columnDatasetProperties = 6;
+    public int columnDatasetProperties = 6;    
     public int svmBestParameterTitle = 13;
     public int svmCParameterTitle = 14;
     public int svmGammaParameterTitle = 15;
@@ -52,23 +52,23 @@ public class IntermediateExcelFile {
     public int columnTitlePreProcesserApplied = 2;
     public int columnNamePreProcesserApplied = 3;
     public int columnTitleAttributesUsed = 6;
-    public int columnValueAttributesUsed = 7;
+    public int columnValueAttributesUsed = 7;    
     public int columnTitlePreProcesserTime = 9;
-    public int columnPreProcesserTime = 10;
+    public int columnPreProcesserTime = 10;    
     public int svmCValue = 14;
-    public int svmGammaValue = 15;
+    public int svmGammaValue = 15;    
     public int rowTitleIndex = 4;
     public int rowValueOffset = 6;
     public int start = 2;
     public int algorithmColumn = start++;
     public int algoCompatible = start++;
     public int accuracyColumn = start++;
-    public int trainingTimeColumn = start++;
-    public int testTimeColumn = start++;
-    public int modelSizeColumn = start++;
-    public int trainingTimeTextColumn = start++;
+    public int trainingTimeColumn = start++;    
+    public int testTimeColumn = start++;              
+    public int modelSizeColumn = start++;            
+    public int trainingTimeTextColumn = start++;  
     public int testTimeTextColumn = start++;
-
+    
     //sheet 10-folds result accuracy
     public int value1Column = 3;
     public int value2Column = 4;
@@ -79,19 +79,19 @@ public class IntermediateExcelFile {
     public int value7Column = 9;
     public int value8Column = 10;
     public int value9Column = 11;
-    public int value10Column = 12;
-
-
+    public int value10Column = 12;   
+        
+    
     public IntermediateExcelFile(String path, Dataset dataset)
-            throws FileNotFoundException, IOException, InvalidFormatException {
-
+                throws FileNotFoundException, IOException, InvalidFormatException {
+        
         //check if the file already exists, maybe it contains already the results
         //for some classifiers
         File excFile = new File(path);
-        if (excFile.exists() && !excFile.isDirectory()) {
+        if(excFile.exists() && !excFile.isDirectory()) {
             // read existing file and then modify this one
             FileInputStream fis = new FileInputStream(path);
-            workbook = (XSSFWorkbook) WorkbookFactory.create(fis);
+            workbook = (XSSFWorkbook)WorkbookFactory.create(fis);
             fis.close();
             sheet = workbook.getSheet("Results");
             sheet10 = workbook.getSheet("Results10");
@@ -102,18 +102,19 @@ public class IntermediateExcelFile {
             acc4Sheet = workbook.getSheet("accuracy4Folds");
             train4Sheet = workbook.getSheet("train4Folds");
             test4Sheet = workbook.getSheet("test4Folds");
-            size4Sheet = workbook.getSheet("size4Folds");
+            size4Sheet = workbook.getSheet("size4Folds");            
             alreadyExisting = true;
-        } else {
+        }
+        else{
             //create new excel File
-            workbook = new XSSFWorkbook();
+            workbook = new XSSFWorkbook();       
             sheet = workbook.createSheet("Results");
             sheet10 = workbook.createSheet("Results10");
-
+            
             createResultSheet(sheet, dataset, true);
             createResultSheet(sheet10, dataset, true);
-
-
+            
+            
             //10 folds accuracy results
             acc10Sheet = workbook.createSheet("accuracy10Folds");
             Row rowAcc = acc10Sheet.createRow((short) rowTitleIndex);
@@ -128,7 +129,7 @@ public class IntermediateExcelFile {
             rowAcc.createCell(value8Column).setCellValue("Accuracy-8");
             rowAcc.createCell(value9Column).setCellValue("Accuracy-9");
             rowAcc.createCell(value10Column).setCellValue("Accuracy-10");
-
+            
             //10 folds training time results
             train10Sheet = workbook.createSheet("train10Folds");
             Row rowTrain = train10Sheet.createRow((short) rowTitleIndex);
@@ -142,8 +143,8 @@ public class IntermediateExcelFile {
             rowTrain.createCell(value7Column).setCellValue("Train-7");
             rowTrain.createCell(value8Column).setCellValue("Train-8");
             rowTrain.createCell(value9Column).setCellValue("Train-9");
-            rowTrain.createCell(value10Column).setCellValue("Train-10");
-
+            rowTrain.createCell(value10Column).setCellValue("Train-10");            
+            
             //10 folds test time results
             test10Sheet = workbook.createSheet("test10Folds");
             Row rowTest = test10Sheet.createRow((short) rowTitleIndex);
@@ -157,8 +158,8 @@ public class IntermediateExcelFile {
             rowTest.createCell(value7Column).setCellValue("Test-7");
             rowTest.createCell(value8Column).setCellValue("Test-8");
             rowTest.createCell(value9Column).setCellValue("Test-9");
-            rowTest.createCell(value10Column).setCellValue("Test-10");
-
+            rowTest.createCell(value10Column).setCellValue("Test-10");               
+            
             //10 folds model size results
             size10Sheet = workbook.createSheet("size10Folds");
             Row rowSize = size10Sheet.createRow((short) rowTitleIndex);
@@ -172,8 +173,8 @@ public class IntermediateExcelFile {
             rowSize.createCell(value7Column).setCellValue("Size-7");
             rowSize.createCell(value8Column).setCellValue("Size-8");
             rowSize.createCell(value9Column).setCellValue("Size-9");
-            rowSize.createCell(value10Column).setCellValue("Size-10");
-
+            rowSize.createCell(value10Column).setCellValue("Size-10");            
+                
             //4 folds accuracy results
             acc4Sheet = workbook.createSheet("accuracy4Folds");
             Row rowAcc4 = acc4Sheet.createRow((short) rowTitleIndex);
@@ -181,7 +182,7 @@ public class IntermediateExcelFile {
             rowAcc4.createCell(value1Column).setCellValue("Accuracy-1");
             rowAcc4.createCell(value2Column).setCellValue("Accuracy-2");
             rowAcc4.createCell(value3Column).setCellValue("Accuracy-3");
-            rowAcc4.createCell(value4Column).setCellValue("Accuracy-4");
+            rowAcc4.createCell(value4Column).setCellValue("Accuracy-4");                
 
             //4 folds training time results
             train4Sheet = workbook.createSheet("train4Folds");
@@ -190,7 +191,7 @@ public class IntermediateExcelFile {
             rowTrain4.createCell(value1Column).setCellValue("Train-1");
             rowTrain4.createCell(value2Column).setCellValue("Train-2");
             rowTrain4.createCell(value3Column).setCellValue("Train-3");
-            rowTrain4.createCell(value4Column).setCellValue("Train-4");
+            rowTrain4.createCell(value4Column).setCellValue("Train-4");                
 
             //4 folds test time results
             test4Sheet = workbook.createSheet("test4Folds");
@@ -199,7 +200,7 @@ public class IntermediateExcelFile {
             rowTest4.createCell(value1Column).setCellValue("Test-1");
             rowTest4.createCell(value2Column).setCellValue("Test-2");
             rowTest4.createCell(value3Column).setCellValue("Test-3");
-            rowTest4.createCell(value4Column).setCellValue("Test-4");
+            rowTest4.createCell(value4Column).setCellValue("Test-4");        
 
             //4 folds size results
             size4Sheet = workbook.createSheet("size4Folds");
@@ -209,12 +210,12 @@ public class IntermediateExcelFile {
             rowSize4.createCell(value2Column).setCellValue("Size-2");
             rowSize4.createCell(value3Column).setCellValue("Size-3");
             rowSize4.createCell(value4Column).setCellValue("Size-4");
-
-        }
+            
+        }        
         this.path = path;
-    }
-
-    private synchronized void createResultSheet(Sheet res, Dataset dataset, boolean avg) {
+    }               
+   
+    private synchronized void createResultSheet(Sheet res, Dataset dataset, boolean avg){
 
         //write number of instances on the excel file
         // Create a title row. Rows are 0 based.
@@ -223,7 +224,7 @@ public class IntermediateExcelFile {
         row2.createCell(columnTitleNumTrainingInstances).setCellValue("Num Instances dataset");
         row2.createCell(columnNumTrainingInstances).setCellValue(dataset.trainingSet.numInstances());
         row2.createCell(columnTitleDatasetProperties).setCellValue("Dataset Properties");
-        row2.createCell(columnDatasetProperties).setCellValue(dataset.properties.getStringProperties());
+        row2.createCell(columnDatasetProperties).setCellValue(dataset.properties.getStringProperties());            
 
         Row row3 = res.createRow((short) rowNumAttributes);
         // Create cells
@@ -235,14 +236,15 @@ public class IntermediateExcelFile {
         // Create cells
         row4.createCell(columnTitlePreProcesserApplied).setCellValue("Preprocesser used");
         row4.createCell(columnTitleAttributesUsed).setCellValue("Indices original attributes Used");
-        if (dataset.filterUsed == null) {
+        if(dataset.filterUsed == null){
             row4.createCell(columnNamePreProcesserApplied).setCellValue("No Pre-processing");
             row4.createCell(columnValueAttributesUsed).setCellValue("all attributes used");
-        } else {
+        }
+        else{
             row4.createCell(columnNamePreProcesserApplied).setCellValue(dataset.filterUsed.name);
             row4.createCell(columnValueAttributesUsed).setCellValue(
                     dataset.filterUsed.getIndicesAttributesUsed());
-        }
+        }           
         row4.createCell(columnTitlePreProcesserTime).setCellValue("Preprocesser Time (ms)");
         row4.createCell(columnPreProcesserTime).setCellValue(dataset.preprocessingTime);
 
@@ -250,24 +252,25 @@ public class IntermediateExcelFile {
         Row row = res.createRow((short) rowTitleIndex);
         // Create cells
         Cell cell = row.createCell(algorithmColumn);
-        cell.setCellValue("Algorithm");
+        cell.setCellValue("Algorithm");        
         row.createCell(algoCompatible).setCellValue("Compatible");
-        if (avg) {
+        if(avg){
             row.createCell(accuracyColumn).setCellValue("Accuracy Avg");
             row.createCell(trainingTimeColumn).setCellValue("Training Time Avg (ms)");
             row.createCell(testTimeColumn).setCellValue("Test Time (ms)");
             row.createCell(modelSizeColumn).setCellValue("Trained Model Size Avg (bytes)");
-        } else {
+        }
+        else{
             row.createCell(accuracyColumn).setCellValue("Accuracy");
             row.createCell(trainingTimeColumn).setCellValue("Training Time (ms)");
             row.createCell(testTimeColumn).setCellValue("Test Time (ms)");
             row.createCell(modelSizeColumn).setCellValue("Trained Model Size (bytes)");
         }
-    }
-
-    public synchronized void writeSheetResults(TestResult current)
-            throws Exception {
-
+    }    
+    
+    public synchronized void writeSheetResults(TestResult current) 
+            throws Exception{
+        
         int rowIndex = current.infoclassifier.id + this.rowValueOffset;
         Row row = this.sheet.createRow((short) (rowIndex));
         row.createCell(algorithmColumn).setCellValue(current.infoclassifier.name);
@@ -276,17 +279,17 @@ public class IntermediateExcelFile {
         row.createCell(accuracyColumn).setCellValue(current.accuracyAvg);
         row.createCell(trainingTimeColumn).setCellValue(current.trainingTimeAvg);
         row.createCell(testTimeColumn).setCellValue(current.testTimeAvg);
-        row.createCell(modelSizeColumn).setCellValue(current.modelSizeAvg);
-
+        row.createCell(modelSizeColumn).setCellValue(current.modelSizeAvg);  
+             
         //write file in output
         FileOutputStream fileOut = new FileOutputStream(path);
         workbook.write(fileOut);
-        fileOut.close();
+        fileOut.close();             
     }
-
-    public synchronized void write4FoldsResults(TestResult current)
-            throws Exception {
-
+        
+    public synchronized void write4FoldsResults(TestResult current) 
+            throws Exception{
+        
         int rowIndex = current.infoclassifier.id + this.rowValueOffset;
         //sheet accuracy 4 folds
         Row rowAcc4 = acc4Sheet.createRow((short) (rowIndex));
@@ -316,34 +319,34 @@ public class IntermediateExcelFile {
         rowSize4.createCell(value2Column).setCellValue(current.modelSize4f[1]);
         rowSize4.createCell(value3Column).setCellValue(current.modelSize4f[2]);
         rowSize4.createCell(value4Column).setCellValue(current.modelSize4f[3]);
-
+               
         //write file in output
         FileOutputStream fileOut = new FileOutputStream(path);
         workbook.write(fileOut);
-        fileOut.close();
-    }
-
-    public synchronized void writeNotCompatible(TestResult current)
-            throws Exception {
+        fileOut.close();             
+    }    
+    
+    public synchronized void writeNotCompatible(TestResult current) 
+            throws Exception{
 
         int rowIndex = current.infoclassifier.id + this.rowValueOffset;
         Row row = this.sheet.createRow((short) (rowIndex));
         row.createCell(algorithmColumn).setCellValue(current.infoclassifier.name);
-        row.createCell(algoCompatible).setCellValue("n");
-
+        row.createCell(algoCompatible).setCellValue("n");      
+        
         row = this.sheet10.createRow((short) (rowIndex));
         row.createCell(algorithmColumn).setCellValue(current.infoclassifier.name);
-        row.createCell(algoCompatible).setCellValue("n");
-
+        row.createCell(algoCompatible).setCellValue("n");            
+        
         //write file in output
         FileOutputStream fileOut = new FileOutputStream(path);
         workbook.write(fileOut);
-        fileOut.close();
-    }
-
-    public synchronized void writeSheet10Results(TestResult current)
-            throws Exception {
-
+        fileOut.close();            
+    }    
+    
+    public synchronized void writeSheet10Results(TestResult current) 
+            throws Exception{
+        
         int rowIndex = current.infoclassifier.id + this.rowValueOffset;
         Row row = this.sheet10.createRow((short) (rowIndex));
         row.createCell(algorithmColumn).setCellValue(current.infoclassifier.name);
@@ -352,19 +355,19 @@ public class IntermediateExcelFile {
         row.createCell(accuracyColumn).setCellValue(current.accuracyAvg10);
         row.createCell(trainingTimeColumn).setCellValue(current.trainingTimeAvg10);
         row.createCell(testTimeColumn).setCellValue(current.testTimeAvg10);
-        row.createCell(modelSizeColumn).setCellValue(current.modelSizeAvg10);
-
+        row.createCell(modelSizeColumn).setCellValue(current.modelSizeAvg10);                      
+                    
         //write file in output
         FileOutputStream fileOut = new FileOutputStream(path);
         workbook.write(fileOut);
-        fileOut.close();
-    }
-
-    public synchronized void write10FoldsResults(TestResult current)
-            throws Exception {
-
+        fileOut.close();          
+    }        
+    
+    public synchronized void write10FoldsResults(TestResult current) 
+            throws Exception{
+        
         int rowIndex = current.infoclassifier.id + this.rowValueOffset;
-
+            
         //sheet accuracy 10 folds
         Row rowAcc = acc10Sheet.createRow((short) (rowIndex));
         rowAcc.createCell(algorithmColumn).setCellValue(current.infoclassifier.name);
@@ -416,17 +419,17 @@ public class IntermediateExcelFile {
         rowSize.createCell(value7Column).setCellValue(current.modelSize10f[6]);
         rowSize.createCell(value8Column).setCellValue(current.modelSize10f[7]);
         rowSize.createCell(value9Column).setCellValue(current.modelSize10f[8]);
-        rowSize.createCell(value10Column).setCellValue(current.modelSize10f[9]);
-
+        rowSize.createCell(value10Column).setCellValue(current.modelSize10f[9]);            
+        
         //write file in output
         FileOutputStream fileOut = new FileOutputStream(path);
         workbook.write(fileOut);
-        fileOut.close();
-    }
-
-    public synchronized void writeSvmBestValues(Sheet res, InfoClassifier classif) {
-
-        LibSVM svm = (LibSVM) classif.classifier;
+        fileOut.close();          
+    }    
+    
+    public synchronized  void writeSvmBestValues(Sheet res, InfoClassifier classif){    
+        
+        LibSVM svm = (LibSVM)classif.classifier;
         //write best parameter for SVM, C and Gamma
         Row rowZero = res.getRow(0);
         rowZero.createCell(svmBestParameterTitle).setCellValue("SVM Best Parameter Tuning");
@@ -436,42 +439,42 @@ public class IntermediateExcelFile {
         double cvalue = classif.parametersTuned.get(0);
         double gvalue = classif.parametersTuned.get(1);
         rowOne.createCell(svmCValue).setCellValue(cvalue);
-        rowOne.createCell(svmGammaValue).setCellValue(gvalue);
-
+        rowOne.createCell(svmGammaValue).setCellValue(gvalue);         
+        
     }
-
-    public synchronized boolean isAlreadyComputed4Folds(InfoClassifier ic) {
-
+    
+    public synchronized boolean isAlreadyComputed4Folds(InfoClassifier ic){        
+        
         int rowIndex = ic.id + this.rowValueOffset;
         Row row = this.sheet.getRow((short) (rowIndex));
-        if (row == null) {
+        if(row == null){
             return false;
         }
         Cell cell = row.getCell(2); //get name of the algo
-        if (cell == null) {
+        if(cell == null){
             return false;
         }
-        if (!cell.getStringCellValue().equals(ic.name)) {
+        if(!cell.getStringCellValue().equals(ic.name)){
             return false;
         }
-        return true;
+        return true;        
     }
-
-    public synchronized boolean isAlreadyComputed10Folds(InfoClassifier ic) {
-
+    
+    public synchronized boolean isAlreadyComputed10Folds(InfoClassifier ic){
+        
         int rowIndex = ic.id + this.rowValueOffset;
         Row row = this.sheet10.getRow((short) (rowIndex));
-        if (row == null) {
+        if(row == null){
             return false;
         }
         Cell cell = row.getCell(2); //get name of the algo
-        if (cell == null) {
+        if(cell == null){
             return false;
         }
-        if (!cell.getStringCellValue().equals(ic.name)) {
+        if(!cell.getStringCellValue().equals(ic.name)){
             return false;
         }
-        return true;
-    }
-
+        return true;        
+    }    
+    
 }

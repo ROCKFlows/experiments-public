@@ -18,7 +18,6 @@ import java.util.concurrent.TimeUnit;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  * @author Luca
  */
@@ -41,7 +40,7 @@ public class MainExperiment {
                     nthread = Integer.parseInt(args[++iii]);
                     parallel = true;
                     break;
-                }
+                }                
             }
         }
 
@@ -50,7 +49,7 @@ public class MainExperiment {
 
         int numFiles = datasets.size();
         ExecutorService exec = Executors.newFixedThreadPool(nthread);
-
+        
         for (int iii = 0; iii < numFiles; iii++) {
             String dsName = datasets.get(iii);
             String currentDataset = pathFolder + dsName;
@@ -58,26 +57,26 @@ public class MainExperiment {
             int classIndex = -1; //if -1, the class index is the last attribute of the dataset
             //check if exists file
             File classIndexFile = new File(classIndexPath);
-            if (classIndexFile.exists()) {
+            if(classIndexFile.exists()){
                 classIndex = getClassIndex(classIndexPath);
             }
-
+            
             TestExecutor test = new TestExecutor(classIndex, currentDataset, parallel);
             exec.submit(test);
         }
         exec.shutdown();
-        exec.awaitTermination(Integer.MAX_VALUE, TimeUnit.DAYS);
-
+        exec.awaitTermination(Integer.MAX_VALUE, TimeUnit.DAYS);        
+        
     }
-
-    public static int getClassIndex(String path) throws Exception {
+    
+    public static int getClassIndex(String path) throws Exception{
         InputStream fis = new FileInputStream(path);
         InputStreamReader isr = new InputStreamReader(fis, Charset.forName("UTF-8"));
         BufferedReader br = new BufferedReader(isr);
         String line = br.readLine();
         return Integer.parseInt(line);
     }
-
+    
     public static List<String> getFileConfigNames(String pathFolder) {
 
         List<String> fileNames = new ArrayList<>();

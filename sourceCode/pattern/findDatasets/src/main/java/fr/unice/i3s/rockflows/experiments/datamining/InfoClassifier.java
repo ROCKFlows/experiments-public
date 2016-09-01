@@ -7,6 +7,7 @@ package fr.unice.i3s.rockflows.experiments.datamining;
 
 import weka.classifiers.Classifier;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -40,11 +41,11 @@ public class InfoClassifier {
         }
         return true;
     }
-
-    public boolean isUsable() {
-        if (this.properties.satisfy2DistinctNominalValues
+    
+    public boolean isUsable(){
+        if(this.properties.satisfy2DistinctNominalValues
                 && this.properties.satisfyMinNumInstances
-                && this.properties.compatibleWithDataset) {
+                && this.properties.compatibleWithDataset){
             return true;
         }
         return false;

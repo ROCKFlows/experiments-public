@@ -1,16 +1,17 @@
 package fr.unice.i3s.rockflows.experiments.automatictest;
 
 import fr.unice.i3s.rockflows.experiments.datamining.TestResult;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class AvgExcFile {
 
@@ -22,10 +23,10 @@ public class AvgExcFile {
     int start = 2;
     public int algorithmColumn = start++;
     public int rankColumn = start++;
-    public int avgAccColumn = start++;
+    public int avgAccColumn = start++;    
     public int stDevAccColumn = start++;
-    public int totalTimeColumn = start++;
-    public int ramColumn = start++;
+    public int totalTimeColumn = start++;    
+    public int ramColumn = start++;    
 
     public void writeFinalExcelFile(String path, List<TestResult> results) throws Exception {
 
@@ -33,41 +34,41 @@ public class AvgExcFile {
         //order by rankAccuracy,AccuracyAvg(desc)
         results.sort((TestResult r1, TestResult r2) -> {
             return Integer.compare(r1.rankAccuracy, r2.rankAccuracy);
-        });
-
+        });        
+        
         List<TestResult> ordered = new ArrayList<>();
         //read last number of rank
         int maxRank = results.get(results.size() - 1).rankAccuracy;
-        for (int i = 1; i <= maxRank; i++) {
+        for(int i = 1; i <= maxRank; i++){
             ordered.addAll(getOrderedByAccuracy(i, results));
         }
-
+        
         writeResultExcel(ordered);
-
+        
         //write file in output
         FileOutputStream fileOut = new FileOutputStream(path);
         workbook.write(fileOut);
         fileOut.close();
-
+                 
     }
-
-    private List<TestResult> getOrderedByAccuracy(int rank, List<TestResult> res) {
-
+    
+    private List<TestResult> getOrderedByAccuracy(int rank, List<TestResult> res){
+        
         List<TestResult> out = new ArrayList<>();
         //get results of the selected rank
-        for (int i = 0; i < res.size(); i++) {
+        for(int i = 0; i < res.size(); i++){
             TestResult tr = res.get(i);
-            if (tr.rankAccuracy == rank) {
+            if(tr.rankAccuracy == rank){
                 out.add(tr);
             }
         }
         //sort results according to the accuracy
         out.sort((TestResult tr1, TestResult tr2) -> {
             return Double.compare(tr2.accuracyAvg, tr1.accuracyAvg);
-        });
-
-        return out;
-    }
+        });        
+        
+        return out;        
+    }        
 
     public AvgExcFile(String path) {
         /*
@@ -104,8 +105,8 @@ public class AvgExcFile {
             row.createCell(avgAccColumn).setCellValue(res.accuracyAvg);
             row.createCell(stDevAccColumn).setCellValue(res.accuracyStDev);
             row.createCell(rankColumn).setCellValue(res.rankAccuracy);
-            row.createCell(totalTimeColumn).setCellValue((int) res.totalTimeAvg);
-            row.createCell(ramColumn).setCellValue((int) res.ramAvg);
+            row.createCell(totalTimeColumn).setCellValue((int)res.totalTimeAvg);
+            row.createCell(ramColumn).setCellValue((int)res.ramAvg);
         }
 
     }

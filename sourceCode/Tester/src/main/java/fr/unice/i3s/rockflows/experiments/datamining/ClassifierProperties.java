@@ -9,11 +9,11 @@ public class ClassifierProperties {
     public boolean requireNominalDataset = false; //default value
     public boolean manageMissingValues = false; //default value
     public boolean requireNumericDataset = false;
-
+    
     public boolean compatibleWithDataset = true;
     //for the moment, the 2 following are only for Decorate classifiers
     public boolean satisfyMinNumInstances = true;
-    public boolean satisfy2DistinctNominalValues = true;
+    public boolean satisfy2DistinctNominalValues = true;    
 
     public int minNumTrainingInstances = 0;
 

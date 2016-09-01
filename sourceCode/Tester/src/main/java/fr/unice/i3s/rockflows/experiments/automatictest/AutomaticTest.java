@@ -5,23 +5,25 @@
  */
 package fr.unice.i3s.rockflows.experiments.automatictest;
 
-import fr.unice.i3s.rockflows.experiments.datamining.DataMiningUtils;
 import fr.unice.i3s.rockflows.experiments.datamining.InfoClassifier;
+import fr.unice.i3s.rockflows.experiments.datamining.DataMiningUtils;
 import fr.unice.i3s.rockflows.experiments.datamining.TestResult;
 
 /**
+ *
  * @author Luca
  */
 public final class AutomaticTest {
 
     public static void compute4Folds(TestResult res,
-                                     String conxuntosKFold) throws Exception {
-
-        try {
-            DataMiningUtils.crossValidation4Folds(res, conxuntosKFold);
-        } catch (Exception exx) {
-            res.infoclassifier.properties.compatibleWithDataset = false;
+            String conxuntosKFold) throws Exception {
+                
+        try{
+            DataMiningUtils.crossValidation4Folds(res, conxuntosKFold);            
         }
+        catch(Exception exx){
+            res.infoclassifier.properties.compatibleWithDataset = false;
+        }        
     }
 
     /**
@@ -33,15 +35,16 @@ public final class AutomaticTest {
      * <li>save the accuracy, execution training time and execution test time on the relative fields of the
      * {@link InfoClassifier} class of the classifier and into the Excel file</li>
      * </ol>
-     */
+    */
     public static void compute10folds(TestResult res) throws Exception {
-
+       
         //perform 10-folds cross-validation, for the intermediate Excel file
-        try {
+        try{
             DataMiningUtils.crossValidation10Folds(res);
-        } catch (Exception exx) {
+        }
+        catch(Exception exx){
             res.infoclassifier.properties.compatibleWithDataset = false;
         }
-
+        
     }
 }

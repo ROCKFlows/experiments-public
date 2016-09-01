@@ -6,6 +6,7 @@
 package fr.unice.i3s.rockflows.experiments.datamining;
 
 /**
+ *
  * @author lupin
  */
 public class Metric {

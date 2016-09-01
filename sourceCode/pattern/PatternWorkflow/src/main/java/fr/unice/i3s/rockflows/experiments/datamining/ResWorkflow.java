@@ -9,10 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ *
  * @author lupin
  */
 public class ResWorkflow {
-
+    
     public String classifierName = "";
     public int preProcId = -1;
     public List<Double> rankAccuracy = new ArrayList<>();
@@ -23,11 +24,11 @@ public class ResWorkflow {
     public double avgAccuracy = 0;
     public double avgAccRank = 0;
     public double avgTime = 0;
-    public double avgRAM = 0;
+    public double avgRAM = 0;    
     public double stDevAccuracy = 0;
-    public double stDevAccRank = 0;
+    public double stDevAccRank = 0;    
     public int numBestRank = 0;
     public double percCompatible = 0;
     public boolean compatible = true;
-
+    
 }

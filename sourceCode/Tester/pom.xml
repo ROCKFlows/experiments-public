@@ -93,7 +93,6 @@
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <configuration>
-                    <finalName>dm-experiments</finalName>
                     <finalName>tester</finalName>
                     <archive>
                         <manifest>

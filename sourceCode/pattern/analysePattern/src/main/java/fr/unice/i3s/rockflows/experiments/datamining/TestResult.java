@@ -4,12 +4,12 @@ public class TestResult {
 
     public String algoName = "";
     public int algoId = -1;
-    public int preProcId = -1;
+    public int preProcId = -1;    
     public long preProcTime = 0;
     public boolean compatible = false;
     public String preProcProp = "XXX";
     public String dataProp = "YYY";
-
+    
     public double accuracyAvg = 0;
     public long trainingTimeAvg = Long.MAX_VALUE; //milliseconds
     public long testTimeAvg = Long.MAX_VALUE; //milliseconds
@@ -18,7 +18,7 @@ public class TestResult {
     public double accuracyAvg10 = 0;
     public long trainingTimeAvg10 = Long.MAX_VALUE; //milliseconds
     public long testTimeAvg10 = Long.MAX_VALUE; //milliseconds
-    public long modelSizeAvg10 = Long.MAX_VALUE;
+    public long modelSizeAvg10 = Long.MAX_VALUE;    
     public int rankAccuracy = 0; //1 = best rank  
     public int rankTrainingTime = 0; //1 = best rank  
     public int rankTotalTime = 0; //1 = best rank  
@@ -36,8 +36,8 @@ public class TestResult {
     public Status statusAccuracy = Status.Bad;
     public Status statusTrainingTime = Status.Bad;
     public Status statusTotalTime = Status.Bad;
-    public Status statusSize = Status.Bad;
-
+    public Status statusSize = Status.Bad;    
+    
 
     public TestResult() {
     }

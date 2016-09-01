@@ -2,6 +2,7 @@ package fr.unice.i3s.rockflows.experiments.main;
 
 import fr.unice.i3s.rockflows.experiments.automatictest.AutomaticTest;
 import fr.unice.i3s.rockflows.experiments.automatictest.IntermediateExcelFile;
+
 import fr.unice.i3s.rockflows.experiments.datamining.TestResult;
 
 import java.io.File;
@@ -22,7 +23,7 @@ public class TestExecutor implements Callable<Boolean> {
     boolean status = false;
     String currentName = "";
 
-    public TestExecutor(String pathFolderExcel, String nameDataset, boolean status)
+    public TestExecutor(String pathFolderExcel, String nameDataset, boolean status) 
             throws Exception {
         this.pathFolderExcel = pathFolderExcel;
         this.status = status;
@@ -59,31 +60,32 @@ public class TestExecutor implements Callable<Boolean> {
         }        
         */
         String pathFinal = pathFolderExcel + "Final-Analysis-4Folds.xlsx";
-        List<TestResult> globalResults = readAllIntermediateResults4Folds(names);
+        List<TestResult> globalResults = readAllIntermediateResults4Folds(names);  
 
         //remove not compatible results
         List<TestResult> compatible = globalResults.stream().filter((TestResult tr) -> tr.compatible)
                 .collect(Collectors.toList());
         //true = 4Folds
         AutomaticTest.computeResultsFinal(compatible, alpha, pathFinal, status, true);
-
+        
         //final file only for status
         pathFinal = pathFolderExcel + "Final-Analysis-10Folds.xlsx";
-        globalResults = readAllIntermediateResults10Folds(names);
+        globalResults = readAllIntermediateResults10Folds(names);  
 
         //remove not compatible results
         compatible = globalResults.stream().filter((TestResult tr) -> tr.compatible)
                 .collect(Collectors.toList());
         //true = 10Folds
-        AutomaticTest.computeResultsFinal(compatible, alpha, pathFinal, status, false);
+        AutomaticTest.computeResultsFinal(compatible, alpha, pathFinal, status, false);        
     }
 
     @Override
     public Boolean call() throws Exception {
         System.out.println("Running " + this.pathFolderExcel);
-        try {
+        try{
             this.executeTest();
-        } catch (Exception ex) {
+        }
+        catch(Exception ex){
             File fff = new File(pathFolderExcel + "error");
             Writer www = new FileWriter(fff);
             www.append(" :BEGIN, ");
@@ -95,31 +97,31 @@ public class TestExecutor implements Callable<Boolean> {
             return false;
         }
         return true;
-    }
+    }       
 
-    public List<TestResult> readIntermediateResults4Folds(String name) throws Exception {
-
+    public List<TestResult> readIntermediateResults4Folds(String name) throws Exception{
+        
         //read file results
         IntermediateExcelFile exc = new IntermediateExcelFile(name);
         List<TestResult> res;
         res = AutomaticTest.readValues4(exc);
         return res;
-    }
-
-    public List<TestResult> readIntermediateResults10Folds(String name) throws Exception {
-
+    }    
+    
+    public List<TestResult> readIntermediateResults10Folds(String name) throws Exception{
+        
         //read file results
         IntermediateExcelFile exc = new IntermediateExcelFile(name);
         List<TestResult> res;
-        res = AutomaticTest.readValues10(exc);
+        res = AutomaticTest.readValues10(exc);        
         return res;
-    }
-
-    public List<TestResult> readAllIntermediateResults4Folds(List<String> names) throws Exception {
-
+    }        
+    
+    public List<TestResult> readAllIntermediateResults4Folds(List<String> names) throws Exception{
+        
         List<TestResult> res = new ArrayList<>();
         //for each file, read its results
-        for (int i = 0; i < names.size(); i++) {
+        for(int i = 0; i < names.size(); i++){
             String name = pathFolderExcel + names.get(i);
             IntermediateExcelFile exc = new IntermediateExcelFile(name);
             List<TestResult> current;
@@ -128,21 +130,21 @@ public class TestExecutor implements Callable<Boolean> {
         }
         return res;
     }
-
-    public List<TestResult> readAllIntermediateResults10Folds(List<String> names) throws Exception {
-
+    
+    public List<TestResult> readAllIntermediateResults10Folds(List<String> names) throws Exception{
+        
         List<TestResult> res = new ArrayList<>();
         //for each file, read its results
-        for (int i = 0; i < names.size(); i++) {
+        for(int i = 0; i < names.size(); i++){
             String name = pathFolderExcel + names.get(i);
             IntermediateExcelFile exc = new IntermediateExcelFile(name);
             List<TestResult> current;
-            current = AutomaticTest.readValues10(exc);
+            current = AutomaticTest.readValues10(exc);        
             res.addAll(current);
         }
         return res;
-    }
-
+    }    
+    
     public List<String> getListFiles(String basePath, String extension) {
 
         List<String> fileNames = new ArrayList<>();
@@ -153,36 +155,36 @@ public class TestExecutor implements Callable<Boolean> {
                 String filename = listOfFiles[i].getName();
                 //check if it has the extension of Excel
                 String ext = filename.substring(filename.lastIndexOf(".") + 1);
-                if (ext.equals(extension)) {
+                if(ext.equals(extension)){
                     //check if it's not final
-                    if (!filename.contains("Final.xlsx")
-                            && !filename.contains("-Analysis")) {
+                    if(!filename.contains("Final.xlsx") 
+                            && !filename.contains("-Analysis")){
                         fileNames.add(filename);
-                    }
-                }
+                    }                    
+                }                
             }
         }
         return fileNames;
     }
-
-    public boolean isUnique(String path) {
+    
+    public boolean isUnique(String path){       
         //check if unique or not
         boolean unique = false;
         File check = new File(path + "Test-0.arff");
-        if (check.exists()) {
+        if(check.exists()){
             unique = true;
         }
         return unique;
     }
-
-    public String getNameFromPath(String path) {
-
+    
+    public String getNameFromPath(String path){
+        
         return path.substring(path.lastIndexOf("/") + 1, path.lastIndexOf("."));
     }
-
-    public int getIdFromPath(String path) {
-
+    
+    public int getIdFromPath(String path){
+        
         String tmp = path.substring(path.lastIndexOf("-") + 1);
         return Integer.parseInt(tmp.substring(0, tmp.lastIndexOf(".")));
-    }
+    }        
 }

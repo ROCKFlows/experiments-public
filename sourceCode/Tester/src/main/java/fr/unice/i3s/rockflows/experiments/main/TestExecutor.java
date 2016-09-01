@@ -4,9 +4,6 @@ import fr.unice.i3s.rockflows.experiments.datamining.DataMiningUtils;
 import fr.unice.i3s.rockflows.experiments.datamining.Dataset;
 import fr.unice.i3s.rockflows.experiments.datamining.Preprocesser;
 import fr.unice.i3s.rockflows.experiments.weka.CfsSubsetFilter;
-import weka.filters.unsupervised.attribute.Discretize;
-import weka.filters.unsupervised.attribute.NominalToBinary;
-import weka.filters.unsupervised.attribute.ReplaceMissingValues;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -18,6 +15,9 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+import weka.filters.unsupervised.attribute.Discretize;
+import weka.filters.unsupervised.attribute.NominalToBinary;
+import weka.filters.unsupervised.attribute.ReplaceMissingValues;
 
 /**
  * @author lupin
@@ -31,7 +31,7 @@ public class TestExecutor implements Callable<Boolean> {
     int classIndex = -1;
     boolean parallel = true;
 
-    public TestExecutor(int classIndex, String pathFolder, boolean parallel)
+    public TestExecutor(int classIndex, String pathFolder, boolean parallel) 
             throws Exception {
         this.pathFolder = pathFolder;
         this.classIndex = classIndex;
@@ -42,19 +42,19 @@ public class TestExecutor implements Callable<Boolean> {
 
         String baseNameExcel = "Test-";
         double alpha = 0.05; //default
-
+        
         String d999Path = pathFolder + "/" + baseNameExcel + "11.arff";
-        Dataset paperOriginal = new Dataset(11, d999Path);
+        Dataset paperOriginal = new Dataset(11, d999Path);        
         paperOriginal.trainingSet = DataMiningUtils.readDataset(d999Path, -1, 999);
-
+        
         //initialize original dataset (for our own tests)
         String d0Path = pathFolder + "/" + baseNameExcel + "0.arff";
         Dataset original = new Dataset(0, d0Path);
-        original.trainingSet = DataMiningUtils.readDataset(d0Path, classIndex, 0);
+        original.trainingSet = DataMiningUtils.readDataset(d0Path, classIndex, 0);        
 
         //init filters
-        this.filters = inputPreprocessers();
-
+        this.filters = inputPreprocessers();        
+        
         //find properties on the original dataset
         Dataset.findProperties(original, 0);
         paperOriginal.properties.isNumeric = true;
@@ -62,19 +62,19 @@ public class TestExecutor implements Callable<Boolean> {
 
         //get list of datasets preprocessed        
         String basePath = pathFolder + "/" + baseNameExcel;
-        List<Dataset> datasets = DataMiningUtils.getPreprocessedDatasets(basePath, original,
+        List<Dataset> datasets = DataMiningUtils.getPreprocessedDatasets(basePath, original, 
                 filters, classIndex);
-        int numDatasets = datasets.size();
-
-        Dataset d12 = DataMiningUtils.getPreprocessedDataset(basePath, paperOriginal, filters.get(5),
-                -1, 12);
+        int numDatasets = datasets.size();        
+        
+        Dataset d12 = DataMiningUtils.getPreprocessedDataset(basePath, paperOriginal, filters.get(5), 
+        -1, 12);
         d12.properties.isStandardized = true;
-
+        
         String conxuntosPath = pathFolder + "/" + conxuntos;
-        String conxuntosKFoldPath = pathFolder + "/" + conxuntosKFold;
-
-        if (parallel) {
-
+        String conxuntosKFoldPath = pathFolder + "/" + conxuntosKFold;        
+        
+        if(parallel){
+            
             //consider the dataset of the paper
             ExecutorService executor = Executors.newFixedThreadPool(numDatasets + 1);
 
@@ -90,24 +90,25 @@ public class TestExecutor implements Callable<Boolean> {
                 excPath = basePath + d12.id + ".xlsx";
                 exec = new IntermediateExecutor(d12, dataPath,
                         excPath, conxuntosPath, conxuntosKFoldPath, alpha);
-                executor.submit(exec);
+                executor.submit(exec);                
             }
             //then execute the original and the pre-processed datasets
             for (int iii = 0; iii < numDatasets; iii++) {
                 Dataset currentData = datasets.get(iii);
                 String dataPath = basePath + currentData.id + ".arff";
                 String excPath = basePath + currentData.id + ".xlsx";
-                IntermediateExecutor exec = new IntermediateExecutor(currentData, dataPath,
+                IntermediateExecutor exec = new IntermediateExecutor(currentData, dataPath, 
                         excPath, conxuntosPath, conxuntosKFoldPath, alpha);
                 executor.submit(exec);
             }
             executor.shutdown();
             executor.awaitTermination(Integer.MAX_VALUE, TimeUnit.DAYS);
-        } else {
+        }
+        else{
             //first of all the dataset of the paper
             String dataPath = basePath + paperOriginal.id + ".arff";
             String excPath = basePath + paperOriginal.id + ".xlsx";
-            IntermediateExecutor exec = new IntermediateExecutor(paperOriginal, dataPath,
+            IntermediateExecutor exec = new IntermediateExecutor(paperOriginal, dataPath, 
                     excPath, conxuntosPath, conxuntosKFoldPath, alpha);
             exec.call();
 
@@ -117,25 +118,26 @@ public class TestExecutor implements Callable<Boolean> {
             exec = new IntermediateExecutor(d12, dataPath,
                     excPath, conxuntosPath, conxuntosKFoldPath, alpha);
             exec.call();
-
+            
             //then execute the original and the pre-processed datasets
             for (int iii = 0; iii < numDatasets; iii++) {
                 Dataset currentData = datasets.get(iii);
                 dataPath = basePath + currentData.id + ".arff";
                 excPath = basePath + currentData.id + ".xlsx";
-                exec = new IntermediateExecutor(currentData, dataPath, excPath,
+                exec = new IntermediateExecutor(currentData, dataPath, excPath, 
                         conxuntosPath, conxuntosKFoldPath, alpha);
                 exec.call();
             }
-        }
+        }                
     }
 
     @Override
     public Boolean call() throws Exception {
         System.out.println("Running " + this.pathFolder);
-        try {
+        try{
             this.executeTest();
-        } catch (Exception ex) {
+        }
+        catch(Exception ex){
             File fff = new File(pathFolder + "/error");
             Writer www = new FileWriter(fff);
             www.append(this.pathFolder + " :BEGIN, ");
@@ -151,9 +153,9 @@ public class TestExecutor implements Callable<Boolean> {
         Writer www = new FileWriter(fff);
         www.append(this.pathFolder + " :END, ");
         www.flush();
-        www.close();
+        www.close();        
         return true;
-    }
+    }       
 
     //define the preprocessers
     private List<Preprocesser> inputPreprocessers() {
@@ -249,8 +251,8 @@ public class TestExecutor implements Callable<Boolean> {
         p10.properties.nominalToBinary = true;
         p10.properties.replaceMissingValuesMeanMode = true;
         output.add(p10);
-
+        
         return output;
     }
-
+    
 }

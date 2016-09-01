@@ -1,15 +1,14 @@
 package fr.unice.i3s.rockflows.experiments.automatictest;
 
 import fr.unice.i3s.rockflows.experiments.datamining.TestResult;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class BestAvgExcFile {
 
@@ -21,12 +20,12 @@ public class BestAvgExcFile {
     public int rowValueOffset = 3;
     int startAvg = 2;
     public int algorithmColumn = startAvg++;
-    public int rankColumn = startAvg++;
+    public int rankColumn = startAvg++;    
     public int avgAccColumn = startAvg++;
     public int stDevAccColumn = startAvg++;
-    public int totalTimeColumn = startAvg++;
-    public int ramColumn = startAvg++;
-
+    public int totalTimeColumn = startAvg++;   
+    public int ramColumn = startAvg++;   
+    
     int startBestPrep = 3;
     public int p0Column = startBestPrep++;
     public int p1Column = startBestPrep++;
@@ -41,60 +40,60 @@ public class BestAvgExcFile {
     public int p10Column = startBestPrep++;
     public int p11Column = startBestPrep++;
     public int p12Column = startBestPrep++;
-
-    public void writeAvgSorted(String path, List<TestResult> results, int numDatasets)
+    
+    public void writeAvgSorted(String path, List<TestResult> results, int numDatasets) 
             throws Exception {
 
         //like a query sql:
         //order by rankAccuracy,AccuracyAvg(desc)
         results.sort((TestResult r1, TestResult r2) -> {
             return Double.compare(r2.accuracyAvg, r1.accuracyAvg);
-        });
-
+        });        
+                
         writeResultExcel(results, numDatasets);
-
+        
         //write file in output
         FileOutputStream fileOut = new FileOutputStream(path);
         workbook.write(fileOut);
         fileOut.close();
-
+                 
     }
-
-    public void writeTimeSorted(String path, List<TestResult> results, int numDatasets)
+    
+    public void writeTimeSorted(String path, List<TestResult> results, int numDatasets) 
             throws Exception {
 
         //like a query sql:
         //order by rankAccuracy,AccuracyAvg(desc)
         results.sort((TestResult r1, TestResult r2) -> {
             return Double.compare(r2.totalTimeAvg, r1.totalTimeAvg);
-        });
-
+        });        
+                
         writeResultExcel(results, numDatasets);
-
+        
         //write file in output
         FileOutputStream fileOut = new FileOutputStream(path);
         workbook.write(fileOut);
         fileOut.close();
-
-    }
-
-    public void writeRamSorted(String path, List<TestResult> results, int numDatasets)
+                 
+    }    
+    
+    public void writeRamSorted(String path, List<TestResult> results, int numDatasets) 
             throws Exception {
 
         //like a query sql:
         //order by rankAccuracy,AccuracyAvg(desc)
         results.sort((TestResult r1, TestResult r2) -> {
             return Double.compare(r2.ramAvg, r1.ramAvg);
-        });
-
+        });        
+                
         writeResultExcel(results, numDatasets);
-
+        
         //write file in output
         FileOutputStream fileOut = new FileOutputStream(path);
         workbook.write(fileOut);
         fileOut.close();
-
-    }
+                 
+    }        
 
     public BestAvgExcFile(String path) {
         /*
@@ -109,23 +108,23 @@ public class BestAvgExcFile {
 
         Row row2 = sheetBestPrep.createRow((short) rowTitleIndex - 1);
         row2.createCell(p11Column).setCellValue("#Best Pre-Processing IDs");
-
+        
         // Create a title row. Rows are 0 based.
         Row row = sheetAvg.createRow((short) rowTitleIndex);
         // Create cells
         Cell cell = row.createCell(algorithmColumn);
         cell.setCellValue("Algorithm");
-        row.createCell(avgAccColumn).setCellValue("Avg Accuracy");
-        row.createCell(stDevAccColumn).setCellValue("St.Dev. Accuracy");
-        row.createCell(rankColumn).setCellValue("Rank");
+        row.createCell(avgAccColumn).setCellValue("Avg Accuracy");  
+        row.createCell(stDevAccColumn).setCellValue("St.Dev. Accuracy");  
+        row.createCell(rankColumn).setCellValue("Rank"); 
         row.createCell(totalTimeColumn).setCellValue("Avg Execution Time (ms)");
         row.createCell(ramColumn).setCellValue("Avg RAM (bytes)");
-
+        
         // Create a title row. Rows are 0 based.
         Row row3 = sheetBestPrep.createRow((short) rowTitleIndex);
         // Create cells
         Cell cell3 = row3.createCell(algorithmColumn);
-        cell3.setCellValue("Algorithm");
+        cell3.setCellValue("Algorithm");        
         row3.createCell(p0Column).setCellValue("p0");
         row3.createCell(p1Column).setCellValue("p1");
         row3.createCell(p2Column).setCellValue("p2");
@@ -154,9 +153,9 @@ public class BestAvgExcFile {
             row.createCell(stDevAccColumn).setCellValue(res.accuracyStDev);
             row.createCell(avgAccColumn).setCellValue(res.accuracyAvg);
             row.createCell(rankColumn).setCellValue(res.rankAccuracy);
-            row.createCell(totalTimeColumn).setCellValue((int) res.totalTimeAvg);
-            row.createCell(ramColumn).setCellValue((int) res.ramAvg);
-
+            row.createCell(totalTimeColumn).setCellValue((int)res.totalTimeAvg);
+            row.createCell(ramColumn).setCellValue((int)res.ramAvg);
+            
             Row row2 = sheetBestPrep.createRow((short) (rowIndex));
             row2.createCell(algorithmColumn).setCellValue(res.algoName);
             row2.createCell(p0Column).setCellValue(res.contPreProc[0]);

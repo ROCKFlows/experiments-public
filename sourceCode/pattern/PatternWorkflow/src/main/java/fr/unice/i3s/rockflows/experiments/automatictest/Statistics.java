@@ -3,36 +3,36 @@ package fr.unice.i3s.rockflows.experiments.automatictest;
 import java.util.List;
 
 public class Statistics {
-
+    
     List<Double> data;
-    int size;
+    int size;   
 
     public Statistics(List<Double> data) {
         this.data = data;
         size = data.size();
-    }
+    }   
 
-    public double getMean() {
-
+    public double getMean(){
+        
         double sum = 0.0;
-        for (Double a : data) {
-            sum += a;
-        }
-        return sum / size;
+        for(Double a : data){
+            sum += a;    
+        }        
+        return sum/size;
     }
 
-    public double getVariance() {
-
+    public double getVariance(){
+        
         double mean = getMean();
         double temp = 0;
-        for (Double a : data) {
-            temp += (mean - a) * (mean - a);
-        }
-        return temp / size;
+        for(Double a :data){
+            temp += (mean-a)*(mean-a);        
+        }        
+        return temp/size;
     }
 
-    public double getStdDev() {
-
+    public double getStdDev(){
+        
         return Math.sqrt(getVariance());
     }
 

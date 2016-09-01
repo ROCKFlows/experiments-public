@@ -1,18 +1,17 @@
 package fr.unice.i3s.rockflows.experiments.automatictest;
 
 import fr.unice.i3s.rockflows.experiments.datamining.TestResult;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class RankAndStatusExc {
 
@@ -34,81 +33,82 @@ public class RankAndStatusExc {
     public int datasetPreprocessing = start++;
     public int datasetProperties = start++;
     public int datasetPreprocesserID = start++;
-    public int preProcessingTimeColumn = start++;
-    public int testTimeColumn = start++;
+    public int preProcessingTimeColumn = start++;    
+    public int testTimeColumn = start++;    
     public int accuracyColumn = start++;
     public int rankAccuracy = start++;
-    public int statusAccuracy = start++;
+    public int statusAccuracy = start++;    
     public int trainingTimeColumn = start++;
     public int rankTrain = start++;
-    public int statusTrain = start++;
+    public int statusTrain = start++;    
     public int totalTimeColumn = start++;
     public int rankTime = start++;
     public int statusTime = start++;
     public int modelSizeColumn = start++;
     public int rankSize = start++;
-    public int statusSize = start++;
+    public int statusSize = start++;    
 
-    public void writeFinalExcelFile(String path, List<TestResult> results, boolean folds4)
+    public void writeFinalExcelFile(String path, List<TestResult> results, boolean folds4) 
             throws Exception {
 
         //like a query sql:
         //order by rankAccuracy,AccuracyAvg(desc)
         results.sort((TestResult r1, TestResult r2) -> {
             return Integer.compare(r1.rankAccuracy, r2.rankAccuracy);
-        });
-
+        });        
+        
         List<TestResult> ordered = new ArrayList<>();
         //read last number of rank
         int maxRank = results.get(results.size() - 1).rankAccuracy;
-        for (int i = 1; i <= maxRank; i++) {
+        for(int i = 1; i <= maxRank; i++){
             ordered.addAll(getOrderedByAccuracy(i, results, folds4));
-        }
-
+        }        
+        
         writeResultExcel(ordered, folds4);
-
+        
         //write file in output
         FileOutputStream fileOut = new FileOutputStream(path);
         workbook.write(fileOut);
         fileOut.close();
-
+        
         //move columns if they are shifted (bug ApachePOI)
         // read existing file and then modify this one        
         FileInputStream fis = new FileInputStream(path);
-        XSSFWorkbook finalFile = (XSSFWorkbook) WorkbookFactory.create(fis);
+        XSSFWorkbook finalFile = (XSSFWorkbook)WorkbookFactory.create(fis);
         fis.close();
         ExcelUtils.moveColumns(finalFile.getSheet("StatisticAnalysis"));
-
+        
         //write file in output
         fileOut = new FileOutputStream(path);
         finalFile.write(fileOut);
-        fileOut.close();
+        fileOut.close();                
     }
-
-    private List<TestResult> getOrderedByAccuracy(int rank, List<TestResult> res, boolean folds4) {
-
+    
+    private List<TestResult> getOrderedByAccuracy(int rank, List<TestResult> res, boolean folds4){
+        
         List<TestResult> out = new ArrayList<>();
         //get results of the selected rank
-        for (int i = 0; i < res.size(); i++) {
+        for(int i = 0; i < res.size(); i++){
             TestResult tr = res.get(i);
-            if (tr.rankAccuracy == rank) {
+            if(tr.rankAccuracy == rank){
                 out.add(tr);
             }
         }
-        if (folds4) {
+        if(folds4){
             //sort results according to the accuracy
             out.sort((TestResult tr1, TestResult tr2) -> {
                 return Double.compare(tr2.accuracyAvg, tr1.accuracyAvg);
-            });
-        } else {
+            });        
+        }
+        else{
             //sort results according to the accuracy
             out.sort((TestResult tr1, TestResult tr2) -> {
                 return Double.compare(tr2.accuracyAvg10, tr1.accuracyAvg10);
             });
-        }
-        return out;
-    }
-
+        }                 
+        return out;        
+    }    
+    
     public RankAndStatusExc(String path) {
         /*
         write in the excel file all the results according to this format:
@@ -139,7 +139,7 @@ public class RankAndStatusExc {
         row.createCell(rankTime).setCellValue("Rank Total Time");
         row.createCell(statusTime).setCellValue("Status Total Time");
         row.createCell(rankSize).setCellValue("Rank Model Size");
-        row.createCell(statusSize).setCellValue("Status Model Size");
+        row.createCell(statusSize).setCellValue("Status Model Size");        
         row.createCell(modelSizeColumn).setCellValue("Trained Model Size (bytes)");
     }
 
@@ -155,29 +155,30 @@ public class RankAndStatusExc {
             row.createCell(algorithmColumn).setCellValue(res.algoName);
             row.createCell(datasetProperties).setCellValue(res.dataProp);
             row.createCell(datasetPreprocessing).setCellValue(res.preProcProp);
-            row.createCell(datasetPreprocesserID).setCellValue(res.preProcId);
-            if (res.preProcId == 0) {
+            row.createCell(datasetPreprocesserID).setCellValue(res.preProcId);            
+            if(res.preProcId == 0){
                 //this is the original dataset
                 row.createCell(datasetPreprocessing).setCellValue("No Pre-processing, Original UCI");
                 row.createCell(datasetPreprocesserID).setCellValue(0);
             }
-            if (res.preProcId == 999) {
+            if(res.preProcId == 999){
                 //this is the paper dataset
                 row.createCell(datasetPreprocessing).setCellValue("No Pre-processing, Dataset Paper");
                 row.createCell(datasetPreprocesserID).setCellValue(999);
-            }
-            if (folds4) {
+            }            
+            if(folds4){
                 row.createCell(accuracyColumn).setCellValue(res.accuracyAvg);
                 row.createCell(trainingTimeColumn).setCellValue(res.trainingTimeAvg);
                 row.createCell(testTimeColumn).setCellValue(res.testTimeAvg);
-                row.createCell(modelSizeColumn).setCellValue(res.modelSizeAvg);
-            } else {
+                row.createCell(modelSizeColumn).setCellValue(res.modelSizeAvg);            
+            }
+            else{
                 row.createCell(accuracyColumn).setCellValue(res.accuracyAvg10);
                 row.createCell(trainingTimeColumn).setCellValue(res.trainingTimeAvg10);
                 row.createCell(testTimeColumn).setCellValue(res.testTimeAvg10);
-                row.createCell(modelSizeColumn).setCellValue(res.modelSizeAvg10);
+                row.createCell(modelSizeColumn).setCellValue(res.modelSizeAvg10);            
             }
-            row.createCell(preProcessingTimeColumn).setCellValue(res.preProcTime);
+            row.createCell(preProcessingTimeColumn).setCellValue(res.preProcTime);            
             row.createCell(totalTimeColumn).setCellValue(res.sumTime);
             row.createCell(rankAccuracy).setCellValue(res.rankAccuracy);
             row.createCell(statusAccuracy).setCellValue(res.statusAccuracy.toString());
@@ -186,7 +187,7 @@ public class RankAndStatusExc {
             row.createCell(rankTime).setCellValue(res.rankTotalTime);
             row.createCell(statusTime).setCellValue(res.statusTotalTime.toString());
             row.createCell(rankSize).setCellValue(res.rankSize);
-            row.createCell(statusSize).setCellValue(res.statusSize.toString());
+            row.createCell(statusSize).setCellValue(res.statusSize.toString());            
         }
 
     }

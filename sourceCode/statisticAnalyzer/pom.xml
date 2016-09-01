@@ -61,8 +61,6 @@
             <groupId>jdistlib</groupId>
             <artifactId>jdistlib</artifactId>
             <version>0.4.4</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/src/main/resources/jdistlib-0.4.4-bin.jar</systemPath>
         </dependency>
     </dependencies>
 
@@ -82,7 +80,7 @@
                 <artifactId>maven-assembly-plugin</artifactId>
                 <configuration>
                     <finalName>dm-experiments</finalName>
-                    <finalName>analyzer</finalName>
+                    <finalName>test</finalName>
                     <archive>
                         <manifest>
                             <mainClass>fr.unice.i3s.rockflows.experiments.main.MainExperiment</mainClass>

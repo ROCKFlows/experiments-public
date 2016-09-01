@@ -2,9 +2,9 @@ package fr.unice.i3s.rockflows.experiments.datamining;
 
 public class TestResult {
 
-    public String algoName = "";
-    public int algoId = -1;
-    public int preProcId = -1;
+    public String algoName = "";    
+    public int algoId = -1;    
+    public int preProcId = -1;    
     public boolean compatible = false;
     public double accuracyAvg = 0;
     public double trainTimeAvg = 0;
@@ -21,10 +21,11 @@ public class TestResult {
 
     public TestResult() {
         //init values array
-        for (int i = 0; i < contPreProc.length; i++) {
+        for(int i = 0; i < contPreProc.length; i++){
             contPreProc[i] = 0;
         }
     }
+
 
 
 }

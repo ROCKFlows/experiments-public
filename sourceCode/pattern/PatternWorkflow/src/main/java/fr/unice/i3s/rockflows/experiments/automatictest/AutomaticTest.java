@@ -5,18 +5,19 @@
  */
 package fr.unice.i3s.rockflows.experiments.automatictest;
 
-import fr.unice.i3s.rockflows.experiments.datamining.DataMiningUtils;
 import fr.unice.i3s.rockflows.experiments.datamining.InfoClassifier;
+import fr.unice.i3s.rockflows.experiments.datamining.DataMiningUtils;
 import fr.unice.i3s.rockflows.experiments.datamining.TestResult;
 
 /**
+ *
  * @author Luca
  */
 public final class AutomaticTest {
 
     public static void compute4Folds(TestResult res,
-                                     String conxuntosKFold, boolean paper) throws Exception {
-
+            String conxuntosKFold, boolean paper) throws Exception {
+        
         //determine strategy to compute the Avg metrics
         if (paper) {
             if (res.dataset.unique) {
@@ -30,9 +31,9 @@ public final class AutomaticTest {
             if (!res.dataset.unique) {
                 //merge train and test set
                 DataMiningUtils.mergeDataset(res.dataset);
-            }
-        }
-
+            }                
+        }  
+        
     }
 
     /**
@@ -44,21 +45,22 @@ public final class AutomaticTest {
      * <li>save the accuracy, execution training time and execution test time on the relative fields of the
      * {@link InfoClassifier} class of the classifier and into the Excel file</li>
      * </ol>
-     */
+    */
     public static void compute10folds(TestResult res,
-                                      String conxuntosKFold, boolean paper) throws Exception {
-
+            String conxuntosKFold, boolean paper) throws Exception {
+       
         //perform 10-folds cross-validation, for the intermediate Excel file
-        try {
+        try{
             //only for Bagging NBTree and ImageSegmentation database: Weka gives a null pointer 
             //Exception during the 10 folds CV of the training set (for significant different)
             DataMiningUtils.crossValidation10Folds(res);
-        } catch (Exception exx) {
+        }
+        catch(Exception exx){
             res.infoclassifier.properties.compatibleWithDataset = false;
         }
-        if (res.dataset.unique) {
-            DataMiningUtils.computeAvg(res);
+        if(res.dataset.unique){
+            DataMiningUtils.computeAvg(res); 
         }
-
+        
     }
 }

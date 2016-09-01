@@ -10,6 +10,16 @@ import fr.unice.i3s.rockflows.experiments.datamining.DataMiningUtils;
 import fr.unice.i3s.rockflows.experiments.datamining.Dataset;
 import fr.unice.i3s.rockflows.experiments.datamining.InfoClassifier;
 import fr.unice.i3s.rockflows.experiments.datamining.TestResult;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.io.Writer;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 import weka.classifiers.bayes.BayesNet;
 import weka.classifiers.bayes.NaiveBayes;
 import weka.classifiers.functions.LibSVM;
@@ -57,22 +67,12 @@ import weka.clusterers.FarthestFirst;
 import weka.clusterers.SimpleKMeans;
 import weka.core.Instances;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.PrintWriter;
-import java.io.Writer;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
-
 /**
+ *
  * @author lupin
  */
-public class IntermediateExecutor implements Callable<Boolean> {
-
+public class IntermediateExecutor implements Callable<Boolean> { 
+    
     Dataset data;
     String dataPath = "";
     String excPath = "";
@@ -81,26 +81,27 @@ public class IntermediateExecutor implements Callable<Boolean> {
     int indexDecorate = -1;
     List<InfoClassifier> classifiers;
     double alpha = 0.05;
-
+    
     public IntermediateExecutor(Dataset data, String dataPath,
-                                String excPath, String conxuntosPath, String conxuntosKFoldPath,
-                                double alpha) throws Exception {
+            String excPath, String conxuntosPath, String conxuntosKFoldPath, 
+            double alpha) throws Exception{
         this.data = data;
         this.dataPath = dataPath;
         this.excPath = excPath;
         this.conxuntosPath = conxuntosPath;
         this.conxuntosKFoldPath = conxuntosKFoldPath;
         this.alpha = alpha;
-        this.classifiers = inputClassifier(this.data);
+        this.classifiers = inputClassifier(this.data);        
     }
-
+    
     @Override
     public Boolean call() throws Exception {
-
-        try {
+        
+        try{
             this.execute();
-        } catch (Exception exc) {
-
+        }
+        catch(Exception exc){
+            
             File fff = new File(excPath + "000.error");
             Writer www = new FileWriter(fff);
             www.append(this.data.name + " :BEGIN, ");
@@ -108,18 +109,18 @@ public class IntermediateExecutor implements Callable<Boolean> {
             www.append(",:END " + this.data.name);
             www.append(exc.getMessage());
             www.flush();
-            www.close();
+            www.close();            
             return false;
         }
 
         return true;
     }
+ 
+    public void execute() throws Exception{
 
-    public void execute() throws Exception {
-
-        if (!data.existing) {
-            DataMiningUtils.writeArff(data.trainingSet, dataPath);
-        }
+        if(!data.existing){
+            DataMiningUtils.writeArff(data.trainingSet, dataPath); 
+        }        
 
         //initExcel
         IntermediateExcelFile excFile = new IntermediateExcelFile(excPath, data);
@@ -127,23 +128,23 @@ public class IntermediateExecutor implements Callable<Boolean> {
         //check if each nominal attributes contains at least 2 distinct values
         //(for Decorate classifier, it generates an exception if a nominal attribute)
         //does not contain at least 2 distinct nominal values
-        this.classifiers.get(indexDecorate).properties.satisfy2DistinctNominalValues =
+        this.classifiers.get(indexDecorate).properties.satisfy2DistinctNominalValues = 
                 DataMiningUtils.has2DistinctNominalValues(data);
 
         int numClassifiers = classifiers.size();
         //ExecutorService executor = Executors.newFixedThreadPool(numClassifiers);
         ExecutorService executor = Executors.newFixedThreadPool(5);
         //read values of classifiers if it is already existing
-        for (int jjj = 0; jjj < numClassifiers; jjj++) {
-            InfoClassifier currentIC = classifiers.get(jjj);
-            TestResult res = new TestResult(data, currentIC);
+        for (int jjj = 0; jjj < numClassifiers; jjj++) {                  
+            InfoClassifier currentIC = classifiers.get(jjj);            
+            TestResult res = new TestResult(data, currentIC);                
             AlgoExecutor exec = new AlgoExecutor(res, conxuntosPath, conxuntosKFoldPath, excFile);
-            executor.submit(exec);
+            executor.submit(exec);                        
         }
         executor.shutdown();
         executor.awaitTermination(Integer.MAX_VALUE, TimeUnit.DAYS);
     }
-
+    
     private List<InfoClassifier> inputClassifier(Dataset original) throws Exception {
         List<InfoClassifier> cls = new ArrayList<>();
         int id = 0;
@@ -157,9 +158,9 @@ public class IntermediateExecutor implements Callable<Boolean> {
         InfoClassifier ic2 = new InfoClassifier(id++);
         LibSVM ccc = new LibSVM();
         //disable 
-        ccc.setOptions(new String[] {
-                "-J", //Turn off nominal to binary conversion.
-                "-V"  //Turn off missing value replacement
+        ccc.setOptions(new String[]{
+            "-J", //Turn off nominal to binary conversion.
+            "-V"  //Turn off missing value replacement
         });
         //ccc.setSVMType(new SelectedTag(LibSVM.SVMTYPE_C_SVC, LibSVM.TAGS_SVMTYPE));
         //ccc.setKernelType(new SelectedTag(LibSVM.KERNELTYPE_RBF, LibSVM.TAGS_KERNELTYPE));
@@ -197,19 +198,20 @@ public class IntermediateExecutor implements Callable<Boolean> {
         cls.add(ic6);
         //Alternating Decision Trees (ADTree):
         InfoClassifier ic7 = new InfoClassifier(id++);
-        if (original.trainingSet.numClasses() > 2) {
+        if(original.trainingSet.numClasses() > 2){
             MultiClassClassifier mc = new MultiClassClassifier();
-            mc.setOptions(new String[] {"-M", "3"}); //1 vs 1
+            mc.setOptions(new String[]{"-M", "3"}); //1 vs 1
             mc.setClassifier(new ADTree());
             ic7.classifier = mc;
             ic7.name = "1-vs-1 Alternating Decision Tree";
-        } else {
+        }
+        else{
             ic7.classifier = new ADTree();
             ic7.name = "Alternating Decision Tree";
         }
         ic7.properties.manageMultiClass = false;
-        ic7.properties.manageMissingValues = true;
-        cls.add(ic7);
+        ic7.properties.manageMissingValues = true;        
+        cls.add(ic7);        
         //Naive Bayes:
         InfoClassifier ic8 = new InfoClassifier(id++);
         ic8.classifier = new NaiveBayes();
@@ -340,7 +342,7 @@ The first step performed by buildClassifier is checking if the data set fulfills
         RotationForest ccc21 = new RotationForest();
         RandomTree rtr5 = new RandomTree();
         rtr5.setMinNum(2);
-        rtr5.setAllowUnclassifiedInstances(true);
+        rtr5.setAllowUnclassifiedInstances(true);        
         ccc21.setClassifier(rtr5);
         ic32.classifier = ccc21;
         ic32.name = "RotationForest RandomTree";
@@ -405,7 +407,7 @@ The first step performed by buildClassifier is checking if the data set fulfills
         //PART rule based
         InfoClassifier ic39 = new InfoClassifier(id++);
         PART p39 = new PART();
-        p39.setOptions(new String[] {"-C", "0.5"});
+        p39.setOptions(new String[]{"-C", "0.5"});        
         ic39.classifier = new PART();
         ic39.name = "PART";
         ic39.properties.manageMissingValues = true;
@@ -437,7 +439,7 @@ The first step performed by buildClassifier is checking if the data set fulfills
         //LogitBoost Decision Stump
         InfoClassifier ic44 = new InfoClassifier(id++);
         LogitBoost lb = new LogitBoost();
-        lb.setOptions(new String[] {"-L", "1.79"});
+        lb.setOptions(new String[]{"-L","1.79"});
         lb.setClassifier(new DecisionStump());
         ic44.classifier = lb;
         ic44.name = "LogitBoost Decision Stump";
@@ -496,7 +498,7 @@ The first step performed by buildClassifier is checking if the data set fulfills
         MultiBoostAB mba4 = new MultiBoostAB();
         RandomTree rtr3 = new RandomTree();
         rtr3.setMinNum(2);
-        rtr3.setAllowUnclassifiedInstances(true);
+        rtr3.setAllowUnclassifiedInstances(true);        
         mba4.setClassifier(rtr3);
         ic51.classifier = mba4;
         ic51.name = "MultiboostAB, RandomTree";
@@ -566,7 +568,7 @@ The first step performed by buildClassifier is checking if the data set fulfills
         nng.setNumFoldersMIOption(1);
         nng.setNumAttemptsOfGeneOption(5);
         ic59.classifier = nng;
-        ic59.name = "NNge";
+        ic59.name = "NNge";        
         cls.add(ic59);
         //OrdinalClassClassifier J48
         InfoClassifier ic60 = new InfoClassifier(id++);
@@ -595,7 +597,7 @@ The first step performed by buildClassifier is checking if the data set fulfills
         ic64.classifier = rbf;
         ic64.name = "RBF Network";
         ic64.properties.requireNumericDataset = true;
-        if (!original.properties.isStandardized) {
+        if(!original.properties.isStandardized){
             ic64.properties.compatibleWithDataset = false;
         }
         cls.add(ic64);
@@ -641,7 +643,7 @@ The first step performed by buildClassifier is checking if the data set fulfills
         ic72.classifier = bg72;
         ic72.name = "Bagging LWL";
         ic72.properties.manageMissingValues = true;
-        cls.add(ic72);
+        cls.add(ic72);        
         //Decorate
         InfoClassifier ic73 = new InfoClassifier(id++);
         ic73.classifier = new Decorate();
@@ -655,7 +657,7 @@ The first step performed by buildClassifier is checking if the data set fulfills
         Dagging dng = new Dagging();
         dng.setClassifier(new SMO());
         dng.setNumFolds(4);
-        ic74.classifier = dng;
+        ic74.classifier = dng;        
         ic74.properties.requireNumericDataset = true;
         ic74.properties.manageMultiClass = false;
         ic74.name = "Dagging SMO";
@@ -677,43 +679,43 @@ The first step performed by buildClassifier is checking if the data set fulfills
         ic77.classifier = new VFI();
         ic77.properties.manageMissingValues = true;
         ic77.name = "VFI";
-        cls.add(ic77);
-
+        cls.add(ic77);        
+        
         //check if classifier satisfies the constraints of min #instances
         checkMinNumInstanes(cls, original.trainingSet);
-
+        
         return cls;
     }
-
-    private boolean checkMinInstances(Instances data, int min) {
-
-        for (int iii = 0; iii < 4; iii++) {
+    
+    private boolean checkMinInstances(Instances data, int min){       
+        
+        for(int iii = 0; iii < 4; iii++){
             Instances train4 = data.trainCV(4, iii);
-            if (train4.numInstances() < min) {
+            if(train4.numInstances() < min){
                 return false;
             }
-        }
-        for (int iii = 0; iii < 10; iii++) {
+        }        
+        for(int iii = 0; iii < 10; iii++){
             Instances train10 = data.trainCV(10, iii);
-            if (train10.numInstances() < min) {
+            if(train10.numInstances() < min){
                 return false;
             }
         }
         return true;
     }
-
-    private void checkMinNumInstanes(List<InfoClassifier> classifiers, Instances data) {
-
+    
+    private void checkMinNumInstanes(List<InfoClassifier> classifiers, Instances data){
+        
         int num = classifiers.size();
-        for (int iii = 0; iii < num; iii++) {
+        for(int iii = 0; iii < num; iii++){
             InfoClassifier current = classifiers.get(iii);
-            current.properties.satisfyMinNumInstances = checkMinInstances(data,
+            current.properties.satisfyMinNumInstances = checkMinInstances(data, 
                     current.properties.minNumTrainingInstances);
         }
-    }
-
-    public int getNumClassifiers() {
+    }    
+    
+    public int getNumClassifiers(){
         return classifiers.size();
     }
-
+    
 }

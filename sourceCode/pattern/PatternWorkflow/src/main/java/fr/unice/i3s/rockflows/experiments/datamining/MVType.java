@@ -6,23 +6,24 @@
 package fr.unice.i3s.rockflows.experiments.datamining;
 
 /**
+ *
  * @author lupin
  */
 public enum MVType {
-
+    
     True("True"),
     False("False"),
-    Ignore("Ignore");
-
+    Ignore ("Ignore");
+    
     String att = "";
-
-    private MVType(String str) {
+    
+    private MVType(String str){
         att = str;
     }
-
+    
     @Override
-    public String toString() {
+    public String toString(){
         return att;
-    }
-
+    }    
+    
 }

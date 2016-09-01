@@ -13,7 +13,6 @@ import java.util.concurrent.TimeUnit;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  * @author Luca
  */
@@ -24,7 +23,7 @@ public class MainExperiment {
         String pathExcelFolder = "";
         int nthread = 2; //default;
         boolean status = false;
-
+        
         int numParameters = args.length;
         for (int iii = 0; iii < numParameters; iii++) {
             switch (args[iii]) {
@@ -49,18 +48,18 @@ public class MainExperiment {
         int numFiles = datasets.size();
         ExecutorService exec = Executors.newFixedThreadPool(nthread);
         List<ResTest> results = new ArrayList<>();
-
+        
         for (int iii = 0; iii < numFiles; iii++) {
             String dsName = datasets.get(iii);
             String currentDataset = pathExcelFolder + dsName + "/";
             TestExecutor test = new TestExecutor(currentDataset,
                     datasets.get(iii), status);
-            results.add(new ResTest(exec.submit(test), dsName));
+            results.add(new ResTest(exec.submit(test),dsName));
         }
         exec.shutdown();
         exec.awaitTermination(Integer.MAX_VALUE, TimeUnit.DAYS);
         //wait until all tasks have finished the tests
-        for (ResTest rt : results) {
+        for(ResTest rt:results){
             Boolean output = rt.future.get();
             System.out.println("Dataset " + rt.datasetName + " Completed Successfully: " + output.toString());
         }
