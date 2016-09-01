@@ -1,0 +1,65 @@
+Logistic Regression
+Svm
+J48
+NBTree
+Random Forest
+Logistic Model Tree
+Alternating Decision Tree
+Naive Bayes
+Bayesian Network
+IBk
+JRip
+Multillayer Perceptron
+Bagging RepTree
+Bagging J48
+Bagging NBTree
+Bagging OneR
+Bagging JRip
+MultiboostAB DecisionStump
+MultiboostAB OneR
+MultiboostAB J48
+MultiboostAB JRip
+MultiboostAB NBTree
+RotationForest RandomTree
+RotationForest J48
+RandomComittee RandomTree
+Classification via Clustering: KMeans
+Classification via Clustering: FarthestFirst
+Smo
+Random Subspaces of RepTree
+PART
+DTNB
+Ridor
+Decision Table
+Conjunctive Rule
+LogitBoost Decision Stump
+Raced Incremental Logit Boost, Decision Stumps
+AdaboostM1, Decision Stumps
+AdaboostM1, J48
+MultiboostAB, Decision Table
+MultiboostAB, Naive Bayes
+MultiboostAB, PART
+MultiboostAB, RandomTree
+MultiboostAB, RepTree
+Bagging Decision Stump
+Bagging Decision Table
+Bagging Hyper Pipes
+Bagging Naive Bayes
+Bagging PART
+Bagging RandomTree
+NNge
+OrdinalClassClassifier J48
+Hyper Pipes
+Classification ViaRegression, M5P
+RBF Network
+Random Tree
+Rep Tree
+Decision Stump
+OneR
+LWL
+Bagging LWL
+Decorate
+Dagging SMO
+IB1
+Simple Logistic
+VFI

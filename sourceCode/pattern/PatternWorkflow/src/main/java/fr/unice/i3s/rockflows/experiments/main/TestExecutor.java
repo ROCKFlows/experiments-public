@@ -89,19 +89,7 @@ public class TestExecutor implements Callable<Boolean> {
                 return false;
             }        
         }        
-        
-        /*
-        if(pattern.attributeType != AttributeType.Mixed){
-            if(dataAtt != pattern.attributeType){
-                return false;
-            }
-        }    
-        else{
-            if(dataAtt == AttributeType.NumericOriginal || dataAtt == AttributeType.NumericStandardized){
-                return false;
-            }
-        }        
-        */
+
         //check num classes
         if(!isInInterval(data.numClasses(), pattern.minNumClasses, pattern.maxNumClasses)){
             return false;
