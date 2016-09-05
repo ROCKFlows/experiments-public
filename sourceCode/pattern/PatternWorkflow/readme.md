@@ -12,7 +12,7 @@ Install maven3 and java 1.8 on your computer
 
 ####Command
 
-Launch this command in souceCode/statisticAnalyzer/
+Launch this command in souceCode/pattern/patternWorkflow/
 
 ```
 mvn clean compile assembly:single
@@ -20,10 +20,10 @@ mvn clean compile assembly:single
 
 ##Execute the program:
 
-Launch this command in souceCode/statisticAnalyzer/target/
+Launch this command in souceCode/pattern/patternWorkflow/target/
 
 ```
-nohup java -jar workflow-avg-rank.jar  -src "path input" -dest "pat output" -names ../src/main/resources/names  -nthread "N"  1> "path log" 2>&1 &
+java -jar workflow-avg-rank.jar  -src "path input" -dest "path output" -names ../src/main/resources/names  -nthread "N"  1> "path log" 2>&1
 ```
 
 Where:
@@ -36,7 +36,7 @@ Where:
 
 	 If the parameter -nthread misses, the datasets are executed sequentially.
 
-- "path output " is the output folder that contains the data patterns specified into the source code. Example of parameter: /home/user/Desktop/patterns/
+- "path output" is the output folder that contains the data patterns specified into the source code. Example of parameter: /home/user/Desktop/patterns/
 
 - -names: it contains the name of all the classifiers tested in our experiments. It is used to retrieve the results of the same workflow among the different Excel files, where the name of the classifier is always the same
 
@@ -47,7 +47,7 @@ Where:
 If you want to execute the program in a server, the following commands may be useful:
 
 ```
-nohup java -jar performance-analyzer.jar  -pef "path input" -out "path output"  -nthread "N" -id1 "indices1" -id2 "indices2"  1> "path log" 2>&1 &
+nohup java -Xms"min" -Xmx"max" -jar workflow-avg-rank.jar  -src "path input" -dest "path output" -names ../src/main/resources/names  -nthread "N"  1> "path log" 2>&1 &
 ```
 
 Where:
@@ -59,3 +59,16 @@ Where:
 - "max": is the maximum value of RAM that the java process can allocate during its execution. For example, put 8g to say 8Gb.
 
 - the final & says to execute the process in background, so your terminal will not be blocked during the execution of the program
+
+
+##Output of the Program
+
+In the "path output", the one folder for each pattern specified into the source code is created. Each pattern folder contains the folder of the datasets "test-0.arff" that match the specified data pattern. Inside each pattern folder, beyond the folder of the datasets that match the patern, 3 files are created: 
+
+- readme: it contains the description of the data pattern. For example, it says what the range of attributes is, the range of instances, ...
+
+- analysis-4Folds.xlsx and analysis-10Folds.xlsx: they contain the following values for each workflow: average rank accuracy, standard deviation rank accuracy, average accuracy, standard deviation average accuracy and #times the workflow has rank=1 on the datasets that match the data pattern.
+
+- analysis-4Folds.xlsx: the average values have been calculated from the results reported in the file Final-Analysis-4Folds.xlsx of each dataset folder.
+
+- analysis-10Folds.xlsx: the average values have been calculated from the results reported in the file Final-Analysis-10Folds.xlsx of each dataset folder.
