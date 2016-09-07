@@ -1,3 +1,5 @@
+#Pattern Description
+
 id = pattern1
 with missing values = False
 min Num Attributes = 16
