@@ -1,6 +1,6 @@
 #Usage of the project:
 
-This project is used to calculate the average rank of the workflows that match a specific data pattern.
+This project can be used to calculate the average rank of the workflows that match a specific data pattern.
 
 *N.B.* For the moment, data patterns are defined directly into the source code, in the MainExperiment.java file.
 
@@ -60,6 +60,9 @@ Where:
 
 - the final & says to execute the process in background, so your terminal will not be blocked during the execution of the program
 
+##Input of the Program
+
+The dataset folders treated by the analysePattern project, which contains the files Final-Analysis-4Folds.xlsx and Final-Analysis-10Folds.xlsx
 
 ##Output of the Program
 

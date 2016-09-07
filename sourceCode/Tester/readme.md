@@ -1,8 +1,14 @@
 #Usage of the project:
 
-This project has been used to test 65 classifiers implemented in Weka and 12 pre-processing techniques on the datasets stored in Resources/datasets/work.tar.gz
+This project tests the performances of some specified classifiers and pre-processing techniques on the dataset to test.
+
+For the article, this project has been used to test 65 classifiers implemented in Weka and 12 pre-processing techniques on the datasets stored in Resources/datasets/work.tar.gz
 
 (Section 3 (Experiments) of the article).
+
+If you want to add more classifiers to test, you have to add them directly into the source code and then re-compile the project. The method taht contains the definition of the classifiers is IntermediateExecutor.inputClassifier(...)
+
+If you want to add more pre-processing to test, you have to add them directly into the source code and then re-compile the project. The method taht contains the definition of the classifiers is TestExecutor.inputPreprocessers(...)
 
 ##Compile the project:
 
@@ -58,7 +64,7 @@ Where:
 
 - the final & says to execute the process in background, so your terminal will not be blocked during the execution of the program
 
-##Output of the Program
+##Input of the program:
 
 Each dataset contained into the folder "path datasets" is contained into a folder. For example, in the path /home/user/Desktop/data/ there are three sub-folders:
 
@@ -68,7 +74,7 @@ Each dataset contained into the folder "path datasets" is contained into a folde
 
 corresponding to three datasets of the UCI repository [1]: annealing, iris and wine.
 
-Before starting executing the project, each dataset folder contains the following files:
+Before starting executing the project, each dataset folder **must** contains the following files:
 
 - test-0.arff: is the original dataset, the one built manually by reading the description of the dataset found in the UCI repository. Each attribute has been defined as nominal if its values are categories (ex: attribute: "size", values: "small", "medium", "large"), while it has been defined as numeric if its values are real numbers (ex: attribute: temperature, values: 22.1, 22.3, 19.9, ...). In the article, this datasets corresponds to pre-processing p0.
 
@@ -79,6 +85,8 @@ Before starting executing the project, each dataset folder contains the followin
 - conxuntos_kfold.dat: is the file that identifies the 4 folds used in the 4-Fold cross-validation, described in Section 3.5 of the article. The file has the same structure of conxuntos.dat, but it contains 8 lines: the first line identifies the training set, while the second line identifies the test set, for 4 times.
 
 - class: is an optional file. If it is present, it contains the index 0-based of the class-attribute, that is, which attribute has to be treated as class-attribute.
+
+##Output of the Program
 
 When the project has finished its execution, from 1 to 12 pre-processed datasets (.arff files) may be created into the dataset folder, depending on the domain of applicability reported in Table 3.1 of the article. For example, pre-processing p1 is applicable to the original dataset (test-0.arff) of the *wine* dataset, so the pre-processed dataset test-1.arff will be created into the dataset folder.
 

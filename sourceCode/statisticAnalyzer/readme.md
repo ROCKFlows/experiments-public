@@ -1,10 +1,8 @@
 #Usage of the project:
 
-This project has been used to check which factors have a significant impact on the rankings of classifiers.
+This project checks which factors have a significant impact on the rankings of classifiers. The rankings differs in the values taken for each classifier. For example, if we want to compare the different performance obtained by one classifier with different pre-processing techniques, this project creates the two separated rankings. 
 
-(Section 5 of the article)
-
-Example from the article:
+Example from the article (Section 5):
 
 - evaluation impact (Section 5.1)
 - pre-processing impact (Section 5.2)
@@ -70,6 +68,10 @@ Where:
 
 - the final & says to execute the process in background, so your terminal will not be blocked during the execution of the program
 
+
+##Input of the Program
+
+The dataset folders obtained by the Tester project.
 
 ##Output of the Program
 

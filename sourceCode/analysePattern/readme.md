@@ -1,6 +1,6 @@
 #Usage of the project:
 
-This project has been used to create the file Final-Analysis-4Folds.xlsx and Final-Analysis-10Folds.xlsx inside each dataset folder. At first, each dataset need to be tested with the sourceCode/Tester project.
+This project takes as input experiments results obtained through the Tester project, and analyses them to provide a ranking of the evaluated algorithms. Rankings are based on both 4-fold and 10-fold cross-validation and then they are saved in excel files named Final-Analysis-4Folds.xlsx and Final-Analysis-10Folds.xlsx for each dataset that was given as input.
 
 ##Compile the project:
 
@@ -10,12 +10,12 @@ Install maven3 and java 1.8 on your computer
 
 Install the maven dependency:
 
-mvn install:install-file -Dfile="Absolute path..."/sourceCode/pattern/analysePattern/src/main/resources/jdistlib-0.4.4-bin.jar
+mvn install:install-file -Dfile="Absolute path..."/sourceCode/analysePattern/src/main/resources/jdistlib-0.4.4-bin.jar
  -DgroupId=jdistlib -DartifactId=jdistlib -Dversion=0.4.4 -Dpackaging=jar
 
 ####Command
 
-Launch this command in souceCode/pattern/analysePattern/
+Launch this command in souceCode/analysePattern/
 
 ```
 mvn clean compile assembly:single
@@ -23,7 +23,7 @@ mvn clean compile assembly:single
 
 ##Execute the program:
 
-Launch this command in souceCode/pattern/analysePattern/target/
+Launch this command in souceCode/analysePattern/target/
 
 ```
 java -jar workflow-analysis.jar  -pef "path input" -nthread "N" -status 1> "path log"
@@ -63,7 +63,9 @@ Where:
 - the final & says to execute the process in background, so your terminal will not be blocked during the execution of the program
 
 
-##Output of the Program
+##Input of the Program:
+
+The input of the program are the dataset folders treated by the Tester project.
 
 Let's take for example the wine dataset folder, once it has been tested by the sourcecode/Tester project. It contains the following files:
 
@@ -82,6 +84,8 @@ Let's take for example the wine dataset folder, once it has been tested by the s
 - test-11.xlsx
 - test-12.arff
 - test-12.xlsx
+
+##Output of the Program:
 
 The output of this program are 2 Excel files: Final-Analysis-4Folds.xlsx and Final-Analysis-10Folds.xlsx. Each file contains a ranking of workflows, ordered by the rank Accuracy value. Each workflow is identified by the pair (name of classifier, pre-processing id), where the pre-processing id is the same id reported into the dataset filename. For example, for the dataset "test-0.arff", the pre-processing id is 0. For each workflow, the reported values of average accuracy, training time (ms), test time (ms) and memory usage (bytes) are the same values reported into the file test-"id".xlsx file. In case of the Final-Analysis-4Folds.xlsx file, the results come from the sheet Result (4-Fold cross-validation), while in case of the Final-Analysis-10Folds.xlsx file, the results come from the sheet Result10 (10-Fold cross-validation).
 

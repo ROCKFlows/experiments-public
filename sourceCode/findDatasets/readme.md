@@ -1,6 +1,6 @@
 #Usage of the project:
 
-This project is used to find in which datasets a specific workflow (pi, cj) obtains an accuracy rank=1.
+This project can be used to find in which datasets a specific workflow (pi, cj) obtains an accuracy rank=1.
 
 ##Compile the project:
 
@@ -10,7 +10,7 @@ Install maven3 and java 1.8 on your computer
 
 ####Command
 
-Launch this command in souceCode/pattern/findDatasets/
+Launch this command in souceCode/findDatasets/
 
 ```
 mvn clean compile assembly:single
@@ -18,7 +18,7 @@ mvn clean compile assembly:single
 
 ##Execute the program:
 
-Launch this command in souceCode/pattern/findDatasets/target/
+Launch this command in souceCode/findDatasets/target/
 
 ```
 java -jar finder.jar  -src "path input" -out "output file"  -nthread "N" -wname "classifier name" -wpid "pre-processer id" -cvBoth  1> "path log" 2>&1
@@ -67,6 +67,10 @@ Where:
 
 - the final & says to execute the process in background, so your terminal will not be blocked during the execution of the program
 
+
+##Input of the Program
+
+The dataset folders treated by the analysePattern project, which contains the files Final-Analysis-4Folds.xlsx and Final-Analysis-10Folds.xlsx
 
 ##Output of the Program
 

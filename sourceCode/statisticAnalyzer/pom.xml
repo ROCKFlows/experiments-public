@@ -12,12 +12,6 @@
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
-    <parent>
-        <groupId>fr.unice.i3s.rockflows.expe</groupId>
-        <artifactId>dm-experiments</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
-    </parent>
-
     <dependencies>
         <!-- data mining -->
         <dependency>
