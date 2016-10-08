@@ -1,0 +1,22 @@
+@relation 'balloons-adult-stretch-weka.filters.unsupervised.attribute.Remove-V-R1,5-fr.unice.i3s.rockflows.experiments.weka.CfsSubsetFilter'
+
+@attribute V1 {PURPLE,YELLOW}
+@attribute Class {T,F}
+
+@data
+YELLOW,T
+YELLOW,T
+YELLOW,T
+YELLOW,T
+YELLOW,T
+YELLOW,F
+YELLOW,F
+YELLOW,F
+PURPLE,T
+PURPLE,F
+PURPLE,F
+PURPLE,F
+PURPLE,T
+PURPLE,F
+PURPLE,F
+PURPLE,F

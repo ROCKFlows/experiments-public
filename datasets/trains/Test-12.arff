@@ -1,0 +1,17 @@
+@relation 'trains-weka.filters.unsupervised.attribute.Remove-V-R16,24,30-fr.unice.i3s.rockflows.experiments.weka.CfsSubsetFilter'
+
+@attribute f16 numeric
+@attribute f24 numeric
+@attribute clase {0,1}
+
+@data
+0.444478,1.1619,0
+1.92607,1.1619,0
+0.444478,-0.774597,0
+0.444478,1.1619,0
+0.444478,1.1619,0
+-1.03712,-0.774597,1
+-1.03712,-0.774597,1
+-1.03712,-0.774597,1
+0.444478,-0.774597,1
+-1.03712,-0.774597,1

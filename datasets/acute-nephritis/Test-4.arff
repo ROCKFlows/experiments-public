@@ -1,0 +1,136 @@
+@relation acute-inflammations-nephritis-weka.filters.unsupervised.attribute.NominalToBinary-N-A-Rfirst-last
+
+@attribute V1 numeric
+@attribute V2=no {f,t}
+@attribute V2=yes {f,t}
+@attribute V3=no {f,t}
+@attribute V3=yes {f,t}
+@attribute V4=no {f,t}
+@attribute V4=yes {f,t}
+@attribute V5=no {f,t}
+@attribute V5=yes {f,t}
+@attribute V6=no {f,t}
+@attribute V6=yes {f,t}
+@attribute Class {no,yes}
+
+@data
+35.5,t,f,f,t,t,f,t,f,t,f,no
+35.9,t,f,t,f,f,t,f,t,f,t,no
+35.9,t,f,f,t,t,f,t,f,t,f,no
+36,t,f,t,f,f,t,f,t,f,t,no
+36,t,f,f,t,t,f,t,f,t,f,no
+36,t,f,f,t,t,f,t,f,t,f,no
+36.2,t,f,t,f,f,t,f,t,f,t,no
+36.2,t,f,f,t,t,f,t,f,t,f,no
+36.3,t,f,t,f,f,t,f,t,f,t,no
+36.6,t,f,t,f,f,t,f,t,f,t,no
+36.6,t,f,t,f,f,t,f,t,f,t,no
+36.6,t,f,f,t,t,f,t,f,t,f,no
+36.6,t,f,f,t,t,f,t,f,t,f,no
+36.7,t,f,t,f,f,t,f,t,f,t,no
+36.7,t,f,f,t,t,f,t,f,t,f,no
+36.7,t,f,f,t,t,f,t,f,t,f,no
+36.8,t,f,t,f,f,t,f,t,f,t,no
+36.8,t,f,t,f,f,t,f,t,f,t,no
+36.9,t,f,t,f,f,t,f,t,f,t,no
+36.9,t,f,f,t,t,f,t,f,t,f,no
+37,t,f,t,f,f,t,f,t,t,f,no
+37,t,f,t,f,f,t,f,t,t,f,no
+37,t,f,f,t,t,f,t,f,t,f,no
+37,t,f,t,f,f,t,f,t,f,t,no
+37,t,f,t,f,f,t,f,t,f,t,no
+37,t,f,t,f,f,t,f,t,f,t,no
+37,t,f,t,f,f,t,f,t,f,t,no
+37,t,f,t,f,f,t,t,f,t,f,no
+37.1,t,f,f,t,t,f,t,f,t,f,no
+37.1,t,f,t,f,f,t,f,t,f,t,no
+37.1,t,f,t,f,f,t,t,f,t,f,no
+37.2,t,f,t,f,f,t,f,t,t,f,no
+37.2,t,f,f,t,t,f,t,f,t,f,no
+37.2,t,f,t,f,f,t,t,f,t,f,no
+37.3,t,f,f,t,t,f,t,f,t,f,no
+37.3,t,f,t,f,f,t,f,t,f,t,no
+37.3,t,f,t,f,f,t,t,f,t,f,no
+37.4,t,f,f,t,t,f,t,f,t,f,no
+37.4,t,f,t,f,f,t,t,f,t,f,no
+37.5,t,f,t,f,f,t,f,t,t,f,no
+37.5,t,f,f,t,t,f,t,f,t,f,no
+37.5,t,f,f,t,t,f,t,f,t,f,no
+37.5,t,f,t,f,f,t,f,t,f,t,no
+37.5,t,f,t,f,f,t,t,f,t,f,no
+37.5,t,f,t,f,f,t,t,f,t,f,no
+37.6,t,f,t,f,f,t,f,t,t,f,no
+37.6,t,f,t,f,f,t,f,t,t,f,no
+37.6,t,f,t,f,f,t,f,t,f,t,no
+37.7,t,f,t,f,f,t,f,t,t,f,no
+37.7,t,f,t,f,f,t,f,t,t,f,no
+37.7,t,f,f,t,t,f,t,f,t,f,no
+37.7,t,f,t,f,f,t,t,f,t,f,no
+37.8,t,f,f,t,t,f,t,f,t,f,no
+37.8,t,f,t,f,f,t,f,t,f,t,no
+37.8,t,f,t,f,f,t,t,f,t,f,no
+37.9,t,f,t,f,f,t,f,t,t,f,no
+37.9,t,f,t,f,f,t,f,t,t,f,no
+37.9,t,f,f,t,t,f,t,f,t,f,no
+37.9,t,f,t,f,f,t,f,t,f,t,no
+37.9,t,f,t,f,f,t,t,f,t,f,no
+38,t,f,f,t,f,t,t,f,f,t,yes
+38,t,f,f,t,f,t,t,f,f,t,yes
+38.1,t,f,f,t,f,t,t,f,f,t,yes
+38.3,t,f,f,t,f,t,t,f,f,t,yes
+38.5,t,f,f,t,f,t,t,f,f,t,yes
+38.7,t,f,f,t,f,t,t,f,f,t,yes
+38.9,t,f,f,t,f,t,t,f,f,t,yes
+39,t,f,f,t,f,t,t,f,f,t,yes
+39.4,t,f,f,t,f,t,t,f,f,t,yes
+39.7,t,f,f,t,f,t,t,f,f,t,yes
+40,f,t,f,t,f,t,f,t,f,t,yes
+40,f,t,f,t,f,t,f,t,f,t,yes
+40,f,t,f,t,f,t,f,t,t,f,yes
+40,t,f,t,f,t,f,t,f,t,f,no
+40,t,f,t,f,t,f,t,f,t,f,no
+40,f,t,f,t,t,f,f,t,t,f,yes
+40,f,t,f,t,t,f,f,t,t,f,yes
+40,t,f,f,t,f,t,t,f,f,t,yes
+40.1,f,t,f,t,f,t,f,t,t,f,yes
+40.2,f,t,f,t,f,t,f,t,f,t,yes
+40.2,t,f,t,f,t,f,t,f,t,f,no
+40.2,f,t,f,t,t,f,f,t,t,f,yes
+40.3,t,f,f,t,f,t,t,f,f,t,yes
+40.4,f,t,f,t,f,t,f,t,f,t,yes
+40.4,f,t,f,t,f,t,f,t,t,f,yes
+40.4,f,t,f,t,f,t,f,t,t,f,yes
+40.4,t,f,t,f,t,f,t,f,t,f,no
+40.4,f,t,f,t,t,f,f,t,t,f,yes
+40.5,f,t,f,t,f,t,f,t,t,f,yes
+40.6,f,t,f,t,f,t,f,t,f,t,yes
+40.6,t,f,t,f,t,f,t,f,t,f,no
+40.6,f,t,f,t,t,f,f,t,t,f,yes
+40.7,f,t,f,t,f,t,f,t,f,t,yes
+40.7,f,t,f,t,f,t,f,t,t,f,yes
+40.7,t,f,t,f,t,f,t,f,t,f,no
+40.7,f,t,f,t,t,f,f,t,t,f,yes
+40.7,t,f,f,t,f,t,t,f,f,t,yes
+40.8,t,f,f,t,f,t,t,f,f,t,yes
+40.9,f,t,f,t,f,t,f,t,t,f,yes
+40.9,f,t,f,t,f,t,f,t,t,f,yes
+40.9,t,f,f,t,f,t,t,f,f,t,yes
+41,f,t,f,t,f,t,f,t,f,t,yes
+41,t,f,t,f,t,f,t,f,t,f,no
+41,f,t,f,t,t,f,f,t,t,f,yes
+41,t,f,f,t,f,t,t,f,f,t,yes
+41.1,f,t,f,t,f,t,f,t,f,t,yes
+41.1,f,t,f,t,f,t,f,t,t,f,yes
+41.1,t,f,t,f,t,f,t,f,t,f,no
+41.1,f,t,f,t,t,f,f,t,t,f,yes
+41.1,t,f,f,t,f,t,t,f,f,t,yes
+41.2,f,t,f,t,f,t,f,t,f,t,yes
+41.2,t,f,t,f,t,f,t,f,t,f,no
+41.2,f,t,f,t,t,f,f,t,t,f,yes
+41.2,t,f,f,t,f,t,t,f,f,t,yes
+41.3,f,t,f,t,f,t,f,t,t,f,yes
+41.4,t,f,f,t,f,t,t,f,f,t,yes
+41.5,t,f,t,f,t,f,t,f,t,f,no
+41.5,f,t,f,t,t,f,f,t,t,f,yes
+41.5,t,f,f,t,f,t,t,f,f,t,yes
+41.5,t,f,f,t,f,t,t,f,f,t,yes

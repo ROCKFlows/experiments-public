@@ -1,0 +1,193 @@
+@relation bridges-version1-weka.filters.unsupervised.attribute.NominalToBinary-N-A-Rfirst-last
+
+@attribute RIVER=A {f,t}
+@attribute RIVER=M {f,t}
+@attribute RIVER=O {f,t}
+@attribute RIVER=Y {f,t}
+@attribute LOCATION=1 {f,t}
+@attribute LOCATION=10 {f,t}
+@attribute LOCATION=11 {f,t}
+@attribute LOCATION=12 {f,t}
+@attribute LOCATION=13 {f,t}
+@attribute LOCATION=14 {f,t}
+@attribute LOCATION=15 {f,t}
+@attribute LOCATION=16 {f,t}
+@attribute LOCATION=17 {f,t}
+@attribute LOCATION=18 {f,t}
+@attribute LOCATION=19 {f,t}
+@attribute LOCATION=2 {f,t}
+@attribute LOCATION=20 {f,t}
+@attribute LOCATION=21 {f,t}
+@attribute LOCATION=22 {f,t}
+@attribute LOCATION=23 {f,t}
+@attribute LOCATION=24 {f,t}
+@attribute LOCATION=25 {f,t}
+@attribute LOCATION=26 {f,t}
+@attribute LOCATION=27 {f,t}
+@attribute LOCATION=28 {f,t}
+@attribute LOCATION=29 {f,t}
+@attribute LOCATION=3 {f,t}
+@attribute LOCATION=30 {f,t}
+@attribute LOCATION=31 {f,t}
+@attribute LOCATION=32 {f,t}
+@attribute LOCATION=33 {f,t}
+@attribute LOCATION=34 {f,t}
+@attribute LOCATION=35 {f,t}
+@attribute LOCATION=36 {f,t}
+@attribute LOCATION=37 {f,t}
+@attribute LOCATION=38 {f,t}
+@attribute LOCATION=38.5 {f,t}
+@attribute LOCATION=39 {f,t}
+@attribute LOCATION=39.5 {f,t}
+@attribute LOCATION=39.7 {f,t}
+@attribute LOCATION=4 {f,t}
+@attribute LOCATION=40 {f,t}
+@attribute LOCATION=41 {f,t}
+@attribute LOCATION=42 {f,t}
+@attribute LOCATION=43 {f,t}
+@attribute LOCATION=44 {f,t}
+@attribute LOCATION=45 {f,t}
+@attribute LOCATION=46 {f,t}
+@attribute LOCATION=47 {f,t}
+@attribute LOCATION=48 {f,t}
+@attribute LOCATION=49 {f,t}
+@attribute LOCATION=5 {f,t}
+@attribute LOCATION=51 {f,t}
+@attribute LOCATION=52 {f,t}
+@attribute LOCATION=6 {f,t}
+@attribute LOCATION=7 {f,t}
+@attribute LOCATION=8 {f,t}
+@attribute LOCATION=9 {f,t}
+@attribute ERECTED numeric
+@attribute PURPOSE=WALK {f,t}
+@attribute PURPOSE=AQUEDUCT {f,t}
+@attribute PURPOSE=RR {f,t}
+@attribute PURPOSE=HIGHWAY {f,t}
+@attribute LENGTH numeric
+@attribute LANES numeric
+@attribute CLEAR-G=N {f,t}
+@attribute CLEAR-G=G {f,t}
+@attribute T-OR-D=THROUGH {f,t}
+@attribute T-OR-D=DECK {f,t}
+@attribute MATERIAL=WOOD {f,t}
+@attribute MATERIAL=IRON {f,t}
+@attribute MATERIAL=STEEL {f,t}
+@attribute SPAN {SHORT,MEDIUM,LONG}
+@attribute REL-L=S {f,t}
+@attribute REL-L=S-F {f,t}
+@attribute REL-L=F {f,t}
+@attribute TYPE=WOOD {f,t}
+@attribute TYPE=SUSPEN {f,t}
+@attribute TYPE=SIMPLE-T {f,t}
+@attribute TYPE=ARCH {f,t}
+@attribute TYPE=CANTILEV {f,t}
+@attribute TYPE=CONT-T {f,t}
+
+@data
+f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1818,f,f,f,t,?,2,t,f,t,f,t,f,f,SHORT,t,f,f,t,f,f,f,f,f
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1819,f,f,f,t,1037,2,t,f,t,f,t,f,f,SHORT,t,f,f,t,f,f,f,f,f
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1829,f,t,f,f,?,1,t,f,t,f,t,f,f,?,t,f,f,t,f,f,f,f,f
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1837,f,f,f,t,1000,2,t,f,t,f,t,f,f,SHORT,t,f,f,t,f,f,f,f,f
+f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1838,f,f,f,t,?,2,t,f,t,f,t,f,f,?,t,f,f,t,f,f,f,f,f
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1840,f,f,f,t,990,2,t,f,t,f,t,f,f,MEDIUM,t,f,f,t,f,f,f,f,f
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1844,f,t,f,f,1000,1,t,f,t,f,f,t,f,SHORT,t,f,f,f,t,f,f,f,f
+f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1846,f,f,f,t,1500,2,t,f,t,f,f,t,f,SHORT,t,f,f,f,t,f,f,f,f
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1848,f,t,f,f,?,1,t,f,f,t,t,f,f,?,t,f,f,t,f,f,f,f,f
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1851,f,f,f,t,1000,2,t,f,t,f,t,f,f,MEDIUM,t,f,f,t,f,f,f,f,f
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1853,f,f,t,f,?,2,t,f,f,t,t,f,f,?,t,f,f,t,f,f,f,f,f
+f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,1856,f,f,f,t,1200,2,t,f,t,f,t,f,f,MEDIUM,t,f,f,t,f,f,f,f,f
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1856,f,f,f,t,?,2,t,f,t,f,t,f,f,?,t,f,f,t,f,f,f,f,f
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1857,f,f,t,f,?,2,t,f,t,f,t,f,f,?,t,f,f,t,f,f,f,f,f
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1859,f,f,f,t,1030,2,t,f,t,f,f,t,f,MEDIUM,f,t,f,f,t,f,f,f,f
+f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1863,f,f,t,f,1000,2,t,f,t,f,f,t,f,MEDIUM,?,?,?,f,f,t,f,f,f
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1864,f,f,t,f,1200,2,t,f,t,f,f,t,f,SHORT,t,f,f,f,f,t,f,f,f
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1866,f,f,f,t,1000,2,t,f,t,f,t,f,f,MEDIUM,t,f,f,t,f,f,f,f,f
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1870,f,f,f,t,1000,2,t,f,t,f,t,f,f,MEDIUM,t,f,f,t,f,f,f,f,f
+f,t,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1874,f,f,t,f,?,2,?,?,t,f,f,t,f,?,?,?,?,f,f,t,f,f,f
+f,t,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1876,f,f,f,t,1245,?,?,?,t,f,f,f,t,LONG,f,f,t,f,t,f,f,f,f
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1876,f,f,f,t,1200,4,f,t,t,f,t,f,f,SHORT,t,f,f,t,f,f,f,f,f
+f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,1878,f,f,t,f,?,2,f,t,?,?,f,f,t,?,?,?,?,f,f,t,f,f,f
+f,t,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1882,f,f,t,f,?,2,f,t,?,?,f,f,t,?,?,?,?,f,f,t,f,f,f
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1883,f,f,t,f,?,2,f,t,t,f,f,f,t,?,f,f,t,f,f,t,f,f,f
+f,t,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1883,f,f,t,f,1150,2,f,t,t,f,f,f,t,MEDIUM,t,f,f,f,f,t,f,f,f
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1884,f,f,t,f,?,2,f,t,t,f,f,f,t,MEDIUM,f,f,t,f,f,t,f,f,f
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1884,f,f,f,t,1080,2,f,t,t,f,f,f,t,MEDIUM,?,?,?,f,t,f,f,f,f
+f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1884,f,f,f,t,1000,2,f,t,t,f,f,f,t,MEDIUM,t,f,f,f,f,f,t,f,f
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1887,f,f,f,t,?,2,f,t,t,f,f,t,f,MEDIUM,f,f,t,f,f,t,f,f,f
+f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,1887,f,f,t,f,1161,2,f,t,t,f,f,f,t,MEDIUM,t,f,f,f,f,t,f,f,f
+f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1888,f,f,t,f,4558,2,f,t,t,f,f,f,t,LONG,f,f,t,f,f,t,f,f,f
+f,t,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1889,f,f,f,t,1120,?,f,t,t,f,f,t,f,MEDIUM,f,f,t,f,f,t,f,f,f
+f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,1890,f,f,f,t,?,2,f,t,t,f,f,t,f,SHORT,f,f,t,f,f,t,f,f,f
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1890,f,f,f,t,1000,2,f,t,t,f,f,f,t,MEDIUM,f,f,t,f,f,t,f,f,f
+f,t,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1891,f,f,f,t,?,2,f,t,t,f,f,t,f,MEDIUM,f,f,t,f,f,t,f,f,f
+f,t,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1891,f,f,t,f,1350,2,f,t,t,f,f,f,t,MEDIUM,t,f,f,f,f,t,f,f,f
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1892,f,f,f,t,?,2,f,t,t,f,f,f,t,MEDIUM,f,f,t,f,f,t,f,f,f
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1892,f,t,f,f,1092,1,t,f,t,f,t,f,f,SHORT,t,f,f,t,f,f,f,f,f
+f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1893,f,f,f,t,?,2,f,t,t,f,f,f,t,MEDIUM,f,f,t,f,f,t,f,f,f
+f,t,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1894,f,f,f,t,?,2,f,t,t,f,f,t,f,MEDIUM,f,f,t,f,f,t,f,f,f
+f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,1895,f,f,f,t,2367,2,f,t,t,f,f,f,t,LONG,f,f,t,f,f,t,f,f,f
+f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,1896,f,f,f,t,?,2,f,t,t,f,f,f,t,LONG,f,f,t,f,t,f,f,f,f
+f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,1896,f,f,f,t,1040,2,f,t,t,f,f,f,t,LONG,f,f,t,f,f,f,t,f,f
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1897,f,f,t,f,4000,2,f,t,f,t,f,f,t,LONG,f,f,t,f,f,t,f,f,f
+f,t,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1897,f,f,t,f,2264,?,f,t,t,f,f,f,t,?,f,f,t,f,f,t,f,f,f
+f,t,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1898,f,f,t,f,2000,2,f,t,t,f,f,f,t,MEDIUM,t,f,f,f,f,t,f,f,f
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1900,f,f,f,t,1200,2,f,t,t,f,f,f,t,MEDIUM,f,f,t,f,f,t,f,f,f
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1900,f,f,f,t,2000,2,f,t,t,f,f,f,t,MEDIUM,f,f,t,f,f,t,f,f,f
+f,t,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1901,f,f,t,f,?,2,f,t,t,f,f,f,t,LONG,f,f,t,f,f,t,f,f,f
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1902,f,f,f,t,1850,2,f,t,t,f,f,f,t,MEDIUM,f,f,t,f,f,f,f,t,f
+f,t,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1903,f,f,t,f,1300,2,f,t,t,f,f,f,t,MEDIUM,t,f,f,f,f,t,f,f,f
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1903,f,f,t,f,3000,2,f,t,t,f,f,f,t,MEDIUM,t,f,f,f,f,t,f,f,f
+f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,1903,f,f,t,f,1417,2,f,t,t,f,f,f,t,MEDIUM,f,f,t,f,f,t,f,f,f
+f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1903,f,f,t,f,1154,?,f,t,t,f,f,f,t,LONG,f,f,t,f,f,t,f,f,f
+f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1904,f,f,t,f,1200,2,f,t,t,f,f,f,t,MEDIUM,f,t,f,f,f,t,f,f,f
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1904,f,f,t,f,965,4,f,t,t,f,f,f,t,MEDIUM,f,t,f,f,f,t,f,f,f
+f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1904,f,f,t,f,1504,?,f,t,t,f,f,f,t,LONG,f,f,t,f,f,f,f,t,f
+f,f,f,t,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,1908,f,f,f,t,1240,?,f,t,?,?,f,f,t,MEDIUM,f,f,t,f,f,t,f,f,f
+f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1909,f,f,f,t,?,?,f,t,t,f,f,f,t,MEDIUM,f,f,t,f,f,t,f,f,f
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1909,f,f,f,t,1730,2,f,t,t,f,f,f,t,LONG,f,f,t,f,f,t,f,f,f
+f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,1910,f,f,t,f,1620,2,f,t,t,f,f,f,t,LONG,f,f,t,f,f,f,f,t,f
+f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,1911,f,f,f,t,1652,2,f,t,t,f,f,f,t,LONG,f,f,t,f,f,f,f,t,f
+f,t,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1914,f,f,t,f,2210,?,f,t,t,f,f,f,t,MEDIUM,f,f,t,f,f,t,f,f,f
+f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1915,f,f,t,f,2822,2,f,t,t,f,f,f,t,LONG,f,f,t,f,f,t,f,f,f
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1915,f,f,f,t,1000,4,f,t,t,f,f,f,t,LONG,f,f,t,f,f,t,f,f,f
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1918,f,f,t,f,2300,2,t,f,f,t,f,f,t,LONG,f,f,t,f,f,f,f,f,t
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1920,f,f,t,f,2122,2,f,t,t,f,f,f,t,MEDIUM,f,f,t,f,f,t,f,f,f
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1921,t,f,f,f,?,?,f,t,t,f,f,f,t,?,f,f,t,f,t,f,f,f,f
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1923,f,f,f,t,885,4,f,t,t,f,f,f,t,MEDIUM,f,f,t,f,f,f,t,f,f
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1924,f,f,f,t,2365,4,f,t,t,f,f,f,t,MEDIUM,t,f,f,f,f,f,t,f,f
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1926,f,f,f,t,860,4,f,t,t,f,f,f,t,MEDIUM,f,t,f,f,t,f,f,f,f
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1926,f,f,f,t,884,4,f,t,t,f,f,f,t,MEDIUM,f,t,f,f,t,f,f,f,f
+f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,1927,f,f,f,t,1770,2,f,t,t,f,f,f,t,LONG,f,t,f,f,f,f,f,t,f
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1927,f,f,f,t,1508,?,f,t,t,f,f,f,t,MEDIUM,t,f,f,f,f,f,t,f,f
+f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,1927,f,f,f,t,2663,4,t,f,f,t,f,f,t,MEDIUM,f,t,f,f,f,f,f,t,f
+f,t,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1927,f,f,f,t,1330,4,f,t,t,f,f,f,t,LONG,f,f,t,f,f,f,f,t,f
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1928,f,f,f,t,2678,4,f,t,f,t,f,f,t,MEDIUM,f,f,t,f,f,f,t,f,f
+f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1928,f,f,f,t,2220,2,f,t,f,t,f,f,t,MEDIUM,f,t,f,f,f,f,f,t,f
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1928,f,f,f,t,860,4,f,t,t,f,f,f,t,MEDIUM,f,t,f,f,t,f,f,f,f
+f,t,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1928,f,f,f,t,2250,2,f,t,t,f,f,f,t,MEDIUM,t,f,f,f,f,t,f,f,f
+f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1931,f,f,f,t,1365,4,f,t,t,f,f,f,t,LONG,f,f,t,f,f,f,t,f,f
+f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1931,f,f,f,t,1450,4,t,f,t,f,f,f,t,LONG,f,f,t,f,f,f,t,f,f
+f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,1931,f,f,f,t,1500,4,f,t,t,f,f,f,t,LONG,f,f,t,f,t,f,f,f,f
+f,t,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1937,f,f,f,t,1690,4,t,f,f,t,f,f,t,LONG,f,t,f,f,f,f,f,f,t
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1939,f,f,f,t,1800,4,f,t,f,t,f,f,t,MEDIUM,f,f,t,f,f,f,f,t,f
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1945,f,f,f,t,1060,4,f,t,f,t,f,f,t,MEDIUM,f,t,f,f,f,f,f,f,t
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1945,f,f,t,f,840,2,f,t,t,f,f,f,t,MEDIUM,f,t,f,f,f,t,f,f,f
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1945,f,f,f,t,1710,2,t,f,f,t,f,f,t,MEDIUM,f,t,f,f,f,f,f,f,t
+f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,1945,f,f,f,t,2160,2,f,t,t,f,f,f,t,LONG,f,f,t,f,f,f,f,t,f
+f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,1945,f,f,f,t,?,?,f,t,t,f,f,f,t,MEDIUM,t,f,f,f,f,f,t,f,f
+f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,1945,f,f,t,f,?,?,f,t,t,f,f,f,t,MEDIUM,f,f,t,f,f,t,f,f,f
+f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1950,f,f,f,t,1320,2,f,t,t,f,f,f,t,MEDIUM,f,t,f,f,f,t,f,f,f
+f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1951,f,f,f,t,900,4,f,t,t,f,f,f,t,MEDIUM,f,f,t,f,f,f,f,f,t
+f,t,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1951,f,f,f,t,2423,4,f,t,f,t,f,f,t,LONG,f,f,t,f,f,f,f,f,t
+f,t,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1951,f,f,f,t,1031,4,f,t,t,f,f,f,t,LONG,f,f,t,f,f,f,f,t,f
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1955,f,f,f,t,2300,4,t,f,f,t,f,f,t,LONG,f,f,t,f,f,f,f,f,t
+f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1955,f,f,f,t,804,?,f,t,t,f,f,f,t,?,f,f,t,f,f,t,f,f,f
+f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,1959,f,f,f,t,1700,2,f,t,t,f,f,f,t,LONG,f,f,t,f,f,f,f,f,t
+f,t,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1959,f,f,f,t,1000,6,f,t,t,f,f,f,t,LONG,f,f,t,f,f,f,t,f,f
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1961,f,f,f,t,980,4,f,t,f,t,f,f,t,MEDIUM,f,t,f,f,f,f,f,f,t
+f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,1962,f,f,f,t,2213,4,f,t,f,t,f,f,t,LONG,f,f,t,f,f,f,f,f,t
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1969,f,f,f,t,870,6,f,t,t,f,f,f,t,MEDIUM,f,f,t,f,f,f,t,f,f
+f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,1975,f,f,f,t,3756,6,f,t,t,f,f,f,t,LONG,f,f,t,f,f,f,t,f,f
+f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,1978,f,f,f,t,950,6,f,t,t,f,f,f,t,LONG,f,f,t,f,f,f,t,f,f
+f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,1982,f,f,f,t,?,?,f,t,?,?,?,?,?,?,f,f,t,?,?,?,?,?,?
+t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,1986,f,f,f,t,?,?,f,t,?,?,?,?,?,?,f,f,t,?,?,?,?,?,?

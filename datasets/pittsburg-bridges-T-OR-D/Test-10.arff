@@ -1,0 +1,124 @@
+@relation 'bridges-version1-weka.filters.unsupervised.attribute.ReplaceMissingValues-weka.filters.unsupervised.attribute.NominalToBinary-N-A-Rfirst-last-weka.filters.unsupervised.attribute.Remove-V-R3,13,17,29-30,35-36,38,52,64,76,83,68-fr.unice.i3s.rockflows.experiments.weka.CfsSubsetFilter'
+
+@attribute RIVER=O {f,t}
+@attribute LOCATION=17 {f,t}
+@attribute LOCATION=20 {f,t}
+@attribute LOCATION=31 {f,t}
+@attribute LOCATION=32 {f,t}
+@attribute LOCATION=37 {f,t}
+@attribute LOCATION=38 {f,t}
+@attribute LOCATION=39 {f,t}
+@attribute LOCATION=5 {f,t}
+@attribute LENGTH numeric
+@attribute REL-L=S-F {f,t}
+@attribute TYPE=CONT-T {f,t}
+@attribute T-OR-D {THROUGH,DECK}
+
+@data
+f,f,f,f,f,f,f,f,f,1567.469136,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,1037,f,f,THROUGH
+f,f,f,f,f,f,f,t,f,1567.469136,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,1000,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,1567.469136,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,990,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,1000,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,1500,f,f,THROUGH
+f,f,f,f,f,f,f,t,f,1567.469136,f,f,DECK
+f,f,f,f,f,f,f,f,f,1000,f,f,THROUGH
+f,f,f,f,f,f,f,t,f,1567.469136,f,f,DECK
+f,f,f,f,f,f,f,f,f,1200,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,1567.469136,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,1567.469136,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,1030,t,f,THROUGH
+f,f,f,f,f,f,f,f,f,1000,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,1200,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,1000,f,f,THROUGH
+f,f,f,f,t,f,f,f,f,1000,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,1567.469136,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,1245,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,1200,f,f,THROUGH
+t,f,f,f,f,f,f,f,f,1567.469136,f,f,?
+f,f,f,f,f,f,f,f,f,1567.469136,f,f,?
+f,f,f,f,f,f,f,t,f,1567.469136,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,1150,f,f,THROUGH
+f,f,f,t,f,f,f,f,f,1567.469136,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,1080,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,1000,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,1567.469136,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,1161,f,f,THROUGH
+t,f,f,f,f,f,f,f,f,4558,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,1120,f,f,THROUGH
+t,f,f,f,f,f,f,f,f,1567.469136,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,1000,f,f,THROUGH
+f,t,f,f,f,f,f,f,f,1567.469136,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,1350,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,1567.469136,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,1092,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,1567.469136,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,1567.469136,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,2367,f,f,THROUGH
+t,f,f,f,f,f,f,f,f,1567.469136,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,1040,f,f,THROUGH
+f,f,f,f,f,t,f,f,f,4000,f,f,DECK
+f,f,f,f,f,f,f,f,f,2264,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,2000,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,1200,f,f,THROUGH
+f,f,f,f,f,f,t,f,f,2000,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,1567.469136,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,1850,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,1300,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,3000,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,1417,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,1154,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,1200,t,f,THROUGH
+f,f,f,f,f,f,f,f,f,965,t,f,THROUGH
+f,f,f,f,f,f,f,f,f,1504,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,1240,f,f,?
+f,f,f,f,f,f,f,f,f,1567.469136,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,1730,f,f,THROUGH
+t,f,f,f,f,f,f,f,f,1620,f,f,THROUGH
+t,f,f,f,f,f,f,f,f,1652,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,2210,f,f,THROUGH
+t,f,f,f,f,f,f,f,f,2822,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,1000,f,f,THROUGH
+f,f,f,f,f,t,f,f,f,2300,f,t,DECK
+f,f,f,t,f,f,f,f,f,2122,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,1567.469136,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,885,f,f,THROUGH
+f,f,f,f,t,f,f,f,f,2365,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,860,t,f,THROUGH
+f,f,f,f,f,f,f,f,f,884,t,f,THROUGH
+t,f,f,f,f,f,f,f,f,1770,t,f,THROUGH
+f,f,f,f,f,f,t,f,f,1508,f,f,THROUGH
+f,f,f,f,f,f,f,f,t,2663,t,f,DECK
+f,f,f,f,f,f,f,f,f,1330,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,2678,f,f,DECK
+f,f,t,f,f,f,f,f,f,2220,t,f,DECK
+f,f,f,f,f,f,f,f,f,860,t,f,THROUGH
+f,t,f,f,f,f,f,f,f,2250,f,f,THROUGH
+t,f,f,f,f,f,f,f,f,1365,f,f,THROUGH
+t,f,f,f,f,f,f,f,f,1450,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,1500,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,1690,t,t,DECK
+f,f,f,f,f,f,f,f,f,1800,f,f,DECK
+f,f,f,f,f,f,f,f,f,1060,t,t,DECK
+f,f,f,f,f,f,f,f,f,840,t,f,THROUGH
+f,f,f,f,f,f,f,f,f,1710,t,t,DECK
+t,f,f,f,f,f,f,f,f,2160,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,1567.469136,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,1567.469136,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,1320,t,f,THROUGH
+f,f,f,f,f,f,f,f,f,900,f,t,THROUGH
+f,f,f,f,f,f,f,f,f,2423,f,t,DECK
+f,f,f,f,f,f,f,f,f,1031,f,f,THROUGH
+f,f,f,f,f,t,f,f,f,2300,f,t,DECK
+t,f,f,f,f,f,f,f,f,804,f,f,THROUGH
+t,f,f,f,f,f,f,f,f,1700,f,t,THROUGH
+f,f,f,f,f,f,f,f,f,1000,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,980,t,t,DECK
+f,f,f,f,f,f,f,f,f,2213,f,t,DECK
+f,f,f,f,f,f,f,f,f,870,f,f,THROUGH
+t,f,f,f,f,f,f,f,f,3756,f,f,THROUGH
+f,f,f,f,f,f,f,f,f,950,f,f,THROUGH
+t,f,f,f,f,f,f,f,f,1567.469136,f,f,?
+f,f,f,f,f,f,f,f,f,1567.469136,f,f,?

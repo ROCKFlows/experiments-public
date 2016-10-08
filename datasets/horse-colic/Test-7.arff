@@ -1,0 +1,309 @@
+@relation 'horse-colic-weka.filters.unsupervised.attribute.Discretize-B10-M-1.0-Rfirst-last-weka.filters.unsupervised.attribute.Remove-V-R1,11,17,22-23-fr.unice.i3s.rockflows.experiments.weka.CfsSubsetFilter'
+
+@attribute surgery {yes,no}
+@attribute peristalsis {hypermotile,normal,hypomotile,absent}
+@attribute abdomen {normal,other,'firm feces in large intestine','distended small intestine','distended large intestine'}
+@attribute outcome {lived,died,euthanized}
+@attribute surgical_lesion {yes,no}
+
+@data
+no,absent,'distended large intestine',died,no
+yes,absent,other,euthanized,no
+no,hypomotile,normal,lived,no
+yes,absent,?,died,yes
+no,?,?,died,no
+no,hypomotile,'firm feces in large intestine',lived,no
+yes,hypomotile,'distended large intestine',lived,yes
+yes,absent,'distended small intestine',died,yes
+no,absent,'distended large intestine',euthanized,yes
+no,hypomotile,?,lived,no
+yes,hypomotile,'distended large intestine',lived,yes
+no,hypermotile,'distended small intestine',lived,yes
+yes,hypomotile,'distended large intestine',lived,no
+no,hypomotile,normal,died,no
+yes,absent,'distended small intestine',lived,yes
+yes,hypomotile,?,died,yes
+yes,absent,'distended large intestine',died,no
+no,?,?,lived,no
+yes,hypomotile,'distended large intestine',lived,yes
+no,hypomotile,?,lived,no
+yes,absent,'distended small intestine',lived,yes
+no,hypomotile,'firm feces in large intestine',lived,no
+yes,hypomotile,?,lived,yes
+yes,absent,?,lived,yes
+yes,absent,?,lived,yes
+no,?,?,lived,no
+yes,hypomotile,'distended large intestine',lived,yes
+yes,hypomotile,'firm feces in large intestine',lived,no
+yes,?,?,died,no
+no,hypermotile,?,lived,no
+no,absent,'distended large intestine',died,yes
+no,absent,'firm feces in large intestine',euthanized,yes
+yes,hypomotile,'distended large intestine',lived,yes
+yes,hypermotile,'distended small intestine',lived,yes
+yes,absent,'distended small intestine',lived,yes
+no,absent,other,euthanized,yes
+no,?,'distended large intestine',euthanized,no
+yes,hypomotile,normal,lived,yes
+no,hypomotile,'firm feces in large intestine',lived,no
+yes,?,?,died,yes
+yes,hypomotile,'distended large intestine',died,yes
+no,?,?,lived,yes
+no,hypomotile,other,lived,no
+yes,absent,'distended large intestine',euthanized,yes
+yes,absent,'distended large intestine',euthanized,yes
+no,absent,'distended large intestine',died,yes
+yes,absent,'distended large intestine',lived,yes
+no,hypermotile,?,lived,no
+yes,hypomotile,normal,died,yes
+no,hypermotile,normal,died,no
+no,hypomotile,other,lived,no
+yes,hypomotile,'distended large intestine',died,yes
+no,hypomotile,other,lived,no
+no,?,?,lived,no
+no,hypomotile,'distended large intestine',euthanized,yes
+yes,hypomotile,?,died,yes
+yes,?,?,lived,yes
+yes,hypomotile,?,died,yes
+yes,absent,'distended small intestine',died,yes
+no,absent,'distended large intestine',died,yes
+no,hypermotile,'distended large intestine',lived,no
+no,normal,normal,lived,no
+yes,?,?,died,yes
+no,absent,?,euthanized,no
+yes,hypomotile,'distended large intestine',lived,yes
+yes,hypomotile,'distended small intestine',lived,yes
+no,hypomotile,'distended small intestine',lived,yes
+no,hypomotile,other,lived,no
+no,?,?,lived,no
+no,hypomotile,other,lived,no
+no,?,'distended small intestine',euthanized,yes
+yes,normal,normal,lived,no
+yes,?,?,died,yes
+yes,hypomotile,?,died,yes
+yes,?,?,died,yes
+yes,hypomotile,?,euthanized,yes
+yes,hypomotile,?,lived,yes
+no,hypermotile,normal,lived,no
+yes,hypomotile,'distended large intestine',died,yes
+yes,absent,'distended small intestine',lived,yes
+yes,hypomotile,'distended small intestine',died,yes
+yes,hypomotile,'distended large intestine',lived,yes
+yes,absent,?,lived,yes
+yes,?,?,died,yes
+yes,hypomotile,?,lived,yes
+no,hypermotile,'distended small intestine',lived,no
+yes,absent,'distended large intestine',died,yes
+no,?,?,euthanized,yes
+no,hypomotile,'firm feces in large intestine',lived,no
+no,hypermotile,?,lived,no
+no,?,normal,lived,yes
+no,hypomotile,'distended large intestine',died,yes
+no,hypermotile,normal,lived,no
+no,hypomotile,'distended large intestine',died,yes
+no,normal,normal,lived,no
+yes,hypomotile,'distended large intestine',lived,yes
+no,hypomotile,other,lived,yes
+yes,hypomotile,'distended large intestine',euthanized,no
+no,hypomotile,'distended large intestine',lived,no
+no,absent,'distended large intestine',lived,no
+yes,hypomotile,normal,lived,no
+yes,absent,'distended large intestine',euthanized,yes
+no,?,?,lived,no
+yes,hypomotile,normal,lived,yes
+yes,absent,'distended large intestine',died,yes
+yes,hypomotile,'distended large intestine',lived,yes
+yes,?,?,lived,yes
+no,hypomotile,?,lived,no
+yes,absent,'distended large intestine',euthanized,yes
+yes,hypomotile,?,died,yes
+yes,hypomotile,'distended large intestine',died,yes
+yes,hypomotile,?,lived,yes
+yes,hypomotile,'distended large intestine',lived,yes
+yes,?,?,died,yes
+yes,absent,'distended large intestine',lived,yes
+no,hypomotile,?,lived,no
+yes,hypomotile,'distended large intestine',lived,yes
+no,absent,'distended large intestine',euthanized,yes
+yes,hypomotile,?,lived,yes
+no,hypomotile,?,lived,no
+yes,hypomotile,'distended small intestine',lived,yes
+yes,hypomotile,'distended small intestine',euthanized,yes
+no,hypermotile,?,lived,no
+yes,absent,'distended small intestine',died,yes
+no,hypermotile,normal,euthanized,yes
+yes,hypomotile,'distended small intestine',lived,yes
+yes,absent,?,lived,yes
+yes,absent,?,lived,yes
+yes,hypomotile,?,euthanized,no
+yes,?,?,lived,yes
+yes,?,?,died,yes
+no,hypomotile,?,died,yes
+?,hypomotile,'distended large intestine',?,yes
+no,hypomotile,'firm feces in large intestine',lived,yes
+yes,absent,?,died,yes
+yes,hypermotile,?,died,yes
+yes,hypomotile,'distended large intestine',died,yes
+yes,normal,'distended large intestine',lived,yes
+no,hypermotile,normal,lived,no
+no,hypomotile,?,lived,no
+yes,normal,'distended large intestine',lived,no
+no,?,?,died,no
+yes,absent,'distended large intestine',died,yes
+yes,normal,normal,lived,no
+yes,absent,'distended large intestine',euthanized,no
+no,hypomotile,?,lived,yes
+yes,absent,'distended large intestine',lived,yes
+no,absent,'distended small intestine',died,yes
+yes,absent,'distended small intestine',lived,yes
+no,hypermotile,?,lived,no
+no,hypomotile,other,lived,no
+yes,absent,'distended small intestine',died,yes
+yes,absent,?,lived,yes
+no,hypomotile,other,lived,no
+no,hypomotile,'distended large intestine',lived,yes
+no,absent,other,lived,no
+no,hypomotile,'firm feces in large intestine',lived,no
+yes,absent,'distended large intestine',euthanized,yes
+no,hypomotile,?,lived,no
+no,hypermotile,'firm feces in large intestine',lived,no
+yes,?,'distended large intestine',lived,yes
+yes,?,?,died,yes
+no,hypomotile,?,lived,no
+yes,hypomotile,?,euthanized,yes
+yes,hypomotile,'distended small intestine',lived,yes
+yes,hypomotile,?,euthanized,no
+yes,hypermotile,normal,lived,no
+no,hypomotile,normal,lived,no
+yes,absent,'distended small intestine',lived,yes
+yes,?,'distended large intestine',euthanized,yes
+no,hypermotile,?,lived,no
+no,hypomotile,?,died,yes
+yes,absent,?,lived,yes
+yes,absent,'distended small intestine',died,yes
+no,?,?,died,yes
+yes,?,?,lived,yes
+yes,hypomotile,other,lived,yes
+yes,?,?,died,yes
+yes,absent,?,lived,yes
+no,hypomotile,'distended large intestine',euthanized,no
+yes,hypomotile,'distended small intestine',died,yes
+no,?,?,lived,no
+yes,?,?,died,yes
+no,hypermotile,?,lived,no
+no,hypermotile,normal,lived,no
+yes,hypomotile,?,lived,yes
+yes,hypomotile,?,lived,yes
+yes,hypomotile,'distended large intestine',lived,yes
+yes,hypermotile,?,lived,yes
+yes,hypermotile,'distended small intestine',lived,yes
+yes,hypomotile,'firm feces in large intestine',lived,yes
+no,hypermotile,?,lived,no
+yes,hypomotile,?,lived,yes
+yes,hypomotile,?,died,yes
+no,normal,normal,lived,no
+no,hypermotile,?,lived,no
+no,normal,'firm feces in large intestine',euthanized,no
+no,absent,'distended large intestine',died,yes
+no,hypomotile,?,lived,no
+no,hypermotile,other,lived,no
+yes,hypermotile,'firm feces in large intestine',lived,yes
+yes,absent,'distended large intestine',died,yes
+yes,?,'distended large intestine',euthanized,yes
+no,hypomotile,normal,lived,no
+yes,absent,?,lived,yes
+no,hypomotile,'distended large intestine',euthanized,no
+yes,absent,'distended large intestine',lived,yes
+yes,?,?,died,yes
+yes,hypomotile,'distended large intestine',euthanized,yes
+no,hypermotile,'firm feces in large intestine',lived,no
+yes,absent,'distended large intestine',died,yes
+yes,absent,'distended large intestine',died,yes
+yes,hypomotile,?,lived,no
+yes,normal,'distended small intestine',lived,yes
+no,hypermotile,?,lived,no
+yes,normal,other,lived,yes
+no,?,?,lived,no
+yes,?,?,lived,yes
+yes,normal,?,euthanized,yes
+yes,absent,'distended small intestine',lived,yes
+yes,absent,?,euthanized,no
+yes,absent,?,lived,yes
+yes,hypomotile,'distended small intestine',lived,yes
+yes,hypomotile,'distended small intestine',lived,yes
+yes,hypermotile,'distended large intestine',lived,yes
+no,hypomotile,other,lived,no
+yes,hypomotile,'distended small intestine',died,yes
+yes,?,?,lived,yes
+yes,absent,'distended large intestine',euthanized,yes
+yes,hypermotile,?,lived,yes
+yes,hypomotile,?,lived,yes
+no,absent,?,died,no
+yes,?,?,lived,yes
+yes,hypomotile,'distended large intestine',lived,yes
+no,normal,normal,lived,no
+yes,hypomotile,?,died,yes
+no,hypermotile,?,lived,no
+no,hypermotile,other,lived,no
+no,hypomotile,'distended small intestine',euthanized,yes
+yes,hypomotile,'distended large intestine',euthanized,yes
+yes,absent,'distended large intestine',died,yes
+yes,normal,?,lived,no
+yes,hypomotile,'distended small intestine',died,yes
+yes,hypomotile,?,lived,yes
+yes,hypomotile,?,lived,yes
+no,absent,'distended large intestine',died,yes
+yes,normal,'distended large intestine',lived,yes
+yes,absent,'distended small intestine',died,yes
+yes,hypomotile,'distended small intestine',lived,yes
+no,hypomotile,other,lived,no
+yes,absent,'distended small intestine',euthanized,yes
+no,absent,'distended large intestine',died,yes
+yes,hypomotile,'distended small intestine',died,yes
+no,absent,?,lived,no
+yes,absent,'distended large intestine',lived,yes
+yes,hypermotile,?,died,yes
+yes,hypermotile,?,euthanized,yes
+yes,absent,?,died,yes
+no,hypomotile,'distended large intestine',lived,no
+yes,hypomotile,?,died,yes
+no,hypomotile,?,lived,no
+no,?,other,lived,no
+no,?,?,lived,no
+yes,absent,'distended small intestine',died,yes
+yes,hypomotile,'distended large intestine',lived,yes
+no,hypomotile,?,euthanized,yes
+no,hypomotile,'distended large intestine',lived,no
+no,hypomotile,'distended small intestine',lived,no
+yes,hypomotile,?,lived,no
+yes,hypomotile,'distended large intestine',lived,yes
+yes,hypomotile,'distended small intestine',died,yes
+yes,absent,normal,lived,yes
+yes,absent,'distended small intestine',lived,yes
+yes,hypomotile,?,died,yes
+yes,absent,'distended large intestine',euthanized,yes
+yes,hypomotile,?,died,yes
+yes,normal,?,euthanized,no
+no,hypomotile,?,lived,no
+no,hypermotile,normal,lived,no
+no,absent,?,lived,no
+yes,hypermotile,?,lived,no
+no,hypomotile,normal,died,yes
+yes,hypomotile,'distended large intestine',died,yes
+yes,?,?,lived,yes
+no,hypermotile,?,lived,no
+yes,hypomotile,'distended large intestine',lived,yes
+no,?,?,euthanized,yes
+no,?,?,lived,no
+yes,?,?,lived,yes
+yes,normal,?,lived,yes
+no,hypermotile,normal,lived,no
+yes,hypomotile,normal,died,yes
+yes,hypomotile,'distended large intestine',died,yes
+yes,hypomotile,'distended small intestine',euthanized,no
+no,hypermotile,other,lived,no
+yes,absent,'distended large intestine',euthanized,no
+no,hypomotile,'distended small intestine',euthanized,yes
+yes,absent,'distended large intestine',died,yes
+yes,hypomotile,'distended small intestine',lived,yes
+yes,?,normal,euthanized,no

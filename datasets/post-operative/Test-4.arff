@@ -1,0 +1,118 @@
+@relation postoperative-patient-data-weka.filters.unsupervised.attribute.NominalToBinary-N-A-Rfirst-last
+
+@attribute L-CORE=high {f,t}
+@attribute L-CORE=low {f,t}
+@attribute L-CORE=mid {f,t}
+@attribute L-SURF=high {f,t}
+@attribute L-SURF=low {f,t}
+@attribute L-SURF=mid {f,t}
+@attribute L-O2=excellent {f,t}
+@attribute L-O2=good {f,t}
+@attribute L-BP=high {f,t}
+@attribute L-BP=low {f,t}
+@attribute L-BP=mid {f,t}
+@attribute SURF-STBL=stable {f,t}
+@attribute SURF-STBL=unstable {f,t}
+@attribute CORE-STBL=mod-stable {f,t}
+@attribute CORE-STBL=stable {f,t}
+@attribute CORE-STBL=unstable {f,t}
+@attribute BP-STBL=mod-stable {f,t}
+@attribute BP-STBL=stable {f,t}
+@attribute BP-STBL=unstable {f,t}
+@attribute COMFORT=05 {f,t}
+@attribute COMFORT=07 {f,t}
+@attribute COMFORT=10 {f,t}
+@attribute COMFORT=15 {f,t}
+@attribute decision {A,I,S}
+
+@data
+f,f,t,f,t,f,t,f,f,f,t,t,f,f,t,f,f,t,f,f,f,f,t,A
+f,f,t,t,f,f,t,f,t,f,f,t,f,f,t,f,f,t,f,f,f,t,f,S
+t,f,f,f,t,f,t,f,t,f,f,t,f,f,t,f,t,f,f,f,f,t,f,A
+f,f,t,f,t,f,f,t,t,f,f,t,f,f,f,t,t,f,f,f,f,f,t,A
+f,f,t,f,f,t,t,f,t,f,f,t,f,f,t,f,f,t,f,f,f,t,f,A
+t,f,f,f,t,f,f,t,f,f,t,t,f,f,t,f,f,f,t,f,f,f,t,S
+f,f,t,f,t,f,t,f,t,f,f,t,f,f,t,f,t,f,f,t,f,f,f,S
+t,f,f,f,f,t,t,f,f,f,t,f,t,f,f,t,f,t,f,f,f,t,f,S
+f,f,t,t,f,f,f,t,f,f,t,t,f,f,t,f,f,t,f,f,f,t,f,S
+f,f,t,f,t,f,t,f,f,f,t,f,t,f,t,f,t,f,f,f,f,t,f,S
+f,f,t,f,f,t,f,t,f,f,t,t,f,f,t,f,f,t,f,f,f,f,t,A
+f,f,t,f,t,f,f,t,t,f,f,t,f,f,t,f,t,f,f,f,f,t,f,A
+t,f,f,t,f,f,t,f,t,f,f,f,t,f,t,f,f,f,t,f,f,f,t,A
+f,f,t,t,f,f,f,t,f,f,t,f,t,f,t,f,t,f,f,f,f,t,f,A
+f,f,t,f,t,f,f,t,t,f,f,f,t,f,f,t,f,t,f,f,f,f,t,S
+t,f,f,t,f,f,t,f,t,f,f,f,t,f,t,f,f,f,t,f,f,t,f,A
+f,t,f,t,f,f,f,t,t,f,f,f,t,f,t,f,t,f,f,f,f,f,t,A
+f,f,t,f,t,f,f,t,t,f,f,f,t,f,t,f,f,t,f,f,f,t,f,A
+f,f,t,t,f,f,f,t,f,f,t,f,t,f,t,f,f,f,t,f,f,f,t,A
+f,f,t,f,f,t,f,t,f,f,t,t,f,f,t,f,f,t,f,f,f,t,f,A
+f,t,f,t,f,f,f,t,f,f,t,f,t,f,t,f,f,t,f,f,f,f,t,A
+f,t,f,f,f,t,t,f,t,f,f,f,t,f,t,f,f,f,t,f,f,t,f,S
+f,f,t,f,f,t,f,t,f,f,t,f,t,f,t,f,f,f,t,f,f,f,t,A
+f,f,t,f,f,t,f,t,f,f,t,f,t,f,t,f,f,t,f,f,f,t,f,A
+t,f,f,t,f,f,f,t,f,f,t,t,f,f,t,f,t,f,f,f,f,t,f,A
+f,t,f,f,f,t,f,t,f,f,t,f,t,f,t,f,f,t,f,f,f,t,f,A
+t,f,f,f,f,t,f,t,f,t,f,t,f,f,t,f,t,f,f,f,f,t,f,A
+f,t,f,f,f,t,t,f,t,f,f,t,f,f,t,f,t,f,f,f,f,t,f,A
+f,f,t,f,f,t,t,f,f,f,t,t,f,f,t,f,f,f,t,f,f,f,t,A
+f,f,t,f,f,t,f,t,f,f,t,f,t,f,t,f,f,f,t,f,f,t,f,S
+f,f,t,f,f,t,f,t,t,f,f,f,t,f,t,f,f,t,f,f,f,t,f,A
+f,t,f,f,t,f,f,t,f,f,t,f,t,f,t,f,f,f,t,f,f,t,f,A
+f,f,t,f,f,t,t,f,t,f,f,f,t,f,t,f,t,f,f,f,f,t,f,A
+f,f,t,f,t,f,f,t,f,f,t,t,f,f,t,f,f,t,f,f,f,t,f,A
+f,t,f,f,f,t,t,f,t,f,f,t,f,f,t,f,t,f,f,f,f,t,f,A
+f,f,t,f,f,t,f,t,f,f,t,t,f,f,t,f,f,t,f,f,f,t,f,A
+f,t,f,f,f,t,t,f,f,f,t,t,f,f,t,f,f,t,f,f,f,t,f,S
+f,t,f,f,t,f,f,t,f,f,t,f,t,f,t,f,f,f,t,f,f,t,f,S
+f,t,f,f,t,f,f,t,f,f,t,t,f,f,t,f,f,t,f,f,t,f,f,S
+f,f,t,f,f,t,f,t,t,f,f,f,t,f,t,f,t,f,f,f,f,t,f,A
+f,t,f,f,t,f,f,t,f,f,t,f,t,f,t,f,f,t,f,f,f,t,f,A
+f,t,f,f,f,t,f,t,f,f,t,t,f,f,t,f,f,t,f,f,f,f,t,S
+t,f,f,t,f,f,f,t,t,f,f,f,t,f,t,f,f,t,f,f,f,f,t,S
+f,f,t,f,f,t,f,t,f,f,t,t,f,f,t,f,f,t,f,f,f,t,f,S
+f,t,f,f,t,f,t,f,f,f,t,t,f,f,t,f,f,t,f,f,f,t,f,A
+f,t,f,f,f,t,f,t,f,f,t,f,t,f,t,f,f,t,f,f,f,t,f,S
+f,t,f,f,f,t,f,t,t,f,f,f,t,f,t,f,f,t,f,?,?,?,?,I
+f,f,t,f,f,t,t,f,f,f,t,f,t,f,t,f,f,t,f,f,f,t,f,A
+t,f,f,t,f,f,t,f,t,f,f,t,f,f,t,f,f,f,t,?,?,?,?,A
+f,f,t,t,f,f,f,t,f,t,f,f,t,f,t,f,f,t,f,f,f,t,f,A
+f,f,t,t,f,f,f,t,f,f,t,f,t,t,f,f,t,f,f,f,f,t,f,A
+f,t,f,t,f,f,t,f,f,f,t,f,t,f,t,f,f,t,f,f,f,t,f,A
+f,f,t,f,t,f,t,f,t,f,f,f,t,f,t,f,f,f,t,f,f,t,f,A
+f,f,t,f,f,t,f,t,f,f,t,f,t,f,t,f,t,f,f,f,f,t,f,S
+t,f,f,t,f,f,t,f,f,f,t,f,t,f,t,f,t,f,f,f,f,t,f,A
+f,f,t,f,f,t,f,t,f,f,t,f,t,f,t,f,f,t,f,f,f,f,t,A
+t,f,f,f,f,t,f,t,t,f,f,t,f,f,t,f,f,f,t,f,f,f,t,A
+f,f,t,f,t,f,f,t,t,f,f,f,t,f,t,f,t,f,f,f,f,t,f,A
+f,t,f,f,t,f,f,t,t,f,f,t,f,f,t,f,f,t,f,f,f,t,f,A
+f,f,t,t,f,f,f,t,f,f,t,t,f,f,t,f,t,f,f,f,f,t,f,A
+f,f,t,t,f,f,f,t,f,f,t,f,t,f,t,f,f,f,t,f,f,t,f,A
+f,f,t,f,t,f,t,f,t,f,f,t,f,f,t,f,f,t,f,f,f,t,f,A
+f,f,t,f,f,t,f,t,f,f,t,t,f,f,t,f,f,f,t,f,f,t,f,A
+f,f,t,f,t,f,t,f,f,f,t,t,f,f,t,f,f,f,t,f,f,t,f,S
+t,f,f,f,f,t,t,f,f,f,t,f,t,f,f,t,f,f,t,f,f,t,f,A
+f,f,t,f,f,t,f,t,t,f,f,t,f,f,t,f,f,t,f,f,f,t,f,S
+f,f,t,f,t,f,t,f,f,f,t,f,t,f,t,f,f,t,f,f,f,t,f,A
+f,f,t,f,f,t,t,f,f,f,t,f,t,f,t,f,f,t,f,f,f,t,f,A
+f,f,t,f,f,t,t,f,t,f,f,t,f,f,t,f,f,t,f,f,f,t,f,A
+f,f,t,f,f,t,t,f,f,t,f,t,f,f,t,f,f,t,f,f,f,t,f,A
+f,f,t,f,t,f,t,f,f,f,t,f,t,f,f,t,f,f,t,?,?,?,?,A
+f,t,f,f,t,f,t,f,f,f,t,t,f,f,t,f,f,t,f,f,f,t,f,A
+f,f,t,f,f,t,t,f,f,f,t,t,f,f,t,f,t,f,f,f,f,t,f,S
+f,f,t,f,f,t,t,f,t,f,f,t,f,f,t,f,f,t,f,f,f,t,f,A
+f,f,t,f,t,f,t,f,t,f,f,t,f,f,t,f,t,f,f,f,f,t,f,A
+f,t,f,f,f,t,f,t,f,f,t,t,f,f,t,f,f,f,t,f,f,t,f,A
+f,f,t,f,f,t,t,f,f,f,t,t,f,f,t,f,t,f,f,f,f,t,f,A
+f,f,t,f,f,t,t,f,f,f,t,t,f,f,t,f,f,f,t,f,f,t,f,A
+f,f,t,f,f,t,t,f,f,f,t,f,t,f,f,t,f,t,f,f,f,t,f,S
+f,f,t,f,f,t,f,t,t,f,f,t,f,f,t,f,f,t,f,f,f,t,f,A
+f,f,t,f,f,t,t,f,f,f,t,t,f,f,t,f,f,t,f,f,f,f,t,A
+f,f,t,f,f,t,t,f,f,f,t,t,f,f,t,f,f,t,f,f,f,t,f,S
+f,f,t,f,t,f,f,t,f,f,t,t,f,f,t,f,f,f,t,f,f,t,f,I
+t,f,f,f,f,t,t,f,f,f,t,f,t,f,t,f,f,f,t,t,f,f,f,A
+f,f,t,f,f,t,t,f,f,f,t,t,f,f,t,f,f,f,t,f,f,t,f,A
+f,f,t,f,f,t,t,f,f,f,t,f,t,f,t,f,f,t,f,f,f,t,f,A
+f,f,t,f,f,t,t,f,f,f,t,f,t,f,t,f,f,t,f,f,f,f,t,S
+f,f,t,f,f,t,f,t,f,f,t,f,t,f,t,f,f,t,f,f,f,f,t,A
+f,f,t,f,f,t,t,f,f,f,t,f,t,f,t,f,f,t,f,f,f,t,f,A
+f,f,t,f,f,t,f,t,f,f,t,f,t,f,t,f,f,t,f,f,f,f,t,S

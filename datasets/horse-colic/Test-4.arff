@@ -1,0 +1,367 @@
+@relation horse-colic-weka.filters.unsupervised.attribute.NominalToBinary-N-A-Rfirst-last
+
+@attribute surgery=yes {f,t}
+@attribute surgery=no {f,t}
+@attribute Age=adult {f,t}
+@attribute Age=young {f,t}
+@attribute rectal_temperature numeric
+@attribute pulse numeric
+@attribute respiratory_rate numeric
+@attribute temp_extremities=normal {f,t}
+@attribute temp_extremities=warm {f,t}
+@attribute temp_extremities=cool {f,t}
+@attribute temp_extremities=cold {f,t}
+@attribute peripheral_pulse=normal {f,t}
+@attribute peripheral_pulse=increased {f,t}
+@attribute peripheral_pulse=reduced {f,t}
+@attribute peripheral_pulse=absent {f,t}
+@attribute 'mucous_membranes=normal pink' {f,t}
+@attribute 'mucous_membranes=bright pink' {f,t}
+@attribute 'mucous_membranes=pale pink' {f,t}
+@attribute 'mucous_membranes=pale cyanotic' {f,t}
+@attribute 'mucous_membranes=bright red' {f,t}
+@attribute 'mucous_membranes=dark cyanotic' {f,t}
+@attribute capillary_refill_time=<3 {f,t}
+@attribute capillary_refill_time=>=3 {f,t}
+@attribute 'capillary_refill_time=meaning unknown' {f,t}
+@attribute 'pain=alert no pain' {f,t}
+@attribute pain=depressed {f,t}
+@attribute 'pain=intermittent mild pain' {f,t}
+@attribute 'pain=intermittent severe pain' {f,t}
+@attribute 'pain=continuous severe pain' {f,t}
+@attribute peristalsis=hypermotile {f,t}
+@attribute peristalsis=normal {f,t}
+@attribute peristalsis=hypomotile {f,t}
+@attribute peristalsis=absent {f,t}
+@attribute abdominal_distension=none {f,t}
+@attribute abdominal_distension=slight {f,t}
+@attribute abdominal_distension=moderate {f,t}
+@attribute abdominal_distension=severe {f,t}
+@attribute nasogastric_tube=none {f,t}
+@attribute nasogastric_tube=slight {f,t}
+@attribute nasogastric_tube=significant {f,t}
+@attribute nasogastric_reflux=none {f,t}
+@attribute nasogastric_reflux=>1l {f,t}
+@attribute nasogastric_reflux=<1l {f,t}
+@attribute nasogastric_reflux_PH numeric
+@attribute rectal_examination=normal {f,t}
+@attribute rectal_examination=increased {f,t}
+@attribute rectal_examination=decreased {f,t}
+@attribute rectal_examination=absent {f,t}
+@attribute abdomen=normal {f,t}
+@attribute abdomen=other {f,t}
+@attribute 'abdomen=firm feces in large intestine' {f,t}
+@attribute 'abdomen=distended small intestine' {f,t}
+@attribute 'abdomen=distended large intestine' {f,t}
+@attribute packed_cell_volume numeric
+@attribute total_protein numeric
+@attribute abdominocentesis_appearance=clear {f,t}
+@attribute abdominocentesis_appearance=cloudy {f,t}
+@attribute abdominocentesis_appearance=serosanguinous {f,t}
+@attribute abdomcentesis_total_protein numeric
+@attribute outcome=lived {f,t}
+@attribute outcome=died {f,t}
+@attribute outcome=euthanized {f,t}
+@attribute surgical_lesion {yes,no}
+
+@data
+f,t,t,f,38.5,66,28,f,f,t,f,f,f,t,f,?,?,?,?,?,?,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,t,?,?,?,?,?,?,?,f,f,t,f,f,f,f,f,t,45,8.4,?,?,?,?,f,t,f,no
+t,f,t,f,39.2,88,20,?,?,?,?,?,?,?,?,f,f,f,t,f,f,t,f,f,f,f,t,f,f,f,f,f,t,f,t,f,f,?,?,?,?,?,?,?,f,f,f,t,f,t,f,f,f,50,85,f,t,f,2,f,f,t,no
+f,t,t,f,38.3,40,24,t,f,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,t,f,f,f,?,?,?,?,?,?,?,t,f,f,f,t,f,f,f,f,33,6.7,?,?,?,?,t,f,f,no
+t,f,f,t,39.1,164,84,f,f,f,t,t,f,f,f,f,f,f,f,f,t,f,t,f,f,t,f,f,f,f,f,f,t,f,f,f,t,t,f,f,f,t,f,5,f,f,t,f,?,?,?,?,?,48,7.2,f,f,t,5.3,f,t,f,yes
+f,t,t,f,37.3,104,35,?,?,?,?,?,?,?,?,f,f,f,f,f,t,f,t,f,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,74,7.4,?,?,?,?,f,t,f,no
+f,t,t,f,?,?,?,f,t,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,t,f,f,f,t,f,t,f,f,?,f,f,t,f,f,f,t,f,f,?,?,?,?,?,?,t,f,f,no
+t,f,t,f,37.9,48,16,t,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,f,t,f,t,f,f,t,f,f,?,f,f,t,f,f,f,f,f,t,37,7,?,?,?,?,t,f,f,yes
+t,f,t,f,?,60,?,f,f,t,f,?,?,?,?,?,?,?,?,?,?,t,f,f,?,?,?,?,?,f,f,f,t,f,t,f,f,f,t,f,t,f,f,?,f,f,t,f,f,f,f,t,f,44,8.3,?,?,?,?,f,t,f,yes
+f,t,t,f,?,80,36,f,f,t,f,f,f,f,t,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,f,t,f,f,f,t,f,t,f,t,f,f,?,f,f,t,f,f,f,f,f,t,38,6.2,?,?,?,?,f,f,t,yes
+f,t,f,t,38.3,90,?,t,f,f,f,?,?,?,?,t,f,f,f,f,f,t,f,f,f,f,f,f,t,f,f,t,f,t,f,f,f,f,t,f,t,f,f,?,f,f,t,f,?,?,?,?,?,40,6.2,t,f,f,2.2,t,f,f,no
+t,f,t,f,38.1,66,12,f,f,t,f,f,f,t,f,f,f,f,f,t,f,t,f,f,f,f,t,f,f,f,f,t,f,t,f,f,f,f,t,f,t,f,f,3,f,t,f,f,f,f,f,f,t,44,6,f,t,f,3.6,t,f,f,yes
+f,t,t,f,39.1,72,52,f,t,f,f,?,?,?,?,f,t,f,f,f,f,t,f,f,f,t,f,f,f,t,f,f,f,f,t,f,f,t,f,f,t,f,f,?,f,f,f,t,f,f,f,t,f,50,7.8,?,?,?,?,t,f,f,yes
+t,f,t,f,37.2,42,12,f,t,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,t,t,f,f,?,f,f,f,t,f,f,f,f,t,?,7,?,?,?,?,t,f,f,no
+f,t,f,t,38,92,28,t,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,t,f,f,f,f,f,f,t,f,f,t,f,f,f,f,t,?,?,?,7.2,t,f,f,f,t,f,f,f,f,37,6.1,t,f,f,?,f,t,f,no
+t,f,t,f,38.2,76,28,f,f,t,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,f,t,f,?,f,f,f,t,f,f,f,t,f,46,81,t,f,f,2,t,f,f,yes
+t,f,t,f,37.6,96,48,f,f,t,f,t,f,f,f,f,f,f,t,f,f,t,f,f,f,f,f,f,t,f,f,t,f,f,f,t,f,f,t,f,f,f,t,4.5,f,f,f,t,?,?,?,?,?,45,6.8,?,?,?,?,f,t,f,yes
+t,f,f,t,?,128,36,f,f,t,f,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,t,f,f,f,t,?,?,?,?,f,f,f,t,f,f,f,f,t,53,7.8,f,f,t,4.7,f,t,f,no
+f,t,t,f,37.5,48,24,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,t,f,f,no
+t,f,t,f,37.6,64,21,t,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,t,f,f,f,t,f,f,t,f,f,?,f,t,f,f,f,f,f,f,t,40,7,t,f,f,?,t,f,f,yes
+f,t,t,f,39.4,110,35,f,f,f,t,f,f,t,f,f,f,f,f,f,t,?,?,?,?,?,?,?,?,f,f,t,f,f,f,t,f,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,55,8.7,?,?,?,?,t,f,f,no
+t,f,t,f,39.9,72,60,t,f,f,f,t,f,f,f,f,f,f,f,t,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,t,f,f,t,t,f,f,?,f,f,f,t,f,f,f,t,f,46,6.1,f,t,f,?,t,f,f,yes
+f,t,t,f,38.4,48,16,t,f,f,f,?,?,?,?,t,f,f,f,f,f,t,f,f,t,f,f,f,f,f,f,t,f,t,f,f,f,f,t,f,f,f,t,5.5,f,f,f,t,f,f,t,f,f,49,6.8,?,?,?,?,t,f,f,no
+t,f,t,f,38.6,42,34,f,t,f,f,t,f,f,f,f,f,f,t,f,f,?,?,?,f,t,f,f,f,f,f,t,f,t,f,f,f,?,?,?,?,?,?,?,t,f,f,f,?,?,?,?,?,48,7.2,?,?,?,?,t,f,f,yes
+t,f,f,t,38.3,130,60,?,?,?,?,f,f,t,f,?,?,?,?,?,?,t,f,f,f,t,f,f,f,f,f,f,t,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,50,70,?,?,?,?,t,f,f,yes
+t,f,t,f,38.1,60,12,f,f,t,f,f,f,t,f,f,f,t,f,f,f,t,f,f,?,?,?,?,?,f,f,f,t,f,f,t,f,f,f,t,f,t,f,2,?,?,?,?,?,?,?,?,?,51,65,?,?,?,?,t,f,f,yes
+f,t,t,f,37.8,60,42,?,?,?,?,?,?,?,?,?,?,?,?,?,?,t,f,f,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,t,f,f,no
+t,f,t,f,38.3,72,30,f,f,f,t,f,f,t,f,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,f,t,f,f,f,t,f,f,t,f,t,f,f,?,f,f,t,f,f,f,f,f,t,43,7,f,t,f,3.9,t,f,f,yes
+t,f,t,f,37.8,48,12,f,f,t,f,t,f,f,f,t,f,f,f,f,f,t,f,f,?,?,?,?,?,f,f,t,f,f,t,f,f,t,f,f,t,f,f,?,t,f,f,f,f,f,t,f,f,37,5.5,f,t,f,1.3,t,f,f,no
+t,f,t,f,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,f,t,f,no
+f,t,t,f,37.7,48,?,f,t,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,t,f,f,t,f,f,?,?,?,?,?,?,?,?,?,?,45,76,?,?,?,?,t,f,f,no
+f,t,t,f,37.7,96,30,f,f,t,f,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,t,f,f,t,f,t,f,4,f,f,f,t,f,f,f,f,t,66,7.5,?,?,?,?,f,t,f,yes
+f,t,t,f,37.2,108,12,f,f,t,f,f,f,t,f,f,f,f,t,f,f,f,t,f,f,t,f,f,f,f,f,f,t,f,t,f,f,?,?,?,f,f,t,6,f,f,t,f,f,f,t,f,f,52,8.2,f,f,t,7.4,f,f,t,yes
+t,f,t,f,37.2,60,?,f,t,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,f,t,f,f,t,f,t,f,f,?,f,f,f,t,f,f,f,f,t,43,6.6,?,?,?,?,t,f,f,yes
+t,f,t,f,38.2,64,28,t,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,f,t,f,f,t,f,f,f,?,?,?,?,?,?,?,?,?,?,?,f,f,f,t,f,f,f,t,f,49,8.6,f,t,f,6.6,t,f,f,yes
+t,f,t,f,?,100,30,f,f,t,f,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,t,f,f,t,f,f,t,?,f,f,f,t,f,f,f,t,f,52,6.6,?,?,?,?,t,f,f,yes
+f,t,t,f,?,104,24,f,f,f,t,f,f,t,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,t,f,?,?,?,f,f,t,?,?,?,?,?,f,t,f,f,f,73,8.4,?,?,?,?,f,f,t,yes
+f,t,t,f,38.3,112,16,?,?,?,?,f,f,t,f,f,f,f,f,t,f,f,t,f,?,?,?,?,?,?,?,?,?,t,f,f,f,t,f,f,f,t,f,?,?,?,?,?,f,f,f,f,t,51,6,f,t,f,1,f,f,t,no
+t,f,t,f,37.8,72,?,?,?,?,?,f,f,t,f,?,?,?,?,?,?,t,f,f,f,f,f,f,t,f,f,t,f,t,f,f,f,?,?,?,t,f,f,?,t,f,f,f,t,f,f,f,f,56,80,t,f,f,2,t,f,f,yes
+f,t,t,f,38.6,52,?,t,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,t,f,f,t,f,f,t,f,f,?,t,f,f,f,f,f,t,f,f,32,6.6,t,f,f,5,t,f,f,no
+t,f,f,t,39.2,146,96,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,f,t,f,yes
+t,f,t,f,?,88,?,f,f,t,f,f,f,t,f,f,f,f,f,f,t,f,t,f,f,f,f,f,t,f,f,t,f,f,f,t,f,t,f,f,f,f,t,?,f,f,f,t,f,f,f,f,t,63,6.5,f,f,t,?,f,t,f,yes
+f,t,f,t,39,150,72,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,47,8.5,?,?,?,0.1,t,f,f,yes
+f,t,t,f,38,60,12,f,f,t,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,t,f,f,f,t,f,f,t,f,f,?,f,t,f,f,f,t,f,f,f,47,7,?,?,?,?,t,f,f,no
+t,f,t,f,?,120,?,f,f,t,f,f,f,f,t,f,f,f,t,f,f,t,f,f,f,f,f,t,f,f,f,f,t,f,f,f,t,t,f,f,t,f,f,?,?,?,?,?,f,f,f,f,t,52,67,f,t,f,2,f,f,t,yes
+t,f,t,f,35.4,140,24,f,f,t,f,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,f,t,f,f,f,f,t,?,?,?,?,f,t,f,t,f,f,?,?,?,?,?,f,f,f,f,t,57,69,f,f,t,2,f,f,t,yes
+f,t,t,f,?,120,?,f,f,f,t,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,t,t,f,f,t,f,f,?,f,f,f,t,f,f,f,f,t,60,6.5,f,f,t,?,f,t,f,yes
+t,f,t,f,37.9,60,15,f,f,t,f,?,?,?,?,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,t,f,t,f,f,t,f,?,f,f,f,t,f,f,f,f,t,65,7.5,?,?,?,?,t,f,f,yes
+f,t,t,f,37.5,48,16,t,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,t,f,f,t,f,f,?,t,f,f,f,?,?,?,?,?,37,6.5,?,?,?,?,t,f,f,no
+t,f,t,f,38.9,80,44,f,f,t,f,f,f,t,f,f,f,t,f,f,f,f,t,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,t,f,f,t,f,7,f,f,t,f,t,f,f,f,f,54,6.5,f,f,t,?,f,t,f,yes
+f,t,t,f,37.2,84,48,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,t,f,f,f,f,t,f,t,f,f,f,f,t,f,f,t,f,f,f,t,f,?,f,t,f,f,t,f,f,f,f,73,5.5,f,t,f,4.1,f,t,f,no
+f,t,t,f,38.6,46,?,t,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,t,f,f,f,f,f,f,t,f,f,t,f,f,t,f,f,t,f,f,?,?,?,?,?,f,t,f,f,f,49,9.1,t,f,f,1.6,t,f,f,no
+t,f,t,f,37.4,84,36,t,f,f,f,?,?,?,?,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,f,t,f,f,t,f,f,?,?,?,?,?,?,?,f,f,f,t,f,f,f,f,t,?,?,f,f,t,?,f,t,f,yes
+f,t,t,f,?,?,?,t,f,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,t,f,f,f,f,f,f,t,f,t,f,f,f,?,?,?,?,?,?,?,f,t,f,f,f,t,f,f,f,43,7.7,?,?,?,?,t,f,f,no
+f,t,t,f,38.6,40,20,?,?,?,?,?,?,?,?,?,?,?,?,?,?,t,f,f,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,41,6.4,?,?,?,?,t,f,f,no
+f,t,t,f,40.3,114,36,f,f,t,f,f,f,t,f,t,f,f,f,f,f,f,t,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,t,f,t,f,f,7,t,f,f,f,f,f,f,f,t,57,8.1,f,f,t,4.5,f,f,t,yes
+t,f,f,t,38.6,160,20,f,f,t,f,?,?,?,?,f,f,f,f,t,f,t,f,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,t,?,?,?,?,f,f,f,t,?,?,?,?,?,38,?,f,t,f,?,f,t,f,yes
+t,f,t,f,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,24,6.7,?,?,?,?,t,f,f,yes
+t,f,t,f,?,64,36,f,t,f,f,?,?,?,?,f,t,f,f,f,f,t,f,f,f,f,f,f,t,f,f,t,f,f,f,t,f,f,t,f,f,t,f,?,?,?,?,?,?,?,?,?,?,42,7.7,?,?,?,?,f,t,f,yes
+t,f,t,f,?,?,20,f,f,f,t,f,f,t,f,f,f,t,f,f,f,?,?,?,f,f,f,f,t,f,f,f,t,f,f,t,f,f,t,f,?,?,?,?,f,f,f,t,f,f,f,t,f,53,5.9,f,f,t,?,f,t,f,yes
+f,t,t,f,?,96,?,f,f,t,f,f,f,t,f,f,f,t,f,f,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,t,t,f,f,f,t,f,?,f,f,f,t,f,f,f,f,t,60,?,?,?,?,?,f,t,f,yes
+f,t,t,f,37.8,48,32,t,f,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,t,f,f,f,t,f,f,f,?,?,?,?,t,f,f,t,f,f,?,f,f,f,t,f,f,f,f,t,37,6.7,?,?,?,?,t,f,f,no
+f,t,t,f,38.5,60,?,f,t,f,f,f,t,f,f,t,f,f,f,f,f,t,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,t,f,t,f,f,?,t,f,f,f,t,f,f,f,f,44,7.7,?,?,?,?,t,f,f,no
+t,f,t,f,37.8,88,22,f,t,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,?,?,?,?,?,?,?,?,f,t,f,?,?,?,?,f,f,f,t,?,?,?,?,?,64,8,t,f,f,6,f,t,f,yes
+f,t,t,f,38.2,130,16,f,f,f,t,f,f,t,f,f,f,f,t,f,f,f,t,f,f,t,f,f,f,f,f,f,t,f,f,f,t,t,f,f,t,f,f,?,?,?,?,?,?,?,?,?,?,65,82,f,t,f,2,f,f,t,no
+t,f,t,f,39,64,36,f,f,t,f,t,f,f,f,f,f,f,t,f,f,f,t,f,f,f,t,f,f,f,f,t,f,f,t,f,f,t,f,f,f,t,f,7,f,f,f,t,f,f,f,f,t,44,7.5,f,f,t,5,t,f,f,yes
+t,f,t,f,?,60,36,f,f,t,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,t,f,f,t,f,f,t,f,f,?,f,f,t,f,f,f,f,t,f,26,72,f,t,f,1,t,f,f,yes
+f,t,t,f,37.9,72,?,t,f,f,f,t,f,f,f,f,f,f,f,t,f,f,t,f,f,f,t,f,f,f,f,t,f,t,f,f,f,t,f,f,f,f,t,2,f,f,t,f,f,f,f,t,f,58,74,t,f,f,2,t,f,f,yes
+f,t,t,f,38.4,54,24,t,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,t,f,f,f,f,f,f,t,f,t,f,f,f,f,t,f,t,f,f,?,f,f,t,f,f,t,f,f,f,49,7.2,t,f,f,?,t,f,f,no
+f,t,t,f,?,52,16,t,f,f,f,?,?,?,?,f,f,t,f,f,f,t,f,f,?,?,?,?,?,?,?,?,?,?,?,?,?,f,t,f,f,f,t,5.5,?,?,?,?,?,?,?,?,?,55,7.2,?,?,?,?,t,f,f,no
+f,t,t,f,38,48,12,t,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,t,f,f,f,f,f,f,t,f,?,?,?,?,t,f,f,t,f,f,?,f,f,t,f,f,t,f,f,f,42,6.3,f,t,f,4.1,t,f,f,no
+f,t,t,f,37,60,20,f,f,t,f,?,?,?,?,?,?,?,?,?,?,t,f,f,f,f,t,f,f,?,?,?,?,f,f,t,f,f,t,f,f,t,f,4.5,f,f,f,t,f,f,f,t,f,43,7.6,?,?,?,?,f,f,t,yes
+t,f,t,f,37.8,48,28,t,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,t,f,f,f,f,f,t,f,f,t,f,f,f,f,t,f,?,?,?,?,t,f,f,f,t,f,f,f,f,46,5.9,f,t,f,7,t,f,f,no
+t,f,t,f,37.7,56,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,f,t,f,yes
+t,f,t,f,38.1,52,24,t,f,f,f,t,f,f,f,f,f,f,f,t,f,t,f,f,f,f,f,t,f,f,f,t,f,t,f,f,f,f,t,f,f,f,t,7,t,f,f,f,?,?,?,?,?,54,7.5,f,t,f,2.6,f,t,f,yes
+t,f,f,t,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,37,4.9,?,?,?,?,f,t,f,yes
+t,f,f,t,39.7,100,?,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,t,f,f,t,f,f,f,f,f,t,f,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,48,57,f,t,f,2,f,f,t,yes
+t,f,t,f,37.6,38,20,f,f,t,f,f,f,t,f,t,f,f,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,t,f,f,?,?,?,?,?,?,?,f,f,t,f,?,?,?,?,?,37,68,?,?,?,?,t,f,f,yes
+f,t,t,f,38.7,52,20,f,t,f,f,?,?,?,?,t,f,f,f,f,f,t,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,t,f,f,t,f,f,?,t,f,f,f,t,f,f,f,f,33,77,?,?,?,?,t,f,f,no
+t,f,t,f,?,?,?,f,f,t,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,f,t,f,f,t,f,f,f,t,f,f,f,t,f,t,f,?,f,f,f,t,f,f,f,f,t,46,5.9,?,?,?,?,f,t,f,yes
+t,f,t,f,37.5,96,18,t,f,f,f,f,f,t,f,f,f,f,f,f,t,f,t,f,f,f,t,f,f,f,f,f,t,f,t,f,f,f,t,f,f,f,t,5,?,?,?,?,f,f,f,t,f,69,8.9,f,f,t,?,t,f,f,yes
+t,f,t,f,36.4,98,35,f,f,t,f,f,f,t,f,f,f,f,t,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,t,f,f,?,?,?,?,?,?,?,f,f,f,t,f,f,f,t,f,47,6.4,f,f,t,3.6,f,t,f,yes
+t,f,t,f,37.3,40,?,?,?,?,?,f,f,t,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,t,f,f,f,f,t,t,f,f,?,f,f,t,f,f,f,f,f,t,36,?,f,f,t,2,t,f,f,yes
+t,f,f,t,38.1,100,80,f,f,t,f,t,f,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,f,f,f,t,t,f,f,f,?,?,?,?,?,?,?,t,f,f,f,?,?,?,?,?,36,5.7,?,?,?,?,t,f,f,yes
+t,f,t,f,38,?,24,f,f,t,f,f,f,t,f,f,f,f,f,f,t,f,t,f,f,f,f,f,t,?,?,?,?,f,f,f,t,t,f,f,t,f,f,?,?,?,?,?,?,?,?,?,?,68,7.8,?,?,?,?,f,t,f,yes
+t,f,t,f,37.8,60,80,t,f,f,f,f,f,t,f,f,t,f,f,f,f,f,t,f,f,t,f,f,f,f,f,t,f,f,f,t,f,?,?,?,f,t,f,5.5,f,f,f,t,?,?,?,?,?,40,4.5,f,t,f,?,t,f,f,yes
+f,t,t,f,38,54,30,f,t,f,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,t,f,f,t,f,f,f,f,t,f,f,f,t,f,f,t,f,?,?,?,?,?,f,f,f,t,f,45,6.2,?,?,?,?,t,f,f,no
+t,f,t,f,?,88,40,f,f,t,f,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,t,f,f,f,t,?,?,?,?,f,f,f,t,f,f,f,f,t,50,7.7,f,f,t,1.4,f,t,f,yes
+f,t,t,f,?,40,16,?,?,?,?,?,?,?,?,?,?,?,?,?,?,t,f,f,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,50,7,f,t,f,3.9,f,f,t,yes
+f,t,t,f,39,64,40,t,f,f,f,t,f,f,f,f,f,f,f,t,f,t,f,f,f,f,t,f,f,f,f,t,f,f,t,f,f,f,t,f,t,f,f,?,f,f,t,f,f,f,t,f,f,42,7.5,f,t,f,2.3,t,f,f,no
+f,t,t,f,38.3,42,10,t,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,38,61,?,?,?,?,t,f,f,no
+f,t,t,f,38,52,16,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,f,t,f,f,f,?,?,?,?,?,?,?,?,?,?,?,f,f,t,1,t,f,f,f,t,f,f,f,f,53,86,?,?,?,?,t,f,f,yes
+f,t,t,f,40.3,114,36,f,f,t,f,f,f,t,f,t,f,f,f,f,f,f,t,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,t,f,t,f,f,7,t,f,f,f,f,f,f,f,t,57,8.1,f,f,t,4.5,f,t,f,yes
+f,t,t,f,38.8,50,20,f,f,t,f,t,f,f,f,t,f,f,f,f,f,t,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,f,t,f,t,f,f,?,f,f,t,f,t,f,f,f,f,42,6.2,?,?,?,?,t,f,f,no
+f,t,t,f,?,?,?,f,f,t,f,f,f,t,f,t,f,f,f,f,f,t,f,f,f,f,f,f,t,f,f,t,f,f,f,t,f,t,f,f,t,f,f,?,f,f,f,t,f,f,f,f,t,38,6.5,?,?,?,?,f,t,f,yes
+f,t,t,f,37.5,48,30,f,f,f,t,t,f,f,f,f,f,t,f,f,f,t,f,f,?,?,?,?,?,f,t,f,f,t,f,f,f,t,f,f,t,f,f,?,t,f,f,f,t,f,f,f,f,48,8.6,?,?,?,?,t,f,f,no
+t,f,t,f,37.3,48,20,?,?,?,?,t,f,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,f,t,f,f,t,f,t,f,f,?,f,f,t,f,f,f,f,f,t,41,69,?,?,?,?,t,f,f,yes
+f,t,t,f,?,84,36,?,?,?,?,?,?,?,?,f,f,t,f,f,f,t,f,f,?,?,?,?,?,f,f,t,f,t,f,f,f,f,t,f,t,f,f,?,f,f,t,f,f,t,f,f,f,44,8.5,?,?,?,?,t,f,f,yes
+t,f,t,f,38.1,88,32,f,f,t,f,f,f,t,f,f,f,f,t,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,t,f,?,?,?,f,f,t,1,f,f,f,t,f,f,f,f,t,55,60,?,?,?,?,f,f,t,no
+f,t,t,f,37.7,44,40,f,t,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,t,f,f,f,f,f,f,t,f,f,t,f,f,t,f,f,t,f,f,?,t,f,f,f,f,f,f,f,t,41,60,?,?,?,?,t,f,f,no
+f,t,t,f,39.6,108,51,f,f,t,f,f,f,t,f,f,f,f,f,f,t,f,t,f,f,t,f,f,f,f,f,f,t,f,f,t,f,t,f,f,f,t,f,?,f,f,t,f,f,f,f,f,t,59,8,f,t,f,2.6,t,f,f,no
+t,f,t,f,38.2,40,16,f,f,t,f,f,f,t,f,t,f,f,f,f,f,t,f,f,t,f,f,f,f,f,f,t,f,?,?,?,?,?,?,?,?,?,?,?,t,f,f,f,t,f,f,f,f,34,66,?,?,?,?,t,f,f,no
+t,f,t,f,?,60,20,f,f,f,t,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,t,?,?,?,?,?,?,?,t,f,f,?,f,f,f,t,f,f,f,f,t,?,?,?,?,?,?,f,f,t,yes
+f,t,t,f,38.3,40,16,f,f,t,f,?,?,?,?,t,f,f,f,f,f,t,f,f,f,t,f,f,f,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,37,57,?,?,?,?,t,f,f,no
+t,f,f,t,38,140,68,t,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,t,f,f,?,?,?,?,?,?,?,f,t,f,f,t,f,f,f,f,39,5.3,?,?,?,?,t,f,f,yes
+t,f,t,f,37.8,52,24,t,f,f,f,f,f,t,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,f,t,t,f,f,f,f,t,f,f,f,t,5.7,f,t,f,f,f,f,f,f,t,48,6.6,t,f,f,3.7,f,t,f,yes
+t,f,t,f,?,70,36,t,f,f,f,?,?,?,?,f,f,t,f,f,f,f,t,f,f,t,f,f,f,f,f,t,f,f,t,f,f,f,t,f,?,?,?,?,f,f,f,t,f,f,f,f,t,36,7.3,?,?,?,?,t,f,f,yes
+t,f,t,f,38.3,52,96,?,?,?,?,f,f,t,f,f,f,t,f,f,f,t,f,f,?,?,?,?,?,?,?,?,?,?,?,?,?,t,f,f,t,f,f,?,t,f,f,f,?,?,?,?,?,43,6.1,?,?,?,?,t,f,f,yes
+f,t,t,f,37.3,50,32,t,f,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,t,f,f,f,f,f,f,t,f,f,t,f,f,?,?,?,?,?,?,?,t,f,f,f,?,?,?,?,?,44,7,?,?,?,?,t,f,f,no
+t,f,t,f,38.7,60,32,f,f,f,t,f,f,t,f,f,t,f,f,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,f,t,?,?,?,?,?,?,?,f,f,f,t,f,f,f,f,t,53,64,f,f,t,2,f,f,t,yes
+t,f,f,t,38.4,84,40,f,f,t,f,f,f,t,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,f,t,f,t,f,f,t,f,f,?,?,?,?,?,?,?,?,?,?,36,6.6,f,t,f,2.8,f,t,f,yes
+t,f,t,f,?,70,16,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,t,f,f,t,f,f,f,f,f,t,f,f,t,f,f,f,t,f,t,f,f,?,f,f,f,t,f,f,f,f,t,60,7.5,?,?,?,?,f,t,f,yes
+t,f,t,f,38.3,40,16,f,f,t,f,?,?,?,?,?,?,?,?,?,?,t,f,f,t,f,f,f,f,f,f,t,f,f,t,f,f,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,38,58,t,f,f,2,t,f,f,yes
+t,f,t,f,?,40,?,f,t,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,t,f,f,f,f,f,f,t,f,t,f,f,f,t,f,f,t,f,f,?,?,?,?,?,f,f,f,f,t,39,56,?,?,?,?,t,f,f,yes
+t,f,t,f,36.8,60,28,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,10,f,t,f,yes
+t,f,t,f,38.4,44,24,f,f,t,f,?,?,?,?,f,f,f,t,f,f,?,?,?,f,f,f,f,t,f,f,f,t,f,f,t,f,f,t,f,t,f,f,?,f,f,f,t,f,f,f,f,t,50,77,?,?,?,?,t,f,f,yes
+f,t,t,f,?,?,40,f,f,t,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,t,f,f,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,45,70,?,?,?,?,t,f,f,no
+t,f,t,f,38,44,12,t,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,f,t,f,f,t,f,t,f,f,?,f,f,f,t,f,f,f,f,t,42,65,?,?,?,?,t,f,f,yes
+f,t,t,f,39.5,?,?,f,f,t,f,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,t,f,?,?,?,f,f,t,5.5,f,f,f,t,f,f,f,f,t,?,6.7,t,f,f,?,f,f,t,yes
+t,f,t,f,36.5,78,30,t,f,f,f,?,?,?,?,t,f,f,f,f,f,t,f,f,f,f,f,f,t,f,f,t,f,t,f,f,f,?,?,?,t,f,f,?,?,?,?,?,?,?,?,?,?,34,75,f,t,f,1,t,f,f,yes
+f,t,t,f,38.1,56,20,f,t,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,t,f,f,f,f,f,f,t,f,t,f,f,f,t,f,f,t,f,f,?,?,?,?,?,?,?,?,?,?,46,70,?,?,?,?,t,f,f,no
+t,f,t,f,39.4,54,66,t,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,t,f,f,t,f,f,t,f,f,?,f,f,t,f,f,f,f,t,f,39,6,f,t,f,?,t,f,f,yes
+t,f,t,f,38.3,80,40,?,?,?,?,?,?,?,?,f,f,f,f,f,t,f,t,f,f,f,f,t,f,f,f,t,f,t,f,f,f,?,?,?,f,t,f,?,t,f,f,f,f,f,f,t,f,67,10.2,f,t,f,1,f,f,t,yes
+f,t,t,f,38.7,40,28,f,t,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,f,t,f,f,t,f,f,f,t,f,f,f,?,?,?,?,?,?,?,t,f,f,f,?,?,?,?,?,39,62,t,f,f,1,t,f,f,no
+t,f,t,f,38.2,64,24,t,f,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,f,t,f,f,t,f,f,t,f,t,f,f,?,f,f,f,t,f,f,f,t,f,45,7.5,t,f,f,2,f,t,f,yes
+f,t,t,f,37.6,48,20,f,f,t,f,t,f,f,f,f,f,f,t,f,f,t,f,f,t,f,f,f,f,t,f,f,f,f,f,t,f,f,t,f,t,f,f,?,t,f,f,f,t,f,f,f,f,37,5.5,?,?,?,?,f,f,t,yes
+t,f,t,f,38,42,68,f,f,f,t,t,f,f,f,t,f,f,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,t,f,f,f,t,f,f,t,f,?,f,f,f,t,f,f,f,t,f,41,7.6,?,?,?,?,t,f,f,yes
+t,f,t,f,38.7,?,?,f,f,t,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,f,f,f,t,f,f,f,t,f,t,f,f,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,33,6.5,f,t,f,?,t,f,f,yes
+t,f,t,f,37.4,50,32,f,f,t,f,f,f,t,f,?,?,?,?,?,?,t,f,f,f,f,f,t,f,f,f,f,t,t,f,f,f,f,t,f,t,f,f,?,t,f,f,f,?,?,?,?,?,45,7.9,f,t,f,1,t,f,f,yes
+t,f,t,f,37.4,84,20,?,?,?,?,?,?,?,?,f,f,t,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,t,f,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,31,61,?,?,?,1,f,f,t,no
+t,f,t,f,38.4,49,?,?,?,?,?,?,?,?,?,t,f,f,f,f,f,t,f,f,?,?,?,?,?,?,?,?,?,t,f,f,f,f,t,f,t,f,f,?,?,?,?,?,?,?,?,?,?,44,7.6,?,?,?,?,t,f,f,yes
+t,f,t,f,37.8,30,12,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,f,t,f,yes
+f,t,t,f,37.6,88,36,f,f,t,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,t,f,f,t,f,f,f,f,t,1.5,?,?,?,?,?,?,?,?,?,44,6,?,?,?,?,f,t,f,yes
+?,?,t,f,38,48,20,f,f,t,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,t,f,t,f,f,f,f,t,f,t,f,f,?,f,f,t,f,f,f,f,f,t,43,73,f,t,f,1,?,?,?,yes
+f,t,t,f,37.9,40,24,t,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,t,f,f,f,?,?,?,?,?,?,?,?,?,?,?,f,f,t,f,f,40,5.7,?,?,?,?,t,f,f,yes
+t,f,t,f,?,100,?,f,f,t,f,?,?,?,?,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,t,?,?,?,?,f,t,f,?,?,?,?,f,t,f,f,?,?,?,?,?,59,6.3,?,?,?,?,f,t,f,yes
+t,f,f,t,38.1,136,48,f,f,t,f,f,f,t,f,f,f,t,f,f,f,t,f,f,f,f,f,f,t,t,f,f,f,f,f,t,f,f,t,f,f,t,f,4.4,f,t,f,f,?,?,?,?,?,33,4.9,f,t,f,2.9,f,t,f,yes
+t,f,t,f,?,?,?,f,f,t,f,f,f,t,f,f,f,t,f,f,f,f,t,f,f,f,f,f,t,f,f,t,f,f,f,t,f,f,f,t,f,t,f,?,f,f,f,t,f,f,f,f,t,46,5.9,?,?,?,?,f,t,f,yes
+t,f,t,f,38,48,?,t,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,t,f,f,f,f,f,t,f,f,f,f,f,t,f,t,f,f,t,f,?,f,f,f,t,f,f,f,f,t,?,?,?,?,?,?,t,f,f,yes
+f,t,t,f,38,56,?,t,f,f,f,f,t,f,f,f,f,t,f,f,f,t,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,t,f,f,t,f,f,?,t,f,f,f,t,f,f,f,f,42,71,?,?,?,?,t,f,f,no
+f,t,t,f,38,60,32,t,f,f,f,t,f,f,f,?,?,?,?,?,?,t,f,f,f,f,t,f,f,f,f,t,f,?,?,?,?,t,f,f,t,f,f,?,?,?,?,?,?,?,?,?,?,50,7,t,f,f,1,t,f,f,no
+t,f,t,f,38.1,44,9,f,f,t,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,f,t,f,f,t,f,f,f,t,f,f,t,f,f,?,f,f,f,t,f,f,f,f,t,31,7.3,?,?,?,?,t,f,f,no
+f,t,t,f,36,42,30,?,?,?,?,?,?,?,?,f,f,f,f,t,f,t,f,f,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,64,6.8,?,?,?,?,f,t,f,no
+t,f,t,f,?,120,?,f,f,f,t,f,f,t,f,f,f,f,f,f,t,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,t,?,?,?,?,?,?,?,f,f,f,t,f,f,f,f,t,57,4.5,f,f,t,3.9,f,t,f,yes
+t,f,t,f,37.8,48,28,t,f,f,f,t,f,f,f,t,f,f,f,f,f,f,t,f,t,f,f,f,f,f,t,f,f,t,f,f,f,f,t,f,?,?,?,?,t,f,f,f,t,f,f,f,f,46,5.9,f,t,f,7,t,f,f,no
+t,f,t,f,37.1,84,40,f,f,t,f,f,f,t,f,f,f,f,f,f,t,t,f,f,f,t,f,f,f,f,f,f,t,f,f,f,t,f,f,t,f,t,f,2,f,f,f,t,f,f,f,f,t,75,81,?,?,?,?,f,f,t,no
+f,t,t,f,?,80,32,f,f,t,f,f,f,t,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,t,f,t,f,f,?,f,f,t,f,?,?,?,?,?,50,80,?,?,?,?,t,f,f,yes
+t,f,t,f,38.2,48,?,t,f,f,f,f,f,t,f,f,f,t,f,f,f,t,f,f,f,f,t,f,f,f,f,f,t,f,f,f,t,t,f,f,f,f,t,2,f,f,f,t,f,f,f,f,t,42,71,?,?,?,?,t,f,f,yes
+f,t,t,f,38,44,12,f,t,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,f,t,f,f,f,f,f,t,f,f,t,f,t,f,f,f,t,f,6.5,t,f,f,f,f,f,f,t,f,33,6.5,?,?,?,?,f,t,f,yes
+t,f,t,f,38.3,132,?,?,?,?,?,f,f,t,f,f,f,f,f,f,t,f,t,f,f,t,f,f,f,f,f,f,t,f,t,f,f,f,t,f,f,f,t,6.2,f,f,f,t,f,f,f,t,f,57,8,?,?,?,5.2,t,f,f,yes
+f,t,t,f,38.7,48,24,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,t,f,f,f,f,t,f,f,f,?,?,?,?,t,f,f,t,f,f,?,t,f,f,f,?,?,?,?,?,34,63,?,?,?,?,t,f,f,no
+f,t,t,f,38.9,44,14,f,f,t,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,t,f,f,?,?,?,?,?,?,?,?,?,?,?,f,t,f,f,f,33,64,?,?,?,?,t,f,f,no
+t,f,t,f,39.3,?,?,f,f,f,t,f,f,t,f,f,f,f,f,f,t,f,t,f,f,f,f,t,f,f,f,f,t,f,t,f,f,t,f,f,f,f,t,4,f,f,f,t,f,f,f,t,f,75,?,f,f,t,4.3,f,t,f,yes
+t,f,t,f,?,100,?,f,f,t,f,f,f,t,f,f,f,f,t,f,f,f,t,f,?,?,?,?,?,f,f,f,t,f,f,f,t,f,t,f,t,f,f,2,?,?,?,?,?,?,?,?,?,68,64,f,f,t,2,t,f,f,yes
+f,t,t,f,38.6,48,20,f,f,t,f,t,f,f,f,t,f,f,f,f,f,t,f,f,t,f,f,f,f,f,f,t,f,f,t,f,f,f,t,f,t,f,f,?,f,f,t,f,f,t,f,f,f,50,7.3,t,f,f,?,t,f,f,no
+f,t,t,f,38.8,48,40,t,f,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,t,f,?,?,?,?,?,?,?,?,f,f,f,f,t,41,65,?,?,?,?,t,f,f,yes
+f,t,t,f,38,48,20,f,f,t,f,f,f,t,f,f,f,f,t,f,f,t,f,f,t,f,f,f,f,f,f,f,t,f,t,f,f,f,t,f,?,?,?,5,?,?,?,?,f,t,f,f,f,49,8.3,t,f,f,?,t,f,f,no
+f,t,t,f,38.6,52,20,t,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,t,f,f,t,f,f,t,f,f,?,t,f,f,f,f,f,t,f,f,36,6.6,t,f,f,5,t,f,f,no
+t,f,t,f,37.8,60,24,t,f,f,f,?,?,?,?,f,f,t,f,f,f,f,t,f,?,?,?,?,?,f,f,f,t,f,f,f,t,f,t,f,f,f,t,2,?,?,?,?,f,f,f,f,t,52,75,?,?,?,?,f,f,t,yes
+f,t,t,f,38,42,40,f,f,t,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,t,f,f,f,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,t,f,f,no
+f,t,t,f,?,?,12,t,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,t,f,f,f,f,t,f,f,f,f,t,t,f,f,?,t,f,f,f,f,f,t,f,f,44,7.5,f,t,f,?,t,f,f,no
+t,f,t,f,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,f,f,f,t,f,?,?,?,?,?,?,?,?,t,f,f,t,f,f,?,?,?,?,?,f,f,f,f,t,35,58,f,t,f,1,t,f,f,yes
+t,f,t,f,38.3,42,24,?,?,?,?,?,?,?,?,?,?,?,?,?,?,t,f,f,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,40,8.5,?,?,?,?,f,t,f,yes
+f,t,t,f,39.5,60,10,f,f,t,f,?,?,?,?,?,?,?,?,?,?,f,t,f,f,f,t,f,f,f,f,t,f,f,t,f,f,f,t,f,t,f,f,?,f,f,t,f,?,?,?,?,?,38,56,t,f,f,?,t,f,f,no
+t,f,t,f,38,66,20,t,f,f,f,f,f,t,f,f,f,t,f,f,f,t,f,f,f,f,f,f,t,f,f,t,f,t,f,f,f,t,f,f,t,f,f,?,f,f,t,f,?,?,?,?,?,46,46,f,f,t,2,f,f,t,yes
+t,f,t,f,38.7,76,?,t,f,f,f,t,f,f,f,f,f,f,f,t,f,f,t,f,f,f,t,f,f,f,f,t,f,f,t,f,f,f,t,f,f,t,f,?,f,f,f,t,f,f,f,t,f,50,8,?,?,?,?,t,f,f,yes
+t,f,t,f,39.4,120,48,?,?,?,?,?,?,?,?,f,f,f,f,t,f,t,f,f,?,?,?,?,?,f,f,t,f,f,f,t,f,t,f,f,?,?,?,?,f,f,f,t,?,?,?,?,?,56,64,t,f,f,2,f,f,t,no
+t,f,t,f,38.3,40,18,t,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,f,t,f,f,t,f,f,f,t,f,f,f,?,?,?,?,?,?,?,f,t,f,f,t,f,f,f,f,43,5.9,t,f,f,?,t,f,f,no
+f,t,t,f,?,44,24,t,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,t,f,f,f,f,t,f,t,f,f,?,?,?,?,?,t,f,f,f,f,?,6.3,?,?,?,?,t,f,f,no
+t,f,t,f,38.4,104,40,t,f,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,t,f,f,f,f,f,f,t,f,t,f,f,f,t,f,f,f,t,6.5,?,?,?,?,f,f,f,t,f,55,8.5,?,?,?,?,t,f,f,yes
+t,f,t,f,?,65,24,?,?,?,?,?,?,?,?,?,?,?,?,?,?,f,t,f,f,f,f,f,t,?,?,?,?,f,f,f,t,f,f,t,t,f,f,?,?,?,?,?,f,f,f,f,t,?,?,?,?,?,?,f,f,t,yes
+f,t,t,f,37.5,44,20,t,f,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,?,?,?,?,?,t,f,f,f,t,f,f,f,?,?,?,?,?,?,?,t,f,f,f,?,?,?,?,?,35,7.2,?,?,?,?,t,f,f,no
+f,t,t,f,39,86,16,f,f,t,f,f,f,t,f,f,f,f,f,t,f,?,?,?,f,f,t,f,f,f,f,t,f,f,f,t,f,?,?,?,f,t,f,?,?,?,?,?,?,?,?,?,?,68,5.8,f,f,t,6,f,t,f,yes
+t,f,t,f,38.5,129,48,f,f,t,f,f,f,t,f,f,f,t,f,f,f,t,f,f,f,t,f,f,f,f,f,f,t,f,f,t,f,t,f,f,f,f,t,2,?,?,?,?,?,?,?,?,?,57,66,f,f,t,2,t,f,f,yes
+t,f,t,f,?,104,?,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,t,f,f,t,f,f,f,f,f,f,t,f,f,t,f,?,?,?,f,f,t,?,f,f,f,t,f,f,f,t,f,69,8.6,f,t,f,3.4,f,t,f,yes
+f,t,t,f,?,?,?,f,f,t,f,f,f,f,t,f,f,f,f,f,t,?,?,?,f,f,f,t,f,?,?,?,?,f,f,f,t,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,f,t,f,yes
+t,f,t,f,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,t,f,f,yes
+t,f,t,f,38.2,60,30,t,f,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,t,f,f,f,f,t,f,t,f,f,?,f,f,t,f,f,t,f,f,f,48,66,?,?,?,?,t,f,f,yes
+t,f,t,f,?,68,14,?,?,?,?,?,?,?,?,f,f,f,t,f,f,t,f,f,f,f,f,t,f,?,?,?,?,?,?,?,?,?,?,?,t,f,f,4.3,?,?,?,?,?,?,?,?,?,?,?,f,t,f,2.8,f,t,f,yes
+t,f,t,f,?,60,30,f,f,t,f,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,t,t,f,f,t,f,f,?,f,f,f,t,?,?,?,?,?,45,70,f,f,t,2,t,f,f,yes
+f,t,t,f,38.5,100,?,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,f,t,f,t,f,t,f,f,?,f,f,f,t,f,f,f,f,t,?,?,?,?,?,?,f,f,t,no
+t,f,t,f,38.4,84,30,f,f,t,f,t,f,f,f,f,f,f,f,t,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,t,f,f,t,f,f,f,t,6.5,f,f,f,t,f,f,f,t,f,47,7.5,f,f,t,?,f,t,f,yes
+f,t,t,f,37.8,48,14,?,?,?,?,?,?,?,?,t,f,f,f,f,f,t,f,f,f,f,t,f,f,?,?,?,?,f,t,f,f,t,f,f,f,f,t,5.3,t,f,f,f,?,?,?,?,?,35,7.5,?,?,?,?,t,f,f,no
+t,f,t,f,38,?,24,f,f,t,f,f,f,t,f,f,f,f,f,f,t,f,t,f,f,f,f,f,t,?,?,?,?,f,f,f,t,t,f,f,t,f,f,?,?,?,?,?,?,?,?,?,?,68,7.8,?,?,?,?,f,t,f,yes
+f,t,t,f,37.8,56,16,t,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,t,f,f,f,t,f,f,f,f,t,f,t,f,f,?,t,f,f,f,?,?,?,?,?,44,68,t,f,f,1,t,f,f,no
+f,t,t,f,38.2,68,32,f,t,f,f,f,t,f,f,f,t,f,f,f,f,t,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,f,f,t,t,f,f,?,t,f,f,f,t,f,f,f,f,43,65,?,?,?,?,t,f,f,no
+t,f,t,f,38.5,120,60,f,f,f,t,f,f,t,f,f,f,f,f,f,t,f,t,f,?,?,?,?,?,f,f,t,f,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,54,?,?,?,?,?,t,f,f,yes
+t,f,t,f,39.3,64,90,f,t,f,f,f,f,t,f,t,f,f,f,f,f,t,f,f,?,?,?,?,?,f,f,t,f,t,f,f,f,t,f,f,f,t,f,?,?,?,?,?,?,?,?,?,?,39,6.7,?,?,?,?,t,f,f,yes
+t,f,t,f,38.4,80,30,f,f,f,t,f,f,t,f,t,f,f,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,t,f,f,t,?,f,f,f,t,f,f,f,f,t,32,6.1,f,f,t,4.3,t,f,f,yes
+t,f,t,f,38.5,60,?,t,f,f,f,t,f,f,f,?,?,?,?,?,?,t,f,f,?,?,?,?,?,t,f,f,f,t,f,f,f,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,33,53,t,f,f,?,t,f,f,yes
+t,f,t,f,38.3,60,16,f,f,t,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,t,f,f,f,t,f,f,f,f,t,f,f,t,f,3,t,f,f,f,f,f,f,t,f,30,6,t,f,f,3,t,f,f,yes
+t,f,t,f,37.1,40,8,?,?,?,?,t,f,f,f,f,f,f,t,f,f,t,f,f,f,f,t,f,f,f,f,t,f,t,f,f,f,t,f,f,t,f,f,?,f,f,t,f,f,f,t,f,f,23,6.7,f,f,t,?,t,f,f,yes
+f,t,f,t,?,100,44,f,t,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,f,f,t,f,t,f,f,f,t,f,f,f,?,?,?,?,?,?,?,t,f,f,f,?,?,?,?,?,37,4.7,?,?,?,?,t,f,f,no
+t,f,t,f,38.2,48,18,t,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,f,t,f,t,f,f,f,t,f,?,f,f,f,t,?,?,?,?,?,48,74,t,f,f,2,t,f,f,yes
+t,f,t,f,?,60,48,f,f,t,f,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,f,t,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,58,7.6,?,?,?,?,f,t,f,yes
+f,t,t,f,37.9,88,24,t,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,f,t,f,f,t,f,f,f,?,?,?,?,?,?,?,f,f,f,t,t,f,f,f,f,37,56,?,?,?,?,t,f,f,no
+f,t,t,f,38,44,12,f,f,t,f,t,f,f,f,t,f,f,f,f,f,?,?,?,?,?,?,?,?,t,f,f,f,f,t,f,f,?,?,?,?,?,?,?,t,f,f,f,?,?,?,?,?,42,64,?,?,?,?,t,f,f,no
+f,t,t,f,38.5,60,20,t,f,f,f,t,f,f,f,f,f,f,f,t,f,f,t,f,f,t,f,f,f,f,t,f,f,t,f,f,f,f,t,f,t,f,f,?,f,t,f,f,f,f,t,f,f,63,7.5,f,t,f,2.3,f,f,t,no
+f,t,t,f,38.5,96,36,f,f,t,f,f,f,t,f,?,?,?,?,?,?,f,t,f,f,t,f,f,f,f,f,f,t,f,t,f,f,t,f,f,f,t,f,?,f,f,f,t,f,f,f,f,t,70,8.5,?,?,?,?,f,t,f,yes
+f,t,t,f,38.3,60,20,t,f,f,f,t,f,f,f,t,f,f,f,f,f,f,t,f,t,f,f,f,f,f,f,t,f,t,f,f,f,?,?,?,?,?,?,?,f,f,t,f,?,?,?,?,?,34,66,?,?,?,?,t,f,f,no
+f,t,t,f,38.5,60,40,f,f,t,f,t,f,f,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,t,f,f,f,f,t,f,f,?,?,?,?,?,?,?,f,f,t,f,f,t,f,f,f,49,59,?,?,?,?,t,f,f,no
+t,f,t,f,37.3,48,12,t,f,f,f,?,?,?,?,f,f,t,f,f,f,t,f,f,f,f,t,f,f,t,f,f,f,f,f,t,f,f,t,f,t,f,f,?,f,f,t,f,f,f,t,f,f,40,6.6,f,t,f,?,t,f,f,yes
+t,f,t,f,38.5,86,?,t,f,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,f,t,f,f,t,f,f,t,f,t,f,f,?,f,f,t,f,f,f,f,f,t,45,7.4,t,f,f,3.4,f,t,f,yes
+t,f,t,f,37.5,48,40,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,t,f,f,t,f,f,?,?,?,?,?,f,f,f,f,t,41,55,f,f,t,2,f,f,t,yes
+f,t,t,f,37.2,36,9,t,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,t,f,f,f,f,t,f,t,f,f,?,f,f,f,t,t,f,f,f,f,35,5.7,?,?,?,?,t,f,f,no
+t,f,t,f,39.2,?,23,f,f,t,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,f,t,f,t,f,f,f,t,f,?,?,?,?,?,?,?,?,?,?,?,?,?,36,6.6,t,f,f,3,t,f,f,yes
+f,t,t,f,38.5,100,?,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,f,t,f,t,f,t,f,f,?,f,f,f,t,f,f,f,f,t,?,?,?,?,?,?,f,f,t,no
+t,f,t,f,38.5,96,30,f,t,f,f,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,t,f,f,t,f,t,f,f,?,f,f,t,f,f,f,f,f,t,50,65,?,?,?,?,t,f,f,yes
+t,f,t,f,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,45,8.7,?,?,?,?,f,t,f,yes
+t,f,t,f,37.8,88,80,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,t,f,?,?,?,?,?,f,f,t,f,f,f,t,f,f,t,f,f,f,t,?,f,f,f,t,f,f,f,f,t,64,89,?,?,?,?,f,f,t,yes
+f,t,t,f,37.5,44,10,f,f,t,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,f,t,f,f,t,f,f,f,f,t,f,f,f,t,f,?,?,?,?,f,f,t,f,f,f,t,f,f,43,51,t,f,f,1,t,f,f,no
+t,f,t,f,37.9,68,20,?,?,?,?,t,f,f,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,f,f,f,t,f,t,f,f,?,?,?,?,?,?,?,t,f,f,f,f,f,f,f,t,45,4,f,f,t,2.8,f,t,f,yes
+t,f,t,f,38,86,24,f,f,f,t,f,f,t,f,f,f,f,t,f,f,t,f,f,f,t,f,f,f,f,f,f,t,f,f,f,t,t,f,f,t,f,f,?,f,f,f,t,f,f,f,f,t,45,5.5,t,f,f,10.1,f,t,f,yes
+t,f,f,t,38.9,120,30,t,f,f,f,f,f,t,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,t,t,f,f,3,?,?,?,?,?,?,?,?,?,47,6.3,t,f,f,?,t,f,f,no
+t,f,t,f,37.6,45,12,f,f,t,f,t,f,f,f,f,f,t,f,f,f,t,f,f,?,?,?,?,?,f,t,f,f,f,t,f,f,f,t,f,t,f,f,?,t,f,f,f,f,f,f,t,f,39,7,f,t,f,1.5,t,f,f,yes
+f,t,t,f,38.6,56,32,f,t,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,f,t,f,?,?,?,?,f,t,f,f,?,?,?,?,?,40,7,f,t,f,2.1,t,f,f,no
+t,f,t,f,37.8,40,12,t,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,t,f,f,f,f,f,t,f,f,t,f,f,f,f,t,f,t,f,f,?,t,f,f,f,f,t,f,f,f,38,7,?,?,?,?,t,f,f,yes
+f,t,t,f,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,t,f,f,no
+t,f,t,f,38,76,18,?,?,?,?,?,?,?,?,?,?,?,?,?,?,f,t,f,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,71,11,?,?,?,?,t,f,f,yes
+t,f,t,f,38.1,40,36,t,f,f,f,f,t,f,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,f,t,f,f,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,f,f,t,yes
+t,f,t,f,?,52,28,f,f,t,f,f,f,t,f,f,f,f,t,f,f,t,f,f,f,f,t,f,f,f,f,f,t,f,f,t,f,f,t,f,t,f,f,?,f,f,f,t,f,f,f,t,f,37,8.1,?,?,?,?,t,f,f,yes
+t,f,t,f,39.2,88,58,f,f,f,t,f,f,f,t,?,?,?,?,?,?,f,t,f,f,f,f,f,t,f,f,f,t,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,f,t,f,2,f,f,t,no
+t,f,t,f,38.5,92,40,f,f,f,t,f,f,t,f,?,?,?,?,?,?,t,f,f,f,t,f,f,f,f,f,f,t,f,f,t,f,?,?,?,?,?,?,?,f,f,f,t,?,?,?,?,?,46,67,f,t,f,2,t,f,f,yes
+t,f,t,f,?,112,13,f,f,f,t,f,f,f,t,f,f,f,t,f,f,t,f,f,f,t,f,f,f,f,f,t,f,t,f,f,f,f,t,f,t,f,f,4.5,f,f,f,t,f,f,f,t,f,60,6.3,f,f,t,?,t,f,f,yes
+t,f,t,f,37.7,66,12,t,f,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,t,f,f,f,t,f,?,?,?,?,f,f,f,t,f,f,f,t,f,31.5,6.2,f,t,f,1.6,t,f,f,yes
+t,f,t,f,38.8,50,14,t,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,f,t,f,f,t,f,f,f,t,f,f,f,t,f,f,t,f,f,?,f,f,t,f,f,f,f,f,t,38,58,?,?,?,?,t,f,f,yes
+f,t,t,f,38.4,54,24,t,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,t,f,f,f,f,f,f,t,f,t,f,f,f,f,t,f,t,f,f,?,f,f,t,f,f,t,f,f,f,49,7.2,t,f,f,8,t,f,f,no
+t,f,t,f,39.2,120,20,f,f,f,t,f,f,t,f,f,f,f,f,t,f,f,t,f,f,t,f,f,f,f,f,t,f,f,f,t,f,t,f,f,f,f,t,?,?,?,?,?,f,f,f,t,f,60,8.8,f,f,t,?,f,t,f,yes
+t,f,f,t,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,45,6.5,f,t,f,?,t,f,f,yes
+t,f,t,f,37.3,90,40,f,f,t,f,?,?,?,?,f,f,f,f,f,t,f,t,f,f,f,f,f,t,f,f,f,t,f,f,t,f,f,t,f,f,t,f,?,t,f,f,f,f,f,f,f,t,65,50,f,f,t,2,f,f,t,yes
+t,f,f,t,38.5,120,70,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,t,f,f,f,?,?,?,?,f,t,f,?,?,?,?,t,f,f,f,?,?,?,?,?,35,54,t,f,f,1,t,f,f,yes
+t,f,t,f,38.5,104,40,f,f,t,f,f,f,t,f,?,?,?,?,?,?,t,f,f,f,f,f,t,f,f,f,t,f,f,f,f,t,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,t,f,f,yes
+f,t,t,f,39.5,92,28,f,f,t,f,f,f,t,f,f,f,f,f,f,t,t,f,f,f,f,f,f,t,f,f,f,t,t,f,f,f,?,?,?,f,f,t,?,f,f,f,t,?,?,?,?,?,72,6.4,?,?,?,3.6,f,t,f,no
+t,f,t,f,38.5,30,18,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,40,7.7,?,?,?,?,t,f,f,yes
+t,f,t,f,38.3,72,30,f,f,f,t,f,f,t,f,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,f,t,f,f,f,t,f,f,t,f,t,f,f,?,f,f,t,f,f,f,f,f,t,43,7,f,t,f,3.9,t,f,f,yes
+f,t,t,f,37.5,48,30,f,f,f,t,t,f,f,f,f,f,t,f,f,f,t,f,f,?,?,?,?,?,f,t,f,f,t,f,f,f,t,f,f,t,f,f,?,t,f,f,f,t,f,f,f,f,48,8.6,?,?,?,?,t,f,f,no
+t,f,t,f,38.1,52,24,t,f,f,f,t,f,f,f,f,f,f,f,t,f,t,f,f,f,f,f,t,f,f,f,t,f,t,f,f,f,f,t,f,f,f,t,7,t,f,f,f,?,?,?,?,?,54,7.5,f,t,f,2.6,f,t,f,yes
+f,t,t,f,38.2,42,26,t,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,f,t,f,f,t,f,f,f,f,t,f,f,?,?,?,?,?,?,?,t,f,f,f,?,?,?,?,?,36,6.9,?,?,?,?,t,f,f,no
+f,t,t,f,37.9,54,42,f,t,f,f,t,f,f,f,f,f,f,f,t,f,t,f,f,f,f,t,f,f,t,f,f,f,t,f,f,f,?,?,?,t,f,f,?,?,?,?,?,f,t,f,f,f,47,54,f,f,t,1,t,f,f,no
+f,t,t,f,36.1,88,?,f,f,t,f,f,f,t,f,f,f,t,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,t,f,f,f,t,f,f,f,t,?,?,?,?,?,f,f,f,t,f,45,7,f,f,t,4.8,f,f,t,yes
+t,f,t,f,38.1,70,22,?,?,?,?,t,f,f,f,?,?,?,?,?,?,t,f,f,f,f,f,f,t,f,f,t,f,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,f,f,f,f,t,36,65,?,?,?,?,f,f,t,yes
+t,f,t,f,38,90,30,f,f,f,t,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,t,?,?,?,?,?,?,?,f,f,f,t,f,f,f,f,t,55,6.1,?,?,?,?,f,t,f,yes
+t,f,t,f,38.2,52,16,t,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,t,f,f,f,f,f,t,f,f,t,f,f,f,t,f,f,t,f,f,?,t,f,f,f,?,?,?,?,?,43,8.1,?,?,?,?,t,f,f,no
+t,f,t,f,?,36,32,t,f,f,f,t,f,f,f,f,f,f,t,f,f,t,f,f,f,f,f,f,t,f,f,t,f,f,f,t,f,f,t,f,f,f,t,4,?,?,?,?,f,f,f,t,f,41,5.9,?,?,?,?,f,t,f,yes
+t,f,t,f,38.4,92,20,t,f,f,f,?,?,?,?,?,?,?,?,?,?,f,t,f,?,?,?,?,?,f,f,t,f,f,f,t,f,?,?,?,?,?,?,?,t,f,f,f,?,?,?,?,?,?,?,?,?,?,?,t,f,f,yes
+t,f,f,t,38.2,124,88,t,f,f,f,f,f,t,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,f,t,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,47,8,t,f,f,?,t,f,f,yes
+f,t,t,f,?,96,?,f,f,t,f,f,f,t,f,f,f,t,f,f,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,t,?,?,?,t,f,f,?,f,f,f,t,f,f,f,f,t,60,?,?,?,?,?,f,t,f,yes
+t,f,t,f,37.6,68,32,f,f,t,f,?,?,?,?,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,t,f,f,f,f,f,t,f,t,f,f,t,f,6.5,t,f,f,f,f,f,f,f,t,47,7.2,t,f,f,?,t,f,f,yes
+t,f,t,f,38.1,88,24,f,f,t,f,f,f,t,f,f,f,f,t,f,f,t,f,f,f,f,f,f,t,f,f,f,t,f,f,t,f,f,t,f,t,f,f,?,f,f,t,f,f,f,f,t,f,41,4.6,?,?,?,?,f,t,f,yes
+t,f,t,f,38,108,60,f,t,f,f,f,f,t,f,f,f,f,t,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,t,f,f,t,f,?,?,?,?,f,f,t,f,f,f,f,t,f,?,?,f,f,t,?,t,f,f,yes
+f,t,t,f,38.2,48,?,f,t,f,f,?,?,?,?,t,f,f,f,f,f,f,t,f,f,f,t,f,f,f,f,t,f,t,f,f,f,f,t,f,t,f,f,?,?,?,?,?,f,t,f,f,f,34,6.6,?,?,?,?,t,f,f,no
+t,f,t,f,39.3,100,51,f,f,f,t,f,f,f,t,f,f,f,f,f,t,t,f,f,f,t,f,f,f,f,f,f,t,t,f,f,f,t,f,f,f,f,t,2,?,?,?,?,f,f,f,t,f,66,13,f,f,t,2,f,f,t,yes
+f,t,t,f,36.6,42,18,f,f,t,f,f,f,t,f,f,t,f,f,f,f,t,f,f,t,f,f,f,f,f,f,f,t,t,f,f,f,t,f,f,t,f,f,?,?,?,?,?,f,f,f,f,t,52,7.1,?,?,?,?,f,t,f,yes
+t,f,f,t,38.8,124,36,f,f,t,f,t,f,f,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,f,t,t,f,f,t,f,f,?,f,f,f,t,f,f,f,t,f,50,7.6,f,f,t,?,f,t,f,yes
+f,t,t,f,?,112,24,f,f,t,f,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,t,f,t,f,f,?,?,?,?,?,?,?,f,f,f,t,?,?,?,?,?,40,5.3,f,f,t,2.6,t,f,f,no
+t,f,t,f,?,80,?,f,f,t,f,f,f,t,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,f,t,f,f,f,t,?,?,?,?,?,?,?,f,f,f,t,f,f,f,f,t,43,70,?,?,?,?,t,f,f,yes
+t,f,f,t,38.8,184,84,t,f,f,f,?,?,?,?,t,f,f,f,f,f,t,f,f,f,f,f,t,f,t,f,f,f,f,f,t,f,?,?,?,?,?,?,?,f,t,f,f,?,?,?,?,?,33,3.3,?,?,?,?,f,t,f,yes
+t,f,t,f,37.5,72,?,f,t,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,t,f,f,f,t,f,f,f,t,f,f,t,f,f,?,t,f,f,f,?,?,?,?,?,35,65,f,t,f,2,f,f,t,yes
+t,f,t,f,38.7,96,28,f,f,t,f,f,f,t,f,f,f,f,t,f,f,t,f,f,?,?,?,?,?,f,f,f,t,?,?,?,?,?,?,?,f,f,t,7.5,?,?,?,?,?,?,?,?,?,64,9,?,?,?,?,f,t,f,yes
+f,t,t,f,37.5,52,12,t,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,t,f,f,f,t,f,t,f,f,?,f,f,t,f,f,f,f,f,t,36,61,t,f,f,1,t,f,f,no
+t,f,t,f,40.8,72,42,f,f,t,f,f,f,t,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,t,f,f,f,f,t,f,t,f,f,?,?,?,?,?,?,?,?,?,?,54,7.4,f,f,t,?,f,t,f,yes
+f,t,t,f,38,40,25,?,?,?,?,t,f,f,f,t,f,f,f,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,t,f,f,t,f,f,t,f,f,?,f,f,f,t,?,?,?,?,?,37,69,?,?,?,?,t,f,f,no
+f,t,t,f,38.4,48,16,f,t,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,t,f,f,f,f,?,?,?,?,f,t,f,f,f,t,f,t,f,f,?,?,?,?,?,f,t,f,f,f,39,6.5,?,?,?,?,t,f,f,no
+f,t,f,t,38.6,88,28,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,35,5.9,?,?,?,?,t,f,f,no
+t,f,t,f,37.1,75,36,?,?,?,?,?,?,?,?,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,t,f,f,f,t,f,f,f,t,5,f,f,f,t,f,f,f,t,f,48,7.4,f,f,t,3.2,f,t,f,yes
+t,f,t,f,38.3,44,21,f,f,t,f,t,f,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,f,t,f,f,t,f,t,f,f,?,t,f,f,f,f,f,f,f,t,44,6.5,f,t,f,4.4,t,f,f,yes
+f,t,t,f,?,56,68,f,f,t,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,t,f,f,f,f,t,f,t,f,f,?,t,f,f,f,?,?,?,?,?,40,6,?,?,?,?,f,f,t,yes
+f,t,t,f,38.6,68,20,f,t,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,t,f,f,t,f,f,t,f,f,?,t,f,f,f,f,f,f,f,t,38,6.5,t,f,f,?,t,f,f,no
+f,t,t,f,38.3,54,18,f,f,t,f,t,f,f,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,t,f,f,?,?,?,f,f,t,5.4,?,?,?,?,f,f,f,t,f,44,7.2,f,f,t,?,t,f,f,no
+t,f,t,f,38.2,42,20,?,?,?,?,?,?,?,?,t,f,f,f,f,f,t,f,f,?,?,?,?,?,f,f,t,f,?,?,?,?,?,?,?,?,?,?,?,f,f,t,f,?,?,?,?,?,47,60,?,?,?,?,t,f,f,no
+t,f,t,f,39.3,64,90,f,t,f,f,f,f,t,f,t,f,f,f,f,f,t,f,f,?,?,?,?,?,f,f,t,f,t,f,f,f,t,f,f,f,t,f,6.5,t,f,f,f,f,f,f,f,t,39,6.7,?,?,?,?,t,f,f,yes
+t,f,t,f,37.5,60,50,f,f,t,f,f,f,t,f,t,f,f,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,t,f,f,f,t,f,f,t,f,3.5,f,f,t,f,f,f,f,t,f,35,6.5,?,?,?,?,f,t,f,yes
+t,f,t,f,37.7,80,?,f,f,t,f,f,f,t,f,f,f,f,f,f,t,t,f,f,f,f,f,f,t,f,f,f,t,t,f,f,f,f,t,f,f,f,t,?,f,f,t,f,t,f,f,f,f,50,55,f,f,t,2,t,f,f,yes
+t,f,t,f,?,100,30,f,f,t,f,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,t,f,f,t,f,f,t,?,f,f,f,t,f,f,f,t,f,52,6.6,?,?,?,?,t,f,f,yes
+t,f,t,f,37.7,120,28,f,f,t,f,f,f,t,f,f,f,t,f,f,f,t,f,f,f,f,f,f,t,f,f,t,f,f,f,t,f,t,f,f,t,f,f,?,?,?,?,?,?,?,?,?,?,65,7,f,f,t,?,f,t,f,yes
+t,f,t,f,?,76,?,?,?,?,?,f,f,t,f,?,?,?,?,?,?,?,?,?,?,?,?,?,?,f,f,f,t,f,f,f,t,?,?,?,?,?,?,?,?,?,?,?,f,f,f,f,t,?,?,?,?,?,?,f,f,t,yes
+t,f,f,t,38.8,150,50,t,f,f,f,f,f,t,f,f,f,f,f,f,t,f,t,f,f,f,f,f,t,f,f,t,f,f,t,f,f,t,f,f,t,f,f,?,?,?,?,?,?,?,?,?,?,50,6.2,?,?,?,?,f,t,f,yes
+t,f,t,f,38,36,16,f,f,t,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,f,f,t,f,f,t,f,f,f,t,f,f,f,f,t,f,f,t,2,f,f,t,f,?,?,?,?,?,37,75,f,t,f,1,f,f,t,no
+f,t,t,f,36.9,50,40,f,t,f,f,f,f,t,f,f,f,t,f,f,f,t,f,f,t,f,f,f,f,f,f,t,f,f,t,f,f,f,f,t,t,f,f,7,?,?,?,?,?,?,?,?,?,37.5,6.5,?,?,?,?,t,f,f,no
+f,t,t,f,37.8,40,16,t,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,?,?,?,?,?,?,?,t,f,f,f,t,f,f,f,f,37,6.8,?,?,?,?,t,f,f,no
+f,t,t,f,38.2,56,40,f,f,f,t,f,f,t,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,f,f,f,t,f,f,t,f,f,t,f,f,t,f,7.5,?,?,?,?,?,?,?,?,?,47,7.2,t,f,f,2.5,t,f,f,no
+t,f,t,f,38.6,48,12,?,?,?,?,?,?,?,?,t,f,f,f,f,f,?,?,?,t,f,f,f,f,t,f,f,f,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,36,67,?,?,?,?,t,f,f,no
+f,t,t,f,40,78,?,f,f,t,f,f,f,t,f,f,f,f,f,t,f,t,f,f,f,t,f,f,f,f,f,t,f,t,f,f,f,t,f,f,t,f,f,?,f,f,f,t,t,f,f,f,f,66,6.5,?,?,?,?,f,t,f,yes
+t,f,t,f,?,70,16,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,t,f,f,t,f,f,f,f,f,t,f,f,t,f,f,f,t,f,t,f,f,?,f,f,f,t,f,f,f,f,t,60,7.5,?,?,?,?,f,t,f,yes
+t,f,t,f,38.2,72,18,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,35,6.4,?,?,?,?,t,f,f,yes
+f,t,t,f,38.5,54,?,t,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,f,t,f,f,t,f,f,f,t,f,f,f,f,t,f,t,f,f,?,t,f,f,f,?,?,?,?,?,40,6.8,f,t,f,7,t,f,f,no
+t,f,t,f,38.5,66,24,t,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,t,f,f,f,f,t,f,t,f,f,?,f,f,f,t,f,f,f,f,t,40,6.7,t,f,f,?,t,f,f,yes
+f,t,t,f,37.8,82,12,f,f,t,f,t,f,f,f,t,f,f,f,f,f,f,t,f,f,f,f,t,f,?,?,?,?,f,f,t,f,t,f,f,f,f,t,?,?,?,?,?,?,?,?,?,?,50,7,?,?,?,?,f,f,t,yes
+f,t,f,t,39.5,84,30,?,?,?,?,?,?,?,?,?,?,?,?,?,?,t,f,f,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,28,5,?,?,?,?,t,f,f,no
+t,f,t,f,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,t,f,f,yes
+t,f,t,f,38,50,36,?,?,?,?,t,f,f,f,t,f,f,f,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,t,f,f,?,?,?,?,?,?,?,f,f,t,f,?,?,?,?,?,39,6.6,t,f,f,5.3,t,f,f,yes
+f,t,t,f,38.6,45,16,f,t,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,t,f,f,f,f,t,f,f,f,?,?,?,?,?,?,?,?,?,?,?,t,f,f,f,t,f,f,f,f,43,58,?,?,?,?,t,f,f,no
+t,f,t,f,38.9,80,44,f,f,t,f,f,f,t,f,f,f,t,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,t,f,f,t,f,7,f,f,t,f,t,f,f,f,f,54,6.5,f,f,t,?,f,t,f,yes
+t,f,t,f,37,66,20,t,f,f,f,f,f,t,f,f,t,f,f,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,t,f,t,f,f,?,?,?,?,t,f,f,f,f,f,f,f,t,35,6.9,f,t,f,?,f,t,f,yes
+t,f,t,f,?,78,24,f,f,t,f,f,f,t,f,f,f,t,f,f,f,t,f,f,?,?,?,?,?,f,f,t,f,?,?,?,?,f,t,f,t,f,f,?,?,?,?,?,f,f,f,t,f,43,62,?,?,?,2,f,f,t,no
+f,t,t,f,38.5,40,16,t,f,f,f,t,f,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,t,f,f,f,t,f,f,f,?,?,?,?,?,?,?,f,f,t,f,f,t,f,f,f,37,67,?,?,?,?,t,f,f,no
+t,f,t,f,?,120,70,f,f,f,t,?,?,?,?,f,f,f,t,f,f,f,t,f,f,t,f,f,f,f,f,f,t,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,f,f,f,f,t,55,65,?,?,?,?,f,f,t,no
+f,t,t,f,37.2,72,24,f,f,t,f,f,t,f,f,f,f,f,t,f,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,t,f,f,f,t,t,f,f,?,f,f,f,t,f,f,f,t,f,44,?,f,f,t,3.3,f,f,t,yes
+t,f,t,f,37.5,72,30,f,f,f,t,f,f,t,f,f,f,f,t,f,f,t,f,f,f,f,f,t,f,f,f,f,t,f,f,t,f,f,t,f,t,f,f,?,f,f,t,f,f,f,f,f,t,60,6.8,?,?,?,?,f,t,f,yes
+t,f,t,f,36.5,100,24,f,f,t,f,f,f,t,f,f,f,t,f,f,f,t,f,f,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,t,t,f,f,?,f,f,f,t,f,f,f,t,f,50,6,f,f,t,3.4,t,f,f,yes
+t,f,t,f,37.2,40,20,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,f,f,f,t,t,f,f,f,f,36,62,t,f,f,1,f,f,t,no

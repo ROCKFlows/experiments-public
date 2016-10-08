@@ -1,0 +1,38 @@
+@relation R_data_frame-weka.filters.unsupervised.attribute.NominalToBinary-N-A-Rfirst-last
+
+@attribute V1=1 {f,t}
+@attribute V1=2 {f,t}
+@attribute V1=3 {f,t}
+@attribute V2=1 {f,t}
+@attribute V2=2 {f,t}
+@attribute V3=1 {f,t}
+@attribute V3=2 {f,t}
+@attribute V4=1 {f,t}
+@attribute V4=2 {f,t}
+@attribute Class {1,2,3}
+
+@data
+t,f,f,t,f,t,f,t,f,3
+t,f,f,t,f,t,f,f,t,2
+t,f,f,t,f,f,t,t,f,3
+t,f,f,t,f,f,t,f,t,1
+t,f,f,f,t,t,f,t,f,3
+t,f,f,f,t,t,f,f,t,2
+t,f,f,f,t,f,t,t,f,3
+t,f,f,f,t,f,t,f,t,1
+f,t,f,t,f,t,f,t,f,3
+f,t,f,t,f,t,f,f,t,2
+f,t,f,t,f,f,t,t,f,3
+f,t,f,t,f,f,t,f,t,1
+f,t,f,f,t,t,f,t,f,3
+f,t,f,f,t,t,f,f,t,2
+f,t,f,f,t,f,t,t,f,3
+f,t,f,f,t,f,t,f,t,3
+f,f,t,t,f,t,f,t,f,3
+f,f,t,t,f,t,f,f,t,3
+f,f,t,t,f,f,t,t,f,3
+f,f,t,t,f,f,t,f,t,1
+f,f,t,f,t,t,f,t,f,3
+f,f,t,f,t,t,f,f,t,2
+f,f,t,f,t,f,t,t,f,3
+f,f,t,f,t,f,t,f,t,3

@@ -1,0 +1,17 @@
+@relation 'trains-weka.filters.unsupervised.attribute.Remove-V-R10,24,33-fr.unice.i3s.rockflows.experiments.weka.CfsSubsetFilter'
+
+@attribute shape_3 {closedrect,dblopnrect,hexagon,jaggedtop,openrect,opentrap,slopetop,ushaped}
+@attribute Rectangle_next_to_triangle {0,1}
+@attribute class {east,west}
+
+@data
+slopetop,1,east
+opentrap,1,east
+hexagon,0,east
+dblopnrect,1,east
+closedrect,1,east
+openrect,0,west
+ushaped,0,west
+ushaped,0,west
+jaggedtop,0,west
+openrect,0,west

@@ -1,0 +1,128 @@
+@relation 'bridges-version1-weka.filters.unsupervised.attribute.ReplaceMissingValues-weka.filters.unsupervised.attribute.NominalToBinary-N-A-Rfirst-last-weka.filters.unsupervised.attribute.Remove-V-R5,13,15,19,23,50,56,59-60,62,64-66,68,70,76,79-fr.unice.i3s.rockflows.experiments.weka.CfsSubsetFilter'
+
+@attribute LOCATION=1 {f,t}
+@attribute LOCATION=17 {f,t}
+@attribute LOCATION=19 {f,t}
+@attribute LOCATION=22 {f,t}
+@attribute LOCATION=26 {f,t}
+@attribute LOCATION=48 {f,t}
+@attribute LOCATION=7 {f,t}
+@attribute ERECTED numeric
+@attribute PURPOSE=WALK {f,t}
+@attribute PURPOSE=RR {f,t}
+@attribute LENGTH numeric
+@attribute LANES numeric
+@attribute CLEAR-G=N {f,t}
+@attribute T-OR-D=THROUGH {f,t}
+@attribute MATERIAL=WOOD {f,t}
+@attribute REL-L=S {f,t}
+@attribute TYPE {WOOD,SUSPEN,SIMPLE-T,ARCH,CANTILEV,CONT-T}
+
+@data
+f,f,f,f,f,f,f,1818,f,f,1567.469136,2,t,t,t,t,WOOD
+f,f,f,f,f,f,f,1819,f,f,1037,2,t,t,t,t,WOOD
+f,f,f,f,f,f,f,1829,f,f,1567.469136,1,t,t,t,t,WOOD
+f,f,f,f,f,f,f,1837,f,f,1000,2,t,t,t,t,WOOD
+f,f,f,f,f,f,f,1838,f,f,1567.469136,2,t,t,t,t,WOOD
+f,f,f,f,f,f,f,1840,f,f,990,2,t,t,t,t,WOOD
+f,f,f,f,f,f,f,1844,f,f,1000,1,t,t,f,t,SUSPEN
+f,f,f,f,f,f,f,1846,f,f,1500,2,t,t,f,t,SUSPEN
+f,f,f,f,f,f,f,1848,f,f,1567.469136,1,t,f,t,t,WOOD
+f,f,f,f,f,f,f,1851,f,f,1000,2,t,t,t,t,WOOD
+f,f,f,f,f,f,f,1853,f,t,1567.469136,2,t,f,t,t,WOOD
+f,f,f,f,f,f,f,1856,f,f,1200,2,t,t,t,t,WOOD
+f,f,f,f,f,f,f,1856,f,f,1567.469136,2,t,t,t,t,WOOD
+f,f,f,f,f,f,f,1857,f,t,1567.469136,2,t,t,t,t,WOOD
+f,f,f,f,f,f,f,1859,f,f,1030,2,t,t,f,f,SUSPEN
+f,f,f,f,f,f,f,1863,f,t,1000,2,t,t,f,f,SIMPLE-T
+f,f,f,f,f,f,f,1864,f,t,1200,2,t,t,f,t,SIMPLE-T
+f,f,f,f,f,f,f,1866,f,f,1000,2,t,t,t,t,WOOD
+f,f,f,f,f,f,f,1870,f,f,1000,2,t,t,t,t,WOOD
+f,f,f,f,f,f,f,1874,f,t,1567.469136,2,f,t,f,f,SIMPLE-T
+t,f,f,f,f,f,f,1876,f,f,1245,2.630435,f,t,f,f,SUSPEN
+f,f,f,f,f,f,f,1876,f,f,1200,4,f,t,t,t,WOOD
+f,f,f,f,f,f,f,1878,f,t,1567.469136,2,f,t,f,f,SIMPLE-T
+f,f,f,f,f,f,f,1882,f,t,1567.469136,2,f,t,f,f,SIMPLE-T
+f,f,f,f,f,f,f,1883,f,t,1567.469136,2,f,t,f,f,SIMPLE-T
+f,f,f,f,f,f,f,1883,f,t,1150,2,f,t,f,t,SIMPLE-T
+f,f,f,f,f,f,f,1884,f,t,1567.469136,2,f,t,f,f,SIMPLE-T
+f,f,f,f,t,f,f,1884,f,f,1080,2,f,t,f,f,SUSPEN
+f,f,f,f,f,f,f,1884,f,f,1000,2,f,t,f,t,ARCH
+f,f,f,f,f,f,f,1887,f,f,1567.469136,2,f,t,f,f,SIMPLE-T
+f,f,f,f,f,f,f,1887,f,t,1161,2,f,t,f,t,SIMPLE-T
+f,f,f,f,f,f,f,1888,f,t,4558,2,f,t,f,f,SIMPLE-T
+f,f,t,f,f,f,f,1889,f,f,1120,2.630435,f,t,f,f,SIMPLE-T
+f,f,f,f,f,f,f,1890,f,f,1567.469136,2,f,t,f,f,SIMPLE-T
+f,f,f,f,f,f,f,1890,f,f,1000,2,f,t,f,f,SIMPLE-T
+f,t,f,f,f,f,f,1891,f,f,1567.469136,2,f,t,f,f,SIMPLE-T
+f,f,f,f,f,f,f,1891,f,t,1350,2,f,t,f,t,SIMPLE-T
+f,f,f,f,f,f,f,1892,f,f,1567.469136,2,f,t,f,f,SIMPLE-T
+f,f,f,f,f,f,f,1892,f,f,1092,1,t,t,t,t,WOOD
+f,f,f,t,f,f,f,1893,f,f,1567.469136,2,f,t,f,f,SIMPLE-T
+f,f,f,f,f,f,f,1894,f,f,1567.469136,2,f,t,f,f,SIMPLE-T
+f,f,f,f,f,f,f,1895,f,f,2367,2,f,t,f,f,SIMPLE-T
+f,f,f,f,f,t,f,1896,f,f,1567.469136,2,f,t,f,f,SUSPEN
+f,f,f,f,f,f,t,1896,f,f,1040,2,f,t,f,f,ARCH
+f,f,f,f,f,f,f,1897,f,t,4000,2,f,f,f,f,SIMPLE-T
+f,f,f,f,f,f,f,1897,f,t,2264,2.630435,f,t,f,f,SIMPLE-T
+f,f,f,f,f,f,f,1898,f,t,2000,2,f,t,f,t,SIMPLE-T
+f,f,f,f,f,f,f,1900,f,f,1200,2,f,t,f,f,SIMPLE-T
+f,f,f,f,f,f,f,1900,f,f,2000,2,f,t,f,f,SIMPLE-T
+f,f,f,f,f,f,f,1901,f,t,1567.469136,2,f,t,f,f,SIMPLE-T
+f,f,f,f,f,f,f,1902,f,f,1850,2,f,t,f,f,CANTILEV
+f,f,f,f,f,f,f,1903,f,t,1300,2,f,t,f,t,SIMPLE-T
+f,f,f,f,f,f,f,1903,f,t,3000,2,f,t,f,t,SIMPLE-T
+f,f,f,f,f,f,f,1903,f,t,1417,2,f,t,f,f,SIMPLE-T
+f,f,f,f,f,f,f,1903,f,t,1154,2.630435,f,t,f,f,SIMPLE-T
+f,f,f,f,f,f,f,1904,f,t,1200,2,f,t,f,f,SIMPLE-T
+f,f,f,f,f,f,f,1904,f,t,965,4,f,t,f,f,SIMPLE-T
+f,f,f,f,f,f,f,1904,f,t,1504,2.630435,f,t,f,f,CANTILEV
+f,f,f,f,f,f,f,1908,f,f,1240,2.630435,f,t,f,f,SIMPLE-T
+f,f,f,f,f,f,f,1909,f,f,1567.469136,2.630435,f,t,f,f,SIMPLE-T
+f,f,f,f,f,f,f,1909,f,f,1730,2,f,t,f,f,SIMPLE-T
+f,f,f,f,f,f,f,1910,f,t,1620,2,f,t,f,f,CANTILEV
+f,f,f,f,f,f,f,1911,f,f,1652,2,f,t,f,f,CANTILEV
+f,f,f,f,f,f,f,1914,f,t,2210,2.630435,f,t,f,f,SIMPLE-T
+f,f,f,f,f,f,f,1915,f,t,2822,2,f,t,f,f,SIMPLE-T
+f,f,f,f,f,f,f,1915,f,f,1000,4,f,t,f,f,SIMPLE-T
+f,f,f,f,f,f,f,1918,f,t,2300,2,t,f,f,f,CONT-T
+f,f,f,f,f,f,f,1920,f,t,2122,2,f,t,f,f,SIMPLE-T
+f,f,f,f,f,f,f,1921,t,f,1567.469136,2.630435,f,t,f,f,SUSPEN
+f,f,f,f,f,f,f,1923,f,f,885,4,f,t,f,f,ARCH
+f,f,f,f,f,f,f,1924,f,f,2365,4,f,t,f,t,ARCH
+f,f,f,f,f,f,f,1926,f,f,860,4,f,t,f,f,SUSPEN
+f,f,f,f,t,f,f,1926,f,f,884,4,f,t,f,f,SUSPEN
+f,f,f,f,f,f,f,1927,f,f,1770,2,f,t,f,f,CANTILEV
+f,f,f,f,f,f,f,1927,f,f,1508,2.630435,f,t,f,t,ARCH
+f,f,f,f,f,f,f,1927,f,f,2663,4,t,f,f,f,CANTILEV
+t,f,f,f,f,f,f,1927,f,f,1330,4,f,t,f,f,CANTILEV
+f,f,f,f,f,f,f,1928,f,f,2678,4,f,f,f,f,ARCH
+f,f,f,f,f,f,f,1928,f,f,2220,2,f,f,f,f,CANTILEV
+f,f,f,f,f,f,f,1928,f,f,860,4,f,t,f,f,SUSPEN
+f,t,f,f,f,f,f,1928,f,f,2250,2,f,t,f,t,SIMPLE-T
+f,f,f,f,f,f,f,1931,f,f,1365,4,f,t,f,f,ARCH
+f,f,f,f,f,f,f,1931,f,f,1450,4,t,t,f,f,ARCH
+f,f,f,f,f,f,f,1931,f,f,1500,4,f,t,f,f,SUSPEN
+f,f,f,f,f,f,f,1937,f,f,1690,4,t,f,f,f,CONT-T
+f,f,f,f,f,f,f,1939,f,f,1800,4,f,f,f,f,CANTILEV
+f,f,f,f,f,f,f,1945,f,f,1060,4,f,f,f,f,CONT-T
+f,f,f,f,f,f,f,1945,f,t,840,2,f,t,f,f,SIMPLE-T
+f,f,f,f,f,f,f,1945,f,f,1710,2,t,f,f,f,CONT-T
+f,f,f,f,f,t,f,1945,f,f,2160,2,f,t,f,f,CANTILEV
+f,f,f,f,f,f,f,1945,f,f,1567.469136,2.630435,f,t,f,t,ARCH
+f,f,f,f,f,f,f,1945,f,t,1567.469136,2.630435,f,t,f,f,SIMPLE-T
+f,f,f,f,f,f,f,1950,f,f,1320,2,f,t,f,f,SIMPLE-T
+f,f,f,t,f,f,f,1951,f,f,900,4,f,t,f,f,CONT-T
+f,f,f,f,f,f,f,1951,f,f,2423,4,f,f,f,f,CONT-T
+f,f,t,f,f,f,f,1951,f,f,1031,4,f,t,f,f,CANTILEV
+f,f,f,f,f,f,f,1955,f,f,2300,4,t,f,f,f,CONT-T
+f,f,f,f,f,f,f,1955,f,f,804,2.630435,f,t,f,f,SIMPLE-T
+f,f,f,f,f,f,f,1959,f,f,1700,2,f,t,f,f,CONT-T
+t,f,f,f,f,f,f,1959,f,f,1000,6,f,t,f,f,ARCH
+f,f,f,f,f,f,f,1961,f,f,980,4,f,f,f,f,CONT-T
+f,f,f,f,f,f,f,1962,f,f,2213,4,f,f,f,f,CONT-T
+f,f,f,f,f,f,f,1969,f,f,870,6,f,t,f,f,ARCH
+f,f,f,f,f,f,f,1975,f,f,3756,6,f,t,f,f,ARCH
+f,f,f,f,f,f,t,1978,f,f,950,6,f,t,f,f,ARCH
+f,f,f,f,f,f,f,1982,f,f,1567.469136,2.630435,f,t,f,f,?
+f,f,f,f,f,f,f,1986,f,f,1567.469136,2.630435,f,t,f,f,?

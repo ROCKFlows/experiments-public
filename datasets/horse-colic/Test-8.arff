@@ -1,0 +1,309 @@
+@relation 'horse-colic-weka.filters.unsupervised.attribute.ReplaceMissingValues-weka.filters.unsupervised.attribute.Discretize-B10-M-1.0-Rfirst-last-weka.filters.unsupervised.attribute.Remove-V-R1,10,17,20,23-fr.unice.i3s.rockflows.experiments.weka.CfsSubsetFilter'
+
+@attribute surgery {yes,no}
+@attribute pain {'alert no pain',depressed,'intermittent mild pain','intermittent severe pain','continuous severe pain'}
+@attribute abdomen {normal,other,'firm feces in large intestine','distended small intestine','distended large intestine'}
+@attribute abdominocentesis_appearance {clear,cloudy,serosanguinous}
+@attribute surgical_lesion {yes,no}
+
+@data
+no,'continuous severe pain','distended large intestine',cloudy,no
+yes,'intermittent mild pain',other,cloudy,no
+no,'intermittent mild pain',normal,cloudy,no
+yes,depressed,'distended large intestine',serosanguinous,yes
+no,'intermittent mild pain','distended large intestine',cloudy,no
+no,depressed,'firm feces in large intestine',cloudy,no
+yes,'intermittent mild pain','distended large intestine',cloudy,yes
+yes,'intermittent mild pain','distended small intestine',cloudy,yes
+no,'intermittent severe pain','distended large intestine',cloudy,yes
+no,'continuous severe pain','distended large intestine',clear,no
+yes,'intermittent mild pain','distended large intestine',cloudy,yes
+no,depressed,'distended small intestine',cloudy,yes
+yes,'intermittent mild pain','distended large intestine',cloudy,no
+no,'alert no pain',normal,clear,no
+yes,'intermittent mild pain','distended small intestine',clear,yes
+yes,'continuous severe pain','distended large intestine',cloudy,yes
+yes,'intermittent severe pain','distended large intestine',serosanguinous,no
+no,'intermittent mild pain','distended large intestine',cloudy,no
+yes,depressed,'distended large intestine',clear,yes
+no,'intermittent mild pain','distended large intestine',cloudy,no
+yes,'continuous severe pain','distended small intestine',cloudy,yes
+no,'alert no pain','firm feces in large intestine',cloudy,no
+yes,depressed,'distended large intestine',cloudy,yes
+yes,depressed,'distended large intestine',cloudy,yes
+yes,'intermittent mild pain','distended large intestine',cloudy,yes
+no,'intermittent mild pain','distended large intestine',cloudy,no
+yes,'intermittent mild pain','distended large intestine',cloudy,yes
+yes,'intermittent mild pain','firm feces in large intestine',cloudy,no
+yes,'intermittent mild pain','distended large intestine',cloudy,no
+no,'alert no pain','distended large intestine',cloudy,no
+no,'continuous severe pain','distended large intestine',cloudy,yes
+no,depressed,'firm feces in large intestine',serosanguinous,yes
+yes,'intermittent mild pain','distended large intestine',cloudy,yes
+yes,'intermittent mild pain','distended small intestine',cloudy,yes
+yes,'continuous severe pain','distended small intestine',cloudy,yes
+no,'intermittent severe pain',other,cloudy,yes
+no,'intermittent mild pain','distended large intestine',cloudy,no
+yes,'continuous severe pain',normal,clear,yes
+no,'intermittent mild pain','firm feces in large intestine',clear,no
+yes,'intermittent mild pain','distended large intestine',cloudy,yes
+yes,'continuous severe pain','distended large intestine',serosanguinous,yes
+no,'intermittent mild pain','distended large intestine',cloudy,yes
+no,'intermittent mild pain',other,cloudy,no
+yes,'intermittent severe pain','distended large intestine',cloudy,yes
+yes,'intermittent severe pain','distended large intestine',serosanguinous,yes
+no,'continuous severe pain','distended large intestine',serosanguinous,yes
+yes,'continuous severe pain','distended large intestine',cloudy,yes
+no,'alert no pain','distended large intestine',cloudy,no
+yes,depressed,normal,serosanguinous,yes
+no,'intermittent severe pain',normal,cloudy,no
+no,'alert no pain',other,clear,no
+yes,'intermittent mild pain','distended large intestine',serosanguinous,yes
+no,'alert no pain',other,cloudy,no
+no,'intermittent mild pain','distended large intestine',cloudy,no
+no,depressed,'distended large intestine',serosanguinous,yes
+yes,'intermittent mild pain','distended large intestine',cloudy,yes
+yes,'intermittent mild pain','distended large intestine',cloudy,yes
+yes,'continuous severe pain','distended large intestine',cloudy,yes
+yes,'continuous severe pain','distended small intestine',serosanguinous,yes
+no,'continuous severe pain','distended large intestine',cloudy,yes
+no,depressed,'distended large intestine',cloudy,no
+no,'alert no pain',normal,cloudy,no
+yes,'intermittent mild pain','distended large intestine',clear,yes
+no,depressed,'distended large intestine',cloudy,no
+yes,'intermittent mild pain','distended large intestine',serosanguinous,yes
+yes,'intermittent mild pain','distended small intestine',cloudy,yes
+no,'intermittent mild pain','distended small intestine',clear,yes
+no,'alert no pain',other,clear,no
+no,'intermittent mild pain','distended large intestine',cloudy,no
+no,'alert no pain',other,cloudy,no
+no,'intermittent mild pain','distended small intestine',cloudy,yes
+yes,'alert no pain',normal,cloudy,no
+yes,'intermittent mild pain','distended large intestine',cloudy,yes
+yes,'intermittent severe pain','distended large intestine',cloudy,yes
+yes,'intermittent mild pain','distended large intestine',cloudy,yes
+yes,depressed,'distended large intestine',cloudy,yes
+yes,'intermittent mild pain','distended large intestine',cloudy,yes
+no,'alert no pain',normal,cloudy,no
+yes,'continuous severe pain','distended large intestine',cloudy,yes
+yes,'intermittent mild pain','distended small intestine',serosanguinous,yes
+yes,'intermittent severe pain','distended small intestine',serosanguinous,yes
+yes,depressed,'distended large intestine',serosanguinous,yes
+yes,'intermittent mild pain','distended large intestine',cloudy,yes
+yes,'continuous severe pain','distended large intestine',cloudy,yes
+yes,depressed,'distended large intestine',cloudy,yes
+no,'intermittent mild pain','distended small intestine',cloudy,no
+yes,'continuous severe pain','distended large intestine',serosanguinous,yes
+no,'intermittent mild pain','distended large intestine',cloudy,yes
+no,'intermittent mild pain','firm feces in large intestine',cloudy,no
+no,'alert no pain','distended large intestine',cloudy,no
+no,depressed,normal,cloudy,yes
+no,depressed,'distended large intestine',serosanguinous,yes
+no,'alert no pain',normal,cloudy,no
+no,'continuous severe pain','distended large intestine',cloudy,yes
+no,'intermittent mild pain',normal,cloudy,no
+yes,'intermittent mild pain','distended large intestine',cloudy,yes
+no,'intermittent mild pain',other,cloudy,yes
+yes,depressed,'distended large intestine',cloudy,no
+no,'alert no pain','distended large intestine',cloudy,no
+no,depressed,'distended large intestine',cloudy,no
+yes,'alert no pain',normal,cloudy,no
+yes,'continuous severe pain','distended large intestine',cloudy,yes
+no,depressed,'distended large intestine',cloudy,no
+yes,'intermittent mild pain',normal,cloudy,yes
+yes,'intermittent severe pain','distended large intestine',clear,yes
+yes,depressed,'distended large intestine',cloudy,yes
+yes,'intermittent mild pain','distended large intestine',cloudy,yes
+no,'alert no pain','distended large intestine',cloudy,no
+yes,'intermittent severe pain','distended large intestine',serosanguinous,yes
+yes,'intermittent mild pain','distended large intestine',cloudy,yes
+yes,depressed,'distended large intestine',cloudy,yes
+yes,'alert no pain','distended large intestine',clear,yes
+yes,'alert no pain','distended large intestine',cloudy,yes
+yes,'intermittent mild pain','distended large intestine',cloudy,yes
+yes,'continuous severe pain','distended large intestine',cloudy,yes
+no,'intermittent mild pain','distended large intestine',cloudy,no
+yes,'intermittent mild pain','distended large intestine',cloudy,yes
+no,'intermittent mild pain','distended large intestine',clear,yes
+yes,'continuous severe pain','distended large intestine',cloudy,yes
+no,'alert no pain','distended large intestine',cloudy,no
+yes,depressed,'distended small intestine',cloudy,yes
+yes,'intermittent severe pain','distended small intestine',cloudy,yes
+no,'intermittent mild pain','distended large intestine',clear,no
+yes,'intermittent severe pain','distended small intestine',clear,yes
+no,'alert no pain',normal,cloudy,yes
+yes,'intermittent mild pain','distended small intestine',cloudy,yes
+yes,'continuous severe pain','distended large intestine',cloudy,yes
+yes,'intermittent severe pain','distended large intestine',cloudy,yes
+yes,depressed,'distended large intestine',cloudy,no
+yes,'intermittent mild pain','distended large intestine',cloudy,yes
+yes,'intermittent mild pain','distended large intestine',cloudy,yes
+no,'intermittent mild pain','distended large intestine',cloudy,yes
+yes,'intermittent severe pain','distended large intestine',cloudy,yes
+no,depressed,'firm feces in large intestine',cloudy,yes
+yes,'continuous severe pain','distended large intestine',cloudy,yes
+yes,'continuous severe pain','distended large intestine',cloudy,yes
+yes,'continuous severe pain','distended large intestine',cloudy,yes
+yes,'alert no pain','distended large intestine',cloudy,yes
+no,'alert no pain',normal,cloudy,no
+no,'intermittent mild pain','distended large intestine',clear,no
+yes,depressed,'distended large intestine',cloudy,no
+no,'intermittent mild pain','distended large intestine',cloudy,no
+yes,'continuous severe pain','distended large intestine',serosanguinous,yes
+yes,'alert no pain',normal,cloudy,no
+yes,depressed,'distended large intestine',cloudy,no
+no,depressed,'distended large intestine',cloudy,yes
+yes,'intermittent mild pain','distended large intestine',cloudy,yes
+no,'intermittent mild pain','distended small intestine',cloudy,yes
+yes,depressed,'distended small intestine',cloudy,yes
+no,'alert no pain','distended large intestine',cloudy,no
+no,depressed,other,cloudy,no
+yes,'intermittent severe pain','distended small intestine',serosanguinous,yes
+yes,'intermittent mild pain','distended large intestine',serosanguinous,yes
+no,'alert no pain',other,clear,no
+no,'intermittent mild pain','distended large intestine',cloudy,yes
+no,'alert no pain',other,clear,no
+no,'intermittent mild pain','firm feces in large intestine',clear,no
+yes,'intermittent mild pain','distended large intestine',cloudy,yes
+no,'intermittent mild pain','distended large intestine',cloudy,no
+no,depressed,'firm feces in large intestine',cloudy,no
+yes,'intermittent severe pain','distended large intestine',cloudy,yes
+yes,'intermittent mild pain','distended large intestine',cloudy,yes
+no,'intermittent mild pain','distended large intestine',clear,no
+yes,'continuous severe pain','distended large intestine',serosanguinous,yes
+yes,'intermittent mild pain','distended small intestine',cloudy,yes
+yes,'intermittent mild pain','distended large intestine',clear,no
+yes,'intermittent mild pain',normal,clear,no
+no,'intermittent mild pain',normal,cloudy,no
+yes,depressed,'distended small intestine',cloudy,yes
+yes,'continuous severe pain','distended large intestine',cloudy,yes
+no,'intermittent mild pain','distended large intestine',cloudy,no
+no,'intermittent mild pain','distended large intestine',serosanguinous,yes
+yes,depressed,'distended large intestine',serosanguinous,yes
+yes,depressed,'distended small intestine',cloudy,yes
+no,'intermittent severe pain','distended large intestine',cloudy,yes
+yes,'intermittent mild pain','distended large intestine',cloudy,yes
+yes,'intermittent mild pain',other,cloudy,yes
+yes,'intermittent severe pain','distended large intestine',cloudy,yes
+yes,'continuous severe pain','distended large intestine',serosanguinous,yes
+no,'intermittent severe pain','distended large intestine',cloudy,no
+yes,'intermittent severe pain','distended small intestine',serosanguinous,yes
+no,'intermittent mild pain','distended large intestine',cloudy,no
+yes,'continuous severe pain','distended large intestine',cloudy,yes
+no,depressed,'distended large intestine',clear,no
+no,'alert no pain',normal,cloudy,no
+yes,'intermittent mild pain','distended large intestine',cloudy,yes
+yes,'intermittent mild pain','distended large intestine',cloudy,yes
+yes,'intermittent mild pain','distended large intestine',serosanguinous,yes
+yes,'intermittent mild pain','distended large intestine',clear,yes
+yes,depressed,'distended small intestine',clear,yes
+yes,'intermittent mild pain','firm feces in large intestine',serosanguinous,yes
+no,'intermittent severe pain','distended large intestine',cloudy,no
+yes,'intermittent mild pain','distended large intestine',clear,yes
+yes,'intermittent severe pain','distended large intestine',cloudy,yes
+no,depressed,normal,cloudy,no
+no,'intermittent mild pain','distended large intestine',cloudy,no
+no,depressed,'firm feces in large intestine',cloudy,no
+no,depressed,'distended large intestine',cloudy,yes
+no,'alert no pain','distended large intestine',cloudy,no
+no,depressed,other,cloudy,no
+yes,'intermittent mild pain','firm feces in large intestine',cloudy,yes
+yes,'intermittent severe pain','distended large intestine',clear,yes
+yes,'intermittent mild pain','distended large intestine',serosanguinous,yes
+no,depressed,normal,cloudy,no
+yes,'intermittent severe pain','distended large intestine',clear,yes
+no,'intermittent severe pain','distended large intestine',cloudy,no
+yes,'intermittent severe pain','distended large intestine',cloudy,yes
+yes,'intermittent mild pain','distended large intestine',cloudy,yes
+yes,'intermittent mild pain','distended large intestine',cloudy,yes
+no,'intermittent mild pain','firm feces in large intestine',clear,no
+yes,depressed,'distended large intestine',serosanguinous,yes
+yes,depressed,'distended large intestine',clear,yes
+yes,'intermittent mild pain','distended large intestine',clear,no
+yes,'intermittent mild pain','distended small intestine',cloudy,yes
+no,'alert no pain','distended large intestine',cloudy,no
+yes,'alert no pain',other,cloudy,yes
+no,'intermittent mild pain','distended large intestine',cloudy,no
+yes,'intermittent mild pain','distended large intestine',cloudy,yes
+yes,depressed,'distended large intestine',cloudy,yes
+yes,'intermittent mild pain','distended small intestine',cloudy,yes
+yes,'continuous severe pain','distended large intestine',cloudy,no
+yes,depressed,'distended large intestine',cloudy,yes
+yes,depressed,'distended small intestine',serosanguinous,yes
+yes,'intermittent mild pain','distended small intestine',cloudy,yes
+yes,'intermittent mild pain','distended large intestine',cloudy,yes
+no,'alert no pain',other,clear,no
+yes,depressed,'distended small intestine',serosanguinous,yes
+yes,'intermittent mild pain','distended large intestine',cloudy,yes
+yes,'continuous severe pain','distended large intestine',serosanguinous,yes
+yes,'intermittent mild pain','distended large intestine',clear,yes
+yes,'intermittent severe pain','distended large intestine',cloudy,yes
+no,'continuous severe pain','distended large intestine',cloudy,no
+yes,'intermittent mild pain','distended large intestine',cloudy,yes
+yes,'intermittent mild pain','distended large intestine',cloudy,yes
+no,'intermittent mild pain',normal,cloudy,no
+yes,'intermittent severe pain','distended large intestine',cloudy,yes
+no,'intermittent mild pain','distended large intestine',cloudy,no
+no,'intermittent mild pain',other,serosanguinous,no
+no,'intermittent mild pain','distended small intestine',serosanguinous,yes
+yes,'continuous severe pain','distended large intestine',cloudy,yes
+yes,'continuous severe pain','distended large intestine',cloudy,yes
+yes,'alert no pain','distended large intestine',cloudy,no
+yes,'continuous severe pain','distended small intestine',cloudy,yes
+yes,'intermittent mild pain','distended large intestine',cloudy,yes
+yes,depressed,'distended large intestine',clear,yes
+no,'continuous severe pain','distended large intestine',cloudy,yes
+yes,'intermittent severe pain','distended large intestine',clear,yes
+yes,'continuous severe pain','distended small intestine',cloudy,yes
+yes,'intermittent severe pain','distended small intestine',serosanguinous,yes
+no,'intermittent mild pain',other,cloudy,no
+yes,depressed,'distended small intestine',serosanguinous,yes
+no,'alert no pain','distended large intestine',cloudy,yes
+yes,depressed,'distended small intestine',serosanguinous,yes
+no,'continuous severe pain','distended large intestine',serosanguinous,no
+yes,'intermittent severe pain','distended large intestine',cloudy,yes
+yes,'intermittent severe pain','distended large intestine',cloudy,yes
+yes,depressed,'distended large intestine',cloudy,yes
+yes,'intermittent mild pain','distended large intestine',cloudy,yes
+no,depressed,'distended large intestine',clear,no
+yes,depressed,'distended large intestine',serosanguinous,yes
+no,'intermittent severe pain','distended large intestine',cloudy,no
+no,'alert no pain',other,cloudy,no
+no,'intermittent mild pain','distended large intestine',cloudy,no
+yes,'intermittent severe pain','distended small intestine',serosanguinous,yes
+yes,'intermittent mild pain','distended large intestine',cloudy,yes
+no,'intermittent mild pain','distended large intestine',cloudy,yes
+no,'intermittent mild pain','distended large intestine',clear,no
+no,depressed,'distended small intestine',serosanguinous,no
+yes,'intermittent mild pain','distended large intestine',cloudy,no
+yes,'intermittent mild pain','distended large intestine',cloudy,yes
+yes,'intermittent mild pain','distended small intestine',cloudy,yes
+yes,'continuous severe pain',normal,serosanguinous,yes
+yes,'continuous severe pain','distended small intestine',cloudy,yes
+yes,'continuous severe pain','distended large intestine',serosanguinous,yes
+yes,'intermittent mild pain','distended large intestine',cloudy,yes
+yes,'continuous severe pain','distended large intestine',cloudy,yes
+yes,'intermittent severe pain','distended large intestine',cloudy,no
+no,'alert no pain','distended large intestine',cloudy,no
+no,'alert no pain',normal,cloudy,no
+no,depressed,'distended large intestine',clear,no
+yes,'alert no pain','distended large intestine',cloudy,no
+no,depressed,normal,cloudy,yes
+yes,depressed,'distended large intestine',cloudy,yes
+yes,'intermittent mild pain','distended large intestine',cloudy,yes
+no,'intermittent mild pain','distended large intestine',cloudy,no
+yes,'intermittent mild pain','distended large intestine',clear,yes
+no,'intermittent severe pain','distended large intestine',cloudy,yes
+no,'intermittent mild pain','distended large intestine',cloudy,no
+yes,'intermittent mild pain','distended large intestine',cloudy,yes
+yes,'intermittent mild pain','distended large intestine',clear,yes
+no,'alert no pain',normal,cloudy,no
+yes,depressed,normal,serosanguinous,yes
+yes,'intermittent severe pain','distended large intestine',cloudy,yes
+yes,'intermittent mild pain','distended small intestine',cloudy,no
+no,depressed,other,cloudy,no
+yes,depressed,'distended large intestine',cloudy,no
+no,'intermittent severe pain','distended small intestine',serosanguinous,yes
+yes,'intermittent severe pain','distended large intestine',cloudy,yes
+yes,'intermittent mild pain','distended small intestine',serosanguinous,yes
+yes,'intermittent mild pain',normal,clear,no

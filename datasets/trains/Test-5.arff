@@ -1,0 +1,92 @@
+@relation trains-weka.filters.unsupervised.attribute.ReplaceMissingValues-weka.filters.unsupervised.attribute.NominalToBinary-N-A-Rfirst-last
+
+@attribute Number_of_cars=3 {f,t}
+@attribute Number_of_cars=4 {f,t}
+@attribute Number_of_cars=5 {f,t}
+@attribute Number_of_different_loads=1 {f,t}
+@attribute Number_of_different_loads=2 {f,t}
+@attribute Number_of_different_loads=3 {f,t}
+@attribute Number_of_different_loads=4 {f,t}
+@attribute num_wheels_2=2 {f,t}
+@attribute num_wheels_2=3 {f,t}
+@attribute length_2=long {f,t}
+@attribute length_2=short {f,t}
+@attribute shape_2=closedrect {f,t}
+@attribute shape_2=dblopnrect {f,t}
+@attribute shape_2=openrect {f,t}
+@attribute shape_2=opentrap {f,t}
+@attribute shape_2=ushaped {f,t}
+@attribute num_loads_2=1 {f,t}
+@attribute num_loads_2=3 {f,t}
+@attribute load_shape_2=circlelod {f,t}
+@attribute load_shape_2=rectanglod {f,t}
+@attribute load_shape_2=trianglod {f,t}
+@attribute num_wheels_3=2 {f,t}
+@attribute num_wheels_3=3 {f,t}
+@attribute length_3=long {f,t}
+@attribute length_3=short {f,t}
+@attribute shape_3=closedrect {f,t}
+@attribute shape_3=dblopnrect {f,t}
+@attribute shape_3=hexagon {f,t}
+@attribute shape_3=jaggedtop {f,t}
+@attribute shape_3=openrect {f,t}
+@attribute shape_3=opentrap {f,t}
+@attribute shape_3=slopetop {f,t}
+@attribute shape_3=ushaped {f,t}
+@attribute num_loads_3=1 {f,t}
+@attribute num_loads_3=2 {f,t}
+@attribute load_shape_3=circlelod {f,t}
+@attribute load_shape_3=rectanglod {f,t}
+@attribute load_shape_3=trianglod {f,t}
+@attribute num_wheels_4=2 {f,t}
+@attribute num_wheels_4=3 {f,t}
+@attribute length_4=long {f,t}
+@attribute length_4=short {f,t}
+@attribute shape_4=closedrect {f,t}
+@attribute shape_4=ellipse {f,t}
+@attribute shape_4=jaggedtop {f,t}
+@attribute shape_4=openrect {f,t}
+@attribute num_loads_4=0 {f,t}
+@attribute num_loads_4=1 {f,t}
+@attribute num_loads_4=2 {f,t}
+@attribute load_shape_4=circlelod {f,t}
+@attribute load_shape_4=hexagonlod {f,t}
+@attribute load_shape_4=rectanglod {f,t}
+@attribute load_shape_4=trianglod {f,t}
+@attribute num_wheels_5=2 {f,t}
+@attribute length_5=short {f,t}
+@attribute shape_5=openrect {f,t}
+@attribute shape_5=opentrap {f,t}
+@attribute num_loads_5=1 {f,t}
+@attribute load_shape_5=circlelod {f,t}
+@attribute load_shape_5=rectanglod {f,t}
+@attribute Rectangle_next_to_rectangle=0 {f,t}
+@attribute Rectangle_next_to_rectangle=1 {f,t}
+@attribute Rectangle_next_to_triangle=0 {f,t}
+@attribute Rectangle_next_to_triangle=1 {f,t}
+@attribute Rectangle_next_to_hexagon=0 {f,t}
+@attribute Rectangle_next_to_circle=0 {f,t}
+@attribute Rectangle_next_to_circle=1 {f,t}
+@attribute Triangle_next_to_triangle=0 {f,t}
+@attribute Triangle_next_to_triangle=1 {f,t}
+@attribute Triangle_next_to_hexagon=0 {f,t}
+@attribute Triangle_next_to_hexagon=1 {f,t}
+@attribute Triangle_next_to_circle=0 {f,t}
+@attribute Triangle_next_to_circle=1 {f,t}
+@attribute Hexagon_next_to_hexagon=0 {f,t}
+@attribute Hexagon_next_to_circle=0 {f,t}
+@attribute Hexagon_next_to_circle=1 {f,t}
+@attribute Circle_next_to_circle=0 {f,t}
+@attribute class {east,west}
+
+@data
+f,f,t,f,f,f,t,t,f,t,f,f,f,t,f,f,f,t,f,t,f,t,f,f,t,f,f,f,f,f,f,t,f,t,f,f,f,t,f,t,t,f,f,f,f,t,f,t,f,f,t,f,f,t,t,t,f,t,t,f,t,f,f,t,t,t,f,t,f,f,t,t,f,t,f,t,t,east
+f,t,f,f,f,t,f,t,f,f,t,f,f,f,f,t,t,f,f,f,t,t,f,f,t,f,f,f,f,f,t,f,f,t,f,f,t,f,t,f,f,t,t,f,f,f,f,f,t,t,f,f,f,t,t,t,f,t,t,f,t,f,f,t,t,f,t,t,f,t,f,t,f,t,t,f,t,east
+f,t,f,f,t,f,f,t,f,f,t,f,f,t,f,f,t,f,t,f,f,t,f,f,t,f,f,t,f,f,f,f,f,t,f,f,f,t,f,t,t,f,t,f,f,f,f,t,f,f,f,f,t,t,t,t,f,t,t,f,t,f,t,f,t,t,f,f,t,t,f,f,t,t,t,f,t,east
+f,f,t,f,t,f,f,t,f,f,t,f,f,f,t,f,t,f,f,f,t,t,f,f,t,f,t,f,f,f,f,f,f,t,f,f,f,t,t,f,f,t,f,t,f,f,f,t,f,f,f,t,f,t,t,t,f,t,f,t,f,t,f,t,t,t,f,f,t,t,f,t,f,t,t,f,t,east
+f,t,f,f,f,t,f,t,f,f,t,f,t,f,f,f,t,f,f,f,t,f,t,t,f,t,f,f,f,f,f,f,f,t,f,f,t,f,t,f,f,t,t,f,f,f,f,t,f,t,f,f,f,t,t,t,f,t,t,f,t,f,f,t,t,f,t,t,f,t,f,t,f,t,t,f,t,east
+t,f,f,f,t,f,f,t,f,t,f,t,f,f,f,f,f,t,t,f,f,t,f,f,t,f,f,f,f,t,f,f,f,t,f,f,f,t,t,f,f,t,t,f,f,f,f,t,f,t,f,f,f,t,t,t,f,t,t,f,t,f,t,f,t,t,f,t,f,t,f,f,t,t,t,f,t,west
+f,t,f,f,t,f,f,t,f,f,t,f,t,f,f,f,t,f,t,f,f,t,f,f,t,f,f,f,f,f,f,f,t,t,f,f,f,t,t,f,t,f,f,f,t,f,t,f,f,t,f,f,f,t,t,t,f,t,t,f,t,f,t,f,t,t,f,t,f,t,f,f,t,t,t,f,t,west
+t,f,f,f,t,f,f,f,t,t,f,t,f,f,f,f,t,f,f,t,f,t,f,f,t,f,f,f,f,f,f,f,t,t,f,t,f,f,t,f,f,t,t,f,f,f,f,t,f,t,f,f,f,t,t,t,f,t,t,f,t,f,t,f,t,f,t,t,f,t,f,t,f,t,t,f,t,west
+f,f,t,f,t,f,f,t,f,f,t,f,f,f,t,f,t,f,t,f,f,t,f,t,f,f,f,f,t,f,f,f,f,t,f,f,t,f,t,f,f,t,f,f,f,t,f,t,f,f,f,t,f,t,t,f,t,t,t,f,f,t,t,f,t,f,t,t,f,t,f,t,f,t,t,f,t,west
+t,f,f,t,f,f,f,t,f,f,t,f,f,f,f,t,t,f,f,t,f,t,f,t,f,f,f,f,f,t,f,f,f,f,t,f,t,f,t,f,f,t,t,f,f,f,f,t,f,t,f,f,f,t,t,t,f,t,t,f,f,t,t,f,t,t,f,t,f,t,f,t,f,t,t,f,t,west

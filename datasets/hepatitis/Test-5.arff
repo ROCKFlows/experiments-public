@@ -1,0 +1,192 @@
+@relation hepatitis-weka.filters.unsupervised.attribute.ReplaceMissingValues-weka.filters.unsupervised.attribute.NominalToBinary-N-A-Rfirst-last
+
+@attribute AGE numeric
+@attribute SEX=male {f,t}
+@attribute SEX=female {f,t}
+@attribute STEROID=no {f,t}
+@attribute STEROID=yes {f,t}
+@attribute ANTIVIRALS=no {f,t}
+@attribute ANTIVIRALS=yes {f,t}
+@attribute FATIGUE=no {f,t}
+@attribute FATIGUE=yes {f,t}
+@attribute MALAISE=no {f,t}
+@attribute MALAISE=yes {f,t}
+@attribute ANOREXIA=no {f,t}
+@attribute ANOREXIA=yes {f,t}
+@attribute LIVER_BIG=no {f,t}
+@attribute LIVER_BIG=yes {f,t}
+@attribute LIVER_FIRM=no {f,t}
+@attribute LIVER_FIRM=yes {f,t}
+@attribute SPLEEN_PALPABLE=no {f,t}
+@attribute SPLEEN_PALPABLE=yes {f,t}
+@attribute SPIDERS=no {f,t}
+@attribute SPIDERS=yes {f,t}
+@attribute ASCITES=no {f,t}
+@attribute ASCITES=yes {f,t}
+@attribute VARICES=no {f,t}
+@attribute VARICES=yes {f,t}
+@attribute BILIRUBIN numeric
+@attribute ALK_PHOSPHATE numeric
+@attribute SGOT numeric
+@attribute ALBUMIN numeric
+@attribute PROTIME numeric
+@attribute HISTOLOGY=no {f,t}
+@attribute HISTOLOGY=yes {f,t}
+@attribute Class {DIE,LIVE}
+
+@data
+30,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,1,85,18,4,61.852273,t,f,LIVE
+50,f,t,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,0.9,135,42,3.5,61.852273,t,f,LIVE
+78,f,t,f,t,t,f,f,t,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,0.7,96,32,4,61.852273,t,f,LIVE
+31,f,t,f,t,f,t,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,0.7,46,52,4,80,t,f,LIVE
+34,f,t,f,t,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,1,105.325397,200,4,61.852273,t,f,LIVE
+34,f,t,f,t,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,0.9,95,28,4,75,t,f,LIVE
+51,f,t,t,f,t,f,f,t,t,f,f,t,f,t,t,f,f,t,f,t,t,f,t,f,1.427517,105.325397,85.89404,3.817266,61.852273,t,f,DIE
+23,f,t,f,t,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,1,105.325397,85.89404,3.817266,61.852273,t,f,LIVE
+39,f,t,f,t,t,f,f,t,t,f,t,f,f,t,f,t,t,f,t,f,t,f,t,f,0.7,105.325397,48,4.4,61.852273,t,f,LIVE
+30,f,t,f,t,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,1,105.325397,120,3.9,61.852273,t,f,LIVE
+39,f,t,t,f,f,t,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,1.3,78,30,4.4,85,t,f,LIVE
+32,f,t,f,t,f,t,f,t,t,f,t,f,f,t,f,t,t,f,f,t,t,f,t,f,1,59,249,3.7,54,t,f,LIVE
+41,f,t,f,t,f,t,f,t,t,f,t,f,f,t,f,t,t,f,t,f,t,f,t,f,0.9,81,60,3.9,52,t,f,LIVE
+30,f,t,f,t,t,f,f,t,t,f,t,f,f,t,f,t,t,f,t,f,t,f,t,f,2.2,57,144,4.9,78,t,f,LIVE
+47,f,t,t,f,f,t,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,1.427517,105.325397,60,3.817266,61.852273,t,f,LIVE
+38,f,t,t,f,t,f,f,t,f,t,f,t,f,t,t,f,t,f,t,f,f,t,t,f,2,72,89,2.9,46,t,f,LIVE
+66,f,t,f,t,t,f,f,t,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,1.2,102,53,4.3,61.852273,t,f,LIVE
+40,f,t,t,f,t,f,f,t,t,f,t,f,f,t,f,t,t,f,t,f,t,f,t,f,0.6,62,166,4,63,t,f,LIVE
+38,f,t,f,t,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,0.7,53,42,4.1,85,f,t,LIVE
+38,f,t,t,f,f,t,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,0.7,70,28,4.2,62,t,f,LIVE
+22,t,f,f,t,f,t,f,t,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,0.9,48,20,4.2,64,t,f,LIVE
+27,f,t,f,t,t,f,f,t,f,t,f,t,t,f,f,t,f,t,f,t,t,f,t,f,1.2,133,98,4.1,39,t,f,LIVE
+31,f,t,f,t,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,1,85,20,4,100,t,f,LIVE
+42,f,t,f,t,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,0.9,60,63,4.7,47,t,f,LIVE
+25,t,f,t,f,f,t,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,0.4,45,18,4.3,70,t,f,LIVE
+27,f,t,t,f,t,f,f,t,f,t,t,f,f,t,t,f,t,f,t,f,t,f,t,f,0.8,95,46,3.8,100,t,f,LIVE
+49,f,t,t,f,f,t,f,t,f,t,f,t,f,t,f,t,t,f,f,t,t,f,t,f,0.6,85,48,3.7,61.852273,t,f,LIVE
+58,t,f,f,t,t,f,f,t,t,f,t,f,f,t,f,t,t,f,f,t,t,f,t,f,1.4,175,55,2.7,36,t,f,LIVE
+61,f,t,t,f,t,f,f,t,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,1.3,78,25,3.8,100,t,f,LIVE
+51,f,t,t,f,f,t,f,t,f,t,t,f,f,t,t,f,t,f,t,f,t,f,t,f,1,78,58,4.6,52,t,f,LIVE
+39,f,t,t,f,f,t,f,t,f,t,t,f,f,t,f,t,t,f,t,f,t,f,t,f,2.3,280,98,3.8,40,t,f,DIE
+62,f,t,t,f,t,f,f,t,f,t,t,f,f,t,t,f,t,f,t,f,t,f,t,f,1,105.325397,60,3.817266,61.852273,t,f,DIE
+41,t,f,f,t,f,t,f,t,f,t,f,t,f,t,t,f,t,f,t,f,t,f,t,f,0.7,81,53,5,74,t,f,LIVE
+26,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,t,t,f,t,f,t,f,t,f,0.5,135,29,3.8,60,t,f,LIVE
+35,f,t,f,t,t,f,f,t,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,0.9,58,92,4.3,73,t,f,LIVE
+37,f,t,f,t,t,f,f,t,t,f,t,f,f,t,t,f,t,f,f,t,t,f,t,f,0.6,67,28,4.2,61.852273,t,f,DIE
+23,f,t,f,t,t,f,f,t,f,t,f,t,f,t,t,f,f,t,t,f,t,f,t,f,1.3,194,150,4.1,90,t,f,LIVE
+20,t,f,t,f,t,f,f,t,f,t,f,t,t,f,f,t,f,t,f,t,t,f,t,f,2.3,150,68,3.9,61.852273,t,f,LIVE
+42,f,t,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,1,85,14,4,100,t,f,LIVE
+65,f,t,f,t,t,f,f,t,f,t,t,f,f,t,f,t,f,t,f,t,f,t,t,f,0.3,180,53,2.9,74,f,t,LIVE
+52,f,t,t,f,f,t,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,0.7,75,55,4,21,t,f,LIVE
+23,f,t,f,t,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,4.6,56,16,4.6,61.852273,t,f,LIVE
+33,f,t,f,t,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,1,46,90,4.4,60,t,f,LIVE
+56,f,t,t,f,t,f,f,t,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,0.7,71,18,4.4,100,t,f,LIVE
+34,f,t,f,t,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,1.427517,105.325397,86,3.817266,61.852273,t,f,LIVE
+28,f,t,f,t,t,f,f,t,f,t,t,f,f,t,t,f,t,f,t,f,t,f,t,f,0.7,74,110,4.4,61.852273,t,f,LIVE
+37,f,t,t,f,t,f,t,f,t,f,t,f,f,t,f,t,t,f,f,t,t,f,t,f,0.6,80,80,3.8,61.852273,t,f,LIVE
+28,t,f,f,t,t,f,f,t,f,t,t,f,f,t,f,t,t,f,t,f,t,f,t,f,1.8,191,420,3.3,46,t,f,LIVE
+36,f,t,t,f,t,f,t,f,t,f,t,f,f,t,t,f,f,t,t,f,t,f,t,f,0.8,85,44,4.2,85,t,f,LIVE
+38,f,t,f,t,f,t,f,t,f,t,f,t,f,t,t,f,t,f,f,t,t,f,t,f,0.7,125,65,4.2,77,t,f,LIVE
+39,f,t,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,0.9,85,60,4,61.852273,t,f,LIVE
+39,f,t,f,t,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,1,85,20,4,61.852273,t,f,LIVE
+44,f,t,f,t,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,0.6,110,145,4.4,70,t,f,LIVE
+40,f,t,f,t,f,t,f,t,t,f,t,f,f,t,f,t,f,t,t,f,t,f,t,f,1.2,85,31,4,100,t,f,LIVE
+30,f,t,f,t,t,f,f,t,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,0.7,50,78,4.2,74,t,f,LIVE
+37,f,t,t,f,t,f,f,t,f,t,f,t,f,t,t,f,t,f,t,f,t,f,t,f,0.8,92,59,3.817266,61.852273,t,f,LIVE
+34,f,t,t,f,t,f,f,t,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,1.427517,105.325397,85.89404,3.817266,61.852273,t,f,LIVE
+30,f,t,f,t,f,t,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,0.7,52,38,3.9,52,t,f,LIVE
+64,f,t,f,t,f,t,f,t,f,t,t,f,t,f,f,t,t,f,t,f,t,f,t,f,1,80,38,4.3,74,t,f,LIVE
+45,t,f,t,f,t,f,f,t,f,t,t,f,f,t,t,f,f,t,t,f,t,f,t,f,1,85,75,3.817266,61.852273,t,f,LIVE
+37,f,t,f,t,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,0.7,26,58,4.5,100,t,f,LIVE
+32,f,t,f,t,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,0.7,102,64,4,90,t,f,LIVE
+32,f,t,f,t,t,f,f,t,f,t,f,t,f,t,t,f,t,f,f,t,t,f,f,t,3.5,215,54,3.4,29,t,f,LIVE
+36,f,t,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,t,t,f,t,f,t,f,0.7,164,44,3.1,41,t,f,LIVE
+49,f,t,f,t,t,f,f,t,f,t,t,f,f,t,t,f,t,f,t,f,t,f,t,f,0.8,103,43,3.5,66,t,f,LIVE
+27,f,t,f,t,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,0.8,105.325397,38,4.2,61.852273,t,f,LIVE
+56,f,t,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,0.7,62,33,3,61.852273,t,f,LIVE
+57,f,t,f,t,t,f,f,t,f,t,f,t,f,t,t,f,t,f,f,t,f,t,t,f,4.1,105.325397,48,2.6,73,t,f,DIE
+39,f,t,f,t,t,f,f,t,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,1,34,15,4,54,t,f,LIVE
+44,f,t,t,f,t,f,f,t,f,t,t,f,f,t,t,f,t,f,t,f,t,f,t,f,1.6,68,68,3.7,61.852273,t,f,LIVE
+24,f,t,f,t,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,0.8,82,39,4.3,61.852273,t,f,LIVE
+34,f,t,t,f,t,f,f,t,f,t,t,f,t,f,f,t,t,f,f,t,t,f,t,f,2.8,127,182,3.817266,61.852273,t,f,DIE
+51,f,t,f,t,t,f,f,t,f,t,f,t,f,t,t,f,t,f,t,f,t,f,t,f,0.9,76,271,4.4,61.852273,t,f,LIVE
+36,f,t,t,f,t,f,f,t,f,t,f,t,f,t,f,t,t,f,t,f,t,f,t,f,1,105.325397,45,4,57,t,f,LIVE
+50,f,t,f,t,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,1.5,100,100,5.3,61.852273,t,f,LIVE
+32,f,t,t,f,f,t,f,t,f,t,t,f,f,t,t,f,t,f,t,f,t,f,t,f,1,55,45,4.1,56,t,f,LIVE
+58,f,t,f,t,t,f,f,t,t,f,t,f,t,f,f,t,f,t,f,t,t,f,t,f,2,167,242,3.3,61.852273,t,f,DIE
+34,t,f,t,f,f,t,t,f,t,f,t,f,f,t,f,t,t,f,t,f,t,f,t,f,0.6,30,24,4,76,t,f,LIVE
+34,f,t,t,f,t,f,f,t,t,f,t,f,t,f,f,t,t,f,f,t,t,f,t,f,1,72,46,4.4,57,t,f,LIVE
+28,f,t,f,t,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,0.7,85,31,4.9,61.852273,t,f,LIVE
+23,f,t,f,t,t,f,f,t,f,t,f,t,f,t,t,f,t,f,t,f,t,f,t,f,0.8,105.325397,14,4.8,61.852273,t,f,LIVE
+36,f,t,f,t,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,0.7,62,224,4.2,100,t,f,LIVE
+30,f,t,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,0.7,100,31,4,100,t,f,LIVE
+67,t,f,t,f,t,f,f,t,f,t,t,f,f,t,t,f,t,f,t,f,t,f,t,f,1.5,179,69,2.9,61.852273,t,f,LIVE
+62,t,f,f,t,t,f,f,t,f,t,t,f,f,t,f,t,t,f,f,t,t,f,t,f,1.3,141,156,3.9,58,t,f,LIVE
+28,f,t,t,f,t,f,f,t,f,t,f,t,f,t,f,t,t,f,t,f,t,f,t,f,1.6,44,123,4,46,t,f,LIVE
+44,f,t,t,f,t,f,f,t,f,t,t,f,f,t,t,f,f,t,t,f,t,f,f,t,0.9,135,55,3.817266,41,f,t,DIE
+30,f,t,f,t,t,f,f,t,f,t,f,t,f,t,f,t,t,f,f,t,f,t,f,t,2.5,165,64,2.8,61.852273,f,t,DIE
+38,f,t,t,f,t,f,f,t,f,t,f,t,f,t,f,t,t,f,f,t,f,t,f,t,1.2,118,16,2.8,61.852273,f,t,DIE
+38,f,t,t,f,t,f,f,t,f,t,f,t,t,f,f,t,t,f,t,f,t,f,t,f,0.6,76,18,4.4,84,f,t,LIVE
+50,t,f,t,f,t,f,f,t,t,f,t,f,t,f,f,t,f,t,f,t,t,f,t,f,0.9,230,117,3.4,41,f,t,LIVE
+42,f,t,t,f,t,f,f,t,f,t,f,t,f,t,t,f,f,t,f,t,t,f,f,t,4.6,105.325397,55,3.3,61.852273,f,t,DIE
+33,f,t,f,t,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,1,105.325397,60,4,61.852273,f,t,LIVE
+52,f,t,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,1.5,105.325397,69,2.9,61.852273,f,t,LIVE
+59,f,t,t,f,t,f,f,t,f,t,t,f,f,t,f,t,f,t,f,t,t,f,t,f,1.5,107,157,3.6,38,f,t,DIE
+40,f,t,t,f,f,t,f,t,f,t,f,t,t,f,f,t,t,f,t,f,t,f,t,f,0.6,40,69,4.2,67,f,t,LIVE
+30,f,t,t,f,t,f,f,t,f,t,t,f,f,t,f,t,t,f,f,t,t,f,t,f,0.8,147,128,3.9,100,f,t,LIVE
+44,f,t,t,f,t,f,f,t,f,t,t,f,t,f,f,t,t,f,f,t,t,f,t,f,3,114,65,3.5,61.852273,f,t,LIVE
+47,f,t,f,t,t,f,t,f,t,f,t,f,f,t,t,f,t,f,f,t,t,f,f,t,2,84,23,4.2,66,f,t,DIE
+60,f,t,t,f,t,f,f,t,t,f,t,f,t,f,f,t,f,t,f,t,t,f,t,f,1.427517,105.325397,40,3.817266,61.852273,f,t,LIVE
+48,f,t,t,f,t,f,f,t,f,t,t,f,f,t,f,t,t,f,f,t,f,t,f,t,4.8,123,157,2.7,31,f,t,DIE
+22,f,t,f,t,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,0.7,105.325397,24,3.817266,61.852273,f,t,LIVE
+27,f,t,t,f,t,f,f,t,t,f,t,f,f,t,f,t,t,f,t,f,t,f,t,f,2.4,168,227,3,66,f,t,LIVE
+51,f,t,t,f,t,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,t,f,f,t,4.6,215,269,3.9,51,f,t,LIVE
+47,f,t,f,t,t,f,f,t,f,t,t,f,f,t,f,t,t,f,t,f,f,t,f,t,1.7,86,20,2.1,46,f,t,DIE
+25,f,t,f,t,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,0.6,105.325397,34,6.4,61.852273,f,t,LIVE
+35,f,t,t,f,t,f,f,t,t,f,t,f,f,t,t,f,f,t,f,t,f,t,t,f,1.5,138,58,2.6,61.852273,f,t,DIE
+45,f,t,t,f,t,f,f,t,f,t,f,t,f,t,t,f,t,f,t,f,t,f,t,f,2.3,105.325397,648,3.817266,61.852273,f,t,LIVE
+54,f,t,t,f,f,t,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,1,155,225,3.6,67,f,t,LIVE
+33,f,t,t,f,t,f,f,t,f,t,t,f,f,t,t,f,t,f,t,f,f,t,t,f,0.7,63,80,3,31,f,t,DIE
+7,f,t,f,t,t,f,t,f,t,f,t,f,f,t,f,t,f,t,t,f,t,f,t,f,0.7,256,25,4.2,61.852273,f,t,LIVE
+42,f,t,t,f,f,t,f,t,f,t,t,f,f,t,t,f,t,f,f,t,t,f,t,f,0.5,62,68,3.8,29,f,t,DIE
+52,f,t,t,f,t,f,f,t,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,1,85,30,4,61.852273,f,t,LIVE
+45,f,t,t,f,t,f,f,t,t,f,t,f,f,t,f,t,f,t,t,f,t,f,t,f,1.2,81,65,3,61.852273,t,f,LIVE
+36,f,t,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,1.1,141,75,3.3,61.852273,f,t,LIVE
+69,t,f,f,t,t,f,f,t,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,3.2,119,136,3.817266,61.852273,f,t,LIVE
+24,f,t,t,f,t,f,f,t,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,1,105.325397,34,4.1,61.852273,f,t,LIVE
+50,f,t,f,t,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,1,139,81,3.9,62,f,t,LIVE
+61,f,t,t,f,t,f,f,t,f,t,t,f,f,t,t,f,t,f,f,t,t,f,t,f,1.427517,105.325397,85.89404,3.817266,61.852273,f,t,DIE
+54,f,t,f,t,t,f,f,t,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,3.2,85,28,3.8,61.852273,f,t,LIVE
+56,f,t,t,f,t,f,f,t,f,t,f,t,t,f,f,t,t,f,f,t,t,f,t,f,2.9,90,153,4,61.852273,f,t,DIE
+20,f,t,t,f,t,f,f,t,f,t,f,t,f,t,t,f,t,f,f,t,f,t,t,f,1,160,118,2.9,23,f,t,LIVE
+42,f,t,f,t,t,f,t,f,t,f,t,f,f,t,t,f,f,t,t,f,t,f,t,f,1.5,85,40,3.817266,61.852273,f,t,LIVE
+37,f,t,t,f,t,f,f,t,t,f,t,f,f,t,t,f,t,f,f,t,t,f,t,f,0.9,105.325397,231,4.3,61.852273,f,t,LIVE
+50,f,t,f,t,t,f,t,f,t,f,t,f,f,t,f,t,f,t,f,t,t,f,t,f,1,85,75,4,72,f,t,LIVE
+34,t,f,f,t,t,f,f,t,f,t,f,t,t,f,f,t,t,f,f,t,t,f,t,f,0.7,70,24,4.1,100,f,t,LIVE
+28,f,t,f,t,t,f,f,t,f,t,f,t,f,t,t,f,t,f,f,t,f,t,t,f,1,105.325397,20,4,61.852273,f,t,LIVE
+50,f,t,f,t,t,f,f,t,t,f,t,f,f,t,f,t,f,t,t,f,f,t,f,t,2.8,155,75,2.4,32,f,t,DIE
+54,f,t,t,f,t,f,f,t,f,t,t,f,f,t,t,f,t,f,t,f,f,t,t,f,1.2,85,92,3.1,66,f,t,LIVE
+57,f,t,t,f,t,f,f,t,f,t,t,f,f,t,t,f,t,f,f,t,f,t,t,f,4.6,82,55,3.3,30,f,t,DIE
+54,f,t,f,t,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,1,85,30,4.5,0,f,t,LIVE
+31,f,t,t,f,t,f,f,t,f,t,f,t,f,t,t,f,f,t,t,f,t,f,t,f,8,105.325397,101,2.2,61.852273,f,t,DIE
+48,f,t,f,t,t,f,f,t,f,t,f,t,f,t,f,t,t,f,f,t,t,f,t,f,2,158,278,3.8,61.852273,f,t,LIVE
+72,f,t,f,t,f,t,f,t,t,f,t,f,f,t,f,t,t,f,t,f,t,f,t,f,1,115,52,3.4,50,f,t,LIVE
+38,f,t,t,f,t,f,t,f,t,f,t,f,f,t,f,t,t,f,t,f,t,f,t,f,0.4,243,49,3.8,90,f,t,DIE
+25,f,t,f,t,t,f,f,t,t,f,t,f,t,f,f,t,f,t,f,t,f,t,f,t,1.3,181,181,4.5,57,f,t,LIVE
+51,f,t,f,t,t,f,t,f,t,f,t,f,t,f,f,t,t,f,f,t,t,f,t,f,0.8,105.325397,33,4.5,61.852273,f,t,LIVE
+38,f,t,f,t,t,f,t,f,t,f,t,f,f,t,f,t,t,f,f,t,t,f,f,t,1.6,130,140,3.5,56,f,t,LIVE
+47,f,t,f,t,t,f,f,t,f,t,t,f,f,t,f,t,t,f,f,t,f,t,f,t,1,166,30,2.6,31,f,t,DIE
+45,f,t,f,t,f,t,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,1.3,85,44,4.2,85,f,t,LIVE
+36,f,t,t,f,t,f,f,t,f,t,f,t,t,f,f,t,t,f,f,t,t,f,f,t,1.7,295,60,2.7,61.852273,f,t,LIVE
+54,f,t,t,f,t,f,f,t,f,t,t,f,f,t,t,f,f,t,t,f,f,t,t,f,3.9,120,28,3.5,43,f,t,DIE
+51,f,t,f,t,t,f,f,t,t,f,t,f,f,t,f,t,f,t,f,t,t,f,f,t,1,105.325397,20,3,63,f,t,LIVE
+49,f,t,t,f,t,f,f,t,f,t,t,f,f,t,t,f,f,t,f,t,t,f,t,f,1.4,85,70,3.5,35,f,t,DIE
+45,f,t,f,t,t,f,f,t,f,t,f,t,f,t,t,f,t,f,f,t,f,t,t,f,1.9,105.325397,114,2.4,61.852273,f,t,DIE
+31,f,t,t,f,t,f,f,t,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,1.2,75,173,4.2,54,f,t,LIVE
+41,f,t,f,t,t,f,f,t,t,f,t,f,f,t,f,t,f,t,f,t,t,f,f,t,4.2,65,120,3.4,61.852273,f,t,DIE
+70,f,t,t,f,t,f,f,t,f,t,f,t,f,t,t,f,t,f,t,f,t,f,t,f,1.7,109,528,2.8,35,f,t,DIE
+20,f,t,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,0.9,89,152,4,61.852273,f,t,LIVE
+36,f,t,f,t,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,0.6,120,30,4,61.852273,f,t,LIVE
+46,f,t,f,t,t,f,f,t,f,t,f,t,f,t,t,f,t,f,f,t,f,t,f,t,7.6,105.325397,242,3.3,50,f,t,DIE
+44,f,t,f,t,t,f,f,t,t,f,t,f,f,t,f,t,t,f,t,f,t,f,t,f,0.9,126,142,4.3,61.852273,f,t,LIVE
+61,f,t,t,f,t,f,f,t,f,t,t,f,t,f,f,t,t,f,f,t,t,f,t,f,0.8,75,20,4.1,61.852273,f,t,LIVE
+53,t,f,t,f,t,f,f,t,t,f,t,f,f,t,t,f,f,t,f,t,t,f,f,t,1.5,81,19,4.1,48,f,t,LIVE
+43,f,t,f,t,t,f,f,t,t,f,t,f,f,t,t,f,f,t,f,t,f,t,t,f,1.2,100,19,3.1,42,f,t,DIE

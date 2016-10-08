@@ -1,0 +1,330 @@
+@relation audiology-weka.filters.unsupervised.attribute.ReplaceMissingValues-weka.filters.unsupervised.attribute.NominalToBinary-N-A-Rfirst-last
+
+@attribute age_gt_60=f {f,t}
+@attribute age_gt_60=t {f,t}
+@attribute air=mild {f,t}
+@attribute air=moderate {f,t}
+@attribute air=normal {f,t}
+@attribute air=profound {f,t}
+@attribute air=severe {f,t}
+@attribute airBoneGap=f {f,t}
+@attribute airBoneGap=t {f,t}
+@attribute ar_c=absent {f,t}
+@attribute ar_c=elevated {f,t}
+@attribute ar_c=normal {f,t}
+@attribute ar_u=absent {f,t}
+@attribute ar_u=elevated {f,t}
+@attribute ar_u=normal {f,t}
+@attribute bone=mild {f,t}
+@attribute bone=moderate {f,t}
+@attribute bone=normal {f,t}
+@attribute bone=unmeasured {f,t}
+@attribute boneAbnormal=f {f,t}
+@attribute boneAbnormal=t {f,t}
+@attribute bser=degraded {f,t}
+@attribute bser=normal {f,t}
+@attribute history_buzzing=f {f,t}
+@attribute history_buzzing=t {f,t}
+@attribute history_dizziness=f {f,t}
+@attribute history_dizziness=t {f,t}
+@attribute history_fluctuating=f {f,t}
+@attribute history_fluctuating=t {f,t}
+@attribute history_fullness=f {f,t}
+@attribute history_fullness=t {f,t}
+@attribute history_heredity=f {f,t}
+@attribute history_heredity=t {f,t}
+@attribute history_nausea=f {f,t}
+@attribute history_nausea=t {f,t}
+@attribute history_noise=f {f,t}
+@attribute history_noise=t {f,t}
+@attribute history_recruitment=f {f,t}
+@attribute history_recruitment=t {f,t}
+@attribute history_ringing=f {f,t}
+@attribute history_ringing=t {f,t}
+@attribute history_roaring=f {f,t}
+@attribute history_roaring=t {f,t}
+@attribute history_vomiting=f {f,t}
+@attribute history_vomiting=t {f,t}
+@attribute late_wave_poor=f {f,t}
+@attribute late_wave_poor=t {f,t}
+@attribute m_at_2k=f {f,t}
+@attribute m_at_2k=t {f,t}
+@attribute m_cond_lt_1k=f {f,t}
+@attribute m_cond_lt_1k=t {f,t}
+@attribute m_gt_1k=f {f,t}
+@attribute m_gt_1k=t {f,t}
+@attribute m_m_gt_2k=f {f,t}
+@attribute m_m_gt_2k=t {f,t}
+@attribute m_m_sn=f {f,t}
+@attribute m_m_sn=t {f,t}
+@attribute m_m_sn_gt_1k=f {f,t}
+@attribute m_m_sn_gt_1k=t {f,t}
+@attribute m_m_sn_gt_2k=f {f,t}
+@attribute m_m_sn_gt_2k=t {f,t}
+@attribute m_m_sn_gt_500=f {f,t}
+@attribute m_m_sn_gt_500=t {f,t}
+@attribute m_p_sn_gt_2k=f {f,t}
+@attribute m_p_sn_gt_2k=t {f,t}
+@attribute m_s_gt_500=f {f,t}
+@attribute m_s_gt_500=t {f,t}
+@attribute m_s_sn=f {f,t}
+@attribute m_s_sn=t {f,t}
+@attribute m_s_sn_gt_1k=f {f,t}
+@attribute m_s_sn_gt_1k=t {f,t}
+@attribute m_s_sn_gt_2k=f {f,t}
+@attribute m_s_sn_gt_2k=t {f,t}
+@attribute m_s_sn_gt_3k=f {f,t}
+@attribute m_s_sn_gt_3k=t {f,t}
+@attribute m_s_sn_gt_4k=f {f,t}
+@attribute m_s_sn_gt_4k=t {f,t}
+@attribute m_sn_2_3k=f {f,t}
+@attribute m_sn_2_3k=t {f,t}
+@attribute m_sn_gt_1k=f {f,t}
+@attribute m_sn_gt_1k=t {f,t}
+@attribute m_sn_gt_2k=f {f,t}
+@attribute m_sn_gt_2k=t {f,t}
+@attribute m_sn_gt_3k=f {f,t}
+@attribute m_sn_gt_3k=t {f,t}
+@attribute m_sn_gt_4k=f {f,t}
+@attribute m_sn_gt_4k=t {f,t}
+@attribute m_sn_gt_500=f {f,t}
+@attribute m_sn_gt_500=t {f,t}
+@attribute m_sn_gt_6k=f {f,t}
+@attribute m_sn_gt_6k=t {f,t}
+@attribute m_sn_lt_1k=f {f,t}
+@attribute m_sn_lt_1k=t {f,t}
+@attribute m_sn_lt_2k=f {f,t}
+@attribute m_sn_lt_2k=t {f,t}
+@attribute m_sn_lt_3k=f {f,t}
+@attribute m_sn_lt_3k=t {f,t}
+@attribute middle_wave_poor=f {f,t}
+@attribute middle_wave_poor=t {f,t}
+@attribute mod_gt_4k=f {f,t}
+@attribute mod_gt_4k=t {f,t}
+@attribute mod_mixed=f {f,t}
+@attribute mod_mixed=t {f,t}
+@attribute mod_s_mixed=f {f,t}
+@attribute mod_s_mixed=t {f,t}
+@attribute mod_s_sn_gt_500=f {f,t}
+@attribute mod_s_sn_gt_500=t {f,t}
+@attribute mod_sn=f {f,t}
+@attribute mod_sn=t {f,t}
+@attribute mod_sn_gt_1k=f {f,t}
+@attribute mod_sn_gt_1k=t {f,t}
+@attribute mod_sn_gt_2k=f {f,t}
+@attribute mod_sn_gt_2k=t {f,t}
+@attribute mod_sn_gt_3k=f {f,t}
+@attribute mod_sn_gt_3k=t {f,t}
+@attribute mod_sn_gt_4k=f {f,t}
+@attribute mod_sn_gt_4k=t {f,t}
+@attribute mod_sn_gt_500=f {f,t}
+@attribute mod_sn_gt_500=t {f,t}
+@attribute notch_4k=f {f,t}
+@attribute notch_4k=t {f,t}
+@attribute notch_at_4k=f {f,t}
+@attribute notch_at_4k=t {f,t}
+@attribute o_ar_c=absent {f,t}
+@attribute o_ar_c=elevated {f,t}
+@attribute o_ar_c=normal {f,t}
+@attribute o_ar_u=absent {f,t}
+@attribute o_ar_u=elevated {f,t}
+@attribute o_ar_u=normal {f,t}
+@attribute s_sn_gt_1k=f {f,t}
+@attribute s_sn_gt_1k=t {f,t}
+@attribute s_sn_gt_2k=f {f,t}
+@attribute s_sn_gt_2k=t {f,t}
+@attribute s_sn_gt_4k=f {f,t}
+@attribute s_sn_gt_4k=t {f,t}
+@attribute speech=good {f,t}
+@attribute speech=normal {f,t}
+@attribute speech=poor {f,t}
+@attribute speech=unmeasured {f,t}
+@attribute speech=very_good {f,t}
+@attribute speech=very_poor {f,t}
+@attribute static_normal=f {f,t}
+@attribute static_normal=t {f,t}
+@attribute tymp=a {f,t}
+@attribute tymp=ad {f,t}
+@attribute tymp=as {f,t}
+@attribute tymp=b {f,t}
+@attribute tymp=c {f,t}
+@attribute viith_nerve_signs=f {f,t}
+@attribute viith_nerve_signs=t {f,t}
+@attribute wave_V_delayed=f {f,t}
+@attribute wave_V_delayed=t {f,t}
+@attribute waveform_ItoV_prolonged=f {f,t}
+@attribute waveform_ItoV_prolonged=t {f,t}
+@attribute class {acoustic_neuroma,bells_palsy,cochlear_age,cochlear_age_and_noise,cochlear_age_plus_poss_menieres,cochlear_noise_and_heredity,cochlear_poss_noise,cochlear_unknown,conductive_discontinuity,conductive_fixation,mixed_cochlear_age_fixation,mixed_cochlear_age_otitis_media,mixed_cochlear_age_s_om,mixed_cochlear_unk_discontinuity,mixed_cochlear_unk_fixation,mixed_cochlear_unk_ser_om,mixed_poss_central_om,mixed_poss_noise_om,normal_ear,otitis_media,poss_central,possible_brainstem_disorder,possible_menieres,retrocochlear_unknown}
+
+@data
+t,f,t,f,f,f,f,t,f,f,f,t,f,f,t,t,f,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+t,f,f,t,f,f,f,t,f,f,f,t,f,f,t,t,f,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+f,t,t,f,f,f,f,f,t,f,f,t,t,f,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,t,f,f,t,f,t,f,t,f,f,t,f,f,f,f,f,t,f,f,f,t,f,t,f,t,f,t,f,mixed_cochlear_age_otitis_media
+f,t,t,f,f,f,f,t,f,f,f,t,f,f,t,t,f,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,t,f,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age
+f,t,t,f,f,f,f,t,f,f,f,t,f,f,t,t,f,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,f,f,f,t,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age
+t,f,t,f,f,f,f,t,f,f,f,t,f,f,t,t,f,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,t,f,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+t,f,t,f,f,f,f,t,f,f,f,t,f,f,t,t,f,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,f,f,f,t,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+t,f,f,f,f,f,t,t,f,f,f,t,f,f,t,t,f,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+f,t,t,f,f,f,f,t,f,f,t,f,t,f,f,t,f,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,t,f,f,t,f,t,f,t,f,t,f,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age
+f,t,t,f,f,f,f,t,f,f,f,t,t,f,f,t,f,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,t,f,f,t,f,t,f,t,f,f,f,f,f,t,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age
+f,t,t,f,f,f,f,t,f,f,f,t,f,f,t,t,f,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,t,f,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age
+t,f,f,f,f,f,t,t,f,f,f,t,f,f,t,f,t,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,f,f,f,f,t,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+t,f,f,f,t,f,f,t,f,f,t,f,f,f,t,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,t,f,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,normal_ear
+f,t,t,f,f,f,f,t,f,f,f,t,f,f,t,t,f,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,f,f,f,f,t,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age
+f,t,t,f,f,f,f,t,f,f,f,t,f,t,f,t,f,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age
+t,f,t,f,f,f,f,t,f,f,f,t,f,f,t,t,f,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,t,f,t,f,t,f,t,f,t,f,f,f,f,f,t,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_poss_noise
+t,f,t,f,f,f,f,t,f,f,f,t,f,t,f,t,f,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,t,f,f,t,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_poss_noise
+t,f,f,f,t,f,f,t,f,f,f,t,f,f,t,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,normal_ear
+t,f,f,f,t,f,f,t,f,f,f,t,f,t,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+f,t,t,f,f,f,f,t,f,f,f,t,f,f,t,t,f,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,f,t,t,f,t,f,f,f,f,f,f,t,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age_and_noise
+f,t,t,f,f,f,f,t,f,f,f,t,f,f,t,t,f,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,f,t,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age_and_noise
+t,f,f,f,t,f,f,t,f,f,f,t,f,f,t,t,f,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,f,f,t,f,f,t,t,f,f,t,t,f,t,f,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_poss_noise
+t,f,f,f,t,f,f,t,f,f,f,t,f,f,t,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,normal_ear
+t,f,f,t,f,f,f,t,f,f,t,f,f,t,f,t,f,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,f,f,f,f,t,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+t,f,f,f,t,f,f,t,f,f,f,t,f,f,t,f,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,f,f,f,f,t,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+t,f,f,f,t,f,f,t,f,f,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,f,f,f,t,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+t,f,t,f,f,f,f,t,f,f,f,t,f,f,t,t,f,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,f,t,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_poss_noise
+t,f,t,f,f,f,f,t,f,f,t,f,f,f,t,t,f,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+t,f,t,f,f,f,f,t,f,f,f,t,f,f,t,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,f,t,f,f,f,t,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_poss_noise
+t,f,f,f,t,f,f,t,f,f,t,f,f,f,t,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,normal_ear
+t,f,f,f,t,f,f,t,f,f,f,t,f,t,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,f,t,f,f,f,t,t,f,t,f,t,f,t,f,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+t,f,f,f,t,f,f,t,f,f,t,f,f,t,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,f,t,t,f,f,f,t,f,f,t,t,f,t,f,t,f,t,f,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+t,f,f,t,f,f,f,f,t,t,f,f,t,f,f,t,f,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,f,t,t,f,t,f,t,f,f,f,f,f,t,f,f,t,f,f,f,t,f,t,f,t,f,t,f,mixed_cochlear_unk_ser_om
+t,f,t,f,f,f,f,t,f,t,f,f,f,f,t,t,f,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+f,t,t,f,f,f,f,t,f,t,f,f,t,f,f,t,f,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,f,t,f,f,t,f,t,f,t,f,f,f,f,f,t,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age_and_noise
+t,f,f,f,t,f,f,t,f,t,f,f,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,normal_ear
+t,f,f,f,f,f,t,f,t,t,f,f,t,f,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,t,f,t,f,t,f,f,f,f,f,f,t,f,t,f,t,f,f,f,t,f,t,f,t,f,conductive_discontinuity
+f,t,f,f,t,f,f,t,f,f,f,t,f,f,t,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age
+f,t,f,f,t,f,f,t,f,f,t,f,f,f,t,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,f,f,f,t,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age
+t,f,f,f,t,f,f,t,f,f,f,t,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,normal_ear
+f,t,t,f,f,f,f,t,f,f,f,t,f,f,t,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age
+t,f,t,f,f,f,f,t,f,f,t,f,f,f,t,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,f,t,f,f,t,f,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+t,f,t,f,f,f,f,t,f,f,t,f,f,t,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,f,t,f,f,f,t,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+t,f,f,t,f,f,f,t,f,t,f,f,t,f,f,f,t,f,f,f,t,t,f,f,t,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,f,f,f,f,f,t,f,t,t,f,f,f,f,t,f,f,t,t,f,retrocochlear_unknown
+t,f,t,f,f,f,f,f,t,t,f,f,t,f,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,t,f,t,f,t,f,f,t,f,f,f,f,f,t,f,f,t,f,f,t,f,t,f,t,f,conductive_fixation
+t,f,t,f,f,f,f,t,f,t,f,f,t,f,f,t,f,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+f,t,f,t,f,f,f,t,f,f,f,t,f,f,t,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,t,f,t,f,f,t,t,f,f,f,f,f,f,t,t,f,t,f,f,f,f,t,f,t,f,t,f,cochlear_age
+f,t,f,t,f,f,f,t,f,f,f,t,f,t,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,f,t,t,f,f,f,f,f,f,t,t,f,t,f,f,f,f,t,f,t,f,t,f,cochlear_age
+f,t,f,f,t,f,f,t,f,f,t,f,f,f,t,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,t,f,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age
+t,f,f,t,f,f,f,f,t,t,f,f,t,f,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,f,f,f,f,f,t,f,t,f,f,f,t,f,t,f,t,f,conductive_discontinuity
+t,f,f,f,t,f,f,t,f,f,t,f,t,f,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,t,f,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,normal_ear
+t,f,f,f,t,f,f,t,f,f,t,f,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,f,t,f,t,f,f,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+t,f,t,f,f,f,f,t,f,f,f,t,f,f,t,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,t,f,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+f,t,t,f,f,f,f,t,f,f,f,t,f,f,t,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,f,f,f,f,t,f,t,f,t,f,f,f,f,t,f,t,f,t,f,cochlear_age
+f,t,t,f,f,f,f,t,f,f,f,t,f,t,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age
+t,f,f,f,t,f,f,t,f,f,f,t,f,t,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,f,t,f,f,f,t,t,f,t,f,t,f,f,f,f,f,t,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_poss_noise
+t,f,f,f,t,f,f,t,f,f,t,f,f,f,t,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,f,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_poss_noise
+f,t,t,f,f,f,f,t,f,f,f,t,f,f,t,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,t,t,f,f,f,t,f,f,t,t,f,t,f,t,f,t,f,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age_and_noise
+f,t,t,f,f,f,f,t,f,f,f,t,f,f,t,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,f,t,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age_and_noise
+t,f,f,f,t,f,f,t,f,f,t,f,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,f,t,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+t,f,f,f,t,f,f,t,f,f,f,t,f,f,t,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,t,f,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,normal_ear
+t,f,t,f,f,f,f,t,f,t,f,f,f,f,t,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,t,f,f,t,f,t,f,t,f,t,f,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+t,f,f,f,t,f,f,t,f,f,t,f,f,f,t,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,t,f,f,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,normal_ear
+f,t,t,f,f,f,f,t,f,t,f,f,f,f,t,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,f,t,f,f,t,f,t,f,t,f,t,f,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age_and_noise
+f,t,t,f,f,f,f,t,f,t,f,f,t,f,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,t,f,t,f,t,f,f,f,f,f,t,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age_and_noise
+t,f,t,f,f,f,f,t,f,f,t,f,f,t,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,f,t,f,f,f,t,t,f,t,f,t,f,f,f,t,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+t,f,t,f,f,f,f,t,f,f,t,f,f,f,t,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,f,t,f,f,t,f,t,f,t,f,t,f,f,f,t,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+t,f,f,f,t,f,f,t,f,t,f,f,f,f,t,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,t,f,f,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,normal_ear
+f,t,f,f,t,f,f,t,f,f,f,t,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,f,t,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age
+f,t,f,f,t,f,f,t,f,f,t,f,f,f,t,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age
+f,t,t,f,f,f,f,t,f,t,f,f,f,t,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,t,f,t,f,t,f,f,f,t,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age_and_noise
+t,f,f,f,t,f,f,t,f,t,f,f,f,f,t,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,normal_ear
+t,f,f,f,t,f,f,t,f,f,f,t,f,f,t,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,t,f,t,f,f,t,t,f,f,f,f,f,t,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_noise_and_heredity
+t,f,f,f,t,f,f,t,f,f,f,t,f,t,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,f,t,t,f,t,f,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_noise_and_heredity
+t,f,f,f,t,f,f,t,f,t,f,f,f,f,t,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+t,f,f,t,f,f,f,f,t,t,f,f,t,f,f,t,f,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,t,f,t,f,t,f,f,f,f,f,t,f,f,t,f,f,f,t,f,t,f,t,f,t,f,mixed_cochlear_unk_ser_om
+t,f,t,f,f,f,f,f,t,t,f,f,t,f,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,t,f,t,f,t,f,f,t,f,f,f,f,f,t,f,f,t,f,f,t,f,t,f,t,f,mixed_cochlear_unk_fixation
+t,f,f,t,f,f,f,f,t,t,f,f,t,f,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,t,f,t,f,t,f,f,f,f,f,t,f,f,t,f,f,t,f,f,t,f,t,f,t,f,mixed_cochlear_unk_fixation
+t,f,t,f,f,f,f,t,f,f,t,f,f,f,t,t,f,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,f,t,t,f,t,f,t,f,f,f,f,f,t,f,f,t,f,f,f,f,t,t,f,t,f,t,f,mixed_poss_noise_om
+t,f,t,f,f,f,f,t,f,f,t,f,f,f,t,t,f,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,f,t,t,f,t,f,t,f,f,f,t,f,f,f,f,t,f,f,f,f,t,t,f,t,f,t,f,mixed_poss_noise_om
+t,f,t,f,f,f,f,f,t,t,f,f,t,f,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,t,f,t,f,t,f,f,t,f,f,f,f,f,t,f,f,f,t,f,t,f,t,f,t,f,otitis_media
+t,f,f,f,t,f,f,t,f,t,f,f,f,t,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,t,f,t,f,t,f,f,t,f,f,f,f,f,t,f,f,f,f,t,t,f,t,f,t,f,otitis_media
+t,f,t,f,f,f,f,t,f,f,t,f,f,f,t,t,f,f,f,t,f,t,f,t,f,f,t,f,t,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,f,f,t,f,t,f,f,f,f,t,f,t,f,t,f,possible_menieres
+t,f,f,f,t,f,f,t,f,f,f,t,f,t,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,f,t,t,f,t,f,t,f,f,f,f,f,t,f,f,t,t,f,f,f,f,t,f,t,f,t,f,normal_ear
+t,f,f,f,t,f,f,t,f,f,f,t,f,f,t,t,f,f,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,f,t,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,t,f,f,f,f,t,f,t,f,f,f,f,t,f,t,f,f,t,possible_brainstem_disorder
+t,f,t,f,f,f,f,t,f,f,f,t,f,f,t,t,f,f,f,t,f,t,f,t,f,f,t,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,t,f,f,f,f,t,f,t,f,f,f,f,t,f,t,f,t,f,possible_menieres
+t,f,f,f,t,f,f,t,f,f,f,t,f,f,t,t,f,f,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,t,f,f,f,f,t,f,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+t,f,f,f,t,f,f,t,f,f,f,t,f,f,t,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,f,t,f,f,t,f,f,t,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_poss_noise
+t,f,t,f,f,f,f,t,f,f,f,t,f,f,t,t,f,f,f,t,f,t,f,t,f,f,t,f,t,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,t,f,f,f,f,t,f,t,f,f,f,f,t,f,t,f,t,f,possible_menieres
+f,t,f,t,f,f,f,t,f,f,f,t,f,f,t,f,t,f,f,t,f,t,f,t,f,f,t,f,t,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,f,f,f,f,t,f,t,t,f,f,f,f,t,f,t,f,t,f,possible_menieres
+f,t,f,t,f,f,f,t,f,f,t,f,f,f,t,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,t,t,f,t,f,f,t,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,f,f,f,f,t,f,t,t,f,f,f,f,t,f,t,f,t,f,possible_menieres
+t,f,t,f,f,f,f,t,f,f,f,t,f,f,t,t,f,f,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,f,t,f,t,t,f,t,f,f,t,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+f,t,f,f,t,f,f,t,f,f,f,t,f,f,t,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age
+t,f,f,t,f,f,f,f,t,t,f,f,t,f,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,t,f,t,f,t,f,f,f,f,f,f,t,f,t,f,f,f,t,f,t,f,t,f,t,f,otitis_media
+t,f,f,f,f,f,t,f,t,t,f,f,t,f,f,t,f,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,t,f,t,f,t,f,f,f,t,f,f,f,f,t,f,f,f,t,f,t,f,t,f,t,f,mixed_cochlear_unk_ser_om
+t,f,t,f,f,f,f,f,t,t,f,f,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,t,f,t,f,t,f,f,f,f,f,t,f,f,t,t,f,f,f,f,t,f,t,f,t,f,otitis_media
+f,t,f,t,f,f,f,f,t,f,f,t,t,f,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,t,f,t,f,t,f,f,f,f,f,f,t,f,t,f,f,f,t,f,t,f,t,f,t,f,mixed_cochlear_age_s_om
+f,t,f,f,t,f,f,t,f,t,f,f,t,f,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,f,f,t,t,f,f,t,f,t,f,t,f,t,f,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age
+t,f,f,f,t,f,f,t,f,f,f,t,f,f,t,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+t,f,t,f,f,f,f,t,f,f,f,t,f,t,f,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,t,f,t,f,f,t,t,f,t,f,f,f,t,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_poss_noise
+t,f,f,f,t,f,f,t,f,f,f,t,f,f,t,f,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,t,f,t,f,t,f,t,f,f,f,f,f,t,f,f,t,t,f,f,f,f,t,f,t,f,t,f,normal_ear
+t,f,t,f,f,f,f,t,f,f,t,f,f,t,f,t,f,f,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,t,f,f,t,t,f,t,f,t,f,t,f,f,f,f,f,f,t,t,f,f,f,f,t,f,f,t,t,f,retrocochlear_unknown
+t,f,t,f,f,f,f,t,f,t,f,f,t,f,f,f,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,f,t,t,f,f,t,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,t,f,t,f,t,f,f,f,f,f,t,f,f,t,f,t,f,f,f,t,f,t,f,t,f,mixed_cochlear_unk_discontinuity
+t,f,f,f,t,f,f,t,f,f,f,t,f,f,t,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,f,t,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+t,f,f,t,f,f,f,f,t,t,f,f,t,f,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,f,t,t,f,t,f,t,f,f,t,f,f,f,f,f,t,f,f,t,f,f,t,f,t,f,t,f,mixed_cochlear_unk_fixation
+t,f,f,f,t,f,f,t,f,t,f,f,f,f,t,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,t,f,t,f,t,f,f,f,f,f,t,f,f,t,t,f,f,f,f,t,f,t,f,t,f,normal_ear
+t,f,t,f,f,f,f,t,f,t,f,f,t,f,f,t,f,f,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,t,f,t,f,t,f,f,f,f,f,t,f,f,t,t,f,f,f,f,t,f,t,f,t,f,possible_menieres
+f,t,f,f,t,f,f,t,f,t,f,f,t,f,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,f,f,t,t,f,f,t,f,t,f,t,f,f,t,f,f,f,f,f,t,f,f,f,f,t,t,f,t,f,t,f,mixed_cochlear_age_otitis_media
+f,t,f,f,t,f,f,t,f,t,f,f,t,f,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,t,f,t,f,t,f,f,f,t,f,f,f,f,t,f,f,f,t,f,t,f,t,f,t,f,mixed_cochlear_age_s_om
+f,t,f,t,f,f,f,f,t,f,t,f,t,f,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,f,f,f,f,f,t,f,f,f,f,t,t,f,t,f,t,f,mixed_cochlear_age_otitis_media
+t,f,f,f,t,f,f,t,f,f,f,t,f,f,t,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,t,f,f,f,f,t,f,t,f,f,f,f,t,f,t,f,t,f,possible_brainstem_disorder
+t,f,f,f,f,t,f,t,f,f,f,t,f,f,t,t,f,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+t,f,t,f,f,f,f,t,f,f,f,t,f,f,t,t,f,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+f,t,t,f,f,f,f,t,f,f,f,t,f,f,t,t,f,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,f,t,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age
+t,f,t,f,f,f,f,t,f,f,f,t,f,f,t,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,t,f,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+t,f,f,f,f,f,t,f,t,t,f,f,t,f,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,t,f,t,f,t,f,f,f,t,f,f,f,f,t,f,f,t,f,f,t,f,t,f,t,f,conductive_fixation
+f,t,t,f,f,f,f,t,f,f,f,t,f,f,t,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,f,f,f,t,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age
+t,f,f,f,t,f,f,t,f,f,f,t,f,f,t,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,normal_ear
+t,f,t,f,f,f,f,t,f,f,f,t,f,f,t,t,f,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,t,f,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+f,t,f,t,f,f,f,t,f,f,f,t,f,f,t,t,f,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,t,f,t,f,t,f,t,f,f,f,f,f,f,t,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age_and_noise
+f,t,t,f,f,f,f,t,f,f,t,f,f,t,f,t,f,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,f,f,f,f,t,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age_and_noise
+f,t,t,f,f,f,f,t,f,f,f,t,f,f,t,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,t,f,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age
+t,f,f,f,t,f,f,t,f,f,f,t,f,t,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,t,f,f,t,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_poss_noise
+t,f,f,f,t,f,f,t,f,f,f,t,f,f,t,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_poss_noise
+t,f,t,f,f,f,f,t,f,f,f,t,f,f,t,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+t,f,t,f,f,f,f,t,f,f,f,t,f,f,t,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+t,f,f,f,t,f,f,t,f,f,f,t,f,f,t,t,f,f,f,t,f,t,f,t,f,f,t,f,t,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,t,f,f,f,f,t,f,t,f,f,f,f,t,f,t,f,t,f,possible_menieres
+f,t,f,f,t,f,f,t,f,f,f,t,f,f,t,f,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,normal_ear
+t,f,f,f,t,f,f,t,f,f,f,t,f,f,t,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,t,f,f,t,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_poss_noise
+t,f,f,f,t,f,f,t,f,f,f,t,f,f,t,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,f,t,f,f,t,f,f,t,t,f,t,f,t,f,t,f,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_poss_noise
+f,t,t,f,f,f,f,t,f,f,f,t,f,f,t,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,t,t,f,t,f,f,t,f,t,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,f,t,t,f,t,f,t,f,f,f,t,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age_and_noise
+t,f,t,f,f,f,f,t,f,f,f,t,f,f,t,t,f,f,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,f,t,f,t,t,f,t,f,f,t,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+t,f,f,f,t,f,f,t,f,f,f,t,f,f,t,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,normal_ear
+f,t,t,f,f,f,f,t,f,f,f,t,f,f,t,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,f,f,f,f,t,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age_and_noise
+f,t,t,f,f,f,f,t,f,f,f,t,f,f,t,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,f,f,f,f,t,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age_and_noise
+f,t,t,f,f,f,f,t,f,f,f,t,f,f,t,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age_and_noise
+f,t,t,f,f,f,f,t,f,f,f,t,f,f,t,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age_and_noise
+f,t,t,f,f,f,f,t,f,t,f,f,f,f,t,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,t,f,f,t,f,t,f,t,f,t,f,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age
+f,t,t,f,f,f,f,t,f,f,f,t,t,f,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,f,t,t,f,t,f,t,f,f,f,f,f,t,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age
+f,t,t,f,f,f,f,t,f,f,f,t,f,t,f,f,f,f,t,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,f,f,t,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age
+f,t,t,f,f,f,f,t,f,f,f,t,f,f,t,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,f,f,f,t,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age
+t,f,f,t,f,f,f,f,t,t,f,f,t,f,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,t,f,t,f,t,f,f,t,f,f,f,f,f,t,f,f,t,f,f,t,f,t,f,t,f,mixed_cochlear_unk_fixation
+t,f,f,f,t,f,f,t,f,f,f,t,f,f,t,f,f,f,t,t,f,t,f,t,f,f,t,t,f,t,f,t,f,f,t,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+t,f,f,f,t,f,f,t,f,f,f,t,f,f,t,f,f,f,t,t,f,t,f,t,f,f,t,t,f,t,f,t,f,f,t,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+f,t,t,f,f,f,f,t,f,f,f,t,f,f,t,t,f,f,f,f,t,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age
+f,t,t,f,f,f,f,t,f,f,f,t,f,t,f,t,f,f,f,f,t,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,t,f,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age
+t,f,f,f,t,f,f,t,f,f,f,t,f,f,t,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,f,t,t,f,f,f,t,f,f,t,t,f,t,f,t,f,t,f,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+t,f,t,f,f,f,f,t,f,f,f,t,f,f,t,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,f,t,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+t,f,f,f,t,f,f,t,f,f,f,t,f,f,t,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+t,f,f,f,t,f,f,t,f,f,f,t,f,t,f,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,t,f,t,f,t,f,t,f,t,f,f,f,f,f,t,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_poss_noise
+t,f,f,f,t,f,f,t,f,t,f,f,f,t,f,f,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,f,t,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,t,f,t,f,t,f,f,t,f,f,f,f,f,t,f,t,f,f,f,t,f,t,f,t,f,mixed_cochlear_unk_discontinuity
+f,t,t,f,f,f,f,t,f,f,f,t,f,f,t,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,f,f,f,t,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age
+f,t,f,f,t,f,f,t,f,f,f,t,f,f,t,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age
+t,f,f,f,t,f,f,t,f,f,f,t,f,f,t,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+t,f,t,f,f,f,f,t,f,f,t,f,f,f,t,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,f,t,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+t,f,t,f,f,f,f,t,f,f,t,f,f,f,t,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,f,t,t,f,t,f,t,f,t,f,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+f,t,t,f,f,f,f,t,f,f,f,t,f,f,t,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,f,t,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age
+t,f,t,f,f,f,f,t,f,t,f,f,f,t,f,t,f,f,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,possible_menieres
+t,f,t,f,f,f,f,t,f,f,t,f,f,f,t,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,f,t,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+t,f,t,f,f,f,f,t,f,f,f,t,f,f,t,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,f,t,t,f,t,f,t,f,f,f,t,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_unknown
+t,f,f,f,f,f,t,f,t,t,f,f,t,f,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,t,f,t,f,t,f,f,f,f,f,f,t,f,t,f,f,t,f,f,t,f,t,f,t,f,conductive_fixation
+t,f,t,f,f,f,f,f,t,t,f,f,t,f,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,f,t,f,t,f,t,f,f,t,f,f,f,f,f,t,f,f,t,f,f,t,f,t,f,t,f,conductive_fixation
+f,t,f,f,t,f,f,t,f,t,f,f,f,f,t,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,f,t,f,f,t,f,t,f,t,f,f,f,f,f,t,f,f,t,t,f,f,f,f,t,f,t,f,t,f,normal_ear
+f,t,t,f,f,f,f,t,f,f,f,t,f,f,t,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,f,f,t,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age_and_noise
+f,t,f,f,t,f,f,t,f,f,f,t,f,f,t,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,f,f,t,f,f,t,t,f,t,f,t,f,t,f,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age_and_noise
+f,t,t,f,f,f,f,t,f,f,f,t,f,f,t,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age
+f,t,t,f,f,f,f,t,f,f,f,t,f,t,f,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,f,f,f,t,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age
+f,t,t,f,f,f,f,t,f,t,f,f,f,f,t,t,f,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,f,f,t,t,f,f,t,f,t,f,t,f,f,f,f,f,t,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age
+f,t,t,f,f,f,f,t,f,f,f,t,t,f,f,t,f,f,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,f,t,t,f,t,f,t,f,f,f,f,f,t,f,f,t,f,f,f,f,t,t,f,t,f,t,f,mixed_cochlear_age_otitis_media
+f,t,t,f,f,f,f,t,f,f,f,t,f,f,t,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,f,f,f,t,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age
+f,t,f,f,t,f,f,t,f,f,f,t,f,f,t,f,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,t,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,t,f,f,f,t,f,f,t,t,f,t,f,t,f,f,t,f,f,f,f,f,t,t,f,f,f,f,t,f,t,f,t,f,cochlear_age

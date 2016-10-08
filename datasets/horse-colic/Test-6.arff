@@ -1,0 +1,309 @@
+@relation 'horse-colic-weka.filters.unsupervised.attribute.Remove-V-R1,4-5,17,23-fr.unice.i3s.rockflows.experiments.weka.CfsSubsetFilter'
+
+@attribute surgery {yes,no}
+@attribute pulse numeric
+@attribute respiratory_rate numeric
+@attribute abdomen {normal,other,'firm feces in large intestine','distended small intestine','distended large intestine'}
+@attribute surgical_lesion {yes,no}
+
+@data
+no,66,28,'distended large intestine',no
+yes,88,20,other,no
+no,40,24,normal,no
+yes,164,84,?,yes
+no,104,35,?,no
+no,?,?,'firm feces in large intestine',no
+yes,48,16,'distended large intestine',yes
+yes,60,?,'distended small intestine',yes
+no,80,36,'distended large intestine',yes
+no,90,?,?,no
+yes,66,12,'distended large intestine',yes
+no,72,52,'distended small intestine',yes
+yes,42,12,'distended large intestine',no
+no,92,28,normal,no
+yes,76,28,'distended small intestine',yes
+yes,96,48,?,yes
+yes,128,36,'distended large intestine',no
+no,48,24,?,no
+yes,64,21,'distended large intestine',yes
+no,110,35,?,no
+yes,72,60,'distended small intestine',yes
+no,48,16,'firm feces in large intestine',no
+yes,42,34,?,yes
+yes,130,60,?,yes
+yes,60,12,?,yes
+no,60,42,?,no
+yes,72,30,'distended large intestine',yes
+yes,48,12,'firm feces in large intestine',no
+yes,?,?,?,no
+no,48,?,?,no
+no,96,30,'distended large intestine',yes
+no,108,12,'firm feces in large intestine',yes
+yes,60,?,'distended large intestine',yes
+yes,64,28,'distended small intestine',yes
+yes,100,30,'distended small intestine',yes
+no,104,24,other,yes
+no,112,16,'distended large intestine',no
+yes,72,?,normal,yes
+no,52,?,'firm feces in large intestine',no
+yes,146,96,?,yes
+yes,88,?,'distended large intestine',yes
+no,150,72,?,yes
+no,60,12,other,no
+yes,120,?,'distended large intestine',yes
+yes,140,24,'distended large intestine',yes
+no,120,?,'distended large intestine',yes
+yes,60,15,'distended large intestine',yes
+no,48,16,?,no
+yes,80,44,normal,yes
+no,84,48,normal,no
+no,46,?,other,no
+yes,84,36,'distended large intestine',yes
+no,?,?,other,no
+no,40,20,?,no
+no,114,36,'distended large intestine',yes
+yes,160,20,?,yes
+yes,?,?,?,yes
+yes,64,36,?,yes
+yes,?,20,'distended small intestine',yes
+no,96,?,'distended large intestine',yes
+no,48,32,'distended large intestine',no
+no,60,?,normal,no
+yes,88,22,?,yes
+no,130,16,?,no
+yes,64,36,'distended large intestine',yes
+yes,60,36,'distended small intestine',yes
+no,72,?,'distended small intestine',yes
+no,54,24,other,no
+no,52,16,?,no
+no,48,12,other,no
+no,60,20,'distended small intestine',yes
+yes,48,28,normal,no
+yes,56,?,?,yes
+yes,52,24,?,yes
+yes,?,?,?,yes
+yes,100,?,?,yes
+yes,38,20,?,yes
+no,52,20,normal,no
+yes,?,?,'distended large intestine',yes
+yes,96,18,'distended small intestine',yes
+yes,98,35,'distended small intestine',yes
+yes,40,?,'distended large intestine',yes
+yes,100,80,?,yes
+yes,?,24,?,yes
+yes,60,80,?,yes
+no,54,30,'distended small intestine',no
+yes,88,40,'distended large intestine',yes
+no,40,16,?,yes
+no,64,40,'firm feces in large intestine',no
+no,42,10,?,no
+no,52,16,normal,yes
+no,114,36,'distended large intestine',yes
+no,50,20,normal,no
+no,?,?,'distended large intestine',yes
+no,48,30,normal,no
+yes,48,20,'distended large intestine',yes
+no,84,36,other,yes
+yes,88,32,'distended large intestine',no
+no,44,40,'distended large intestine',no
+no,108,51,'distended large intestine',no
+yes,40,16,normal,no
+yes,60,20,'distended large intestine',yes
+no,40,16,?,no
+yes,140,68,normal,yes
+yes,52,24,'distended large intestine',yes
+yes,70,36,'distended large intestine',yes
+yes,52,96,?,yes
+no,50,32,?,no
+yes,60,32,'distended large intestine',yes
+yes,84,40,?,yes
+yes,70,16,'distended large intestine',yes
+yes,40,16,?,yes
+yes,40,?,'distended large intestine',yes
+yes,60,28,?,yes
+yes,44,24,'distended large intestine',yes
+no,?,40,?,no
+yes,44,12,'distended large intestine',yes
+no,?,?,'distended large intestine',yes
+yes,78,30,?,yes
+no,56,20,?,no
+yes,54,66,'distended small intestine',yes
+yes,80,40,'distended small intestine',yes
+no,40,28,?,no
+yes,64,24,'distended small intestine',yes
+no,48,20,normal,yes
+yes,42,68,'distended small intestine',yes
+yes,?,?,?,yes
+yes,50,32,?,yes
+yes,84,20,?,no
+yes,49,?,?,yes
+yes,30,12,?,yes
+no,88,36,?,yes
+?,48,20,'distended large intestine',yes
+no,40,24,'firm feces in large intestine',yes
+yes,100,?,?,yes
+yes,136,48,?,yes
+yes,?,?,'distended large intestine',yes
+yes,48,?,'distended large intestine',yes
+no,56,?,normal,no
+no,60,32,?,no
+yes,44,9,'distended large intestine',no
+no,42,30,?,no
+yes,120,?,'distended large intestine',yes
+yes,48,28,normal,no
+yes,84,40,'distended large intestine',no
+no,80,32,?,yes
+yes,48,?,'distended large intestine',yes
+no,44,12,'distended small intestine',yes
+yes,132,?,'distended small intestine',yes
+no,48,24,?,no
+no,44,14,other,no
+yes,?,?,'distended small intestine',yes
+yes,100,?,?,yes
+no,48,20,other,no
+no,48,40,'distended large intestine',yes
+no,48,20,other,no
+no,52,20,'firm feces in large intestine',no
+yes,60,24,'distended large intestine',yes
+no,42,40,?,no
+no,?,12,'firm feces in large intestine',no
+yes,?,?,'distended large intestine',yes
+yes,42,24,?,yes
+no,60,10,?,no
+yes,66,20,?,yes
+yes,76,?,'distended small intestine',yes
+yes,120,48,?,no
+yes,40,18,normal,no
+no,44,24,normal,no
+yes,104,40,'distended small intestine',yes
+yes,65,24,'distended large intestine',yes
+no,44,20,?,no
+no,86,16,?,yes
+yes,129,48,?,yes
+yes,104,?,'distended small intestine',yes
+no,?,?,?,yes
+yes,?,?,?,yes
+yes,60,30,other,yes
+yes,68,14,?,yes
+yes,60,30,?,yes
+no,100,?,'distended large intestine',no
+yes,84,30,'distended small intestine',yes
+no,48,14,?,no
+yes,?,24,?,yes
+no,56,16,?,no
+no,68,32,normal,no
+yes,120,60,?,yes
+yes,64,90,?,yes
+yes,80,30,'distended large intestine',yes
+yes,60,?,?,yes
+yes,60,16,'distended small intestine',yes
+yes,40,8,'firm feces in large intestine',yes
+no,100,44,?,no
+yes,48,18,?,yes
+yes,60,48,?,yes
+no,88,24,normal,no
+no,44,12,?,no
+no,60,20,'firm feces in large intestine',no
+no,96,36,'distended large intestine',yes
+no,60,20,?,no
+no,60,40,other,no
+yes,48,12,'firm feces in large intestine',yes
+yes,86,?,'distended large intestine',yes
+yes,48,40,'distended large intestine',yes
+no,36,9,normal,no
+yes,?,23,?,yes
+no,100,?,'distended large intestine',no
+yes,96,30,'distended large intestine',yes
+yes,?,?,?,yes
+yes,88,80,'distended large intestine',yes
+no,44,10,'firm feces in large intestine',no
+yes,68,20,'distended large intestine',yes
+yes,86,24,'distended large intestine',yes
+yes,120,30,?,no
+yes,45,12,'distended small intestine',yes
+no,56,32,?,no
+yes,40,12,other,yes
+no,?,?,?,no
+yes,76,18,?,yes
+yes,40,36,?,yes
+yes,52,28,'distended small intestine',yes
+yes,88,58,?,no
+yes,92,40,?,yes
+yes,112,13,'distended small intestine',yes
+yes,66,12,'distended small intestine',yes
+yes,50,14,'distended large intestine',yes
+no,54,24,other,no
+yes,120,20,'distended small intestine',yes
+yes,?,?,?,yes
+yes,90,40,'distended large intestine',yes
+yes,120,70,?,yes
+yes,104,40,?,yes
+no,92,28,?,no
+yes,30,18,?,yes
+yes,72,30,'distended large intestine',yes
+no,48,30,normal,no
+yes,52,24,?,yes
+no,42,26,?,no
+no,54,42,other,no
+no,88,?,'distended small intestine',yes
+yes,70,22,'distended large intestine',yes
+yes,90,30,'distended large intestine',yes
+yes,52,16,?,no
+yes,36,32,'distended small intestine',yes
+yes,92,20,?,yes
+yes,124,88,?,yes
+no,96,?,'distended large intestine',yes
+yes,68,32,'distended large intestine',yes
+yes,88,24,'distended small intestine',yes
+yes,108,60,'distended small intestine',yes
+no,48,?,other,no
+yes,100,51,'distended small intestine',yes
+no,42,18,'distended large intestine',yes
+yes,124,36,'distended small intestine',yes
+no,112,24,?,no
+yes,80,?,'distended large intestine',yes
+yes,184,84,?,yes
+yes,72,?,?,yes
+yes,96,28,?,yes
+no,52,12,'distended large intestine',no
+yes,72,42,?,yes
+no,40,25,?,no
+no,48,16,other,no
+no,88,28,?,no
+yes,75,36,'distended small intestine',yes
+yes,44,21,'distended large intestine',yes
+no,56,68,?,yes
+no,68,20,'distended large intestine',no
+no,54,18,'distended small intestine',no
+yes,42,20,?,no
+yes,64,90,'distended large intestine',yes
+yes,60,50,'distended small intestine',yes
+yes,80,?,normal,yes
+yes,100,30,'distended small intestine',yes
+yes,120,28,?,yes
+yes,76,?,'distended large intestine',yes
+yes,150,50,?,yes
+yes,36,16,?,no
+no,50,40,?,no
+no,40,16,normal,no
+no,56,40,?,no
+yes,48,12,?,no
+no,78,?,normal,yes
+yes,70,16,'distended large intestine',yes
+yes,72,18,?,yes
+no,54,?,?,no
+yes,66,24,'distended large intestine',yes
+no,82,12,?,yes
+no,84,30,?,no
+yes,?,?,?,yes
+yes,50,36,?,yes
+no,45,16,normal,no
+yes,80,44,normal,yes
+yes,66,20,'distended large intestine',yes
+yes,78,24,'distended small intestine',no
+no,40,16,other,no
+yes,120,70,'distended large intestine',no
+no,72,24,'distended small intestine',yes
+yes,72,30,'distended large intestine',yes
+yes,100,24,'distended small intestine',yes
+yes,40,20,normal,no

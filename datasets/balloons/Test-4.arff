@@ -1,0 +1,29 @@
+@relation balloons-adult-stretch-weka.filters.unsupervised.attribute.NominalToBinary-N-A-Rfirst-last
+
+@attribute V1=PURPLE {f,t}
+@attribute V1=YELLOW {f,t}
+@attribute V2=LARGE {f,t}
+@attribute V2=SMALL {f,t}
+@attribute V3=DIP {f,t}
+@attribute V3=STRETCH {f,t}
+@attribute V4=ADULT {f,t}
+@attribute V4=CHILD {f,t}
+@attribute Class {T,F}
+
+@data
+f,t,f,t,f,t,t,f,T
+f,t,f,t,f,t,f,t,T
+f,t,f,t,t,f,t,f,T
+f,t,f,t,t,f,f,t,T
+f,t,t,f,f,t,t,f,T
+f,t,t,f,f,t,f,t,F
+f,t,t,f,t,f,t,f,F
+f,t,t,f,t,f,f,t,F
+t,f,f,t,f,t,t,f,T
+t,f,f,t,f,t,f,t,F
+t,f,f,t,t,f,t,f,F
+t,f,f,t,t,f,f,t,F
+t,f,t,f,f,t,t,f,T
+t,f,t,f,f,t,f,t,F
+t,f,t,f,t,f,t,f,F
+t,f,t,f,t,f,f,t,F

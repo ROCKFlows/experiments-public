@@ -1,0 +1,146 @@
+@relation monks-problems-1-weka.filters.unsupervised.attribute.NominalToBinary-N-A-Rfirst-last
+
+@attribute class=0 {f,t}
+@attribute class=1 {f,t}
+@attribute attr1=1 {f,t}
+@attribute attr1=2 {f,t}
+@attribute attr1=3 {f,t}
+@attribute attr2=1 {f,t}
+@attribute attr2=2 {f,t}
+@attribute attr2=3 {f,t}
+@attribute attr3=1 {f,t}
+@attribute attr3=2 {f,t}
+@attribute attr4=1 {f,t}
+@attribute attr4=2 {f,t}
+@attribute attr4=3 {f,t}
+@attribute attr5=1 {f,t}
+@attribute attr5=2 {f,t}
+@attribute attr5=3 {f,t}
+@attribute attr5=4 {f,t}
+@attribute attr6 {1,2}
+
+@data
+f,t,t,f,f,t,f,f,t,f,t,f,f,f,f,t,f,1
+f,t,t,f,f,t,f,f,t,f,t,f,f,f,f,t,f,2
+f,t,t,f,f,t,f,f,t,f,f,f,t,f,t,f,f,1
+f,t,t,f,f,t,f,f,t,f,f,f,t,f,f,t,f,2
+f,t,t,f,f,t,f,f,f,t,t,f,f,f,t,f,f,1
+f,t,t,f,f,t,f,f,f,t,t,f,f,f,t,f,f,2
+f,t,t,f,f,t,f,f,f,t,f,t,f,f,f,t,f,1
+f,t,t,f,f,t,f,f,f,t,f,t,f,f,f,f,t,1
+f,t,t,f,f,t,f,f,f,t,f,f,t,t,f,f,f,2
+f,t,t,f,f,f,t,f,t,f,t,f,f,t,f,f,f,2
+t,f,t,f,f,f,t,f,t,f,t,f,f,f,t,f,f,1
+t,f,t,f,f,f,t,f,t,f,t,f,f,f,f,t,f,1
+t,f,t,f,f,f,t,f,t,f,t,f,f,f,f,f,t,2
+f,t,t,f,f,f,t,f,t,f,f,t,f,t,f,f,f,1
+t,f,t,f,f,f,t,f,t,f,f,t,f,f,f,t,f,1
+t,f,t,f,f,f,t,f,t,f,f,t,f,f,f,t,f,2
+t,f,t,f,f,f,t,f,t,f,f,t,f,f,f,f,t,2
+t,f,t,f,f,f,t,f,t,f,f,f,t,f,t,f,f,1
+t,f,t,f,f,f,t,f,t,f,f,f,t,f,f,f,t,2
+t,f,t,f,f,f,t,f,f,t,t,f,f,f,t,f,f,2
+t,f,t,f,f,f,t,f,f,t,f,t,f,f,f,t,f,2
+t,f,t,f,f,f,t,f,f,t,f,t,f,f,f,f,t,1
+t,f,t,f,f,f,t,f,f,t,f,t,f,f,f,f,t,2
+t,f,t,f,f,f,t,f,f,t,f,f,t,f,t,f,f,2
+t,f,t,f,f,f,t,f,f,t,f,f,t,f,f,t,f,1
+t,f,t,f,f,f,t,f,f,t,f,f,t,f,f,t,f,2
+t,f,t,f,f,f,f,t,t,f,t,f,f,f,t,f,f,1
+t,f,t,f,f,f,f,t,t,f,t,f,f,f,f,f,t,1
+t,f,t,f,f,f,f,t,t,f,f,t,f,f,t,f,f,1
+t,f,t,f,f,f,f,t,t,f,f,t,f,f,f,f,t,1
+f,t,t,f,f,f,f,t,t,f,f,f,t,t,f,f,f,2
+t,f,t,f,f,f,f,t,t,f,f,f,t,f,t,f,f,2
+t,f,t,f,f,f,f,t,t,f,f,f,t,f,f,t,f,1
+t,f,t,f,f,f,f,t,t,f,f,f,t,f,f,f,t,1
+t,f,t,f,f,f,f,t,t,f,f,f,t,f,f,f,t,2
+t,f,t,f,f,f,f,t,f,t,t,f,f,f,t,f,f,2
+f,t,t,f,f,f,f,t,f,t,f,t,f,t,f,f,f,2
+t,f,t,f,f,f,f,t,f,t,f,t,f,f,t,f,f,2
+t,f,t,f,f,f,f,t,f,t,f,t,f,f,f,t,f,2
+t,f,t,f,f,f,f,t,f,t,f,t,f,f,f,f,t,1
+t,f,t,f,f,f,f,t,f,t,f,t,f,f,f,f,t,2
+f,t,t,f,f,f,f,t,f,t,f,f,t,t,f,f,f,1
+t,f,t,f,f,f,f,t,f,t,f,f,t,f,t,f,f,1
+t,f,t,f,f,f,f,t,f,t,f,f,t,f,f,f,t,1
+t,f,t,f,f,f,f,t,f,t,f,f,t,f,f,f,t,2
+t,f,f,t,f,t,f,f,t,f,t,f,f,f,f,t,f,1
+t,f,f,t,f,t,f,f,t,f,t,f,f,f,f,t,f,2
+f,t,f,t,f,t,f,f,t,f,f,t,f,t,f,f,f,1
+f,t,f,t,f,t,f,f,t,f,f,t,f,t,f,f,f,2
+t,f,f,t,f,t,f,f,t,f,f,t,f,f,t,f,f,2
+t,f,f,t,f,t,f,f,t,f,f,t,f,f,f,t,f,1
+t,f,f,t,f,t,f,f,t,f,f,t,f,f,f,f,t,1
+t,f,f,t,f,t,f,f,t,f,f,t,f,f,f,f,t,2
+t,f,f,t,f,t,f,f,t,f,f,f,t,f,f,f,t,1
+t,f,f,t,f,t,f,f,f,t,t,f,f,f,t,f,f,2
+t,f,f,t,f,t,f,f,f,t,t,f,f,f,f,t,f,1
+t,f,f,t,f,t,f,f,f,t,t,f,f,f,f,f,t,2
+t,f,f,t,f,t,f,f,f,t,f,t,f,f,f,t,f,1
+t,f,f,t,f,t,f,f,f,t,f,t,f,f,f,f,t,2
+t,f,f,t,f,t,f,f,f,t,f,f,t,f,t,f,f,2
+t,f,f,t,f,t,f,f,f,t,f,f,t,f,f,f,t,1
+f,t,f,t,f,f,t,f,t,f,t,f,f,f,t,f,f,1
+f,t,f,t,f,f,t,f,t,f,t,f,f,f,t,f,f,2
+f,t,f,t,f,f,t,f,t,f,t,f,f,f,f,t,f,1
+f,t,f,t,f,f,t,f,t,f,f,t,f,f,f,t,f,2
+f,t,f,t,f,f,t,f,t,f,f,f,t,t,f,f,f,1
+f,t,f,t,f,f,t,f,t,f,f,f,t,t,f,f,f,2
+f,t,f,t,f,f,t,f,t,f,f,f,t,f,t,f,f,2
+f,t,f,t,f,f,t,f,t,f,f,f,t,f,f,t,f,2
+f,t,f,t,f,f,t,f,t,f,f,f,t,f,f,f,t,2
+f,t,f,t,f,f,t,f,f,t,t,f,f,t,f,f,f,1
+f,t,f,t,f,f,t,f,f,t,t,f,f,f,f,t,f,2
+f,t,f,t,f,f,t,f,f,t,t,f,f,f,f,f,t,1
+f,t,f,t,f,f,t,f,f,t,t,f,f,f,f,f,t,2
+f,t,f,t,f,f,t,f,f,t,f,t,f,f,t,f,f,1
+f,t,f,t,f,f,t,f,f,t,f,f,t,f,f,f,t,1
+f,t,f,t,f,f,f,t,t,f,t,f,f,t,f,f,f,1
+f,t,f,t,f,f,f,t,t,f,f,t,f,t,f,f,f,1
+t,f,f,t,f,f,f,t,t,f,f,t,f,f,f,t,f,1
+f,t,f,t,f,f,f,t,t,f,f,f,t,t,f,f,f,2
+t,f,f,t,f,f,f,t,t,f,f,f,t,f,f,t,f,1
+t,f,f,t,f,f,f,t,t,f,f,f,t,f,f,f,t,2
+t,f,f,t,f,f,f,t,f,t,t,f,f,f,f,t,f,2
+f,t,f,t,f,f,f,t,f,t,f,t,f,t,f,f,f,1
+f,t,f,t,f,f,f,t,f,t,f,t,f,t,f,f,f,2
+t,f,f,t,f,f,f,t,f,t,f,t,f,f,t,f,f,1
+t,f,f,t,f,f,f,t,f,t,f,f,t,f,f,t,f,2
+f,t,f,f,t,t,f,f,t,f,t,f,f,t,f,f,f,1
+f,t,f,f,t,t,f,f,t,f,t,f,f,t,f,f,f,2
+f,t,f,f,t,t,f,f,t,f,f,t,f,t,f,f,f,1
+t,f,f,f,t,t,f,f,t,f,f,t,f,f,t,f,f,2
+t,f,f,f,t,t,f,f,t,f,f,f,t,f,t,f,f,2
+f,t,f,f,t,t,f,f,f,t,t,f,f,t,f,f,f,1
+t,f,f,f,t,t,f,f,f,t,t,f,f,f,t,f,f,2
+t,f,f,f,t,t,f,f,f,t,f,t,f,f,t,f,f,2
+t,f,f,f,t,t,f,f,f,t,f,t,f,f,f,t,f,2
+t,f,f,f,t,t,f,f,f,t,f,f,t,f,t,f,f,2
+f,t,f,f,t,f,t,f,t,f,t,f,f,t,f,f,f,1
+t,f,f,f,t,f,t,f,t,f,t,f,f,f,f,f,t,2
+f,t,f,f,t,f,t,f,t,f,f,t,f,t,f,f,f,2
+t,f,f,f,t,f,t,f,t,f,f,t,f,f,f,f,t,2
+f,t,f,f,t,f,t,f,f,t,t,f,f,t,f,f,f,1
+f,t,f,f,t,f,t,f,f,t,t,f,f,t,f,f,f,2
+t,f,f,f,t,f,t,f,f,t,t,f,f,f,f,t,f,2
+f,t,f,f,t,f,t,f,f,t,f,f,t,t,f,f,f,1
+t,f,f,f,t,f,t,f,f,t,f,f,t,f,t,f,f,1
+t,f,f,f,t,f,t,f,f,t,f,f,t,f,f,f,t,1
+f,t,f,f,t,f,f,t,t,f,t,f,f,t,f,f,f,1
+f,t,f,f,t,f,f,t,t,f,t,f,f,f,t,f,f,1
+f,t,f,f,t,f,f,t,t,f,t,f,f,f,f,f,t,2
+f,t,f,f,t,f,f,t,t,f,f,t,f,f,f,t,f,2
+f,t,f,f,t,f,f,t,t,f,f,t,f,f,f,f,t,2
+f,t,f,f,t,f,f,t,t,f,f,f,t,t,f,f,f,2
+f,t,f,f,t,f,f,t,t,f,f,f,t,f,t,f,f,1
+f,t,f,f,t,f,f,t,t,f,f,f,t,f,t,f,f,2
+f,t,f,f,t,f,f,t,t,f,f,f,t,f,f,f,t,2
+f,t,f,f,t,f,f,t,f,t,t,f,f,t,f,f,f,1
+f,t,f,f,t,f,f,t,f,t,t,f,f,f,f,t,f,2
+f,t,f,f,t,f,f,t,f,t,t,f,f,f,f,f,t,1
+f,t,f,f,t,f,f,t,f,t,t,f,f,f,f,f,t,2
+f,t,f,f,t,f,f,t,f,t,f,f,t,t,f,f,f,2
+f,t,f,f,t,f,f,t,f,t,f,f,t,f,t,f,f,2
+f,t,f,f,t,f,f,t,f,t,f,f,t,f,f,t,f,2
+f,t,f,f,t,f,f,t,f,t,f,f,t,f,f,f,t,2
