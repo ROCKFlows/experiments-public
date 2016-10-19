@@ -2,6 +2,6 @@
 
 - **datasets**: contains the datasets tested for writing the article.
 
-- **results**: contains the results obtained on the datasets and the comparisons produced by the projects contained in the sourceCode folder.
+- **results**: contains the results obtained on the datasets and the comparisons produced by the code contained in the src folder.
 
-- **sourceCode**: contains the projects that test workflows on datasets.
+- **src**: contains the projects that run and analyze experiments.
